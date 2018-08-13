@@ -1,0 +1,20 @@
+
+name: Rajeev Kannav Sharma
+description: "software entrepreneur Married !!!"
+url: http://rajeevkannav.com
+highlighter: rouge
+permalink: /posts/:title/
+markdown: kramdown
+
+theme_options:
+  disqus_shortname: rajeevkannav
+  google_analytics: UA-60219724-1
+
+sass:
+  sass_dir: _sass
+  style: :compressed
+
+gems:
+  - jekyll-feed
+  - jekyll-redirect-from
+  - jekyll-sitemap

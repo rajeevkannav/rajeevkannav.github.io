@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta charset="utf-8">
+    <meta name=viewport content="width=device-width, initial-scale=1">
+    <meta name="author" content="Nithin Bekal">
+    <meta name="description" content="{{ site.description }}">
+    <!--<meta property="og:image" content="https://s3.amazonaws.com/nithinbekal.com/word-cloud.png" />-->
+
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="@rajeevkannav">
+    <meta name="twitter:creator" content="@rajeevkannav">
+    <meta name="twitter:title" content="{{ page.title }}">
+    <meta name="twitter:description" content="{{ site.description }}">
+    <!--<meta name="twitter:image" content="https://s3.amazonaws.com/nithinbekal.com/word-cloud.png">-->
+
+    <title>{{ page.title }}</title>
+
+    <link rel="stylesheet" href="/css/main.css">
+    <link rel="alternate" type="application/rss+xml" title="{{ site.name }}" href="{{ site.url }}/feed.xml">
+    <link href='https://fonts.googleapis.com/css?family=Open+Sans:400,700' rel='stylesheet' type='text/css'>
+    <!--<link rel="author" href="https://plus.google.com/+NithinBekal">-->
+  </head>
+  <body>
+    <div class='container'>
+      <div class='header'>
+        <h1 class='title'><a id='top-home-link' href='/'>{{ site.name }}</a></h1>
+        <span class='links align-right'>
+          <a class='top-about-link' href='/'>Posts</a>
+          <a class='top-about-link' href='/about/'>About</a>
+          <!--<a class='top-about-link sm-hide' href='/notes/'>Notes</a>-->
+          <!--<a class='top-about-link sm-hide' href='/slides/'>Slides</a>-->
+        </span>
+      </div>
+
+      <div class='site'>
+        {{ content }}
+      </div> <!-- /site -->
+
+      <div class='footer'>
+        Powered by <a href='http://jekyllrb.com'>Jekyll</a>.
+        Get this theme
+        <a href="https://github.com/nithinbekal/nithinbekal.github.io/">here</a>.
+      </div>
+    </div> <!-- /container -->
+    {% include analytics.html %}
+  </body>
+</html>
