@@ -13,29 +13,40 @@ Ubuntu 16.04, However the 15.10 repos will work for 16.04.
 
 Uninstall MySql 5.7 in any exists:
 
-```SHELL sudo apt remove mysql-client mysql-server mysql-comman libmysqlclient-dev```
+```SHELL 
+sudo apt remove mysql-client mysql-server mysql-comman libmysqlclient-dev
+```
 
 Check you removed everything
 
-```SHELL sudo dpkg -l | grep mysql``` 
+```SHELL
+sudo dpkg -l | grep mysql
+``` 
 
 Purge reminders (e.g. merged with rc) with
 
-```sudo dkpg P <package> [<package>]```
+```SHELL
+sudo dkpg P <package> [<package>]
+```
 
 Download the apt_config-debain package from [Oracle](https://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb) and install it
 
-```sudo dpkg -i mysql-apt-config_0.8.0-1_all.deb```
+```SHELL
+sudo dpkg -i mysql-apt-config_0.8.0-1_all.deb
+```
 
 Choose "MySQL 5.6" and RUN
 
-```CURL sudo apt-cache policy mysql-server```
+```SHELL 
+sudo apt-cache policy mysql-server
+```
 
 If this shows a 5.6 version, continue.
 
 If not, check your `/etc/apt/sources.list.d/mysql.list`. It should look roughly like this:
 
-```CURL
+```SHELL
+
 ### THIS FILE IS AUTOMATICALLY CONFIGURED ###
 # You may Ubuntu 16.04 only provides packages for MySQL 5.7 which has a range of backwards compatibility issues with code written against older MySQL versions.comment out entries below, but any other modifications may be lost.
 # Use command 'dpkg-reconfigure mysql-apt-config' as root for modifications.
@@ -50,17 +61,22 @@ deb-src http://repo.mysql.com/apt/ubuntu/ wily mysql-5.6
 
 Create a file `/etc/apt/preferences.d/mysql` with this content
 
-```CURL Package: *
+```SHELL
+Package: *
 Pin: origin "repo.mysql.com"
 Pin-Priority: 999
 Run
 ```
 
-```CURL sudo apt-get update```
+```SHELL
+sudo apt-get update
+```
 
 Now recipe's run should provide
 
-```CURL sudo apt install mysql-client mysql-server libmysqlclient-dev```
+```SHELL
+sudo apt install mysql-client mysql-server libmysqlclient-dev
+```
 
 You should get 5.6 versions.
 
