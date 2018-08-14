@@ -2,7 +2,10 @@
 layout: post
 title: "Downgrade Mysql to 5.6 from 5.7 on Ubuntu 16.04(xenial)"
 date:  2018-08-14 15:36:27 +05:30
-categories: linux,infrastructure
+categories:
+ - linux
+ - infrastructure
+ - backwards compatibility
 ---
 
 Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards
