@@ -69,8 +69,9 @@ deb-src http://repo.mysql.com/apt/ubuntu/ wily mysql-5.6
 Package: *
 Pin: origin "repo.mysql.com"
 Pin-Priority: 999
-Run
 ```
+
+Run
 
 ```SHELL
 sudo apt-get update
