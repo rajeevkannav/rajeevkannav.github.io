@@ -3,16 +3,14 @@ layout: post
 title: "Software development toolkit 2019"
 date:  2019-02-18 15:36:27 +05:30
 categories:
- - linux
- - infrastructure
- - backwards compatibility
+ - utilities
+ - tools
 ---
 
 
-## Here is the following list of tools and utilities I am using for
-## application(s) development in 2019:
+## Here is the following list of tools and utilities, I'm using for application(s) development in 2019:
 
-#### Links 
+#### [List](with links)
  
  - [Duck - For Search](https://duckduckgo.com/) (skip Google)
  - [Opera - Web Browser (With VPN mode enabled)](https://www.opera.com)(It's really awesome) 
@@ -28,6 +26,6 @@ categories:
  - [Docker](https://www.docker.com/) 
  - [will add more]
  
- ######  And if you've any suggestion(s) OR say 
+ ####  And if you've any suggestion(s) OR say 
                    
  <sup> <b>email me</b>  [rajeevsharma86@gmail.com](#myfootnote1)</sup>
