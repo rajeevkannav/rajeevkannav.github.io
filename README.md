@@ -1,5 +1,5 @@
 
-# nithinbekal.com
+# rajeevkannav.com
 
 This repository contains the Jekyll theme and content of my blog.
 
