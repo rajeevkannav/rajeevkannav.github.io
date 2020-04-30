@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>rails | Rajeev Sharma</title>
+    <title>Rails | Rajeev Sharma</title>
     <link>/tags/rails/</link>
       <atom:link href="/tags/rails/index.xml" rel="self" type="application/rss+xml" />
-    <description>rails</description>
+    <description>Rails</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 31 Mar 2017 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/rajeevkannav.jpeg</url>
-      <title>rails</title>
+      <title>Rails</title>
       <link>/tags/rails/</link>
     </image>
     

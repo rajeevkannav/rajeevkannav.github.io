@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ubuntu | Rajeev Sharma</title>
+    <title>ubuntu | Rajeev Sharma</title>
     <link>/tags/ubuntu/</link>
       <atom:link href="/tags/ubuntu/index.xml" rel="self" type="application/rss+xml" />
-    <description>Ubuntu</description>
+    <description>ubuntu</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 09 Apr 2016 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/rajeevkannav.jpeg</url>
-      <title>Ubuntu</title>
+      <title>ubuntu</title>
       <link>/tags/ubuntu/</link>
     </image>
     

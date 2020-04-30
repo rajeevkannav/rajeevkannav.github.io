@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Cordova | Rajeev Sharma</title>
+    <title>cordova | Rajeev Sharma</title>
     <link>/tags/cordova/</link>
       <atom:link href="/tags/cordova/index.xml" rel="self" type="application/rss+xml" />
-    <description>Cordova</description>
+    <description>cordova</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 27 Jun 2017 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/rajeevkannav.jpeg</url>
-      <title>Cordova</title>
+      <title>cordova</title>
       <link>/tags/cordova/</link>
     </image>
     

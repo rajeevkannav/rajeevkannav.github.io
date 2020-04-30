@@ -1,14 +1,14 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes" ?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Ionic | Rajeev Sharma</title>
+    <title>ionic | Rajeev Sharma</title>
     <link>/tags/ionic/</link>
       <atom:link href="/tags/ionic/index.xml" rel="self" type="application/rss+xml" />
-    <description>Ionic</description>
+    <description>ionic</description>
     <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 27 Jun 2017 00:00:00 +0000</lastBuildDate>
     <image>
       <url>/img/rajeevkannav.jpeg</url>
-      <title>Ionic</title>
+      <title>ionic</title>
       <link>/tags/ionic/</link>
     </image>
     
