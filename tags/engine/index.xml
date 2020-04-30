@@ -1,0 +1,92 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>engine | Rajeev Sharma</title>
+    <link>/tags/engine/</link>
+      <atom:link href="/tags/engine/index.xml" rel="self" type="application/rss+xml" />
+    <description>engine</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 05 Mar 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>engine</title>
+      <link>/tags/engine/</link>
+    </image>
+    
+    <item>
+      <title>using twitter-bootstrap via rails engine.</title>
+      <link>/post/2016-03-05-bootstrap-via-rails-engine/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-03-05-bootstrap-via-rails-engine/</guid>
+      <description>&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;We&amp;rsquo;re developing a Rails engine &lt;a href=&#34;https://github.com/rajeevkannav/message_broker/&#34;&gt;Message Broker&lt;/a&gt; which will do some
+awesome things. As User Interface proposed by me is rejected from the scratch (May be you know the person) hence we opted
+Twitter-Bootstrap for Engine User Interface for simplicity. following are the steps which need to be done to use
+Twitter-Bootstrap.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add following to your engine_name.gemspec
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; s.add_dependency &#39;bootstrap-sass&#39;, &#39;~&amp;gt; 3.2.0&#39;        
+ s.add_dependency &#39;sass-rails&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;require bootstrap to lib/engine_name.rb &lt;code&gt;require &#39;bootstrap&#39;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Rename application.css to application.css.sass and add following code&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}
+        @import &amp;lsquo;bootstrap-sprockets&amp;rsquo;&lt;br /&gt;
+        @import &amp;lsquo;bootstrap&amp;rsquo;
+   {% endhighlight %}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add &lt;code&gt;//= require bootstrap-sprockets&lt;/code&gt; to your application.js after&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}
+        //= require jquery&lt;br /&gt;
+        //= require jquery_ujs
+   {% endhighlight %}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;apply changes to your application layout and views&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Restart Rails Server&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>HTTP Proxy | Rajeev Sharma</title>
+    <link>/tags/http-proxy/</link>
+      <atom:link href="/tags/http-proxy/index.xml" rel="self" type="application/rss+xml" />
+    <description>HTTP Proxy</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 11 Apr 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>HTTP Proxy</title>
+      <link>/tags/http-proxy/</link>
+    </image>
+    
+    <item>
+      <title>Understanding Nginx HTTP Proxying</title>
+      <link>/post/2015-04-11-understanding-nginx-http-proxying/</link>
+      <pubDate>Sat, 11 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-04-11-understanding-nginx-http-proxying/</guid>
+      <description>
+
+&lt;h3 id=&#34;general-proxying-information&#34;&gt;General Proxying Information&lt;/h3&gt;
+
+&lt;p&gt;One reason to proxy to other servers from Nginx is the ability to scale out your infrastructure. Nginx is built to handle many concurrent connections at the same time. This makes it ideal for being the point-of-contact for clients.&lt;/p&gt;
+
+&lt;h6 id=&#34;deconstructing-a-basic-http-proxy-pass&#34;&gt;Deconstructing a Basic HTTP Proxy Pass&lt;/h6&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# server context
+
+location /match/here {
+    proxy_pass http://example.com;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the above configuration snippet, For definitions that fit this pattern, the URI requested by the client will be passed to the upstream server as-is.&lt;/p&gt;
+
+&lt;p&gt;For example, when a request for &lt;code&gt;/match/here/please&lt;/code&gt; is handled by this block, the request URI will be sent to the &lt;code&gt;example.com&lt;/code&gt; server as &lt;code&gt;http://example.com/match/here/please&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at the alternative scenario:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# server context
+
+location /match/here {
+    proxy_pass http://example.com/new/prefix;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the above example, the proxy server is defined with a URI segment on the end (&lt;code&gt;/new/prefix&lt;/code&gt;). When a URI is given in the proxy_pass definition, the portion of the request that matches the location definition is replaced by this URI during the pass.&lt;/p&gt;
+
+&lt;p&gt;For example, a request for &lt;code&gt;/match/here/please&lt;/code&gt; on the Nginx server will be passed to the upstream server as &lt;code&gt;http://example.com/new/prefix/please&lt;/code&gt;. The &lt;code&gt;/match/here&lt;/code&gt; is replaced by &lt;code&gt;/new/prefix&lt;/code&gt;. This is an important point to keep in mind.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

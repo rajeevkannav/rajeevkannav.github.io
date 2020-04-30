@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>migration | Rajeev Sharma</title>
+    <link>/tags/migration/</link>
+      <atom:link href="/tags/migration/index.xml" rel="self" type="application/rss+xml" />
+    <description>migration</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 03 Feb 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>migration</title>
+      <link>/tags/migration/</link>
+    </image>
+    
+    <item>
+      <title>Bad to worse rails practice</title>
+      <link>/post/2017-02-03-bad-to-worse-rails-practice/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-02-03-bad-to-worse-rails-practice/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We used ruby gem &lt;code&gt;paranoia&lt;/code&gt; to soft delete our active-records. which is super easy
+to integrate with a rails application. Our migrations consists such code to update
+all &lt;code&gt;User/Project&lt;/code&gt;. While running migrations to a new created DB following code
+will break due to &lt;code&gt;paranoia&lt;/code&gt; expectations of having &lt;code&gt;deleted_at&lt;/code&gt; column, which is
+being added in later migrations. Now that sucks, I&amp;rsquo;ve to comment out
+&lt;code&gt;acts_as_paranoid&lt;/code&gt; every time while running migrations to new db.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;User.all&lt;/code&gt; update should be &lt;code&gt;User.unscoped.all.&lt;/code&gt; updates. Well this is not related
+to only &lt;code&gt;paranoia&lt;/code&gt;. We should keep this always in mind,  In Case we want to update
+or operate all (all i mean) we must use &lt;code&gt;unscoped&lt;/code&gt; &lt;em&gt;always&lt;/em&gt;. Second thing, We should
+not use such code into migrations. This could be very obvious but i&amp;rsquo;ve seen such
+ignorance ever.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

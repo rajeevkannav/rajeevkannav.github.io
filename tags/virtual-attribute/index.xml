@@ -1,0 +1,101 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Virtual attribute | Rajeev Sharma</title>
+    <link>/tags/virtual-attribute/</link>
+      <atom:link href="/tags/virtual-attribute/index.xml" rel="self" type="application/rss+xml" />
+    <description>Virtual attribute</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 09 Jan 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Virtual attribute</title>
+      <link>/tags/virtual-attribute/</link>
+    </image>
+    
+    <item>
+      <title>Rails 5 - beta Attribute API</title>
+      <link>/post/2016-01-09-rails5-attribute-api-beta-awakens/</link>
+      <pubDate>Sat, 09 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-01-09-rails5-attribute-api-beta-awakens/</guid>
+      <description>
+
+&lt;h3 id=&#34;rails-5-0-beta1&#34;&gt;Rails-5-0-beta1:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt; Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production
+ based on Rails-5.0-beta1 for Example Basecamp 3.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;featured-new-stuff&#34;&gt;Featured New Stuff&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/tree/master/actioncable&#34;&gt;Action Cable&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/pull/19832&#34;&gt;Rails API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/issues/18878&#34;&gt;New Command Router&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/blob/8c752c7ac739d5a86d4136ab1e9d0142c4041e58/activerecord/lib/active_record/attributes.rb&#34;&gt;Attributes API&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/pull/22567&#34;&gt;Application Record&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rails/rails/pull/16052&#34;&gt;ActiveRecord::Relation#or &lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;attributes-api&#34;&gt;Attributes API&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Your models are getting a new attribute class method in Rails 5, allowing you to easily define a relationship
+between the model and a non-Active Record type. No more misusing serialize!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# before
+# The type detected by Active Record can be overridden.
+
+    # db/schema.rb
+    create_table :store_listings, force: true do |t|
+        t.decimal :price_in_cents
+    end
+
+    # app/models/store_listing.rb
+    class StoreListing &amp;lt; ActiveRecord::Base
+    end
+
+    store_listing = StoreListing.new(price_in_cents: &#39;10.1&#39;)
+
+    store_listing.price_in_cents # =&amp;gt; BigDecimal.new(10.1)
+
+    class StoreListing &amp;lt; ActiveRecord::Base
+        attribute :price_in_cents, :integer
+    end
+
+    store_listing.price_in_cents # =&amp;gt; 10
+
+# after
+# Attributes do not need to be backed by a database column.
+
+    class MyModel &amp;lt; ActiveRecord::Base
+        attribute :my_string, :string
+        attribute :my_int_array, :integer, array: true
+        attribute :my_float_range, :float, range: true
+    end
+
+    model = MyModel.new(
+        my_string: &amp;quot;string&amp;quot;,
+        my_int_array: [&amp;quot;1&amp;quot;, &amp;quot;2&amp;quot;, &amp;quot;3&amp;quot;],
+        my_float_range: &amp;quot;[1,3.5]&amp;quot;,
+    )
+    model.attributes
+    # =&amp;gt;
+    {
+        my_string: &amp;quot;string&amp;quot;,
+        my_int_array: [1, 2, 3],
+        my_float_range: 1.0..3.5
+    }
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

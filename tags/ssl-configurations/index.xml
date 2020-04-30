@@ -1,0 +1,136 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>SSL configurations | Rajeev Sharma</title>
+    <link>/tags/ssl-configurations/</link>
+      <atom:link href="/tags/ssl-configurations/index.xml" rel="self" type="application/rss+xml" />
+    <description>SSL configurations</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 27 Aug 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>SSL configurations</title>
+      <link>/tags/ssl-configurations/</link>
+    </image>
+    
+    <item>
+      <title>Setup multiple ssl enabled applications on apache and ubuntu</title>
+      <link>/post/2016-08-27-multiple-443-ports-apache-setup/</link>
+      <pubDate>Sat, 27 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-08-27-multiple-443-ports-apache-setup/</guid>
+      <description>
+
+&lt;h3 id=&#34;how-to-host-multiple-ssl-certificates-on-one-web-server-apache&#34;&gt;How to host multiple SSL certificates on one Web-Server(Apache) ?&lt;/h3&gt;
+
+&lt;p&gt;To host multiple SSL certificates on one IP Address, We need to configure
+Apache Server Name Indication (SNI).&lt;/p&gt;
+
+&lt;h3 id=&#34;setup&#34;&gt;Setup&lt;/h3&gt;
+
+&lt;p&gt;SNI does need to have registered domain names in order to serve the certificates.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install Apache2 &lt;code&gt;sudo apt-get install apache2&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;Get SSL certificates for site1.com,site2.com&lt;/li&gt;
+&lt;li&gt;have directory structure like
+ &lt;code&gt;/etc/apache2/ssl/site1.com&lt;/code&gt;
+ &lt;code&gt;/etc/apache2/ssl/site2.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;enable ssl mod for apache &lt;code&gt;sudo a2enmod ssl&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;restart apache &lt;code&gt;sudo service apache2 restart&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Assuming you have the certificates saved as per above directory structure,
+we can create two virtual host files to store virtual host configurations
+in separate files.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo nano /etc/apache2/sites-available/site1.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo nano /etc/apache2/sites-available/site2.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Following configurations I&amp;rsquo;ve used for site1 and site2 respectively.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+&lt;VirtualHost *:80&gt;
+    ServerName site1.com
+    ServerAlias www.site1.com
+    Redirect / &lt;a href=&#34;https://www.site1.com/&#34;&gt;https://www.site1.com/&lt;/a&gt;
+&lt;/VirtualHost&gt;
+&lt;VirtualHost *:443&gt;
+    ServerName site1.com
+    ServerAlias www.site1.com
+    SSLEngine on
+    SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
+    SSLCertificateFile /etc/ssl/crt/site1.crt
+    SSLCertificateKeyFile /etc/ssl/key/site1.key
+    SSLCertificateChainFile /etc/ssl/crt/site1.ca-bundle&lt;br /&gt;
+    DocumentRoot site1SourcePath
+    &lt;Directory site1SourcePath&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+&lt;VirtualHost *:80&gt;
+    ServerName site2.com
+    ServerAlias www.site2.com
+    Redirect / &lt;a href=&#34;https://www.site2.com/&#34;&gt;https://www.site2.com/&lt;/a&gt;
+&lt;/VirtualHost&gt;
+&lt;VirtualHost *:443&gt;
+    ServerName site2.com
+    ServerAlias www.site2.com
+    SSLEngine on
+    SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
+    SSLCertificateFile /etc/ssl/crt/site2.crt
+    SSLCertificateKeyFile /etc/ssl/key/site2.key
+    SSLCertificateChainFile /etc/ssl/crt/site2.ca-bundle&lt;br /&gt;
+    DocumentRoot site1SourcePath
+    &lt;Directory site1SourcePath&gt;
+        Options Indexes FollowSymLinks
+        AllowOverride All
+        Require all granted
+    &lt;/Directory&gt;
+    ErrorLog ${APACHE_LOG_DIR}/error.log
+    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;/VirtualHost&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;and just to confirm &lt;code&gt;/etc/apache2/ports.conf&lt;/code&gt; looks like this :-&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+Listen 80
+&lt;IfModule ssl_module&gt;
+    Listen 443
+&lt;/IfModule&gt;
+&lt;IfModule mod_gnutls.c&gt;
+    Listen 443
+&lt;/IfModule&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;activate-the-virtual-hosts&#34;&gt;Activate the Virtual Hosts&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;sudo a2ensite site1.com&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;sudo a2ensite site2.com&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;(You can deactivate virtual hosts with the command: &lt;code&gt;sudo a2dissite site1.com&lt;/code&gt;)&lt;/p&gt;
+
+&lt;p&gt;With all of the virtual hosts in enabled, restart apache.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;sudo service apache2 restart&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;You should now be able to access both sites, each with its own domain name and SSL certificate.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ssh | Rajeev Sharma</title>
+    <link>/tags/ssh/</link>
+      <atom:link href="/tags/ssh/index.xml" rel="self" type="application/rss+xml" />
+    <description>ssh</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 17 Sep 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>ssh</title>
+      <link>/tags/ssh/</link>
+    </image>
+    
+    <item>
+      <title>install your public key in a remote machine&#39;s authorized_keys</title>
+      <link>/post/2016-09-17-ssh-key-authorized-so-quickly-/</link>
+      <pubDate>Sat, 17 Sep 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-09-17-ssh-key-authorized-so-quickly-/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We frequently add developer ssh keys to remote machine with following three steps&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;ssh username@remote_host&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;mkdir -p ~/.ssh&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;cat ~/.ssh/id_rsa.pub&lt;/code&gt; and copy it&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;nano ~/.ssh/authorized_keys&lt;/code&gt; and paste copied content.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Quite Annoying.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;`ssh-copy-id`.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;ssh-copy-id [-i [identity_file]] [user@]machine&lt;/p&gt;
+
+&lt;h5 id=&#34;description&#34;&gt;Description&lt;/h5&gt;
+
+&lt;p&gt;ssh-copy-id is a script that uses ssh to log into a remote
+machine (presumably using a login password, so password
+authentication should be enabled, unless you&amp;rsquo;ve done some
+clever use of multiple identities) It also changes the
+permissions of the remote user&amp;rsquo;s home, &lt;code&gt;~/.ssh&lt;/code&gt;, and
+&lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt; to remove group writability
+(which would otherwise prevent you from logging in, if
+the remote sshd has StrictModes set in its configuration).
+If the -i option is given then the identity file (defaults
+to &lt;code&gt;~/.ssh/id_rsa.pub&lt;/code&gt;) is used, regardless of whether
+there are any keys in your ssh-agent. Otherwise, if this:
+&lt;code&gt;ssh-add -L&lt;/code&gt; provides any output, it uses that in preference
+to the identity file. If the -i option is used, or the ssh-add
+produced no output, then it uses the contents of the identity
+file. Once it has one or more fingerprints (by whatever means)
+it uses ssh to append them to &lt;code&gt;~/.ssh/authorized_keys&lt;/code&gt; on the
+remote machine (creating the file, and directory, if necessary)&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,452 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ionic | Rajeev Sharma</title>
+    <link>/tags/ionic/</link>
+      <atom:link href="/tags/ionic/index.xml" rel="self" type="application/rss+xml" />
+    <description>ionic</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 27 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>ionic</title>
+      <link>/tags/ionic/</link>
+    </image>
+    
+    <item>
+      <title>install PhoneGap pushPlugin 2.0.0 on ubuntu/Osx</title>
+      <link>/post/2017-06-27-install-phonegap-pushplugin-2.0.0-ubuntu/</link>
+      <pubDate>Tue, 27 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-06-27-install-phonegap-pushplugin-2.0.0-ubuntu/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We&amp;rsquo;re using &lt;code&gt;phonegap-plugin-push&lt;/code&gt; to Register and receive push notifications to
+ionic applications and unfortunately that&amp;rsquo;s get updated.&lt;/p&gt;
+
+&lt;p&gt;Version 2.0.0, this plugin will support CocoaPods installation of the
+Firebase Cloud Messaging library.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;Install CocoaPods and re-build the platforms is only the requirement&lt;/p&gt;
+
+&lt;p&gt;To install CocoaPods, please follow the installation instructions here.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo gem install cocoapods
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After installing CocoaPods, please run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pod setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will clone the required CocoaPods specs-repo into your home folder
+at ~/.cocoapods/repos, so it might take a while.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cordova plugin add phonegap-plugin-push@2.0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and do the build process for android and iOs. You also need a google-services.json
+from Firebase to build apk(s).&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Cordova/Ionic Error page Html Handling</title>
+      <link>/post/2015-09-09-cordova-errorpage-handling-template/</link>
+      <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-09-09-cordova-errorpage-handling-template/</guid>
+      <description>
+
+&lt;p&gt;Recently I worked on Hybrid Mobile Application and got Network Dependency to Start Application. Also What if Internet now available.
+So it&amp;rsquo;s pretty simple without writing own code and using Cordova Configuration.&lt;/p&gt;
+
+&lt;h4 id=&#34;cordova-error-page-html&#34;&gt;cordova-error-page.html&lt;/h4&gt;
+
+&lt;p&gt;Have such (Any name) html page to your application www folder. Write information which you need to share to user.&lt;/p&gt;
+
+&lt;h3 id=&#34;update-config-xml&#34;&gt;update config.xml&lt;/h3&gt;
+
+&lt;h5 id=&#34;for-ios&#34;&gt;For iOs&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+  &lt;platform name=&#34;ios&#34;&gt;
+    &lt;preference name=&#34;ErrorUrl&#34; value=&#34;cordova-error-page.html&#34;/&gt;
+  &lt;/platform&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;for-android&#34;&gt;For Android&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    &lt;platform name=&#34;android&#34;&gt;
+        &lt;preference name=&#34;ErrorUrl&#34; value=&#34;file:///android_asset/www/cordova-error-page.html&#34;/&gt;
+    &lt;/platform&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ionic appCache HTML5</title>
+      <link>/post/2015-09-05-ionic-appcache-html5/</link>
+      <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-09-05-ionic-appcache-html5/</guid>
+      <description>
+
+&lt;p&gt;Recently I worked on IonicApp, AppCache @ HTML5 and thought it to update application assets in cache without updating app to Stores.&lt;/p&gt;
+
+&lt;h4 id=&#34;requirements&#34;&gt;Requirements&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Deploy an Ionic App to Heroku Refer &lt;a href=&#34;http://rajeevkannav.github.io/ionic-heroku-deploy/&#34;&gt;last blog&lt;/a&gt; √&lt;/li&gt;
+&lt;li&gt;Ionic app that display webView of server√&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;update-config-xml&#34;&gt;update config.xml&lt;/h3&gt;
+
+&lt;h5 id=&#34;update-html-tag-on-serving-remote-app&#34;&gt;update html tag on serving/Remote App&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+&lt;html manifest=&#34;remote.appcache&#34;&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;setup-manifest-to-remote-carefully-list-files&#34;&gt;Setup manifest to remote, carefully list files&lt;/h6&gt;
+
+&lt;p&gt;{% highlight ruby %}
+CACHE MANIFEST&lt;/p&gt;
+
+&lt;h1 id=&#34;v2-9-901&#34;&gt;v2.9.901&lt;/h1&gt;
+
+&lt;p&gt;/lib/ionic/css/ionic.css
+/css/style.css
+/lib/ionic/js/ionic.bundle.js
+/js/app.js
+/index.html
+/#/&lt;/p&gt;
+
+&lt;p&gt;#CACHE:
+/lib/ionic/css/ionic.css
+/css/style.css
+/lib/ionic/js/ionic.bundle.js
+/js/app.js
+/index.html
+#/#&lt;/p&gt;
+
+&lt;p&gt;#NETWORK:
+#*
+ # nothing yet&lt;/p&gt;
+
+&lt;p&gt;FALLBACK:
+#/index.html
+ # nothing yet
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h4 id=&#34;considered-server-address-is-http-appcacheionic-herokuapp-com-do-following-changes-to-your-ionic-app&#34;&gt;considered Server address is &lt;a href=&#34;http://appcacheionic.herokuapp.com&#34;&gt;http://appcacheionic.herokuapp.com&lt;/a&gt;, do following changes to your Ionic App&lt;/h4&gt;
+
+&lt;h5 id=&#34;at-config-xml&#34;&gt;at config.xml&lt;/h5&gt;
+
+&lt;p&gt;{% highlight html %}
+  &lt;content src=&#34;https://appcacheionic.herokuapp.com&#34;/&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;at-index-html&#34;&gt;at index.html&lt;/h5&gt;
+
+&lt;p&gt;{% highlight javascript %}
+    &lt;script&gt;
+      function onBodyLoad()
+      {
+        document.addEventListener(&amp;ldquo;deviceready&amp;rdquo;, function(){
+          //one of these ip-addresses is normally used to address the host machine when using genymotion
+          location.href = &amp;ldquo;&lt;a href=&#34;https://appcacheionic.herokuapp.com/&amp;quot;&#34;&gt;https://appcacheionic.herokuapp.com/&amp;quot;&lt;/a&gt;;
+        }, false);
+      }
+    &lt;/script&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Do changes to application assets, kill application at simulator/device. Be careful on updating app, Cache Limits&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ionic Heroku Deploy</title>
+      <link>/post/2015-08-22-ionic-heroku-deploy/</link>
+      <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-08-22-ionic-heroku-deploy/</guid>
+      <description>
+
+&lt;p&gt;Recently I worked on IonicApp and thought it must be possible to run it over Heroku and that works.&lt;/p&gt;
+
+&lt;h4 id=&#34;requirements&#34;&gt;Requirements&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Heroku-Toolbet √&lt;/li&gt;
+&lt;li&gt;Ionic √&lt;/li&gt;
+&lt;li&gt;node √&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;install-express&#34;&gt;Install express&lt;/h6&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    npm install express &amp;ndash;save
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;setup-app-json&#34;&gt;Setup App.json&lt;/h6&gt;
+
+&lt;p&gt;Additional, a app.json is needed for some meta information about your app.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+{
+    &amp;ldquo;name&amp;rdquo;: &amp;ldquo;Ionic to Heroku Example&amp;rdquo;,
+    &amp;ldquo;description&amp;rdquo;: &amp;ldquo;A simple Ionic app for Heroku&amp;rdquo;,
+    &amp;ldquo;repository&amp;rdquo;: &amp;ldquo;&lt;a href=&#34;https://github.com/yourUsername/repositoryName&amp;quot;&#34;&gt;https://github.com/yourUsername/repositoryName&amp;quot;&lt;/a&gt;,
+    &amp;ldquo;logo&amp;rdquo;: &amp;ldquo;logoURL&amp;rdquo;,
+    &amp;ldquo;keywords&amp;rdquo;: [&amp;ldquo;ionic&amp;rdquo;, &amp;ldquo;Heroku&amp;rdquo;, &amp;ldquo;whatever&amp;rdquo;]
+}&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;setup-server-js&#34;&gt;Setup server.js&lt;/h6&gt;
+
+&lt;p&gt;The last thing we need is the file which will be executed by Heroku. Heroku will look for a server.js,
+so create this file as well on the top level of your ionic project and insert:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+var express = require(&amp;lsquo;express&amp;rsquo;),
+app = express();
+app.use(express.static(&amp;lsquo;www&amp;rsquo;));
+app.set(&amp;lsquo;port&amp;rsquo;, process.env.PORT || 5000);
+app.listen(app.get(&amp;lsquo;port&amp;rsquo;), function () {
+    console.log(&amp;lsquo;Express server listening on port &amp;rsquo; + app.get(&amp;lsquo;port&amp;rsquo;));
+});
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Now you can test your app local. Instead of &lt;code&gt;ionic serve&lt;/code&gt;, we will install the modules and run it with our express server,
+so go ahead:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+npm install
+npm start
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;If you receive no error, you can access your app on &lt;code&gt;http://localhost:5000/&lt;/code&gt;. If you have problems, fix that at your local
+Once application works fine, You&amp;rsquo;re almost done! Make sure to commit/push these changes to your repo, so Heroku receives all files we just added.&lt;/p&gt;
+
+&lt;p&gt;Deploying your App on Heroku, The above workflow was just standard git stuff, now we make our Heroku deployment.
+To use Heroku from the command line, you need to have the Heroku-Toolbelt installed.
+If you are done, open your Terminal and type:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+heroku create
+git push heroku master
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;This can take some time, depending on your project size. You can now try to open your app:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+heroku open
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ionic autoupdate application noDeploy</title>
+      <link>/post/2015-08-08-ionic-autoupdate-application-nodeploy/</link>
+      <pubDate>Sat, 08 Aug 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-08-08-ionic-autoupdate-application-nodeploy/</guid>
+      <description>
+
+&lt;h2 id=&#34;cordova-app-loader&#34;&gt;cordova-app-loader&lt;/h2&gt;
+
+&lt;p&gt;Remote update your Cordova App, Write a manifest.json to bootstrap.js your app. Build and deploy your app.&lt;/p&gt;
+
+&lt;p&gt;A little later&amp;hellip;&lt;/p&gt;
+
+&lt;p&gt;Upload an update to your server (manifest.json + files)
+Use CordovaAppLoader to&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;check() for a new manifest
+download() files
+update() your app!
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Check out &lt;a href=&#34;http://data.madebymark.nl/cordova-app-loader/index.html&#34;&gt;Cordova App Loader&lt;/a&gt; in Chrome for a demo! (Chrome only!)&lt;/p&gt;
+
+&lt;p&gt;Or run on your own computer:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:markmarijnissen/cordova-app-loader.git
+cd cordova-app-loader
+cordova platform add ios@3.7.0
+cordova plugin add org.apache.cordova.file
+cordova plugin add org.apache.cordova.file-transfer
+cordova run ios
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;All code is in the &lt;code&gt;www&lt;/code&gt; directory. Modify serverRoot in &lt;code&gt;www/app.js&lt;/code&gt; to run your own server.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ionic cordova-Geolocation</title>
+      <link>/post/2015-04-02-ionic-cordova-geolocation/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-04-02-ionic-cordova-geolocation/</guid>
+      <description>&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install cordova plugin by running this command&lt;/li&gt;
+&lt;li&gt;Try to handle every possible situations like Location services disbaled / Or user don&amp;rsquo;t allow permission to your application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;cordova plugin add org.apache.cordova.geolocation&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;and Then&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.controller(&#39;YourCtrl&#39;, function (loadingService) {
+    loadingService.show        
+    var posOptions = {
+        timeout: 10000,
+        enableHighAccuracy: false
+    }
+    navigator.geolocation.getCurrentPosition(onPositionSuccess, onPositionError, posOptions)
+    function onPositionSuccess(position) {         
+        var _position = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        }
+    //sucess handler code
+    loadingService.hide()
+    }
+  function onPositionError(error) {
+    //error handler code
+    loadingService.hide()
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/h6&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ionic Hide keyBoard</title>
+      <link>/post/2015-03-21-ionic-hide-keyboard/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-03-21-ionic-hide-keyboard/</guid>
+      <description>
+
+&lt;p&gt;On both Android and iOS, Ionic will attempt to prevent the keyboard from obscuring inputs and focusable elements when it
+appears by scrolling them into view. In order for this to work, any focusable elements must be within a Scroll View or a
+directive such as Content that has a Scroll View.&lt;/p&gt;
+
+&lt;h3 id=&#34;hide-when-keyboard-shows&#34;&gt;Hide when keyboard shows&lt;/h3&gt;
+
+&lt;p&gt;To hide an element when the keyboard is open, add the class hide-on-keyboard-open.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;hide-on-keyboard-open&amp;quot;&amp;gt;
+  &amp;lt;div id=&amp;quot;google-map&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;plugin-usage&#34;&gt;Plugin Usage&lt;/h3&gt;
+
+&lt;p&gt;Information on using the plugin can be found at &lt;a href=&#34;https://github.com/driftyco/ionic-plugins-keyboard&#34;&gt;https://github.com/driftyco/ionic-plugins-keyboard&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install Android, Cordova, and Ionic Framework in Ubuntu</title>
+      <link>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</link>
+      <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</guid>
+      <description>
+
+&lt;h4 id=&#34;requirements&#34;&gt;Requirements:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Java JDK&lt;/li&gt;
+&lt;li&gt;Apache Ant&lt;/li&gt;
+&lt;li&gt;Android SDK&lt;/li&gt;
+&lt;li&gt;NodeJS / NPM&lt;/li&gt;
+&lt;li&gt;Apache Cordova&lt;/li&gt;
+&lt;li&gt;Ionic Framework&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;steps&#34;&gt;Steps:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;* Download a shell script by clicking on this link 
+** https://github.com/nraboy/ubuntu-ionic-installer/archive/master.zip  
+* Extract and goto extracted folder.
+* chmod 775 ubuntu_ionic_installer.sh 
+* sudo ./ubuntu_ionic_installer.sh
+* To download the necessary Android targets and platform tools you will need to enter `android` from a command prompt to launch the Android UI. You will need `Android API 19` for Ionic Framework, so install that when you’re able to.
+* ionic start ExampleProject maps
+* cd ExampleProject
+* ionic platform add android
+* ionic build android
+* That&#39;s It.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

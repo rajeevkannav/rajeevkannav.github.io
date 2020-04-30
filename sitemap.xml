@@ -1,0 +1,1169 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
+  xmlns:xhtml="http://www.w3.org/1999/xhtml">
+  
+  <url>
+    <loc>/courses/example/example1/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/courses/example/</loc>
+    <lastmod>2018-09-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/courses/example/example2/</loc>
+    <lastmod>2019-05-05T00:00:00+01:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/example/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/talk/</loc>
+    <lastmod>2030-06-01T13:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/admin/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/3/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/preprint/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/source-themes/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/</loc>
+    <lastmod>2019-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/</loc>
+    <lastmod>2019-02-18T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2019-02-18T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2019-02-18-software-development-toolkit-2019/</loc>
+    <lastmod>2019-02-18T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/tools/</loc>
+    <lastmod>2019-02-18T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/utilities/</loc>
+    <lastmod>2019-02-18T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/slides/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/slides/example/</loc>
+    <lastmod>2019-02-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/backwards-compatibility/</loc>
+    <lastmod>2018-08-14T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2018-08-14-downgrade-mysql-ubuntu/</loc>
+    <lastmod>2018-08-14T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/infrastructure/</loc>
+    <lastmod>2018-08-14T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/linux/</loc>
+    <lastmod>2018-08-14T15:36:27+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/false/</loc>
+    <lastmod>2017-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-06-30-managing-node-versions-with-n/</loc>
+    <lastmod>2017-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/node/</loc>
+    <lastmod>2017-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/versions/</loc>
+    <lastmod>2017-06-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cocoapods/</loc>
+    <lastmod>2017-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cordova/</loc>
+    <lastmod>2017-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-06-27-install-phonegap-pushplugin-2.0.0-ubuntu/</loc>
+    <lastmod>2017-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ionic/</loc>
+    <lastmod>2017-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pushplugin/</loc>
+    <lastmod>2017-06-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/auto-scaling/</loc>
+    <lastmod>2017-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws/</loc>
+    <lastmod>2017-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-04-07-autoscaling-via-aws-cloudformation/</loc>
+    <lastmod>2017-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cloudformation/</loc>
+    <lastmod>2017-04-07T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bundler/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/filename/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-03-24-over-the-air-update-oneplus-india-/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rails/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ruby/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rubygems/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/tempfile/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-03-31-tempfile-name-ruby-problem/</loc>
+    <lastmod>2017-03-31T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-02-12-gemfile-audits-in-rails/</loc>
+    <lastmod>2017-02-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-02-03-bad-to-worse-rails-practice/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/migration/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/scope/</loc>
+    <lastmod>2017-02-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cert_authority/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/namecheap/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-01-06-ssl-cert-authority-invalid-fix/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ssl/</loc>
+    <lastmod>2017-01-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/angular/</loc>
+    <lastmod>2017-01-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2017-01-13-force-node-heroku-app-to-https/</loc>
+    <lastmod>2017-01-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/heroku/</loc>
+    <lastmod>2017-01-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/http/</loc>
+    <lastmod>2017-01-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/https/</loc>
+    <lastmod>2017-01-03T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/learning/</loc>
+    <lastmod>2016-12-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/resolutions/</loc>
+    <lastmod>2016-12-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-12-27-year-down-experience-over-corrections/</loc>
+    <lastmod>2016-12-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/yearend/</loc>
+    <lastmod>2016-12-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/docker/</loc>
+    <lastmod>2016-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/docker-compose/</loc>
+    <lastmod>2016-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-12-02-docker-compose-on-rails-mysql/</loc>
+    <lastmod>2016-12-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/apple/</loc>
+    <lastmod>2016-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-11-28-over-the-air-update-for-an-ios-application/</loc>
+    <lastmod>2016-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/over-the-air/</loc>
+    <lastmod>2016-11-28T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-09-24-apple-hls-amazon-cloudfrount-transcoding-format-help/</loc>
+    <lastmod>2016-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws-cloudfront/</loc>
+    <lastmod>2016-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/aws-transcoding/</loc>
+    <lastmod>2016-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/on-demand-streaming/</loc>
+    <lastmod>2016-09-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/authorized_keys/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-09-17-ssh-key-authorized-so-quickly-/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ssh/</loc>
+    <lastmod>2016-09-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/apache/</loc>
+    <lastmod>2016-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/open-source/</loc>
+    <lastmod>2016-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-08-27-multiple-443-ports-apache-setup/</loc>
+    <lastmod>2016-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ssl-configurations/</loc>
+    <lastmod>2016-08-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/github/</loc>
+    <lastmod>2016-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/hubot/</loc>
+    <lastmod>2016-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-08-20-hubot-introduction/</loc>
+    <lastmod>2016-08-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pdf/</loc>
+    <lastmod>2016-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/prawn/</loc>
+    <lastmod>2016-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-08-06-ruby-prawn-table-advanced/</loc>
+    <lastmod>2016-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/table/</loc>
+    <lastmod>2016-08-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-07-30-ruby-prawn-table-introduction/</loc>
+    <lastmod>2016-07-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-07-09-ruby-prawn-svg-export/</loc>
+    <lastmod>2016-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/text-annotation/</loc>
+    <lastmod>2016-07-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-06-25-ruby-prawn-text-annotation/</loc>
+    <lastmod>2016-06-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/link-annotation/</loc>
+    <lastmod>2016-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-06-18-ruby-prawn-link-annotation/</loc>
+    <lastmod>2016-06-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/</loc>
+    <lastmod>2016-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/stamp/</loc>
+    <lastmod>2016-06-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-05-21-15-wrongly-pronounced-words-english/</loc>
+    <lastmod>2016-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/english/</loc>
+    <lastmod>2016-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-06-04-ruby-prawn-introduction-1/</loc>
+    <lastmod>2016-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pronunciation/</loc>
+    <lastmod>2016-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/speaking/</loc>
+    <lastmod>2016-05-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/activerecord/</loc>
+    <lastmod>2016-05-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-05-14-object-based-search-rails-ransack-/</loc>
+    <lastmod>2016-05-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/search/</loc>
+    <lastmod>2016-05-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deep-learning/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/demo/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/external-project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/internal-project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/project/</loc>
+    <lastmod>2016-04-27T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/javascript/</loc>
+    <lastmod>2016-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-04-23-multiple-selecttion-sort-with-javascript/</loc>
+    <lastmod>2016-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/middleware/</loc>
+    <lastmod>2016-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/multiple-sorting/</loc>
+    <lastmod>2016-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rack/</loc>
+    <lastmod>2016-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-04-30-rack-utility-symbol-to-status-code/</loc>
+    <lastmod>2016-04-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/appium/</loc>
+    <lastmod>2016-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-04-09-mobile-test-automation-framework-appium-ruby/</loc>
+    <lastmod>2016-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ubuntu/</loc>
+    <lastmod>2016-04-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nginx/</loc>
+    <lastmod>2016-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/passenger/</loc>
+    <lastmod>2016-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-04-02-passenger-5.0.26-nginx-deployment-fix/</loc>
+    <lastmod>2016-04-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/engine/</loc>
+    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/twitter-bootstrap/</loc>
+    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-03-05-bootstrap-via-rails-engine/</loc>
+    <lastmod>2016-03-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rds/</loc>
+    <lastmod>2016-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sql/</loc>
+    <lastmod>2016-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/triggers/</loc>
+    <lastmod>2016-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-02-20-amazon-rds-sql-triggers/</loc>
+    <lastmod>2016-02-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/callbacks/</loc>
+    <lastmod>2016-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/object-life-cycle/</loc>
+    <lastmod>2016-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/observer/</loc>
+    <lastmod>2016-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-02-13-observers-in-rails-introduction/</loc>
+    <lastmod>2016-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ralis/</loc>
+    <lastmod>2016-02-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/at-rule/</loc>
+    <lastmod>2016-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/css/</loc>
+    <lastmod>2016-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-02-06-css-preprocessor-part-two/</loc>
+    <lastmod>2016-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/preprocessor/</loc>
+    <lastmod>2016-02-06T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/abstraction/</loc>
+    <lastmod>2016-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-01-23-css-preprocessors-introduction-1/</loc>
+    <lastmod>2016-01-23T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/non-exif-data/</loc>
+    <lastmod>2016-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ocr-engine/</loc>
+    <lastmod>2016-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/orientation/</loc>
+    <lastmod>2016-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-01-16-orientation-detection-non-exifdata-images/</loc>
+    <lastmod>2016-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/text-images/</loc>
+    <lastmod>2016-01-16T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/newthings/</loc>
+    <lastmod>2016-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2016-01-09-rails5-attribute-api-beta-awakens/</loc>
+    <lastmod>2016-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/rails5/</loc>
+    <lastmod>2016-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/virtual-attribute/</loc>
+    <lastmod>2016-01-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-11-21-code-push-cordova-microsoft-ionic/</loc>
+    <lastmod>2015-11-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/maximum-allowed-size/</loc>
+    <lastmod>2015-11-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-11-14-nginx-upload-file-size-limit/</loc>
+    <lastmod>2015-11-14T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/backup-support/</loc>
+    <lastmod>2015-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/re-write/</loc>
+    <lastmod>2015-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-10-24-nginx-redirect-request-url-parameters/</loc>
+    <lastmod>2015-10-24T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deployment/</loc>
+    <lastmod>2015-10-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-10-17-fastlane-tools-famliy-introduction-snapshot/</loc>
+    <lastmod>2015-10-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/ios/</loc>
+    <lastmod>2015-10-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/snapshot/</loc>
+    <lastmod>2015-10-17T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-10-10-fastlane-tools-automated-deployment-ios/</loc>
+    <lastmod>2015-10-10T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/mysql/</loc>
+    <lastmod>2015-09-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</loc>
+    <lastmod>2015-09-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/appcache/</loc>
+    <lastmod>2015-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-09-09-cordova-errorpage-handling-template/</loc>
+    <lastmod>2015-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/html5/</loc>
+    <lastmod>2015-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-09-05-ionic-appcache-html5/</loc>
+    <lastmod>2015-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-09-19-rack-middleware-ordering-rails/</loc>
+    <lastmod>2015-09-05T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/2/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/journal-article/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/authors/robert-ford/</loc>
+    <lastmod>2015-09-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/deploy/</loc>
+    <lastmod>2015-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-08-22-ionic-heroku-deploy/</loc>
+    <lastmod>2015-08-22T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/autoupdate/</loc>
+    <lastmod>2015-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-08-08-ionic-autoupdate-application-nodeploy/</loc>
+    <lastmod>2015-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nodeploy/</loc>
+    <lastmod>2015-08-08T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/api/</loc>
+    <lastmod>2015-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/framework/</loc>
+    <lastmod>2015-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/loopback/</loc>
+    <lastmod>2015-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-08-01-loopback-node-api-framework/</loc>
+    <lastmod>2015-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/node.js/</loc>
+    <lastmod>2015-08-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-07-18-vpim-vcard-generation-ruby/</loc>
+    <lastmod>2015-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/vcard/</loc>
+    <lastmod>2015-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/vpim/</loc>
+    <lastmod>2015-07-18T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/shell-script/</loc>
+    <lastmod>2015-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/unix-linux/</loc>
+    <lastmod>2015-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-07-11-shell-script-code-snippets/</loc>
+    <lastmod>2015-07-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/thoughts/</loc>
+    <lastmod>2015-07-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/token-management/</loc>
+    <lastmod>2015-07-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-07-04-token-management-interface-thoughts/</loc>
+    <lastmod>2015-07-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/web/</loc>
+    <lastmod>2015-07-04T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/bash/</loc>
+    <lastmod>2015-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-06-20-bash-basics/</loc>
+    <lastmod>2015-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/basics/</loc>
+    <lastmod>2015-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/linux/</loc>
+    <lastmod>2015-06-20T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/linuxbrew/</loc>
+    <lastmod>2015-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-06-13-linuxbrew-node-installation-ubuntu/</loc>
+    <lastmod>2015-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/nodejs/</loc>
+    <lastmod>2015-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/npm/</loc>
+    <lastmod>2015-06-13T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-06-12-uninstall-install-node-nodejs-npm-ubuntu/</loc>
+    <lastmod>2015-06-12T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/angularjs/</loc>
+    <lastmod>2015-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-06-09-elements-attributes-restrictions-anjularjs/</loc>
+    <lastmod>2015-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/best-practice/</loc>
+    <lastmod>2015-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/directives/</loc>
+    <lastmod>2015-06-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/javascript-frameworks/</loc>
+    <lastmod>2015-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/reactjs/</loc>
+    <lastmod>2015-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-05-30-reactjs-rails-start-guide-part-1/</loc>
+    <lastmod>2015-05-30T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/csr/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/csr-certificate/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/openssl/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/post-processing/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-05-23-ssl-csr-certificate-postprocessing/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/web-server/</loc>
+    <lastmod>2015-05-26T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/cmake/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/fontforge/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gcc/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/gnu-getopt/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-05-16-install-poppler-fontforge-pdf2htmlex-ubuntu15.05/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-05-09-openssl-csr-sha2/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pdf2htmlex/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/pkg-config/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/poppler/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/sha-2/</loc>
+    <lastmod>2015-05-09T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/doorkeeper/</loc>
+    <lastmod>2015-04-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/oauth2/</loc>
+    <lastmod>2015-04-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-02-21-oauth2-doorkeeper-workflow/</loc>
+    <lastmod>2015-04-25T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/http-proxy/</loc>
+    <lastmod>2015-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-04-11-understanding-nginx-http-proxying/</loc>
+    <lastmod>2015-04-11T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/android/</loc>
+    <lastmod>2015-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/tags/geolocation/</loc>
+    <lastmod>2015-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-04-02-ionic-cordova-geolocation/</loc>
+    <lastmod>2015-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-03-21-ionic-hide-keyboard/</loc>
+    <lastmod>2015-03-21T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</loc>
+    <lastmod>2015-03-02T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication_types/1/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/publication/conference-paper/</loc>
+    <lastmod>2013-07-01T00:00:00+00:00</lastmod>
+  </url>
+  
+  <url>
+    <loc>/courses/</loc>
+  </url>
+  
+</urlset>

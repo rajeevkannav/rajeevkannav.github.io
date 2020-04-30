@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Preprocessor | Rajeev Sharma</title>
+    <link>/tags/preprocessor/</link>
+      <atom:link href="/tags/preprocessor/index.xml" rel="self" type="application/rss+xml" />
+    <description>Preprocessor</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 06 Feb 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Preprocessor</title>
+      <link>/tags/preprocessor/</link>
+    </image>
+    
+    <item>
+      <title>CSS Preprocessor @-Rule import</title>
+      <link>/post/2016-02-06-css-preprocessor-part-two/</link>
+      <pubDate>Sat, 06 Feb 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-02-06-css-preprocessor-part-two/</guid>
+      <description>
+
+&lt;h3 id=&#34;stuff&#34;&gt;stuff&lt;/h3&gt;
+
+&lt;h5 id=&#34;css-import-rule&#34;&gt;CSS @import Rule&lt;/h5&gt;
+
+&lt;p&gt;CSS @-rule have @import directive which is one of the most popular and
+helpful directive for web developer(s)/designer(s). Sass also extends the
+CSS @import rule to allow it to import SCSS and Sass files. All imported
+SCSS and Sass files will be merged together into a single CSS output file.
+In addition, any variables or mixins defined in imported files can be used
+in the main file.&lt;/p&gt;
+
+&lt;p&gt;Sass preprocessors automatically consider all .scss or .sass files inside the
+current directory or given &lt;code&gt;load_paths&lt;/code&gt; for compliation .but if you need to
+import you may not need to compile it directly, for that you need to inform
+preprocessors to not compile a file. put an underscore to the start of that
+file name, Sass preprocessors will ignore it for compilation. for example
+rename &lt;code&gt;extended.scss&lt;/code&gt; to &lt;code&gt;extended.scss&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;Files named this way are called &lt;code&gt;partials&lt;/code&gt; in Sass terminology.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-they-works-backstage&#34;&gt;How they works - BackStage&lt;/h3&gt;
+
+&lt;h5 id=&#34;rules-for-include-style-into-our-styles&#34;&gt;Rules for include style into our styles&lt;/h5&gt;
+
+&lt;p&gt;&lt;code&gt;@import&lt;/code&gt; takes a filename to import. By default, it looks for a Sass file to import
+ directly, but there are a few circumstances under which it will compile to a CSS
+ &lt;code&gt;@import&lt;/code&gt; rule:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;If the file’s extension is .css.&lt;/li&gt;
+&lt;li&gt;If the filename begins with http://.&lt;/li&gt;
+&lt;li&gt;If the filename is a url().&lt;/li&gt;
+&lt;li&gt;If the @import has any media queries.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h5 id=&#34;ways-for-include-style-into-our-styles&#34;&gt;ways for include style into our styles&lt;/h5&gt;
+
+&lt;p&gt;{% highlight css %}
+@import &amp;ldquo;extended.scss&amp;rdquo;;
+{% endhighlight %}
+OR
+{% highlight css %}
+@import &amp;ldquo;extended.scss&amp;rdquo;;
+{% endhighlight %}
+would both import the file extended.scss, whereas&lt;/p&gt;
+
+&lt;p&gt;{% highlight css %}
+@import &amp;ldquo;foo.css&amp;rdquo;;
+@import &amp;ldquo;foo&amp;rdquo; screen;
+@import &amp;ldquo;&lt;a href=&#34;http://foo.com/bar&amp;quot;&#34;&gt;http://foo.com/bar&amp;quot;&lt;/a&gt;;
+@import url(foo);
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;would all compile to&lt;/p&gt;
+
+&lt;p&gt;{% highlight css %}
+@import &amp;ldquo;foo.css&amp;rdquo;;
+@import &amp;ldquo;foo&amp;rdquo; screen;
+@import &amp;ldquo;&lt;a href=&#34;http://foo.com/bar&amp;quot;&#34;&gt;http://foo.com/bar&amp;quot;&lt;/a&gt;;
+@import url(foo);
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;To import multiple files in one import.
+{% highlight css %}
+@import &amp;ldquo;rounded-corners&amp;rdquo;, &amp;ldquo;text-shadow&amp;rdquo;;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CSS Preprocessor (Introduction - 1).</title>
+      <link>/post/2016-01-23-css-preprocessors-introduction-1/</link>
+      <pubDate>Sat, 23 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-01-23-css-preprocessors-introduction-1/</guid>
+      <description>
+
+&lt;h3 id=&#34;stuff&#34;&gt;stuff&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;CSS preprocessors are awesome. they adds functionality to css mainly
+in the form of abstraction like variables, mixins and super powers :).
+that&#39;s how they make development quicker, easier, maintainable,
+scalable and blah blah blah (things you can&#39;t do with CSS).
+
+There are plenty of options for css preprocessor to choose. Top 3 
+choices are 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;http://lesscss.org/&#34;&gt;LESS&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;Sass&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;http://stylus-lang.com/&#34;&gt;Stylus&lt;/a&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;how-they-works-backstage&#34;&gt;How they works - BackStage&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;CSS preprocessors take code written in the preprocessed language and then convert
+that code into the same old css we’ve been writing for years. If you understand
+how ruby/php/jsp or any other server side programming language works it amounts to
+the same thing. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;basic-usage&#34;&gt;Basic Usage&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;Sass (.scss syntax) and what the css output would look like.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;variables-interpolation-operations&#34;&gt;Variables — Interpolation — Operations&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;It should be obvious that changing the value of a variable once is much
+more maintainable than changing the many instances.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% highlight css %}&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; Variables  .scss &amp;ndash;  */
+$color: #efefef;
+body {background:  $color;}&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
+body {background:  #efefef;}&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; Interpolation .scss &amp;ndash;  */
+$side: top;
+border-#{$side): 1px solid #000;&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
+border-top: 1px solid #000;&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; Operators .scss &amp;ndash;  */
+$navbar-width: 800px;
+$items: 5;
+#navbar li {width: $navbar-width/$items - 10px;}&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
+#navbar li {width: 150px}&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;mixins-nesting&#34;&gt;Mixins - Nesting&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt; Mixins :- DRY (DO NOT REPEAT YOUR-SELF). Principle allow for the easy reuse of blocks of code
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% highlight css %}
+ /* &amp;ndash; .scss &amp;ndash;  */
+ @mixin rounded-corners {
+   $radius: 5px;&lt;/p&gt;
+
+&lt;p&gt;border-radius: $radius;
+   -webkit-border-radius: $radius;
+   -moz-border-radius: $radius;
+ }&lt;/p&gt;
+
+&lt;p&gt;#navbar li { @include rounded-corners; }
+ #footer { @include rounded-corners; }&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
+ #header {
+   border-radius: 5px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+ }&lt;/p&gt;
+
+&lt;p&gt;#footer {
+   border-radius: 5px;
+   -webkit-border-radius: 5px;
+   -moz-border-radius: 5px;
+ }&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; Nesting .scss &amp;ndash; */&lt;/p&gt;
+
+&lt;p&gt;#navbar {
+width: 80%;
+height: 25px;&lt;/p&gt;
+
+&lt;p&gt;ul { list-style: none; }&lt;/p&gt;
+
+&lt;p&gt;li {
+ float: left;
+ a { text-decoration: none; }
+ &amp;amp;:hover { text-decoration: underline; }
+}
+}&lt;/p&gt;
+
+&lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
+#navbar {width: 80%; height: 25px;}
+#navbar ul {list-style: none;}
+#navbar li {float: left;}
+#navbar li a {text-decoration: none;}
+#navbar li a:hover {text-decoration: underline;},&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;CSS Preprocessors aren’t css, so not bound by css&#39;s limitations.
+The preprocessed language can give you more functionality. We&#39;ll
+cover much more things in upcoming blog series related to CSS
+Preprocessors. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
