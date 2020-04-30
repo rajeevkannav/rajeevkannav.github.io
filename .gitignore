@@ -10,3 +10,5 @@ exampleSite/public/
 
 # Node
 node_modules/
+public/
+deploy.sh
