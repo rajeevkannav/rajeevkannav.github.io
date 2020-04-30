@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Best Practice | Rajeev Sharma</title>
+    <link>/tags/best-practice/</link>
+      <atom:link href="/tags/best-practice/index.xml" rel="self" type="application/rss+xml" />
+    <description>Best Practice</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 09 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Best Practice</title>
+      <link>/tags/best-practice/</link>
+    </image>
+    
+    <item>
+      <title>AngularJs Directives Restrict to Elements and Attributes</title>
+      <link>/post/2015-06-09-elements-attributes-restrictions-anjularjs/</link>
+      <pubDate>Tue, 09 Jun 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-06-09-elements-attributes-restrictions-anjularjs/</guid>
+      <description>
+
+&lt;p&gt;At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that
+tell AngularJS&amp;rsquo;s HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM
+element and its children.&lt;/p&gt;
+
+&lt;script async src=&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;&gt;&lt;/script&gt;
+&lt;!-- Github Page Add 1 --&gt;
+&lt;ins class=&#34;adsbygoogle&#34;
+     style=&#34;display:block&#34;
+     data-ad-client=&#34;ca-pub-1411898088670168&#34;
+     data-ad-slot=&#34;3525987534&#34;
+     data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;
+&lt;script&gt;
+    (adsbygoogle = window.adsbygoogle || []).push({});
+&lt;/script&gt;
+
+&lt;h3 id=&#34;best-practice&#34;&gt;Best Practice:&lt;/h3&gt;
+
+&lt;p&gt;Prefer using directives via tag name and attributes over comment and class names. Doing so generally makes it easier to
+determine what directives a given element matches.&lt;/p&gt;
+
+&lt;p&gt;{% highlight javascript %}
+&lt;!-- avoid --&gt;
+&lt;div class=&#34;my-range-slider&#34;&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;/* avoid */
+angular
+    .module(&amp;lsquo;app.tools&amp;rsquo;)
+    .directive(&amp;lsquo;myRangeSlider&amp;rsquo;, myRangeSlider);&lt;/p&gt;
+
+&lt;p&gt;function myRangeSlider() {
+    var directive = {
+        link: link,
+        templateUrl: &amp;lsquo;/template_path/filenamehtml&amp;rsquo;,
+        restrict: &amp;lsquo;C&amp;rsquo;
+    };
+    return directive;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function link(scope, element, attrs) {
+  /* */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;!-- recommended --&gt;
+
+&lt;p&gt;&lt;my-range-slider&gt;&lt;/my-range-slider&gt;
+&lt;div my-range-slider&gt;&lt;/div&gt;&lt;/p&gt;
+
+&lt;p&gt;/* recommended */
+angular
+    .module(&amp;lsquo;app.tools&amp;rsquo;)
+    .directive(&amp;lsquo;myRangeSlider&amp;rsquo;, myRangeSlider);&lt;/p&gt;
+
+&lt;p&gt;function myRangeSlider() {
+    var directive = {
+        link: link,
+        templateUrl: &amp;lsquo;/template_path/filename.html&amp;rsquo;,
+        restrict: &amp;lsquo;EA&amp;rsquo;
+    };
+    return directive;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;function link(scope, element, attrs) {
+  /* */
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;}&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h4 id=&#34;note-ea-is-the-default-for-angularjs-1-3&#34;&gt;Note: EA is the default for AngularJS 1.3 +&lt;/h4&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

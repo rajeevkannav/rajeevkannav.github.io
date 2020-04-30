@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Android | Rajeev Sharma</title>
+    <link>/tags/android/</link>
+      <atom:link href="/tags/android/index.xml" rel="self" type="application/rss+xml" />
+    <description>Android</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 21 Mar 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Android</title>
+      <link>/tags/android/</link>
+    </image>
+    
+    <item>
+      <title>Ionic cordova-Geolocation</title>
+      <link>/post/2015-04-02-ionic-cordova-geolocation/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-04-02-ionic-cordova-geolocation/</guid>
+      <description>&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Install cordova plugin by running this command&lt;/li&gt;
+&lt;li&gt;Try to handle every possible situations like Location services disbaled / Or user don&amp;rsquo;t allow permission to your application&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;code&gt;cordova plugin add org.apache.cordova.geolocation&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;and Then&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;.controller(&#39;YourCtrl&#39;, function (loadingService) {
+    loadingService.show        
+    var posOptions = {
+        timeout: 10000,
+        enableHighAccuracy: false
+    }
+    navigator.geolocation.getCurrentPosition(onPositionSuccess, onPositionError, posOptions)
+    function onPositionSuccess(position) {         
+        var _position = {
+            latitude: position.coords.latitude,
+            longitude: position.coords.longitude
+        }
+    //sucess handler code
+    loadingService.hide()
+    }
+  function onPositionError(error) {
+    //error handler code
+    loadingService.hide()
+  }
+})
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/h6&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ionic Hide keyBoard</title>
+      <link>/post/2015-03-21-ionic-hide-keyboard/</link>
+      <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-03-21-ionic-hide-keyboard/</guid>
+      <description>
+
+&lt;p&gt;On both Android and iOS, Ionic will attempt to prevent the keyboard from obscuring inputs and focusable elements when it
+appears by scrolling them into view. In order for this to work, any focusable elements must be within a Scroll View or a
+directive such as Content that has a Scroll View.&lt;/p&gt;
+
+&lt;h3 id=&#34;hide-when-keyboard-shows&#34;&gt;Hide when keyboard shows&lt;/h3&gt;
+
+&lt;p&gt;To hide an element when the keyboard is open, add the class hide-on-keyboard-open.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;hide-on-keyboard-open&amp;quot;&amp;gt;
+  &amp;lt;div id=&amp;quot;google-map&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
+&amp;lt;/div&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;plugin-usage&#34;&gt;Plugin Usage&lt;/h3&gt;
+
+&lt;p&gt;Information on using the plugin can be found at &lt;a href=&#34;https://github.com/driftyco/ionic-plugins-keyboard&#34;&gt;https://github.com/driftyco/ionic-plugins-keyboard&lt;/a&gt;.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Install Android, Cordova, and Ionic Framework in Ubuntu</title>
+      <link>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</link>
+      <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</guid>
+      <description>
+
+&lt;h4 id=&#34;requirements&#34;&gt;Requirements:&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Java JDK&lt;/li&gt;
+&lt;li&gt;Apache Ant&lt;/li&gt;
+&lt;li&gt;Android SDK&lt;/li&gt;
+&lt;li&gt;NodeJS / NPM&lt;/li&gt;
+&lt;li&gt;Apache Cordova&lt;/li&gt;
+&lt;li&gt;Ionic Framework&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;steps&#34;&gt;Steps:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;* Download a shell script by clicking on this link 
+** https://github.com/nraboy/ubuntu-ionic-installer/archive/master.zip  
+* Extract and goto extracted folder.
+* chmod 775 ubuntu_ionic_installer.sh 
+* sudo ./ubuntu_ionic_installer.sh
+* To download the necessary Android targets and platform tools you will need to enter `android` from a command prompt to launch the Android UI. You will need `Android API 19` for Ionic Framework, so install that when you’re able to.
+* ionic start ExampleProject maps
+* cd ExampleProject
+* ionic platform add android
+* ionic build android
+* That&#39;s It.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

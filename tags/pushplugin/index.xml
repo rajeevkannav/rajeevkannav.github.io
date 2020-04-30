@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>pushplugin | Rajeev Sharma</title>
+    <link>/tags/pushplugin/</link>
+      <atom:link href="/tags/pushplugin/index.xml" rel="self" type="application/rss+xml" />
+    <description>pushplugin</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 27 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>pushplugin</title>
+      <link>/tags/pushplugin/</link>
+    </image>
+    
+    <item>
+      <title>install PhoneGap pushPlugin 2.0.0 on ubuntu/Osx</title>
+      <link>/post/2017-06-27-install-phonegap-pushplugin-2.0.0-ubuntu/</link>
+      <pubDate>Tue, 27 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-06-27-install-phonegap-pushplugin-2.0.0-ubuntu/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We&amp;rsquo;re using &lt;code&gt;phonegap-plugin-push&lt;/code&gt; to Register and receive push notifications to
+ionic applications and unfortunately that&amp;rsquo;s get updated.&lt;/p&gt;
+
+&lt;p&gt;Version 2.0.0, this plugin will support CocoaPods installation of the
+Firebase Cloud Messaging library.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;Install CocoaPods and re-build the platforms is only the requirement&lt;/p&gt;
+
+&lt;p&gt;To install CocoaPods, please follow the installation instructions here.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;sudo gem install cocoapods
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;After installing CocoaPods, please run:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;pod setup
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This will clone the required CocoaPods specs-repo into your home folder
+at ~/.cocoapods/repos, so it might take a while.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cordova plugin add phonegap-plugin-push@2.0.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;and do the build process for android and iOs. You also need a google-services.json
+from Firebase to build apk(s).&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

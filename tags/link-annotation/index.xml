@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>link-annotation | Rajeev Sharma</title>
+    <link>/tags/link-annotation/</link>
+      <atom:link href="/tags/link-annotation/index.xml" rel="self" type="application/rss+xml" />
+    <description>link-annotation</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 18 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>link-annotation</title>
+      <link>/tags/link-annotation/</link>
+    </image>
+    
+    <item>
+      <title>Prawn ruby link annotation</title>
+      <link>/post/2016-06-18-ruby-prawn-link-annotation/</link>
+      <pubDate>Sat, 18 Jun 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-06-18-ruby-prawn-link-annotation/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem-prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
+
+&lt;p&gt;In Prawn pdf we need to put links on the Image text and fortunatley we&amp;rsquo;re keeping
+required co-ordinates with objects. We tried to put Text link with anchor on text
+available inside image but that wasn&amp;rsquo;t cool because our images can rotate&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;Instead of marking text link above image text, we tried to put
+link annotation.&lt;/p&gt;
+
+&lt;p&gt;Link annotation by Prawn are :&lt;/p&gt;
+
+&lt;p&gt;A convenience method for creating Link annotations. rect must be an
+array of four numbers, describing the bounds of the annotation. The
+options hash should include either :Dest (describing the target
+destination, usually as a string that has been recorded in the
+document&amp;rsquo;s Dests tree), or :A (describing an action to perform on
+clicking the link), or :PA (for describing a URL to link to).&lt;/p&gt;
+
+&lt;p&gt;Link annotation by Code - Sample:
+{% highlight ruby %}
+prawn_pdf = Prawn::Document.new(skip_page_creation: true)
+link_coordinates = [:left, :top, :right, :bottom] # a.k.a coordinates
+prawn_pdf.link_annotation(link_coordinates, :Dest =&amp;gt; &amp;ldquo;target destination&amp;rdquo;)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

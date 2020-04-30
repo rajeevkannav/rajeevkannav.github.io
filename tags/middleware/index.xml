@@ -1,0 +1,172 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>middleware | Rajeev Sharma</title>
+    <link>/tags/middleware/</link>
+      <atom:link href="/tags/middleware/index.xml" rel="self" type="application/rss+xml" />
+    <description>middleware</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 23 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>middleware</title>
+      <link>/tags/middleware/</link>
+    </image>
+    
+    <item>
+      <title>Rack::Utils Basic information</title>
+      <link>/post/2016-04-30-rack-utility-symbol-to-status-code/</link>
+      <pubDate>Sat, 23 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-04-30-rack-utility-symbol-to-status-code/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;Every HTTP statuses code are available in form of symbol in Rails in a slightly more readable form. You may heard few of
+them like&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    :ok
+    :not_modified
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re interested to use every status to symbol which looks good to me. Following can be found on Rails Console/Documentation
+ via&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+ Rack::Utils::SYMBOL_TO_STATUS_CODE&lt;/p&gt;
+
+&lt;p&gt;=&amp;gt; {
+        :continue=&amp;gt;100, :switching_protocols=&amp;gt;101, :processing=&amp;gt;102,
+        :ok=&amp;gt;200, :created=&amp;gt;201, :accepted=&amp;gt;202,
+        :non_authoritative_information=&amp;gt;203, :no_content=&amp;gt;204,
+        :reset_content=&amp;gt;205, :partial_content=&amp;gt;206, :multi_status=&amp;gt;207,
+        :already_reported=&amp;gt;208, :im_used=&amp;gt;226, :multiple_choices=&amp;gt;300,
+        :moved_permanently=&amp;gt;301, :found=&amp;gt;302, :see_other=&amp;gt;303,
+        :not_modified=&amp;gt;304, :use_proxy=&amp;gt;305, :temporary_redirect=&amp;gt;307,
+        :permanent_redirect=&amp;gt;308, :bad_request=&amp;gt;400, :unauthorized=&amp;gt;401,
+        :payment_required=&amp;gt;402, :forbidden=&amp;gt;403, :not_found=&amp;gt;404,
+        :method_not_allowed=&amp;gt;405, :not_acceptable=&amp;gt;406,
+        :proxy_authentication_required=&amp;gt;407, :request_timeout=&amp;gt;408,
+        :conflict=&amp;gt;409, :gone=&amp;gt;410, :length_required=&amp;gt;411,
+        :precondition_failed=&amp;gt;412, :payload_too_large=&amp;gt;413,
+        :uri_too_long=&amp;gt;414, :unsupported_media_type=&amp;gt;415,
+        :range_not_satisfiable=&amp;gt;416, :expectation_failed=&amp;gt;417,
+        :unprocessable_entity=&amp;gt;422, :locked=&amp;gt;423, :failed_dependency=&amp;gt;424,
+        :upgrade_required=&amp;gt;426, :precondition_required=&amp;gt;428,
+        :too_many_requests=&amp;gt;429, :request_header_fields_too_large=&amp;gt;431,
+        :internal_server_error=&amp;gt;500, :not_implemented=&amp;gt;501, :bad_gateway=&amp;gt;502,
+        :service_unavailable=&amp;gt;503,:gateway_timeout=&amp;gt;504,
+        :http_version_not_supported=&amp;gt;505, :variant_also_negotiates=&amp;gt;506,
+        :insufficient_storage=&amp;gt;507, :loop_detected=&amp;gt;508, :not_extended=&amp;gt;510,
+        :network_authentication_required=&amp;gt;511
+  }&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Rack::Utils contains a grab-bag of useful methods for writing web applications adopted from all kinds of Ruby libraries.
+It contains methods like -
+{% highlight ruby %}
+ .add_cookie_to_header(header, key, value) ⇒ Object
+ .add_remove_cookie_to_header(header, key, value = {}) ⇒ Object
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;which sound quite handy to play with header cookies and there are lots of more stuff.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ordering Rack Middleware Rails Application</title>
+      <link>/post/2015-09-19-rack-middleware-ordering-rails/</link>
+      <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-09-19-rack-middleware-ordering-rails/</guid>
+      <description>
+
+&lt;p&gt;Rack middleware is a simply bigger thing then rails. It&amp;rsquo;s look-alike rack application that you can use to filter,
+process, or otherwise mess with responses.There is middleware like warden - devise, to work on catch and log exceptions,
+deal with cookies, SSO, and pretty much anything else you can think of. And in case you missed it,
+rails is a rack application. Create a new rails app and run&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    rake middleware
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;It will display results like this :&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    use Rack::Cors
+    use Rack::Sendfile
+    use ActionDispatch::Static
+    use Rack::Lock
+    use #&lt;a href=&#34;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168&#34;&gt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168&lt;/a&gt;
+    use Rack::Runtime
+    use Rack::MethodOverride
+    use ActionDispatch::RequestId
+    use Rails::Rack::Logger
+    use ActionDispatch::ShowExceptions
+    use ActionDispatch::DebugExceptions
+    use ActionDispatch::RemoteIp
+    use ActionDispatch::Reloader
+    use ActionDispatch::Callbacks
+    use ActiveRecord::Migration::CheckPending
+    use ActiveRecord::ConnectionAdapters::ConnectionManagement
+    use ActiveRecord::QueryCache
+    use ActionDispatch::Cookies
+    use ActionDispatch::Session::CookieStore
+    use ActionDispatch::Flash
+    use ActionDispatch::ParamsParser
+    use Remotipart::Middleware
+    use Rack::Head
+    use Rack::ConditionalGet
+    use Rack::ETag
+    run Banana::Application.routes
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;okay-so-what-s-the-problem&#34;&gt;Okay so what&amp;rsquo;s the problem?&lt;/h3&gt;
+
+&lt;p&gt;let&amp;rsquo;s you have an middleware say AwesomeMe. The AwesomeMe is calculated after the response time is injected,
+so that&amp;rsquo;s fine (imagine if the etag middleware was at the bottom). What about poor ExceptionNotifier?
+What if there is an exception thrown in the ResponseTimeInjector or AwesomeMe middleware? ExceptionNotifier isn&amp;rsquo;t
+going to catch it! The ExceptionNotifier middleware doesn&amp;rsquo;t modify anything in the response,
+so it needs to be up higher; it needs to be first.&lt;/p&gt;
+
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;You can add a new middleware to the middleware stack using any of the following methods:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;config.middleware.use(new_middleware, args) - Adds the new middleware at the bottom of the middleware stack.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;config.middleware.insert_before(existing_middleware, new_middleware, args) -
+Adds the new middleware before the specified existing middleware in the middleware stack.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;config.middleware.insert_after(existing_middleware, new_middleware, args) -
+Adds the new middleware after the specified existing middleware in the middleware stack.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;h1 id=&#34;config-application-rb&#34;&gt;config/application.rb&lt;/h1&gt;
+
+&lt;h1 id=&#34;push-rack-bouncefavicon-at-the-bottom&#34;&gt;Push Rack::BounceFavicon at the bottom&lt;/h1&gt;
+
+&lt;p&gt;config.middleware.use Rack::BounceFavicon&lt;/p&gt;
+
+&lt;h1 id=&#34;add-lifo-cache-after-activerecord-querycache&#34;&gt;Add Lifo::Cache after ActiveRecord::QueryCache.&lt;/h1&gt;
+
+&lt;h1 id=&#34;pass-page-cache-false-argument-to-lifo-cache&#34;&gt;Pass { page_cache: false } argument to Lifo::Cache.&lt;/h1&gt;
+
+&lt;p&gt;config.middleware.insert_after ActiveRecord::QueryCache, Lifo::Cache, page_cache: false
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

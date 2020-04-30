@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linuxbrew | Rajeev Sharma</title>
+    <link>/tags/linuxbrew/</link>
+      <atom:link href="/tags/linuxbrew/index.xml" rel="self" type="application/rss+xml" />
+    <description>linuxbrew</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 13 Jun 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>linuxbrew</title>
+      <link>/tags/linuxbrew/</link>
+    </image>
+    
+    <item>
+      <title>linuxbrew node nodejs npm on ubuntu</title>
+      <link>/post/2015-06-13-linuxbrew-node-installation-ubuntu/</link>
+      <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-06-13-linuxbrew-node-installation-ubuntu/</guid>
+      <description>
+
+&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
+
+&lt;p&gt;Linuxbrew is a fork of &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; , the Mac OS package manager, for Linux.&lt;/p&gt;
+
+&lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Ruby 1.8.6 or newer&lt;/li&gt;
+&lt;li&gt;GCC 4.2 or newer&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;64-bit x86 platform&lt;/p&gt;
+
+&lt;p&gt;sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;install-linuxbrew&#34;&gt;Install Linuxbrew&lt;/h3&gt;
+
+&lt;p&gt;Paste at Terminal prompt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Add to your .bashrc or .zshrc:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;export PATH=&amp;quot;$HOME/.linuxbrew/bin:$PATH&amp;quot;
+export MANPATH=&amp;quot;$HOME/.linuxbrew/share/man:$MANPATH&amp;quot;
+export INFOPATH=&amp;quot;$HOME/.linuxbrew/share/info:$INFOPATH&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;then:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source ~/.bashrc
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;update-linuxbrew&#34;&gt;update Linuxbrew&lt;/h3&gt;
+
+&lt;p&gt;Paste at a Terminal prompt:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    brew update
+    brew doctor
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;install-node-package&#34;&gt;Install “node” Package&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt; brew install node
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;confirm-installation&#34;&gt;Confirm Installation&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;node -v # Output should be something like v0.12.4
+npm -v  # Output should be something like 2.10.1  
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

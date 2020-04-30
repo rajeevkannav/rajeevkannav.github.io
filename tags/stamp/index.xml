@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>stamp | Rajeev Sharma</title>
+    <link>/tags/stamp/</link>
+      <atom:link href="/tags/stamp/index.xml" rel="self" type="application/rss+xml" />
+    <description>stamp</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 11 Jun 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>stamp</title>
+      <link>/tags/stamp/</link>
+    </image>
+    
+    <item>
+      <title>Prawn ruby marking stamp at page center</title>
+      <link>/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/</link>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem-prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
+
+&lt;p&gt;We have to put a default text on every page center if we&amp;rsquo;re not able to
+insert image at it&amp;rsquo;s bounding box.&lt;/p&gt;
+
+&lt;h4 id=&#34;sample-usage&#34;&gt;Sample Usage&lt;/h4&gt;
+
+&lt;p&gt;define a stamp :-&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+prawn_pdf.create_stamp(&amp;ldquo;stamp&amp;rdquo;) {
+prawn_page.fill_color &amp;lsquo;#4a8bc2&amp;rsquo;
+prawn_page.text_box &amp;lsquo;[Image not available.]&amp;lsquo;,
+:width  =&amp;gt; bounds.width,
+:height =&amp;gt; bounds.height,
+:align  =&amp;gt; :center,
+:valign =&amp;gt; :center,
+:at     =&amp;gt; [0, bounds.height],
+:rotate =&amp;gt; 45,
+:rotate_around =&amp;gt; :center
+}
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;mark stamp at any page by just calling it by name :-&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;prawn_page.stamp(&amp;quot;stamp&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;things-to-take-care&#34;&gt;Things to take care&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;stamp name should be unique.&lt;/li&gt;
+&lt;li&gt;should be take care of stamp dimension and its content.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

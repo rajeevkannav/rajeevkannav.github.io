@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>auto-scaling | Rajeev Sharma</title>
+    <link>/tags/auto-scaling/</link>
+      <atom:link href="/tags/auto-scaling/index.xml" rel="self" type="application/rss+xml" />
+    <description>auto-scaling</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 07 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>auto-scaling</title>
+      <link>/tags/auto-scaling/</link>
+    </image>
+    
+    <item>
+      <title>AWS cloudformation with AutoScalingGroup and LaunchConfiguration</title>
+      <link>/post/2017-04-07-autoscaling-via-aws-cloudformation/</link>
+      <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-04-07-autoscaling-via-aws-cloudformation/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We&amp;rsquo;re currently looking into such an option to run multiple number
+of ec2 instances into already running environment(VPC) with launch
+configurations too.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;       Amazon web services - Cloudformation - AutoScaling
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CloudFormation is one of the coolest services from AWS at no additional charge.
+You can run/start and update a full stack(collection of resources) over aws with
+the help of a template written in JSON/YAML by using the AWS Management Console,
+AWS Command Line Interface, or APIs. It gives developers and systems administrators
+an easy way to create and manage a collection of related AWS resources,
+provisioning and updating them.&lt;/p&gt;
+
+&lt;h5 id=&#34;syntax-and-example-s&#34;&gt;Syntax and Example(s)&lt;/h5&gt;
+
+&lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::AutoScalingGroup
+ resource.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::AutoScalingGroup&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;AvailabilityZones&amp;quot; : [ String, ... ],
+      &amp;quot;Cooldown&amp;quot; : String,
+      &amp;quot;DesiredCapacity&amp;quot; : String,
+      &amp;quot;HealthCheckGracePeriod&amp;quot; : Integer,
+      &amp;quot;HealthCheckType&amp;quot; : String,
+      &amp;quot;InstanceId&amp;quot; : String,
+      &amp;quot;LaunchConfigurationName&amp;quot; : String,
+      &amp;quot;LoadBalancerNames&amp;quot; : [ String, ... ],
+      &amp;quot;MaxSize&amp;quot; : String,
+      &amp;quot;MetricsCollection&amp;quot; : [ MetricsCollection, ... ],
+      &amp;quot;MinSize&amp;quot; : String,
+      &amp;quot;NotificationConfigurations&amp;quot; : [ NotificationConfigurations, ... ],
+      &amp;quot;PlacementGroup&amp;quot; : String,
+      &amp;quot;Tags&amp;quot; : [ Auto Scaling Tag, ... ],
+      &amp;quot;TargetGroupARNs&amp;quot; : [ String, ... ],
+      &amp;quot;TerminationPolicies&amp;quot; : [ String, ..., ],
+      &amp;quot;VPCZoneIdentifier&amp;quot; : [ String, ... ]
+   }
+}     
+
+
+&amp;quot;WebServerGroup&amp;quot; : {
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::AutoScalingGroup&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;AvailabilityZones&amp;quot; : { &amp;quot;Fn::GetAZs&amp;quot; : &amp;quot;&amp;quot; },
+      &amp;quot;LaunchConfigurationName&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;LaunchConfig&amp;quot; },
+      &amp;quot;MinSize&amp;quot; : &amp;quot;2&amp;quot;,
+      &amp;quot;MaxSize&amp;quot; : &amp;quot;2&amp;quot;,
+      &amp;quot;LoadBalancerNames&amp;quot; : [ { &amp;quot;Ref&amp;quot; : &amp;quot;ElasticLoadBalancer&amp;quot; } ],
+      &amp;quot;MetricsCollection&amp;quot;: [
+         {
+            &amp;quot;Granularity&amp;quot;: &amp;quot;1Minute&amp;quot;,
+            &amp;quot;Metrics&amp;quot;: [
+               &amp;quot;GroupMinSize&amp;quot;,
+               &amp;quot;GroupMaxSize&amp;quot;
+            ]
+         }
+      ]
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::LaunchConfiguration
+ resource.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::LaunchConfiguration&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;AssociatePublicIpAddress&amp;quot; : Boolean,
+      &amp;quot;BlockDeviceMappings&amp;quot; : [ BlockDeviceMapping, ... ],
+      &amp;quot;ClassicLinkVPCId&amp;quot; : String,
+      &amp;quot;ClassicLinkVPCSecurityGroups&amp;quot; : [ String, ... ],
+      &amp;quot;EbsOptimized&amp;quot; : Boolean,
+      &amp;quot;IamInstanceProfile&amp;quot; : String,
+      &amp;quot;ImageId&amp;quot; : String,
+      &amp;quot;InstanceId&amp;quot; : String,
+      &amp;quot;InstanceMonitoring&amp;quot; : Boolean,
+      &amp;quot;InstanceType&amp;quot; : String,
+      &amp;quot;KernelId&amp;quot; : String,
+      &amp;quot;KeyName&amp;quot; : String,
+      &amp;quot;PlacementTenancy&amp;quot; : String,
+      &amp;quot;RamDiskId&amp;quot; : String,
+      &amp;quot;SecurityGroups&amp;quot; : [ SecurityGroup, ... ],
+      &amp;quot;SpotPrice&amp;quot; : String,
+      &amp;quot;UserData&amp;quot; : String
+   }
+}
+
+
+&amp;quot;LaunchConfig&amp;quot; : {
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::LaunchConfiguration&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;KeyName&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;KeyName&amp;quot; },
+      &amp;quot;ImageId&amp;quot; : {
+         &amp;quot;Fn::FindInMap&amp;quot; : [
+            &amp;quot;AWSRegionArch2AMI&amp;quot;,
+            { &amp;quot;Ref&amp;quot; : &amp;quot;AWS::Region&amp;quot; },
+            {
+               &amp;quot;Fn::FindInMap&amp;quot; : [
+                  &amp;quot;AWSInstanceType2Arch&amp;quot;, { &amp;quot;Ref&amp;quot; : &amp;quot;InstanceType&amp;quot; }, &amp;quot;Arch&amp;quot;
+               ]
+            }
+         ]
+      },
+      &amp;quot;UserData&amp;quot; : { &amp;quot;Fn::Base64&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;WebServerPort&amp;quot; }},
+      &amp;quot;SecurityGroups&amp;quot; : [ { &amp;quot;Ref&amp;quot; : &amp;quot;InstanceSecurityGroup&amp;quot; } ],
+      &amp;quot;InstanceType&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;InstanceType&amp;quot; },
+      &amp;quot;BlockDeviceMappings&amp;quot; : [
+         {
+           &amp;quot;DeviceName&amp;quot; : &amp;quot;/dev/sda1&amp;quot;,
+           &amp;quot;Ebs&amp;quot; : { &amp;quot;VolumeSize&amp;quot; : &amp;quot;50&amp;quot;, &amp;quot;VolumeType&amp;quot; : &amp;quot;io1&amp;quot;, &amp;quot;Iops&amp;quot; : 200 } 
+         },
+         {
+           &amp;quot;DeviceName&amp;quot; : &amp;quot;/dev/sdm&amp;quot;,
+           &amp;quot;Ebs&amp;quot; : { &amp;quot;VolumeSize&amp;quot; : &amp;quot;100&amp;quot;, &amp;quot;DeleteOnTermination&amp;quot; : &amp;quot;true&amp;quot;}
+         }
+      ]
+   }
+} 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On the back-ground it will create given number of EC2 instances to current
+stack following with the launch-configurations.&lt;/p&gt;
+
+&lt;p&gt;Still we&amp;rsquo;re digging into AWS-CloudFormation as beginner level and continue
+with major-minor details with this blog series.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

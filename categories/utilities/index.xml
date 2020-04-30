@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>utilities | Rajeev Sharma</title>
+    <link>/categories/utilities/</link>
+      <atom:link href="/categories/utilities/index.xml" rel="self" type="application/rss+xml" />
+    <description>utilities</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Mon, 18 Feb 2019 15:36:27 +0530</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>utilities</title>
+      <link>/categories/utilities/</link>
+    </image>
+    
+    <item>
+      <title>Software development toolkit 2019</title>
+      <link>/post/2019-02-18-software-development-toolkit-2019/</link>
+      <pubDate>Mon, 18 Feb 2019 15:36:27 +0530</pubDate>
+      <guid>/post/2019-02-18-software-development-toolkit-2019/</guid>
+      <description>
+
+&lt;h2 id=&#34;here-is-the-following-list-of-tools-and-utilities-i-m-using-for-application-s-development-in-2019&#34;&gt;Here is the following list of tools and utilities, I&amp;rsquo;m using for application(s) development in 2019:&lt;/h2&gt;
+
+&lt;h4 id=&#34;list-with-links&#34;&gt;&lt;a href=&#34;with links&#34;&gt;List&lt;/a&gt;&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://duckduckgo.com/&#34;&gt;Duck - For Search&lt;/a&gt; (skip Google)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.opera.com&#34;&gt;Opera - Web Browser (With VPN mode enabled)&lt;/a&gt;(It&amp;rsquo;s really awesome)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.jetbrains.com/ruby/&#34;&gt;RubyMine&lt;/a&gt; (we&amp;rsquo;ve licence :D)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ubuntu.com/&#34;&gt;Ubuntu 16.04.5 LTS&lt;/a&gt; (looking to move on with Mint)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.ruby-lang.org/en/&#34;&gt;Ruby-2.6.1&lt;/a&gt; (latest available)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://rubyonrails.org/&#34;&gt;Rails (4.2.x-6.0.x)&lt;/a&gt; (Current product/Own thoughts)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mongodb.com/&#34;&gt;Mongodb&lt;/a&gt; (Current product)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.mysql.com/&#34;&gt;Mysql&lt;/a&gt; (personal MVP(s))&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://reactjs.org/&#34;&gt;React&lt;/a&gt; (its a newly added one)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://github.com/rajeevkannav&#34;&gt;Github&lt;/a&gt; (for official usage and this blog)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://about.gitlab.com/&#34;&gt;Gitlab&lt;/a&gt; (for personal usage -  preferred one)&lt;/li&gt;
+&lt;li&gt;&lt;a href=&#34;https://www.docker.com/&#34;&gt;Docker&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;[will add more]&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;####  And if you&amp;rsquo;ve any suggestion(s) OR say&lt;/p&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>false | Rajeev Sharma</title>
+    <link>/tags/false/</link>
+      <atom:link href="/tags/false/index.xml" rel="self" type="application/rss+xml" />
+    <description>false</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 30 Jun 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>false</title>
+      <link>/tags/false/</link>
+    </image>
+    
+    <item>
+      <title>managing node versions with n</title>
+      <link>/post/2017-06-30-managing-node-versions-with-n/</link>
+      <pubDate>Fri, 30 Jun 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-06-30-managing-node-versions-with-n/</guid>
+      <description>
+
+&lt;h4 id=&#34;node-version-management-with-n&#34;&gt;Node version management with n&lt;/h4&gt;
+
+&lt;p&gt;Node version management with nvm is great yet there is one
+new tool comes up which is n. Currently n supports only linux
+and Osx not available for windows.&lt;/p&gt;
+
+&lt;h4 id=&#34;installation&#34;&gt;Installation&lt;/h4&gt;
+
+&lt;h6 id=&#34;already-have-node&#34;&gt;already have &lt;code&gt;node&lt;/code&gt;&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install -g n
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;alternatively&#34;&gt;Alternatively&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;git clone git@github.com:tj/n.git
+cd n
+make install
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;third-party-installer-recommended&#34;&gt;Third-party installer (Recommended)&lt;/h6&gt;
+
+&lt;pre&gt;&lt;code&gt;curl -L https://git.io/n-install | bash
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;usage&#34;&gt;Usage&lt;/h4&gt;
+
+&lt;h6 id=&#34;installing-versions&#34;&gt;Installing Versions&lt;/h6&gt;
+
+&lt;p&gt;For installing version 0.8.14&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ n 0.8.14 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;activating-versions&#34;&gt;Activating Versions&lt;/h6&gt;
+
+&lt;p&gt;Execute n on its own to view your currently installed
+versions. Use the up and down arrow keys to navigate
+and press enter or the right arrow key to select.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ n
+
+  0.8.14
+ο 0.8.17
+  0.9.6
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;removing-versions&#34;&gt;Removing Versions&lt;/h6&gt;
+
+&lt;p&gt;Remove some versions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ n rm 0.9.4 v0.10.0
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

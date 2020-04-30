@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>aws cloudfront | Rajeev Sharma</title>
+    <link>/tags/aws-cloudfront/</link>
+      <atom:link href="/tags/aws-cloudfront/index.xml" rel="self" type="application/rss+xml" />
+    <description>aws cloudfront</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 24 Sep 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>aws cloudfront</title>
+      <link>/tags/aws-cloudfront/</link>
+    </image>
+    
+    <item>
+      <title>Apple On-Demand Streaming Support with amazon cloudfront and Transcoding API</title>
+      <link>/post/2016-09-24-apple-hls-amazon-cloudfrount-transcoding-format-help/</link>
+      <pubDate>Sat, 24 Sep 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-09-24-apple-hls-amazon-cloudfrount-transcoding-format-help/</guid>
+      <description>
+
+&lt;h3 id=&#34;apple-on-demand-streaming&#34;&gt;Apple On-Demand Streaming&lt;/h3&gt;
+
+&lt;p&gt;In the on-demand streaming case, your video content is stored in S3. Your viewers
+can choose to watch it at any desired time, hence the name on-demand. A complete
+on-demand streaming solution typically makes use of Amazon S3 for storage, the Amazon
+Elastic Transcoder for video processing, and Amazon CloudFront for delivery.&lt;/p&gt;
+
+&lt;h3 id=&#34;cloudfront&#34;&gt;CloudFront&lt;/h3&gt;
+
+&lt;p&gt;Using Amazon CloudFront, You can deliver adaptive bitrate video in a scalable,
+high performing and cost effective manner to audiences around the world with
+format specification.&lt;/p&gt;
+
+&lt;h3 id=&#34;amazon-elastic-transcoder&#34;&gt;Amazon Elastic Transcoder&lt;/h3&gt;
+
+&lt;p&gt;Amazon Elastic Transcoder manages all aspects of the media transcoding
+process for you transparently and automatically. There’s no need to administer
+software, scale hardware, tune performance, or otherwise manage transcoding infrastructure.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-to&#34;&gt;How To ?&lt;/h3&gt;
+
+&lt;p&gt;To use CloudFront to stream media files in Apple HTTP Live Streaming (HLS) format,
+perform the following tasks:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* Transcode your media files into HLS format. You can use any transcoding
+  application that supports HLS format, for example, Amazon Elastic Transcoder.
+
+* Create a CloudFront web distribution. No special settings are required.
+
+* (Upload your files to the origin that you specified when you created your distribution.
+
+* For links in your application (for example, a media player), specify the master playlist
+  in the same format that you use for other objects that you&#39;re distributing using CloudFront.
+  For more information, see Format of URLs for CloudFront Objects.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/aws/using-amazon-cloudfront-for-video-streaming/&#34;&gt;Amazon Web Services Docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

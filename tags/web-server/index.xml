@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Web-Server | Rajeev Sharma</title>
+    <link>/tags/web-server/</link>
+      <atom:link href="/tags/web-server/index.xml" rel="self" type="application/rss+xml" />
+    <description>Web-Server</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 26 May 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Web-Server</title>
+      <link>/tags/web-server/</link>
+    </image>
+    
+    <item>
+      <title>SSl csr-certificate post-processing for Web-Server usage</title>
+      <link>/post/2015-05-23-ssl-csr-certificate-postprocessing/</link>
+      <pubDate>Tue, 26 May 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-05-23-ssl-csr-certificate-postprocessing/</guid>
+      <description>
+
+&lt;p&gt;For those of you who may refer my early written post &lt;a href=&#34;http://rajeevkannav.github.io/openssl-csr-SHA2&#34;&gt;Openssl CSR SHA-2.&lt;/a&gt;.
+Here is Part 2.&lt;/p&gt;
+
+&lt;h3 id=&#34;install-the-certificate-crt&#34;&gt;Install the Certificate (CRT)&lt;/h3&gt;
+
+&lt;p&gt;After giving your CSR to SSL Provider, you need to wait for their response. They&amp;rsquo;ll validate your CSR and give you some
+certificates and file as in package. We&amp;rsquo;re using NameCheap as SSL Provider so this blog will follow according to their
+response. NameCheap sends you an zipped folder which will have :&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;AddTrustExternalCARoot.crt&lt;/li&gt;
+&lt;li&gt;COMODORSAAddTrustCA.crt&lt;/li&gt;
+&lt;li&gt;COMODORSADomainValidationSecureServerCA.crt&lt;/li&gt;
+&lt;li&gt;STAR_xxxxx_com.crt&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;And you already have&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;xxxxx.key&lt;/li&gt;
+&lt;li&gt;xxxxx.csr&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Now you&amp;rsquo;ll need to have one pass phrase protected key and one combined ssl certificate in right order. You need to remove
+the pass phrase. To do that have that key and run following command&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;openssl rsa -in xxxxx.key -out xxxxx.nopass.key
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Enter the private key pass phrase when asked. And Get set Go! Use this new key to your
+Elastic Load Balancer/nginx/Apache. For combined SSL certificate :&amp;ndash;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;cat STAR_xxxxx_com.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &amp;gt; SSL.crt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Use SSL.crt and xxxxx.nopass.key to your Web Server configuration.&lt;/p&gt;
+
+&lt;h3 id=&#34;test-your-installed-certificate&#34;&gt;Test your installed Certificate&lt;/h3&gt;
+
+&lt;p&gt;Visit your web Application after configuring certificates and key at web server and see Browser console.
+There should not any waring or error related to SSL. for e.g.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;This site makes use of a SHA-1 Certificate; it&#39;s recommended you use certificates
+with signature algorithms that use hash functions stronger than SHA-1.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

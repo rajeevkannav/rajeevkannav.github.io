@@ -1,0 +1,102 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>linux | Rajeev Sharma</title>
+    <link>/categories/linux/</link>
+      <atom:link href="/categories/linux/index.xml" rel="self" type="application/rss+xml" />
+    <description>linux</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 14 Aug 2018 15:36:27 +0530</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>linux</title>
+      <link>/categories/linux/</link>
+    </image>
+    
+    <item>
+      <title>Downgrade Mysql to 5.6 from 5.7 on Ubuntu 16.04(xenial)</title>
+      <link>/post/2018-08-14-downgrade-mysql-ubuntu/</link>
+      <pubDate>Tue, 14 Aug 2018 15:36:27 +0530</pubDate>
+      <guid>/post/2018-08-14-downgrade-mysql-ubuntu/</guid>
+      <description>
+
+&lt;p&gt;Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards
+compatibility issues with code written against older MySql versions. for Rails specific see
+&lt;a href=&#34;https://github.com/brianmario/mysql2/issues/784&#34;&gt;this&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;Oracle maintains a list of official APT repositories for MySql 5.6, but those repository do
+not yet support Ubuntu 16.04, However the 15.10 repos will work for 16.04.&lt;/p&gt;
+
+&lt;h4 id=&#34;uninstall-mysql-5-7-in-any-exists&#34;&gt;Uninstall MySql 5.7 in any exists:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;sudo apt remove mysql-client mysql-server mysql-comman libmysqlclient-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;check-you-removed-everything&#34;&gt;Check you removed everything&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;sudo dpkg -l | grep mysql
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;purge-reminders-e-g-merged-with-rc-with&#34;&gt;Purge reminders (e.g. merged with rc) with&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;sudo dkpg P &amp;lt;package&amp;gt; [&amp;lt;package&amp;gt;]
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;download-the-apt-config-debain-package-from-oracle-https-dev-mysql-com-get-mysql-apt-config-0-8-0-1-all-deb-and-install-it&#34;&gt;Download the apt_config-debain package from &lt;a href=&#34;https://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb&#34;&gt;Oracle&lt;/a&gt; and install it&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;sudo dpkg -i mysql-apt-config_0.8.0-1_all.deb
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;choose-mysql-5-6-and-run&#34;&gt;Choose &amp;ldquo;MySQL 5.6&amp;rdquo; and RUN&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;sudo apt-cache policy mysql-server
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;if-this-shows-a-5-6-version-continue&#34;&gt;If this shows a 5.6 version, continue.&lt;/h4&gt;
+
+&lt;h4 id=&#34;if-not-check-your-etc-apt-sources-list-d-mysql-list-it-should-look-roughly-like-this&#34;&gt;If not, check your &lt;code&gt;/etc/apt/sources.list.d/mysql.list&lt;/code&gt;. It should look roughly like this:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;
+### THIS FILE IS AUTOMATICALLY CONFIGURED ###
+# You may Ubuntu 16.04 only provides packages for MySQL 5.7 which has a range of backwards
+# compatibility issues with code written against older MySQL versions.comment out entries
+# below, but any other modifications may be lost.
+# Use command &#39;dpkg-reconfigure mysql-apt-config&#39; as root for modifications.
+deb http://repo.mysql.com/apt/ubuntu/ wily mysql-apt-config
+deb http://repo.mysql.com/apt/ubuntu/ wily mysql-5.6
+deb http://repo.mysql.com/apt//ubuntu/ wily mysql-tools
+deb-src http://repo.mysql.com/apt/ubuntu/ wily mysql-5.6
+### You might have to replace &amp;quot;xenial&amp;quot; with &amp;quot;wily&amp;quot;. Although you are using 16.04 (codename Xenial),
+### Oracle currently seems to only provide 5.6 in the repos for 14.04 (codename Wiley). But
+###  those sources work for 16.04, too.
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;create-a-file-etc-apt-preferences-d-mysql-with-this-content&#34;&gt;Create a file &lt;code&gt;/etc/apt/preferences.d/mysql&lt;/code&gt; with this content&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;Package: *
+Pin: origin &amp;quot;repo.mysql.com&amp;quot;
+Pin-Priority: 999
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Run&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;sudo apt-get update
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Now recipe&amp;rsquo;s run should provide&lt;/p&gt;
+
+&lt;pre&gt;&lt;code class=&#34;language-SHELL&#34;&gt;sudo apt install mysql-client mysql-server libmysqlclient-dev
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;You should get 5.6 versions. Extra Things I learned : Use P(purge), dpkg -l. Cheers :)&lt;/p&gt;
+
+&lt;h4 id=&#34;links&#34;&gt;Links&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;https://gist.github.com/Voronenko/31161ab292c7967fcd38c092335a99e1&#34;&gt;Gist&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

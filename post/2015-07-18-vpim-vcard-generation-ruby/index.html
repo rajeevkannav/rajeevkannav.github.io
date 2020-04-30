@@ -1,0 +1,1277 @@
+<!DOCTYPE html>
+<html lang="en-us">
+
+<head>
+
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="generator" content="Source Themes Academic 4.8.0">
+
+  
+
+  
+  
+  
+  
+  
+    
+    
+    
+  
+  
+
+  <meta name="author" content="Rajeev Sharma">
+
+  
+  
+  
+    
+  
+  <meta name="description" content="Create VCardField to have more capabilities Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.
+{% highlight ruby %}
+require &lsquo;vpim/vcard&rsquo;
+class VCardField &lt; Vpim::DirectoryInfo::Field">
+
+  
+  <link rel="alternate" hreflang="en-us" href="/post/2015-07-18-vpim-vcard-generation-ruby/">
+
+  
+
+
+  
+  
+  
+  <meta name="theme-color" content="hsl(339, 90%, 68%)">
+  
+
+  
+  
+
+  
+  
+  
+  
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/academicons/1.8.6/css/academicons.min.css" integrity="sha256-uFVgMKfistnJAfoCUQigIl+JfUaP47GrRKjf6CTPVmw=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.0-1/css/all.min.css" integrity="sha256-4w9DunooKSr3MFXHXWyFER38WmPdm361bQS/2KUWZbU=" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.css" integrity="sha256-Vzbj7sDDS/woiFS3uNKo8eIuni59rjyNGtXfstRzStA=" crossorigin="anonymous">
+
+    
+    
+    
+      
+    
+    
+      
+      
+        
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/github.min.css" crossorigin="anonymous" title="hl-light">
+          <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/styles/dracula.min.css" crossorigin="anonymous" title="hl-dark" disabled>
+        
+      
+    
+
+    
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.css" integrity="sha256-SHMGCYmST46SoyGgo4YR/9AlK1vf3ff84Aq9yK4hdqM=" crossorigin="anonymous">
+    
+
+    
+
+    
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/lazysizes/5.1.2/lazysizes.min.js" integrity="sha256-Md1qLToewPeKjfAHU1zyPwOutccPAm5tahnaw7Osw0A=" crossorigin="anonymous" async></script>
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+      
+
+      
+      
+        
+      
+
+      
+    
+      
+
+      
+      
+
+      
+    
+
+  
+
+  
+  
+  
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Montserrat:400,700%7CRoboto:400,400italic,700%7CRoboto+Mono&display=swap">
+  
+
+  
+  
+  
+  
+  <link rel="stylesheet" href="/css/academic.css">
+
+  
+
+
+
+
+
+<script async src="https://www.googletagmanager.com/gtag/js?id=UA-60219724-1"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+
+  function gtag() {
+      dataLayer.push(arguments);
+  }
+
+  function trackOutboundLink(url, target) {
+    gtag('event', 'click', {
+         'event_category': 'outbound',
+         'event_label': url,
+         'transport_type': 'beacon',
+         'event_callback': function () {
+           if (target !== '_blank') {
+             document.location = url;
+           }
+         }
+    });
+    console.debug("Outbound link clicked: " + url);
+  }
+
+  function onClickCallback(event) {
+    if ((event.target.tagName !== 'A') || (event.target.host === window.location.host)) {
+      return;
+    }
+    trackOutboundLink(event.target, event.target.getAttribute('target'));  
+  }
+
+  gtag('js', new Date());
+  gtag('config', 'UA-60219724-1', {});
+
+  
+  document.addEventListener('click', onClickCallback, false);
+</script>
+
+
+  
+
+
+  
+
+  <link rel="manifest" href="/index.webmanifest">
+  <link rel="icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_32x32_fill_lanczos_center_2.png">
+  <link rel="apple-touch-icon" type="image/png" href="/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png">
+
+  <link rel="canonical" href="/post/2015-07-18-vpim-vcard-generation-ruby/">
+
+  
+  
+  
+  
+  
+    
+  
+  
+  <meta property="twitter:card" content="summary_large_image">
+  
+  <meta property="twitter:site" content="@rajeevkannav">
+  <meta property="twitter:creator" content="@rajeevkannav">
+  
+  <meta property="og:site_name" content="Rajeev Sharma">
+  <meta property="og:url" content="/post/2015-07-18-vpim-vcard-generation-ruby/">
+  <meta property="og:title" content="ruby vpim library generate expendable vcard | Rajeev Sharma">
+  <meta property="og:description" content="Create VCardField to have more capabilities Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.
+{% highlight ruby %}
+require &lsquo;vpim/vcard&rsquo;
+class VCardField &lt; Vpim::DirectoryInfo::Field"><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
+  
+    
+      <meta property="article:published_time" content="2015-07-18T00:00:00&#43;00:00">
+    
+    <meta property="article:modified_time" content="2015-07-18T00:00:00&#43;00:00">
+  
+
+  
+
+
+    
+
+
+
+
+
+
+  
+
+
+
+
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "BlogPosting",
+  "mainEntityOfPage": {
+    "@type": "WebPage",
+    "@id": "/post/2015-07-18-vpim-vcard-generation-ruby/"
+  },
+  "headline": "ruby vpim library generate expendable vcard",
+  
+  "datePublished": "0001-01-01T00:00:00Z",
+  "dateModified": "2015-07-18T00:00:00Z",
+  
+  "author": {
+    "@type": "Person",
+    "name": "Rajeev Sharma"
+  },
+  
+  "publisher": {
+    "@type": "Organization",
+    "name": "Rajeev Sharma",
+    "logo": {
+      "@type": "ImageObject",
+      "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
+    }
+  },
+  "description": "Create VCardField to have more capabilities Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.\n{% highlight ruby %}\nrequire \u0026lsquo;vpim/vcard\u0026rsquo;\nclass VCardField \u0026lt; Vpim::DirectoryInfo::Field"
+}
+</script>
+
+  
+
+  
+
+
+  
+
+
+  
+
+
+
+
+
+  <title>ruby vpim library generate expendable vcard | Rajeev Sharma</title>
+
+</head>
+
+<body id="top" data-spy="scroll" data-offset="70" data-target="#TableOfContents" >
+
+  <aside class="search-results" id="search">
+  <div class="container">
+    <section class="search-header">
+
+      <div class="row no-gutters justify-content-between mb-3">
+        <div class="col-6">
+          <h1>Search</h1>
+        </div>
+        <div class="col-6 col-search-close">
+          <a class="js-search" href="#"><i class="fas fa-times-circle text-muted" aria-hidden="true"></i></a>
+        </div>
+      </div>
+
+      <div id="search-box">
+        
+        <input name="q" id="search-query" placeholder="Search..." autocapitalize="off"
+        autocomplete="off" autocorrect="off" spellcheck="false" type="search">
+        
+      </div>
+
+    </section>
+    <section class="section-search-results">
+
+      <div id="search-hits">
+        
+      </div>
+
+    </section>
+  </div>
+</aside>
+
+
+  
+
+
+
+
+
+
+
+<nav class="navbar navbar-expand-lg navbar-light compensate-for-scrollbar" id="navbar-main">
+  <div class="container">
+
+    
+    <div class="d-none d-lg-inline-flex">
+      <a class="navbar-brand" href="/">Rajeev Sharma</a>
+    </div>
+    
+
+    
+    <button type="button" class="navbar-toggler" data-toggle="collapse"
+            data-target="#navbar-content" aria-controls="navbar" aria-expanded="false" aria-label="Toggle navigation">
+    <span><i class="fas fa-bars"></i></span>
+    </button>
+    
+
+    
+    <div class="navbar-brand-mobile-wrapper d-inline-flex d-lg-none">
+      <a class="navbar-brand" href="/">Rajeev Sharma</a>
+    </div>
+    
+
+    
+    
+    <div class="navbar-collapse main-menu-item collapse justify-content-start" id="navbar-content">
+
+      
+      <ul class="navbar-nav d-md-inline-flex">
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#about"><span>Home</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#posts"><span>Posts</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#experience"><span>Experience</span></a>
+        </li>
+
+        
+        
+
+        
+
+        
+        
+        
+          
+        
+
+        
+        
+        
+        
+        
+        
+          
+          
+          
+            
+          
+          
+        
+
+        <li class="nav-item">
+          <a class="nav-link " href="/#contact"><span>Contact</span></a>
+        </li>
+
+        
+        
+
+      
+
+        
+      </ul>
+    </div>
+
+    <ul class="nav-icons navbar-nav flex-row ml-auto d-flex pl-md-2">
+      
+      <li class="nav-item">
+        <a class="nav-link js-search" href="#"><i class="fas fa-search" aria-hidden="true"></i></a>
+      </li>
+      
+
+      
+
+      
+
+    </ul>
+
+  </div>
+</nav>
+
+
+  <article class="article">
+
+  
+
+
+
+
+
+
+
+
+
+
+
+
+  
+
+  
+  
+  
+<div class="article-container pt-3">
+  <h1>ruby vpim library generate expendable vcard</h1>
+
+  
+
+  
+    
+
+
+<div class="article-metadata">
+
+  
+  
+
+  
+  <span class="article-date">
+    
+    
+      
+    
+    Jul 18, 2015
+  </span>
+  
+
+  
+
+  
+  <span class="middot-divider"></span>
+  <span class="article-reading-time">
+    3 min read
+  </span>
+  
+
+  
+  
+  
+
+  
+  
+
+</div>
+
+    
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+  
+</div>
+
+
+
+  <div class="article-container">
+
+    <div class="article-style">
+      
+
+<h3 id="create-vcardfield-to-have-more-capabilities">Create VCardField to have more capabilities</h3>
+
+<p><img src="./../images/vcard.png" alt="Target" /></p>
+
+<p>Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.</p>
+
+<p>{% highlight ruby %}</p>
+
+<p>require &lsquo;vpim/vcard&rsquo;</p>
+
+<p>class VCardField &lt; Vpim::DirectoryInfo::Field</p>
+
+<p>def VCardField.reset_custom_fields
+    @@custom_number = 1
+  end</p>
+
+<p>#
+  # Create a name field: &ldquo;N&rdquo;
+  #
+  def VCardField.create_n (last, first=nil, middle=nil, prefix=nil, suffix=nil)
+    VCardField.create(&lsquo;N&rsquo;, &ldquo;#{last};#{first};#{middle};#{prefix};#{suffix}&rdquo;)
+  end</p>
+
+<p>protected</p>
+
+<p>def VCardField.valid_string(a_str)
+    return a_str != nil &amp;&amp; a_str.length &gt; 0
+  end</p>
+
+<p>public</p>
+
+<p>#
+  # Create a formal name field: &ldquo;FN&rdquo;
+  #
+  def VCardField.create_fn (last, first=nil, middle=nil, prefix=nil, suffix=nil)
+    name = &ldquo;&rdquo;
+    if valid_string(prefix) then
+      name &lt;&lt; &ldquo;#{prefix} &ldquo;
+    end
+    if valid_string(first) then
+      name &lt;&lt; &ldquo;#{first} &ldquo;
+    end
+    if valid_string(middle) then
+      name &lt;&lt; &ldquo;#{middle} &ldquo;
+    end
+    if valid_string(last) then
+      name &lt;&lt; &ldquo;#{last} &ldquo;
+    end
+    if valid_string(suffix) then
+      name &lt;&lt; &ldquo;#{suffix} &ldquo;
+    end
+    VCardField.create(&lsquo;FN&rsquo;, &ldquo;#{name}&rdquo;)
+  end</p>
+
+<p>#
+  # Create a formal name field: &ldquo;ORG&rdquo;
+  #
+  def VCardField.create_org (organization_name, department_name=nil)
+    VCardField.create(&ldquo;ORG&rdquo;, &ldquo;#{organization_name};#{department_name}&ldquo;)
+  end</p>
+
+<p>#
+  # Create a title field: &ldquo;TITLE&rdquo;
+  #
+  def VCardField.create_job_title(title)
+    VCardField.create(&ldquo;TITLE&rdquo;, title)
+  end</p>
+
+<p>#
+  # Create an email field: &ldquo;EMAIL&rdquo; with type=&ldquo;INTERNET&rdquo;
+  #
+  # For <em>type</em>, use Ruby symbols :WORK or :HOME.
+  #
+  def VCardField.create_internet_email(address, type=:WORK, preferred_email=false)
+    if preferred_email == true
+      VCardField.create(&ldquo;EMAIL&rdquo;, address,
+                        &ldquo;type&rdquo; =&gt; [&ldquo;INTERNET&rdquo;, type.to_s, &ldquo;pref&rdquo;])
+    else
+      VCardField.create(&ldquo;EMAIL&rdquo;, address,
+                        &ldquo;type&rdquo; =&gt; [&ldquo;INTERNET&rdquo;, type.to_s])
+    end
+  end</p>
+
+<p>protected
+  def VCardField.next_custom_name
+    name = &ldquo;item#{@@custom_number}&rdquo;
+    @@custom_number = @@custom_number + 1
+    name
+  end</p>
+
+<p>def VCardField.create_phone(phone_num, is_preferred = false, type_arr = [&ldquo;WORK&rdquo;],
+      custom_name = nil)</p>
+
+<pre><code>field_name = &quot;&quot;
+if custom_name != nil
+  field_name &lt;&lt; next_custom_name
+  field_name &lt;&lt; &quot;.&quot;
+end
+
+# Flatten the array so we can add additional items to it.
+type_arr = [type_arr].flatten
+# If this phone number is preferred, then add that into the type array.
+if is_preferred
+  type_arr &lt;&lt; &quot;pref&quot;
+end
+# Create the TEL field.
+ret_val = [VCardField.create(&quot;#{field_name}TEL&quot;, phone_num, &quot;type&quot; =&gt; type_arr)]
+# If we need a custom field . . .
+if custom_name != nil
+  ret_val &lt;&lt; VCardField.create(&quot;#{field_name}X-ABLabel&quot;, custom_name)
+end
+ret_val
+</code></pre>
+
+<p>end</p>
+
+<p>public</p>
+
+<p>def VCardField.create_note(note_text)
+    VCardField.create(&ldquo;NOTE&rdquo;, note_text)
+  end</p>
+
+<p>def VCardField.create_custom_phone(phone_number, custom_name, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&ldquo;HOME&rdquo;], custom_name)
+  end</p>
+
+<p>def VCardField.create_pager(pager_number, is_preferred = false)
+    VCardField.create_phone(pager_number, is_preferred, [&ldquo;PAGER&rdquo;])
+  end</p>
+
+<p>def VCardField.create_work_fax(fax_number, is_preferred = false)
+    VCardField.create_phone(fax_number, is_preferred, [&ldquo;FAX&rdquo;, &ldquo;WORK&rdquo;])
+  end</p>
+
+<p>def VCardField.create_work_phone(phone_number, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&ldquo;WORK&rdquo;])
+  end</p>
+
+<p>def VCardField.create_home_fax(fax_number, is_preferred = false)
+    VCardField.create_phone(fax_number, is_preferred, [&ldquo;FAX&rdquo;, &ldquo;HOME&rdquo;])
+  end</p>
+
+<p>def VCardField.create_home_phone(phone_number, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&ldquo;HOME&rdquo;])
+  end</p>
+
+<p>def VCardField.create_cell_phone(phone_number, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&ldquo;CELL&rdquo;])
+  end</p>
+
+<p>def VCardField.create_work_email(address, is_preferred = false)
+    VCardField.create_email(address, is_preferred, [&ldquo;WORK&rdquo;])
+  end</p>
+
+<p>def VCardField.create_home_email(address, is_preferred = false)
+    VCardField.create_email(address, is_preferred, [&ldquo;HOME&rdquo;])
+  end</p>
+
+<p>def VCardField.create_other_email(address, custom_name, is_preferred = false)
+    VCardField.create_email(address, is_preferred, [&ldquo;WORK&rdquo;], custom_name)
+  end</p>
+
+<p>protected</p>
+
+<p>def VCardField.create_email(address, is_preferred, type_arr = [&ldquo;WORK&rdquo;], custom_name = nil)
+    name = &ldquo;&rdquo;
+    if custom_name != nil
+      name &lt;&lt; next_custom_name
+      name &lt;&lt; &ldquo;.&rdquo;
+    end
+    if is_preferred
+      type_arr &lt;&lt; &ldquo;pref&rdquo;
+    end
+    ret_val = [VCardField.create(&ldquo;#{name}EMAIL&rdquo;, address, &ldquo;type&rdquo; =&gt; type_arr)]
+    if custom_name != nil
+      ret_val &lt;&lt; VCardField.create(&ldquo;#{name}X-ABLabel&rdquo;, custom_name)
+    end
+    ret_val
+  end</p>
+
+<p>end</p>
+
+<p>info = {
+ title: &lsquo;Mr./Mrs&rsquo;,
+ display_name: &lsquo;Card Holder Name&rsquo;,
+ email: &lsquo;email@example.com&rsquo;,
+ note: &lsquo;Note 1&rsquo;,
+ first_name: &lsquo;Card Holder FirstName&rsquo;,
+ office_phone: &lsquo;123456789&rsquo;,
+ fax_phone: &lsquo;123456789&rsquo;,
+ home_phone: &lsquo;123456789&rsquo;,
+ mobile_phone: &lsquo;123456789&rsquo;
+}</p>
+
+<p>vcard = Vpim::Vcard.create
+vcard &lt;&lt; VCardField.create_job_title(info[:title])
+vcard &lt;&lt; VCardField.create_n(info[:display_name])
+vcard &lt;&lt; VCardField.create_work_email(info[:email])
+vcard &lt;&lt; VCardField.create_note(info[:note])
+vcard &lt;&lt; VCardField.create_fn(info[:first_name])
+vcard &lt;&lt; VCardField.create_work_phone(info[:office_phone])
+vcard &lt;&lt; VCardField.create_work_fax(info[:fax_phone])
+vcard &lt;&lt; VCardField.create_home_phone(info[:home_phone])
+vcard &lt;&lt; VCardField.create_cell_phone(info[:mobile_phone])
+vcard.each { |card|
+    puts card.to_s
+}</p>
+
+<p>{% endhighlight %}</p>
+
+<p><a href="https://github.com/xing/vpim/blob/master/samples/tabbed-file-to-vcf.rb">Source</a></p>
+
+<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
+
+<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+
+    </div>
+
+    
+
+
+
+
+
+<div class="article-tags">
+  
+  <a class="badge badge-light" href="/tags/vpim/">vpim</a>
+  
+  <a class="badge badge-light" href="/tags/vcard/">vcard</a>
+  
+  <a class="badge badge-light" href="/tags/ruby/">ruby</a>
+  
+</div>
+
+
+
+<div class="share-box" aria-hidden="true">
+  <ul class="share">
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://twitter.com/intent/tweet?url=/post/2015-07-18-vpim-vcard-generation-ruby/&amp;text=ruby%20vpim%20library%20generate%20expendable%20vcard" target="_blank" rel="noopener" class="share-btn-twitter">
+          <i class="fab fa-twitter"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.facebook.com/sharer.php?u=/post/2015-07-18-vpim-vcard-generation-ruby/&amp;t=ruby%20vpim%20library%20generate%20expendable%20vcard" target="_blank" rel="noopener" class="share-btn-facebook">
+          <i class="fab fa-facebook"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="mailto:?subject=ruby%20vpim%20library%20generate%20expendable%20vcard&amp;body=/post/2015-07-18-vpim-vcard-generation-ruby/" target="_blank" rel="noopener" class="share-btn-email">
+          <i class="fas fa-envelope"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://www.linkedin.com/shareArticle?url=/post/2015-07-18-vpim-vcard-generation-ruby/&amp;title=ruby%20vpim%20library%20generate%20expendable%20vcard" target="_blank" rel="noopener" class="share-btn-linkedin">
+          <i class="fab fa-linkedin-in"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://web.whatsapp.com/send?text=ruby%20vpim%20library%20generate%20expendable%20vcard%20/post/2015-07-18-vpim-vcard-generation-ruby/" target="_blank" rel="noopener" class="share-btn-whatsapp">
+          <i class="fab fa-whatsapp"></i>
+        </a>
+      </li>
+    
+      
+      
+      
+        
+      
+      
+      
+      <li>
+        <a href="https://service.weibo.com/share/share.php?url=/post/2015-07-18-vpim-vcard-generation-ruby/&amp;title=ruby%20vpim%20library%20generate%20expendable%20vcard" target="_blank" rel="noopener" class="share-btn-weibo">
+          <i class="fab fa-weibo"></i>
+        </a>
+      </li>
+    
+  </ul>
+</div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+
+
+
+
+
+  
+  
+  
+    
+  
+  
+  
+  <div class="media author-card content-widget-hr">
+    
+      
+      <img class="avatar mr-3 avatar-square" src="/authors/admin/avatar_hua9facb7f680154a15e4d391683cb8005_7952_270x270_fill_q90_lanczos_center.jpg" alt="Avatar">
+    
+
+    <div class="media-body">
+      <h5 class="card-title"><a href="/">Rajeev Sharma</a></h5>
+      <h6 class="card-subtitle">Technical Lead</h6>
+      <p class="card-text">software entrepreneur and father of a fairy tale!!!.</p>
+      <ul class="network-icon" aria-hidden="true">
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/#contact" >
+        <i class="fas fa-envelope"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://twitter.com/rajeevkannav" target="_blank" rel="noopener">
+        <i class="fab fa-twitter"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+      
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="https://github.com/rajeevkannav" target="_blank" rel="noopener">
+        <i class="fab fa-github"></i>
+      </a>
+    </li>
+  
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    <li>
+      <a href="/files/cv.pdf" >
+        <i class="ai ai-cv"></i>
+      </a>
+    </li>
+  
+</ul>
+
+    </div>
+  </div>
+
+
+
+
+
+
+
+
+
+
+
+
+  
+  
+  <div class="article-widget content-widget-hr">
+    <h3>Related</h3>
+    <ul>
+      
+      <li><a href="/post/2016-04-09-mobile-test-automation-framework-appium-ruby/">Mobile test automation framework appium introduction</a></li>
+      
+      <li><a href="/post/2016-07-09-ruby-prawn-svg-export/">Prawn ruby Scalable Vector Graphics - SVG</a></li>
+      
+      <li><a href="/post/2016-06-18-ruby-prawn-link-annotation/">Prawn ruby link annotation</a></li>
+      
+      <li><a href="/post/2016-06-25-ruby-prawn-text-annotation/">Prawn ruby link annotation,Ruby select note</a></li>
+      
+      <li><a href="/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/">Prawn ruby marking stamp at page center</a></li>
+      
+    </ul>
+  </div>
+  
+
+
+
+  </div>
+</article>
+
+      
+
+    
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.imagesloaded/4.1.4/imagesloaded.pkgd.min.js" integrity="sha256-lqvxZrPLtfffUl2G/e7szqSvPBILGbwmsGE1MKlOi0Q=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.isotope/3.0.6/isotope.pkgd.min.js" integrity="sha256-CBrpuqrMhXwcLLUd5tvQ4euBHCdh7wGlDfNz8vbu/iI=" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/fancybox/3.5.7/jquery.fancybox.min.js" integrity="sha256-yt2kYMy0w8AbtF89WXb2P1rfjcP/HTHLT7097U8Y5b8=" crossorigin="anonymous"></script>
+
+      
+
+      
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/highlight.min.js" integrity="sha256-eOgo0OtLL4cdq7RdwRUiGKLX9XsIJ7nGhWEKbohmVAQ=" crossorigin="anonymous"></script>
+        
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.1/languages/r.min.js"></script>
+        
+      
+
+    
+
+    
+    
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.5.1/leaflet.js" integrity="sha256-EErZamuLefUnbMBQbsEqu1USa+btR2oIlCpBJbyD4/g=" crossorigin="anonymous"></script>
+    
+
+    
+    
+    <script>const code_highlighting = true;</script>
+    
+
+    
+    
+    <script>const isSiteThemeDark = false;</script>
+    
+
+    
+    
+    
+    
+    
+    
+    <script>
+      const search_config = {"indexURI":"/index.json","minLength":1,"threshold":0.3};
+      const i18n = {"no_results":"No results found","placeholder":"Search...","results":"results found"};
+      const content_type = {
+        'post': "Posts",
+        'project': "Projects",
+        'publication' : "Publications",
+        'talk' : "Talks"
+        };
+    </script>
+    
+
+    
+    
+
+    
+    
+    <script id="search-hit-fuse-template" type="text/x-template">
+      <div class="search-hit" id="summary-{{key}}">
+      <div class="search-hit-content">
+        <div class="search-hit-name">
+          <a href="{{relpermalink}}">{{title}}</a>
+          <div class="article-metadata search-hit-type">{{type}}</div>
+          <p class="search-hit-description">{{snippet}}</p>
+        </div>
+      </div>
+      </div>
+    </script>
+    
+
+    
+    
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/fuse.js/3.2.1/fuse.min.js" integrity="sha256-VzgmKYmhsGNNN4Ph1kMW+BjoYJM2jV5i4IlFoeZA9XI=" crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/mark.js/8.11.1/jquery.mark.min.js" integrity="sha256-4HLtjeVgH0eIB3aZ9mLYF6E8oU5chNdjU6p6rrXpl9U=" crossorigin="anonymous"></script>
+    
+
+    
+    
+
+    
+    
+
+    
+    
+    
+    
+    
+    
+    
+    
+    
+      
+    
+    
+    
+    
+    <script src="/js/academic.min.c816d323c3a55093dae0829b44ea1ca8.js"></script>
+
+    
+
+
+
+
+
+
+  
+  
+  <div class="container">
+    <footer class="site-footer">
+
+
+  <p class="powered-by">
+    © 2020 Rajeev Sharma &middot; 
+
+    Powered by the
+    <a href="https://sourcethemes.com/academic/" target="_blank" rel="noopener">Academic theme</a> for
+    <a href="https://gohugo.io" target="_blank" rel="noopener">Hugo</a>.
+
+    
+    <span class="float-right" aria-hidden="true">
+      <a href="#" class="back-to-top">
+        <span class="button_icon">
+          <i class="fas fa-chevron-up fa-2x"></i>
+        </span>
+      </a>
+    </span>
+    
+  </p>
+</footer>
+
+  </div>
+  
+
+  
+<div id="modal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title">Cite</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <pre><code class="tex hljs"></code></pre>
+      </div>
+      <div class="modal-footer">
+        <a class="btn btn-outline-primary my-1 js-copy-cite" href="#" target="_blank">
+          <i class="fas fa-copy"></i> Copy
+        </a>
+        <a class="btn btn-outline-primary my-1 js-download-cite" href="#" target="_blank">
+          <i class="fas fa-download"></i> Download
+        </a>
+        <div id="modal-error"></div>
+      </div>
+    </div>
+  </div>
+</div>
+
+</body>
+</html>

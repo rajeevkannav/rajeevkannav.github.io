@@ -1,0 +1,232 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Apple | Rajeev Sharma</title>
+    <link>/tags/apple/</link>
+      <atom:link href="/tags/apple/index.xml" rel="self" type="application/rss+xml" />
+    <description>Apple</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Mon, 28 Nov 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Apple</title>
+      <link>/tags/apple/</link>
+    </image>
+    
+    <item>
+      <title>over the Air Test version app for Apple</title>
+      <link>/post/2016-11-28-over-the-air-update-for-an-ios-application/</link>
+      <pubDate>Mon, 28 Nov 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-11-28-over-the-air-update-for-an-ios-application/</guid>
+      <description>
+
+&lt;h3 id=&#34;apple-app-distribution&#34;&gt;Apple App Distribution&lt;/h3&gt;
+
+&lt;p&gt;Distributing an iPhone application is a headache. We(our iOs Team) use a service called
+  &lt;a href=&#34;https://www.diawi.com/&#34;&gt;Diawi&lt;/a&gt; to deploy Development and In-house applications directly
+  to the devices. We must need to add allowed devices already to those provisioning profile
+  and these files with ipa to diawi.&lt;/p&gt;
+
+&lt;h3 id=&#34;problem&#34;&gt;Problem&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://www.diawi.com/&#34;&gt;Diawi&lt;/a&gt; provides a link with an expiry time and we need to share
+  provisioning profile and certificates with them too. Everytime they produce a new link.&lt;/p&gt;
+
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+
+&lt;ul&gt;
+&lt;li&gt;generate an IPA via xcode/CLI&lt;/li&gt;
+&lt;li&gt;get the link of the IPA and add in the plist&lt;/li&gt;
+&lt;li&gt;place generated plist file in drop box&lt;/li&gt;
+&lt;li&gt;get the link from the dropbox&lt;/li&gt;
+&lt;li&gt;construct an items link with the dropbox
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;You can send the items link to the testing team to use the file for testing.
+  This setting up is an one time process and for further changes and the updates
+  you just replace the IPA file is the already uploaded path. The testing team
+  in the remote can fetch the updated file with the same link path.&lt;/p&gt;
+
+&lt;p&gt;A sample items link is given below.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;itms-services://?action=download-manifest&amp;amp;url=https://myWebsite/myApp/myApp.plist
+
+itms-services://?action=download-manifest&amp;amp;url=&amp;lt;Dropbox URL&amp;gt;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;We haven&#39;t implemented this yet to our iOS Team app distibution process, We got this excellent
+idea from the reference given below, By this way, for sure we&#39;ll solve the issue of testing of
+iOS apps with the team in a remote location.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;http://54.173.149.226/2016/09/how-to-send-test-version-over-the-air-ota/&#34;&gt;Mallow Technologies Private Limited&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Apple On-Demand Streaming Support with amazon cloudfront and Transcoding API</title>
+      <link>/post/2016-09-24-apple-hls-amazon-cloudfrount-transcoding-format-help/</link>
+      <pubDate>Sat, 24 Sep 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-09-24-apple-hls-amazon-cloudfrount-transcoding-format-help/</guid>
+      <description>
+
+&lt;h3 id=&#34;apple-on-demand-streaming&#34;&gt;Apple On-Demand Streaming&lt;/h3&gt;
+
+&lt;p&gt;In the on-demand streaming case, your video content is stored in S3. Your viewers
+can choose to watch it at any desired time, hence the name on-demand. A complete
+on-demand streaming solution typically makes use of Amazon S3 for storage, the Amazon
+Elastic Transcoder for video processing, and Amazon CloudFront for delivery.&lt;/p&gt;
+
+&lt;h3 id=&#34;cloudfront&#34;&gt;CloudFront&lt;/h3&gt;
+
+&lt;p&gt;Using Amazon CloudFront, You can deliver adaptive bitrate video in a scalable,
+high performing and cost effective manner to audiences around the world with
+format specification.&lt;/p&gt;
+
+&lt;h3 id=&#34;amazon-elastic-transcoder&#34;&gt;Amazon Elastic Transcoder&lt;/h3&gt;
+
+&lt;p&gt;Amazon Elastic Transcoder manages all aspects of the media transcoding
+process for you transparently and automatically. There’s no need to administer
+software, scale hardware, tune performance, or otherwise manage transcoding infrastructure.&lt;/p&gt;
+
+&lt;h3 id=&#34;how-to&#34;&gt;How To ?&lt;/h3&gt;
+
+&lt;p&gt;To use CloudFront to stream media files in Apple HTTP Live Streaming (HLS) format,
+perform the following tasks:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;* Transcode your media files into HLS format. You can use any transcoding
+  application that supports HLS format, for example, Amazon Elastic Transcoder.
+
+* Create a CloudFront web distribution. No special settings are required.
+
+* (Upload your files to the origin that you specified when you created your distribution.
+
+* For links in your application (for example, a media player), specify the master playlist
+  in the same format that you use for other objects that you&#39;re distributing using CloudFront.
+  For more information, see Format of URLs for CloudFront Objects.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://aws.amazon.com/blogs/aws/using-amazon-cloudfront-for-video-streaming/&#34;&gt;Amazon Web Services Docs&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>fastlane tools family introduction snapshot</title>
+      <link>/post/2015-10-17-fastlane-tools-famliy-introduction-snapshot/</link>
+      <pubDate>Sat, 17 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-10-17-fastlane-tools-famliy-introduction-snapshot/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;!https://github.com/KrauseFx/snapshot&#34;&gt;fastlane-Snapshot&lt;/a&gt; lets you Automate taking localized screenshots of your iOS app on every device.&lt;/p&gt;
+
+&lt;h3 id=&#34;problem-you-have-an-iphone-app-you-support-20-languages-you-updated-the-design-you-want-to-release-the-update-to-the-app-store-what-s-missing&#34;&gt;Problem: You have an iPhone app. You support 20 languages. You updated the design. You want to release the update to the App Store. What&amp;rsquo;s missing?&lt;/h3&gt;
+
+&lt;h3 id=&#34;solution-you-have-to-manually-create-20-languages-x-5-devices-x-5-screenshots-500-screenshots&#34;&gt;Solution: You have to manually create 20 (languages) x 5 (devices) x 5 (screenshots) = 500 screenshots.&lt;/h3&gt;
+
+&lt;p&gt;Or Use fastlane famliy tool &lt;code&gt;snapshot&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;fastlane-features&#34;&gt;fastlane features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create hundreds of screenshots in multiple languages on all simulators&lt;/li&gt;
+&lt;li&gt;Configure it once, store the configuration in git&lt;/li&gt;
+&lt;li&gt;Do something else, while the computer takes the screenshots for you&lt;/li&gt;
+&lt;li&gt;Integrates with fastlane and deliver&lt;/li&gt;
+&lt;li&gt;Generates a beautiful web page, which shows all screenshots on all devices. This is perfect to send to Q&amp;amp;A or the marketing team&lt;/li&gt;
+&lt;li&gt;snapshot automatically waits for network requests to be finished before taking a screenshot
+ (we don&amp;rsquo;t want loading images in the App Store screenshots)&lt;/li&gt;
+&lt;li&gt;Support for advanced configuration, like preprocess macros or prefilling of data&lt;/li&gt;
+&lt;li&gt;100% open source unlike Apple&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After &lt;code&gt;snapshot&lt;/code&gt; successfully created new screenshots, it will generate a beautiful html file to get a quick overview of all screens:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;/images/snapshot.jpg&#34;&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;start-snapshot&#34;&gt;Start snapshot&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cd [your_project_folder]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;snapshot&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Your screenshots will be stored in &lt;code&gt;./screenshots/&lt;/code&gt; by default.&lt;/p&gt;
+
+&lt;p&gt;From now on, you can run snapshot to create new &lt;code&gt;screenshots&lt;/code&gt; of your app.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>fastlane iOs automated deployments</title>
+      <link>/post/2015-10-10-fastlane-tools-automated-deployment-ios/</link>
+      <pubDate>Sat, 10 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-10-10-fastlane-tools-automated-deployment-ios/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;!https://fastlane.tools/&#34;&gt;fastlane&lt;/a&gt;  lets you define and run your deployment pipelines for different environments. It helps you unify your app’s
+release process and automate the whole process. fastlane connects all fastlane tools and third party tools,
+like CocoaPods and xctool.&lt;/p&gt;
+
+&lt;h4 id=&#34;fastlane-features&#34;&gt;fastlane features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Connect all build tools together&lt;/li&gt;
+&lt;li&gt;Define multiple lanes for different needs&lt;/li&gt;
+&lt;li&gt;Jenkins Integration&lt;/li&gt;
+&lt;li&gt;Extend by adding your own build steps&lt;/li&gt;
+&lt;li&gt;Deploy from any computer&lt;/li&gt;
+&lt;li&gt;Release new app updates with the push of a button&lt;/li&gt;
+&lt;li&gt;100% open source&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h4 id=&#34;meet-the-fastlane-family&#34;&gt;Meet the fastlane family&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;deliver
+&lt;code&gt;Upload screenshots, metadata and your app to the App Store using a single command&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;snapshot
+&lt;code&gt;Automate taking localized screenshots of your iOS app on every device&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;frameit
+&lt;code&gt;Quickly put your screenshots into the right device frames&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;PEM
+&lt;code&gt;Automatically generate and renew your push notification profiles&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;sigh
+&lt;code&gt;Because you would rather spend your time building stuff than fighting provisioning&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;produce
+&lt;code&gt;Create new iOS apps on iTunes Connect and Developer Portal using the command line&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;cert
+&lt;code&gt;Automatically create and maintain iOS code signing certificates&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;codes
+&lt;code&gt;Create promo codes for iOS Apps using the command line&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;gym
+&lt;code&gt;Building your iOS app has never been easier&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

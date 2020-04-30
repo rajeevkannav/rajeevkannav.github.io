@@ -1,0 +1,336 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>nginx | Rajeev Sharma</title>
+    <link>/tags/nginx/</link>
+      <atom:link href="/tags/nginx/index.xml" rel="self" type="application/rss+xml" />
+    <description>nginx</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 02 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>nginx</title>
+      <link>/tags/nginx/</link>
+    </image>
+    
+    <item>
+      <title>passenger 5.0.26 with nginx deployment fix</title>
+      <link>/post/2016-04-02-passenger-5.0.26-nginx-deployment-fix/</link>
+      <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-04-02-passenger-5.0.26-nginx-deployment-fix/</guid>
+      <description>
+
+&lt;p&gt;We&amp;rsquo;re using passenger and nginx combo for our Rails application at production environment. After upgrading passenger
+to 5.0.26, We&amp;rsquo;re seeing errors from passenger about building the native support so file.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+App 14490 stderr:  [passenger_native_support.so] trying to compile for the current user
+(deploy) and Ruby interpreter&amp;hellip;
+App 14490 stderr:      (set PASSENGER_COMPILE_NATIVE_SUPPORT_BINARY=0 to disable)
+App 14490 stderr:      Warning: compilation didn&amp;rsquo;t succeed. To learn why, read this file:
+App 14490 stderr:      /tmp/passenger_native_support-%@$#^^.log
+App 14490 stderr:  [passenger_native_support.so] not downloading because passenger wasn&amp;rsquo;t
+installed from a release package
+App 14490 stderr:  [passenger_native_support.so] will not be used (can&amp;rsquo;t compile or download)
+App 14490 stderr:   &amp;ndash;&amp;gt; Passenger will still operate normally.
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;In the /tmp/passenger_native_support-%@$#^^.log file log, the error looks like:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;h1 id=&#34;mkdir-p-usr-lib-buildout-ruby-ruby-version-linux&#34;&gt;mkdir -p /usr/lib/buildout/ruby/ruby-version-linux&lt;/h1&gt;
+
+&lt;h2 id=&#34;encountered-permission-error-trying-a-different-directory&#34;&gt;Encountered permission error, trying a different directory&amp;hellip;&lt;/h2&gt;
+
+&lt;h1 id=&#34;mkdir-p-home-deploy-passenger-native-support-5-0-26-ruby-version-linux&#34;&gt;mkdir -p /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
+
+&lt;h1 id=&#34;cd-home-deploy-passenger-native-support-5-0-26-ruby-version-linux&#34;&gt;cd /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
+
+&lt;h1 id=&#34;usr-bin-ruby-version-usr-lib-src-ruby-native-extension-extconf-rb&#34;&gt;/usr/bin/ruby-version /usr/lib/src/ruby_native_extension/extconf.rb&lt;/h1&gt;
+
+&lt;p&gt;/usr/bin/ruby-version: No such file or directory &amp;ndash; /usr/lib/src/ruby_native_extension/extconf.rb (LoadError)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;In short, ruby_native_extension isn&amp;rsquo;t the correct folder, but as a temporary fix to get the compilation going
+you could just copy the necessary files there anyway, e.g.:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;p&gt;sudo mkdir /usr/lib/src/&lt;br /&gt;
+cp -dpR /usr/share/passenger-enterprise/ruby_extension_source /usr/lib/src/ruby_native_extension&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;we-moved-our-machine-to-unicorn-as-we-ve-scope-to-migrate-till-now&#34;&gt;We moved our machine to Unicorn as we&amp;rsquo;ve scope to migrate till now.&lt;/h3&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>CodePush Ionic Instant updates</title>
+      <link>/post/2015-11-21-code-push-cordova-microsoft-ionic/</link>
+      <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-11-21-code-push-cordova-microsoft-ionic/</guid>
+      <description>
+
+&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt; We&#39;re using an Mobile Application creator framework which need to update application instantly.
+ Without using Store(s) Google-Play, App-store and as expected solution must be easy/Generic.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+
+&lt;h4 id=&#34;codepush&#34;&gt;CodePush&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;CodePush is a cloud service that enables Cordova and React Native developers to deploy mobile app updates directly
+to their users’ devices. It works by acting as a central repository that developers can publish certain updates to
+(e.g. JS, HTML, CSS and image changes), and that apps can query for updates from (using our provided client SDKs).
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;how-to-give-it-a-try&#34;&gt;How to give it a Try.&lt;/h5&gt;
+
+&lt;h6 id=&#34;install-the-codepush-cli&#34;&gt;Install the CodePush CLI&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;npm install -g code-push-cli # may be with sudo&lt;/code&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;create-a-codepush-account&#34;&gt;Create a CodePush account&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;code-push register&lt;/code&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;dologin&#34;&gt;doLogin()&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;code-push login&lt;/code&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;create-a-blank-ionic-app-lets-call-it-instantapp&#34;&gt;create a blank Ionic App, lets call it instantApp&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;$ ionic start instantApp sidemenu&lt;/code&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;codepush-ify-your-mobile-client&#34;&gt;CodePush-ify your mobile client&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;cordova plugin add cordova-plugin-code-push&lt;/code&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;register-your-app-with-the-service&#34;&gt;Register your app with the service&lt;/h6&gt;
+
+&lt;p&gt;&lt;code&gt;code-push app add instantApp&lt;/code&gt; # you&amp;rsquo;ll get deployment keys per environment&lt;/p&gt;
+
+&lt;h6 id=&#34;create-one-deployment-per-target-platform-using-the&#34;&gt;Create one deployment per target platform using the&lt;/h6&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;p&gt;&lt;platform name=&#34;android&#34;&gt;
+    &lt;preference name=&#34;CodePushDeploymentKey&#34; value=&#34;YOUR-ANDROID-DEPLOYMENT-KEY&#34; /&gt;
+&lt;/platform&gt;
+&lt;platform name=&#34;ios&#34;&gt;
+    &lt;preference name=&#34;CodePushDeploymentKey&#34; value=&#34;YOUR-IOS-DEPLOYMENT-KEY&#34; /&gt;
+&lt;/platform&gt;&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;allow-access-to-the-codepush-server&#34;&gt;Allow access to the CodePush server:&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;In config.xml, add
+&lt;code&gt;&amp;lt;access origin=&amp;quot;https://codepush.azurewebsites.net/ &amp;quot; /&amp;gt;&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;In your html pages where the plugin is used, add the server URL to your existing Content Security Policy (CSP) header:
+&lt;code&gt;&amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;default-src https://codepush.azurewebsites.net/ &#39;self&#39; ... &amp;quot;&amp;gt;&lt;/code&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;dosomecode-it-s-sample&#34;&gt;doSomeCode It&amp;rsquo;s Sample&lt;/h6&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;p&gt;var onError = function (error) {
+      console.log(&amp;ldquo;An error occurred. &amp;rdquo; + error);
+  };&lt;/p&gt;
+
+&lt;p&gt;var onApplySuccess = function () {
+      console.log(&amp;ldquo;Apply succeeded. Reloading the application&amp;hellip;&amp;rdquo;);
+  };&lt;/p&gt;
+
+&lt;p&gt;var onPackageDownloaded = function (localPackage) {
+      localPackage.apply(onApplySuccess, onError);
+  };&lt;/p&gt;
+
+&lt;p&gt;var onUpdateCheck = function (remotePackage) {
+      if (!remotePackage) {
+          console.log(&amp;ldquo;The application is up to date.&amp;rdquo;);
+      } else {
+          console.log(&amp;ldquo;A CodePush update is available. Package hash: &amp;ldquo; + remotePackage.packageHash);
+          remotePackage.download(onPackageDownloaded, onError);
+      }
+  };&lt;/p&gt;
+
+&lt;p&gt;window.codePush.checkForUpdate(onUpdateCheck, onError);&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;create-an-application-update-package&#34;&gt;Create an application update package&lt;/h6&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Prepare your application
+&lt;code&gt;cordova prepare &amp;lt;platform&amp;gt;&lt;/code&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;We are not deploying binaries in updates, so prepare is enough for this step. The cordova build command works as well
+ for this step, since it calls cordova prepare behind the scenes.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Deploy update using the CodePush CLI&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;For Android:&lt;br /&gt;
+&lt;code&gt;code-push release &amp;lt;appName&amp;gt; path_to_your_app/platforms/android/assets/www &amp;lt;appStoreVersion&amp;gt; --deploymentName &amp;lt;AndroidDeploymentName&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;For iOS:
+&lt;code&gt;code-push release &amp;lt;appName&amp;gt; path_to_your_app/platforms/ios/www &amp;lt;appStoreVersion&amp;gt; --deploymentName &amp;lt;iOSDeploymentName&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;The service should now return an update when calling &lt;code&gt;codePush.checkForUpdate&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Restrict nginx upload file size limit</title>
+      <link>/post/2015-11-14-nginx-upload-file-size-limit/</link>
+      <pubDate>Sat, 14 Nov 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-11-14-nginx-upload-file-size-limit/</guid>
+      <description>
+
+&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt; We&#39;ve an Enterprise level Rails application and we need to have 
+ Upload size restrictions because this could lead to a DOS(denial-of-service)
+ to the application via filling the HDD or utilizing web resources and 
+ solution must be easy/Generic.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;We updated our nginx configuration `client_max_body_size size` which
+sets the maximum allowed size of the client request body, specified
+in the “Content-Length” request header field. If the size in a request
+exceeds the configured value, the 413 (Request Entity Too Large) error
+is returned to the client. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;sudo-raw-solution-to-nginx-configuration&#34;&gt;sudo/RAW solution to nginx configuration&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+client_max_body_size 50m; # 50MB for file size restriction
+{% endhighlight %}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Syntax:     client_max_body_size size;
+Default:    client_max_body_size 1m;
+Context:    http, server, location
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;please-be-aware-that-browsers-cannot-correctly-display-this-error-setting-size-to-0-disables-checking-of-client-request-body-size&#34;&gt;Please be aware that browsers cannot correctly display this error. Setting size to 0 disables checking of client request body size.&lt;/h3&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Redirect request based on URL paramters via nginx</title>
+      <link>/post/2015-10-24-nginx-redirect-request-url-parameters/</link>
+      <pubDate>Sat, 24 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-10-24-nginx-redirect-request-url-parameters/</guid>
+      <description>
+
+&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt; We&#39;ve an Enterprise level Mobile/iPad application and we did
+ major changes to our backEnd (Rails App) so as a usual process
+ we uploaded new app version and waiting to approve via app-Store,
+ We don&#39;t when Apple is going to approve it, We have to support
+ previous and upcoming version and Solution must be easy/Generic.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;We configured our Mobile/iPad application to send a new parameter
+with every single request say version=1 Or Version=Beta then we 
+utilized nginx to redirect such request to servers who&#39;re capable
+to serve New Changes and Others we&#39;re to old machines
+
+This could be an Hack or Not so good implementation but for now
+this seems easy, affordable and long term too.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;sudo-raw-solution-to-nginx-configuration&#34;&gt;sudo/RAW solution to nginx configuration&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+##########################################################################
+    if ($arg_version) { //
+       rewrite ^/(.*) &lt;a href=&#34;http://ip_addresss&#34;&gt;http://ip_addresss&lt;/a&gt; permanent; #new machine ip address
+    }
+##########################################################################`
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Understanding Nginx HTTP Proxying</title>
+      <link>/post/2015-04-11-understanding-nginx-http-proxying/</link>
+      <pubDate>Sat, 11 Apr 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-04-11-understanding-nginx-http-proxying/</guid>
+      <description>
+
+&lt;h3 id=&#34;general-proxying-information&#34;&gt;General Proxying Information&lt;/h3&gt;
+
+&lt;p&gt;One reason to proxy to other servers from Nginx is the ability to scale out your infrastructure. Nginx is built to handle many concurrent connections at the same time. This makes it ideal for being the point-of-contact for clients.&lt;/p&gt;
+
+&lt;h6 id=&#34;deconstructing-a-basic-http-proxy-pass&#34;&gt;Deconstructing a Basic HTTP Proxy Pass&lt;/h6&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at an example:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# server context
+
+location /match/here {
+    proxy_pass http://example.com;
+}
+
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the above configuration snippet, For definitions that fit this pattern, the URI requested by the client will be passed to the upstream server as-is.&lt;/p&gt;
+
+&lt;p&gt;For example, when a request for &lt;code&gt;/match/here/please&lt;/code&gt; is handled by this block, the request URI will be sent to the &lt;code&gt;example.com&lt;/code&gt; server as &lt;code&gt;http://example.com/match/here/please&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;Let&amp;rsquo;s take a look at the alternative scenario:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;# server context
+
+location /match/here {
+    proxy_pass http://example.com/new/prefix;
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the above example, the proxy server is defined with a URI segment on the end (&lt;code&gt;/new/prefix&lt;/code&gt;). When a URI is given in the proxy_pass definition, the portion of the request that matches the location definition is replaced by this URI during the pass.&lt;/p&gt;
+
+&lt;p&gt;For example, a request for &lt;code&gt;/match/here/please&lt;/code&gt; on the Nginx server will be passed to the upstream server as &lt;code&gt;http://example.com/new/prefix/please&lt;/code&gt;. The &lt;code&gt;/match/here&lt;/code&gt; is replaced by &lt;code&gt;/new/prefix&lt;/code&gt;. This is an important point to keep in mind.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
