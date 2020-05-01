@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>filename | Rajeev Sharma</title>
+    <link>/tags/filename/</link>
+      <atom:link href="/tags/filename/index.xml" rel="self" type="application/rss+xml" />
+    <description>filename</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 31 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>filename</title>
+      <link>/tags/filename/</link>
+    </image>
+    
+    <item>
+      <title>tempfile generation issue from user generated filename in ruby/OS</title>
+      <link>/post/2017-03-31-tempfile-name-ruby-problem/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-03-31-tempfile-name-ruby-problem/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We used a super simple code in ruby to generate tempfiles with dynamic filename.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;temp_file = Tempfile.new([title, &#39;.pdf&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where title is a variable value (Input taken from user).so if your insert special
+or not allowed/expected character as a filename in any Operating system this code
+will fail. Well this is not related to Ruby directly as its a filename constraint
+in every Operating system but it happened to us via Ruby code.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;temp_file = Tempfile.new([title.gsub(/[^\w\.]/, &#39;_&#39;), &#39;.pdf&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty simple solution to remove/Replace not allowed values there. This is very
+minor thing to correct as well to take notes, but we had exception from production
+and that is not acceptable at all.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

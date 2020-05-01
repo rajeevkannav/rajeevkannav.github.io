@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>AWS | Rajeev Sharma</title>
+    <link>/tags/aws/</link>
+      <atom:link href="/tags/aws/index.xml" rel="self" type="application/rss+xml" />
+    <description>AWS</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 07 Apr 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>AWS</title>
+      <link>/tags/aws/</link>
+    </image>
+    
+    <item>
+      <title>AWS cloudformation with AutoScalingGroup and LaunchConfiguration</title>
+      <link>/post/2017-04-07-autoscaling-via-aws-cloudformation/</link>
+      <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-04-07-autoscaling-via-aws-cloudformation/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We&amp;rsquo;re currently looking into such an option to run multiple number
+of ec2 instances into already running environment(VPC) with launch
+configurations too.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;       Amazon web services - Cloudformation - AutoScaling
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;CloudFormation is one of the coolest services from AWS at no additional charge.
+You can run/start and update a full stack(collection of resources) over aws with
+the help of a template written in JSON/YAML by using the AWS Management Console,
+AWS Command Line Interface, or APIs. It gives developers and systems administrators
+an easy way to create and manage a collection of related AWS resources,
+provisioning and updating them.&lt;/p&gt;
+
+&lt;h5 id=&#34;syntax-and-example-s&#34;&gt;Syntax and Example(s)&lt;/h5&gt;
+
+&lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::AutoScalingGroup
+ resource.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::AutoScalingGroup&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;AvailabilityZones&amp;quot; : [ String, ... ],
+      &amp;quot;Cooldown&amp;quot; : String,
+      &amp;quot;DesiredCapacity&amp;quot; : String,
+      &amp;quot;HealthCheckGracePeriod&amp;quot; : Integer,
+      &amp;quot;HealthCheckType&amp;quot; : String,
+      &amp;quot;InstanceId&amp;quot; : String,
+      &amp;quot;LaunchConfigurationName&amp;quot; : String,
+      &amp;quot;LoadBalancerNames&amp;quot; : [ String, ... ],
+      &amp;quot;MaxSize&amp;quot; : String,
+      &amp;quot;MetricsCollection&amp;quot; : [ MetricsCollection, ... ],
+      &amp;quot;MinSize&amp;quot; : String,
+      &amp;quot;NotificationConfigurations&amp;quot; : [ NotificationConfigurations, ... ],
+      &amp;quot;PlacementGroup&amp;quot; : String,
+      &amp;quot;Tags&amp;quot; : [ Auto Scaling Tag, ... ],
+      &amp;quot;TargetGroupARNs&amp;quot; : [ String, ... ],
+      &amp;quot;TerminationPolicies&amp;quot; : [ String, ..., ],
+      &amp;quot;VPCZoneIdentifier&amp;quot; : [ String, ... ]
+   }
+}     
+
+
+&amp;quot;WebServerGroup&amp;quot; : {
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::AutoScalingGroup&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;AvailabilityZones&amp;quot; : { &amp;quot;Fn::GetAZs&amp;quot; : &amp;quot;&amp;quot; },
+      &amp;quot;LaunchConfigurationName&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;LaunchConfig&amp;quot; },
+      &amp;quot;MinSize&amp;quot; : &amp;quot;2&amp;quot;,
+      &amp;quot;MaxSize&amp;quot; : &amp;quot;2&amp;quot;,
+      &amp;quot;LoadBalancerNames&amp;quot; : [ { &amp;quot;Ref&amp;quot; : &amp;quot;ElasticLoadBalancer&amp;quot; } ],
+      &amp;quot;MetricsCollection&amp;quot;: [
+         {
+            &amp;quot;Granularity&amp;quot;: &amp;quot;1Minute&amp;quot;,
+            &amp;quot;Metrics&amp;quot;: [
+               &amp;quot;GroupMinSize&amp;quot;,
+               &amp;quot;GroupMaxSize&amp;quot;
+            ]
+         }
+      ]
+   }
+}
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::LaunchConfiguration
+ resource.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;{
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::LaunchConfiguration&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;AssociatePublicIpAddress&amp;quot; : Boolean,
+      &amp;quot;BlockDeviceMappings&amp;quot; : [ BlockDeviceMapping, ... ],
+      &amp;quot;ClassicLinkVPCId&amp;quot; : String,
+      &amp;quot;ClassicLinkVPCSecurityGroups&amp;quot; : [ String, ... ],
+      &amp;quot;EbsOptimized&amp;quot; : Boolean,
+      &amp;quot;IamInstanceProfile&amp;quot; : String,
+      &amp;quot;ImageId&amp;quot; : String,
+      &amp;quot;InstanceId&amp;quot; : String,
+      &amp;quot;InstanceMonitoring&amp;quot; : Boolean,
+      &amp;quot;InstanceType&amp;quot; : String,
+      &amp;quot;KernelId&amp;quot; : String,
+      &amp;quot;KeyName&amp;quot; : String,
+      &amp;quot;PlacementTenancy&amp;quot; : String,
+      &amp;quot;RamDiskId&amp;quot; : String,
+      &amp;quot;SecurityGroups&amp;quot; : [ SecurityGroup, ... ],
+      &amp;quot;SpotPrice&amp;quot; : String,
+      &amp;quot;UserData&amp;quot; : String
+   }
+}
+
+
+&amp;quot;LaunchConfig&amp;quot; : {
+   &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::LaunchConfiguration&amp;quot;,
+   &amp;quot;Properties&amp;quot; : {
+      &amp;quot;KeyName&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;KeyName&amp;quot; },
+      &amp;quot;ImageId&amp;quot; : {
+         &amp;quot;Fn::FindInMap&amp;quot; : [
+            &amp;quot;AWSRegionArch2AMI&amp;quot;,
+            { &amp;quot;Ref&amp;quot; : &amp;quot;AWS::Region&amp;quot; },
+            {
+               &amp;quot;Fn::FindInMap&amp;quot; : [
+                  &amp;quot;AWSInstanceType2Arch&amp;quot;, { &amp;quot;Ref&amp;quot; : &amp;quot;InstanceType&amp;quot; }, &amp;quot;Arch&amp;quot;
+               ]
+            }
+         ]
+      },
+      &amp;quot;UserData&amp;quot; : { &amp;quot;Fn::Base64&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;WebServerPort&amp;quot; }},
+      &amp;quot;SecurityGroups&amp;quot; : [ { &amp;quot;Ref&amp;quot; : &amp;quot;InstanceSecurityGroup&amp;quot; } ],
+      &amp;quot;InstanceType&amp;quot; : { &amp;quot;Ref&amp;quot; : &amp;quot;InstanceType&amp;quot; },
+      &amp;quot;BlockDeviceMappings&amp;quot; : [
+         {
+           &amp;quot;DeviceName&amp;quot; : &amp;quot;/dev/sda1&amp;quot;,
+           &amp;quot;Ebs&amp;quot; : { &amp;quot;VolumeSize&amp;quot; : &amp;quot;50&amp;quot;, &amp;quot;VolumeType&amp;quot; : &amp;quot;io1&amp;quot;, &amp;quot;Iops&amp;quot; : 200 } 
+         },
+         {
+           &amp;quot;DeviceName&amp;quot; : &amp;quot;/dev/sdm&amp;quot;,
+           &amp;quot;Ebs&amp;quot; : { &amp;quot;VolumeSize&amp;quot; : &amp;quot;100&amp;quot;, &amp;quot;DeleteOnTermination&amp;quot; : &amp;quot;true&amp;quot;}
+         }
+      ]
+   }
+} 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;On the back-ground it will create given number of EC2 instances to current
+stack following with the launch-configurations.&lt;/p&gt;
+
+&lt;p&gt;Still we&amp;rsquo;re digging into AWS-CloudFormation as beginner level and continue
+with major-minor details with this blog series.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Using SQL triggers in AWS Relational Database Service (RDS).</title>
+      <link>/post/2016-02-20-amazon-rds-sql-triggers/</link>
+      <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-02-20-amazon-rds-sql-triggers/</guid>
+      <description>&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;Few months ago we&amp;rsquo;ve tried to create SQL database triggers for an AWS RDS
+instance and got following error.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;ERROR 1419 (HY000) at line #: You do not have the SUPER privilege
+and binary logging is enabled (you might want to use the less safe
+log_bin_trust_function_creators variable).
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Amazon RDS disable all user defined SQL code be default, as binary
+procedures could compromise the RDS architecture. And for this purpose, Amazon
+blocked granting the missing &lt;code&gt;SUPER&lt;/code&gt; privileges to any database user except the
+&lt;code&gt;rdsadmin&lt;/code&gt; user owned by Amazon itself.&lt;/p&gt;
+
+&lt;p&gt;As a workaround, there is an option to set the mysterious parameter
+&lt;code&gt;log_bin_trust_function_creators&lt;/code&gt; to 1, that prevents the database
+from complaining against simple and inoffensive triggers. Though,
+setting this parameter requires following steps:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Open the RDS web console Goto the &lt;code&gt;Parameter Groups&lt;/code&gt; tab.&lt;/li&gt;
+&lt;li&gt;Create a new Parameter Group. On the dialog, select the MySQL
+family compatible to your MySQL database version, give it a name and confirm.&lt;/li&gt;
+&lt;li&gt;Select the just created Parameter Group and issue &lt;code&gt;Edit Parameters&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Look for the parameter &lt;code&gt;log_bin_trust_function_creators&lt;/code&gt; and set its value to &lt;code&gt;1&lt;/code&gt; and Save the changes.&lt;/li&gt;
+&lt;li&gt;Open the &lt;code&gt;Instances&lt;/code&gt; tab. Expand your MySQL instance and issue the &lt;code&gt;Instance Action&lt;/code&gt;
+named &lt;code&gt;Modify&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Select the just created Parameter Group and enable &lt;code&gt;Apply Immediately&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Click on &lt;code&gt;Continue&lt;/code&gt; and confirm the changes.&lt;/li&gt;
+&lt;li&gt;Again, open the &lt;code&gt;Instances&lt;/code&gt; tab. Expand your MySQL instance and issue the
+&lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Modify&lt;/code&gt;.&lt;/li&gt;
+&lt;li&gt;Dont forget: Open the &lt;code&gt;Instances&lt;/code&gt; tab. Expand your MySQL instance and issue
+the &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Reboot&lt;/code&gt;.
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mysql2 Error Lost connection to MySQL server during query Rails Application</title>
+      <link>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</link>
+      <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</guid>
+      <description>&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;In our Rails Application we faced several exception(s) saying&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Mysql2::Error: Lost connection to MySQL server during query
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usually it indicates network connectivity trouble and you should check the condition of your network if this error
+occurs frequently. If the error message includes “during query,” this is probably the case you are experiencing.&lt;/p&gt;
+
+&lt;p&gt;Sometimes the &lt;code&gt;during query&lt;/code&gt; form happens when millions of rows are being sent as part of one or more queries. If you
+know that this is happening, you should try increasing &lt;code&gt;net_read_timeout&lt;/code&gt; from its default of 30 seconds to 60 seconds
+or longer, sufficient for the data transfer to complete.&lt;/p&gt;
+
+&lt;p&gt;In our case luckily we&amp;rsquo;re on Amazon Relational Database Machine(s), so it can be done easily and Quickly.&lt;/p&gt;
+
+&lt;p&gt;Visit &lt;code&gt;Parameter Groups&lt;/code&gt; of your Amazon RDS machine. update &lt;code&gt;net_read_timeout&lt;/code&gt; value of that group which is being used.
+we make it 3600. default unit in mysql is seconds&lt;/p&gt;
+
+&lt;p&gt;Re-booted the rds instance, though it was a down for a while. After that a new sun arise we&amp;rsquo;ve not face such exceptions
+yet. still we&amp;rsquo;re investigating.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

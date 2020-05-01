@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>framework | Rajeev Sharma</title>
+    <link>/tags/framework/</link>
+      <atom:link href="/tags/framework/index.xml" rel="self" type="application/rss+xml" />
+    <description>framework</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 01 Aug 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>framework</title>
+      <link>/tags/framework/</link>
+    </image>
+    
+    <item>
+      <title>loopback - The Node.js API Framework</title>
+      <link>/post/2015-08-01-loopback-node-api-framework/</link>
+      <pubDate>Sat, 01 Aug 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-08-01-loopback-node-api-framework/</guid>
+      <description>
+
+&lt;p&gt;We&amp;rsquo;ve Rails,Django and Node has yet to be established. Now, there is a powerful framework gaining steam: LoopBack, an
+open source API framework built by StrongLoop. StrongLoop is an important contributor to the latest Node version,
+not to mention the current maintainers of Express, one of the most popular Node frameworks in existence.&lt;/p&gt;
+
+&lt;figure class=&#34;third&#34;&gt;
+    &lt;img src=&#34;/images/loopback.svg&#34;&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;about&#34;&gt;About&lt;/h2&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Quickly create dynamic end-to-end REST APIs.&lt;/li&gt;
+&lt;li&gt;Connect devices and browsers to data and services.&lt;/li&gt;
+&lt;li&gt;Use Android, iOS, and AngularJS SDKs to easily create client apps.&lt;/li&gt;
+&lt;li&gt;Add-on components for push, file management, 3rd-party login, and geolocation.&lt;/li&gt;
+&lt;li&gt;Use StrongLoop Arc to visually edit, deploy, and monitor LoopBack apps.&lt;/li&gt;
+&lt;li&gt;StrongLoop API Gateway acts an intermediary between API consumers (clients) and API providers to externalize, secure, and manage APIs.&lt;/li&gt;
+&lt;li&gt;Runs on-premises or in the cloud&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;install&#34;&gt;Install&lt;/h3&gt;
+
+&lt;p&gt;Assuming you have already installed Node, Install the StrongLoop tools for LoopBack applications.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ npm install -g strongloop
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;create-a-hello-world-loopback-application&#34;&gt;Create a &amp;ldquo;Hello World&amp;rdquo; LoopBack application.&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ slc loopback
+[?] Enter a directory name where to create the project: hello-world
+[?] What&#39;s the name of your application? hello-world
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;create-models&#34;&gt;Create models&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;$ cd hello-world
+$ slc loopback:model
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;The generator guides you through creating your model. Enter the values highlighted in blue.
+To accept the default, just press Enter.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[?] Enter the model name: person
+[?] Select the data-source to attach person to: db (memory)
+[?] Expose person via the REST API? Yes
+[?] Custom plural form (used to build REST URL): people
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Let&amp;rsquo;s add some person properties now. Define a firstname property for the person model&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Enter an empty property name when done.
+[?] Property name: firstname
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Hit Enter to accept the default string type:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[?] Property type: (Use arrow keys)
+❯ string
+  number
+  boolean
+  object
+  array
+  date
+  buffer
+  geopoint
+  (other)
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Make the property required.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;[?] Required? (y/N) y
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Repeat these steps for lastname property.&lt;/p&gt;
+
+&lt;p&gt;Press Enter when prompted for a property name to finish up and create the model.&lt;/p&gt;
+
+&lt;h5 id=&#34;run-the-application&#34;&gt;Run the application&lt;/h5&gt;
+
+&lt;p&gt;Run as you would any Node application.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;$ node .
+Browse your REST API at http://0.0.0.0:3000/explorer
+Web server listening at: http://0.0.0.0:3000/
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;When you&amp;rsquo;re ready to think about moving to production, you can use slc start to run the app under the control of a local
+instance of StrongLoop Process Manager. This enables you to profile, monitor, and control clustering for the app and
+keep it running forever. See strong-pm.io for more information. Explore your REST API&lt;/p&gt;
+
+&lt;p&gt;Visit &lt;a href=&#34;http://0.0.0.0:3000/explorer&#34;&gt;localhost&lt;/a&gt;&lt;/p&gt;
+
+&lt;p&gt;The API Explorer enables you to exercise all the generated API endpoints. There are create, read, update, and delete (CRUD)
+endpoints for the people model you just created. For more information, see the Using the API Explorer in the documentation.
+You may also want to follow the Getting Started tutorial.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

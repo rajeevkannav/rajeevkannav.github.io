@@ -1,0 +1,683 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>ruby | Rajeev Sharma</title>
+    <link>/tags/ruby/</link>
+      <atom:link href="/tags/ruby/index.xml" rel="self" type="application/rss+xml" />
+    <description>ruby</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 31 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>ruby</title>
+      <link>/tags/ruby/</link>
+    </image>
+    
+    <item>
+      <title>tempfile generation issue from user generated filename in ruby/OS</title>
+      <link>/post/2017-03-31-tempfile-name-ruby-problem/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-03-31-tempfile-name-ruby-problem/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We used a super simple code in ruby to generate tempfiles with dynamic filename.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;temp_file = Tempfile.new([title, &#39;.pdf&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;where title is a variable value (Input taken from user).so if your insert special
+or not allowed/expected character as a filename in any Operating system this code
+will fail. Well this is not related to Ruby directly as its a filename constraint
+in every Operating system but it happened to us via Ruby code.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;pre&gt;&lt;code&gt;temp_file = Tempfile.new([title.gsub(/[^\w\.]/, &#39;_&#39;), &#39;.pdf&#39;])
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Pretty simple solution to remove/Replace not allowed values there. This is very
+minor thing to correct as well to take notes, but we had exception from production
+and that is not acceptable at all.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prawn table in ruby advanced</title>
+      <link>/post/2016-08-06-ruby-prawn-table-advanced/</link>
+      <pubDate>Sat, 06 Aug 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-08-06-ruby-prawn-table-advanced/</guid>
+      <description>
+
+&lt;h2 id=&#34;prawn-table-content-and-subtable&#34;&gt;Prawn table content and subtable&lt;/h2&gt;
+
+&lt;p&gt;As we discussed in last post about Prawn Table via ruby. Today we&amp;rsquo;re
+giving dive more deeper. In Prawn table there are five kind of objects
+which can be put in table cells:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;• String: produces a text cell
+• Prawn::Table::Cell
+• Prawn::Table
+• Array
+• Images
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;whenever a table or an array is provided as a cell, a subtable will be
+created(a table within a cell). if you&amp;rsquo;d like to provide a cell or table
+directly, the best way is to use the &lt;code&gt;make_cell&lt;/code&gt; and &lt;code&gt;make_table&lt;/code&gt;
+methods as they don&amp;rsquo;t call &lt;code&gt;draw&lt;/code&gt; on the created object. To insert an
+image just provide a hash with an &lt;code&gt;:image&lt;/code&gt; key pointing to the image path.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+cell_1 = make_cell(:content =&amp;gt; &amp;ldquo;this row content comes directly &amp;ldquo;)
+cell_2 = make_cell(:content =&amp;gt; &amp;ldquo;from cell objects&amp;rdquo;)
+two_dimensional_array = [ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from an array&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ]
+my_table = make_table([ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from another table&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ])
+image_path = &amp;ldquo;#{Prawn::DATADIR}/images/stef.jpg&amp;rdquo;
+table([ [&amp;ldquo;just a regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;blah blah blah&amp;rdquo;],
+ [cell_1, cell_2, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
+ [&amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, two_dimensional_array, &amp;ldquo;&amp;rdquo;],
+ [&amp;ldquo;just another regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
+ [{:image =&amp;gt; image_path}, &amp;ldquo;&amp;rdquo;, my_table, &amp;ldquo;&amp;rdquo;]])
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;output-will-be-like-as&#34;&gt;Output will be like as:&lt;/h5&gt;
+
+&lt;figure class=&#34;full&#34;&gt;
+    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawntable.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;h2 id=&#34;prawn-table-flow-and-header&#34;&gt;Prawn table Flow and Header&lt;/h2&gt;
+
+&lt;p&gt;if the table cannot fit on the current page it will flow to the next
+page just like free flowing text. if you would like to have the first
+row treated as a header which will be repeated on subsequent pages set
+the :header option to true&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+data = [[&amp;ldquo;This row should be repeated on every new page&amp;rdquo;]]
+data += [[&amp;ldquo;&amp;hellip;&amp;rdquo;]] * 30
+table(data, :header =&amp;gt; true)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;output-will-be-like-as-1&#34;&gt;Output will be like as:&lt;/h5&gt;
+
+&lt;figure class=&#34;full&#34;&gt;
+    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawn_flow_and_header.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;h5 id=&#34;we-ll-cover-more-prawn-and-prawn-table-features-in-upcoming-posts&#34;&gt;We&amp;rsquo;ll cover more prawn and prawn table features in upcoming posts.&lt;/h5&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prawn ruby table introduction - 1</title>
+      <link>/post/2016-07-30-ruby-prawn-table-introduction/</link>
+      <pubDate>Sat, 30 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-07-30-ruby-prawn-table-introduction/</guid>
+      <description>
+
+&lt;h4 id=&#34;table-via-prawn-in-ruby-for-pdf&#34;&gt;Table via Prawn in ruby for Pdf&lt;/h4&gt;
+
+&lt;p&gt;Prawn comes with table support out of the box. Tables can be styled in whatever way you see fit.
+The whole table, rows, columns and cells can be styled independently from each other.
+The examples show:
+  • How to create tables
+  • What content can be placed on tables
+  • Subtables (or tables within tables)
+  • How to style the whole table
+  • How to use initializer blocks to style only specific portions of the table&lt;/p&gt;
+
+&lt;h4 id=&#34;sudo-code&#34;&gt;Sudo-Code&lt;/h4&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;p&gt;cell_1 = make_cell(:content =&amp;gt; &amp;ldquo;this row content comes directly &amp;ldquo;)
+cell_2 = make_cell(:content =&amp;gt; &amp;ldquo;from cell objects&amp;rdquo;)
+two_dimensional_array = [ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from an array&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ]
+my_table = make_table([ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from another table&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ])
+image_path = &amp;ldquo;#{Prawn::DATADIR}/images/stef.jpg&amp;rdquo;
+table([ [&amp;ldquo;just a regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;blah blah blah&amp;rdquo;],
+ [cell_1, cell_2, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
+ [&amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, two_dimensional_array, &amp;ldquo;&amp;rdquo;],
+ [&amp;ldquo;just another regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
+ [{:image =&amp;gt; image_path}, &amp;ldquo;&amp;rdquo;, my_table, &amp;ldquo;&amp;rdquo;]])&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;output-will-be-like-as&#34;&gt;Output will be like as:&lt;/h5&gt;
+
+&lt;figure class=&#34;full&#34;&gt;
+    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawntable.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prawn ruby Scalable Vector Graphics - SVG</title>
+      <link>/post/2016-07-09-ruby-prawn-svg-export/</link>
+      <pubDate>Sat, 09 Jul 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-07-09-ruby-prawn-svg-export/</guid>
+      <description>
+
+&lt;h4 id=&#34;text-annotation-pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
+
+&lt;p&gt;Pdf(Portable document format) has beautiful feature called text annotation.
+you can add detailed text information with available clipped images&lt;/p&gt;
+
+&lt;p&gt;Available annotations in current pdf spec are :&lt;/p&gt;
+
+&lt;figure class=&#34;third&#34;&gt;
+    &lt;img src=&#34;/images/annotations.png&#34;&gt;
+&lt;/figure&gt;
+  
+
+&lt;h4 id=&#34;text-annotation-prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
+
+&lt;p&gt;Via prawn you can define Text annotations easily. A convenience method
+for creating Text annotations. rect must be an array of four numbers,
+describing the bounds of the annotation. contents should be a string,
+to be shown when the annotation is activated.&lt;/p&gt;
+
+&lt;p&gt;Text annotation by Code - Sample:
+{% highlight ruby %}
+prawn_pdf = Prawn::Document.new
+prawn_pdf.text_annotation(rect, contents, options = {})
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h4 id=&#34;ruby-select-quick-note&#34;&gt;Ruby Select Quick note&lt;/h4&gt;
+
+&lt;p&gt;if we need to grep some strings from an array with a defined pattern,
+it is advisable to use select. and this is how i used it.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+array = [&amp;lsquo;dhhjdfshgd&amp;rsquo;, &amp;lsquo;sadsdhjgsfgdhf   &amp;lsquo;, &amp;lsquo;example@gmail.com&amp;rsquo;]
+array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Quite useful for me.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prawn ruby link annotation,Ruby select note</title>
+      <link>/post/2016-06-25-ruby-prawn-text-annotation/</link>
+      <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-06-25-ruby-prawn-text-annotation/</guid>
+      <description>
+
+&lt;h4 id=&#34;text-annotation-pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
+
+&lt;p&gt;Pdf(Portable document format) has beautiful feature called text annotation.
+you can add detailed text information with available clipped images&lt;/p&gt;
+
+&lt;p&gt;Available annotations in current pdf spec are :&lt;/p&gt;
+
+&lt;figure class=&#34;third&#34;&gt;
+    &lt;img src=&#34;/images/annotations.png&#34;&gt;
+&lt;/figure&gt;
+  
+
+&lt;h4 id=&#34;text-annotation-prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
+
+&lt;p&gt;Via prawn you can define Text annotations easily. A convenience method
+for creating Text annotations. rect must be an array of four numbers,
+describing the bounds of the annotation. contents should be a string,
+to be shown when the annotation is activated.&lt;/p&gt;
+
+&lt;p&gt;Text annotation by Code - Sample:
+{% highlight ruby %}
+prawn_pdf = Prawn::Document.new
+prawn_pdf.text_annotation(rect, contents, options = {})
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h4 id=&#34;ruby-select-quick-note&#34;&gt;Ruby Select Quick note&lt;/h4&gt;
+
+&lt;p&gt;if we need to grep some strings from an array with a defined pattern,
+it is advisable to use select. and this is how i used it.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+array = [&amp;lsquo;dhhjdfshgd&amp;rsquo;, &amp;lsquo;sadsdhjgsfgdhf   &amp;lsquo;, &amp;lsquo;example@gmail.com&amp;rsquo;]
+array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Quite useful for me.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prawn ruby link annotation</title>
+      <link>/post/2016-06-18-ruby-prawn-link-annotation/</link>
+      <pubDate>Sat, 18 Jun 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-06-18-ruby-prawn-link-annotation/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem-prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
+
+&lt;p&gt;In Prawn pdf we need to put links on the Image text and fortunatley we&amp;rsquo;re keeping
+required co-ordinates with objects. We tried to put Text link with anchor on text
+available inside image but that wasn&amp;rsquo;t cool because our images can rotate&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;Instead of marking text link above image text, we tried to put
+link annotation.&lt;/p&gt;
+
+&lt;p&gt;Link annotation by Prawn are :&lt;/p&gt;
+
+&lt;p&gt;A convenience method for creating Link annotations. rect must be an
+array of four numbers, describing the bounds of the annotation. The
+options hash should include either :Dest (describing the target
+destination, usually as a string that has been recorded in the
+document&amp;rsquo;s Dests tree), or :A (describing an action to perform on
+clicking the link), or :PA (for describing a URL to link to).&lt;/p&gt;
+
+&lt;p&gt;Link annotation by Code - Sample:
+{% highlight ruby %}
+prawn_pdf = Prawn::Document.new(skip_page_creation: true)
+link_coordinates = [:left, :top, :right, :bottom] # a.k.a coordinates
+prawn_pdf.link_annotation(link_coordinates, :Dest =&amp;gt; &amp;ldquo;target destination&amp;rdquo;)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prawn ruby marking stamp at page center</title>
+      <link>/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/</link>
+      <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem-prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
+
+&lt;p&gt;We have to put a default text on every page center if we&amp;rsquo;re not able to
+insert image at it&amp;rsquo;s bounding box.&lt;/p&gt;
+
+&lt;h4 id=&#34;sample-usage&#34;&gt;Sample Usage&lt;/h4&gt;
+
+&lt;p&gt;define a stamp :-&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+prawn_pdf.create_stamp(&amp;ldquo;stamp&amp;rdquo;) {
+prawn_page.fill_color &amp;lsquo;#4a8bc2&amp;rsquo;
+prawn_page.text_box &amp;lsquo;[Image not available.]&amp;lsquo;,
+:width  =&amp;gt; bounds.width,
+:height =&amp;gt; bounds.height,
+:align  =&amp;gt; :center,
+:valign =&amp;gt; :center,
+:at     =&amp;gt; [0, bounds.height],
+:rotate =&amp;gt; 45,
+:rotate_around =&amp;gt; :center
+}
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;mark stamp at any page by just calling it by name :-&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;prawn_page.stamp(&amp;quot;stamp&amp;quot;)&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;things-to-take-care&#34;&gt;Things to take care&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;stamp name should be unique.&lt;/li&gt;
+&lt;li&gt;should be take care of stamp dimension and its content.&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Prawn ruby pdf creation basics introduction</title>
+      <link>/post/2016-06-04-ruby-prawn-introduction-1/</link>
+      <pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-06-04-ruby-prawn-introduction-1/</guid>
+      <description>
+
+&lt;h4 id=&#34;prawn&#34;&gt;Prawn&lt;/h4&gt;
+
+&lt;p&gt;Prawn is a pure Ruby PDF generation library that provides a lot of great
+functionality while trying to remain simple and reasonably performant.&lt;/p&gt;
+
+&lt;h4 id=&#34;sample-usage&#34;&gt;Sample Usage&lt;/h4&gt;
+
+&lt;p&gt;create/Initialize new document without having first page created :-&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;prawn_pdf = Prawn::Document.new(skip_page_creation: true)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;adding new page with giving dimension :-&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;prawn_pdf.start_new_page(size: [width,height])&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;adding a bounding box having a image into it :-&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+prawn_pdf.bounding_box([0, 0], :width =&amp;gt; width, :height =&amp;gt; height) do
+prawn_pdf.image &amp;ldquo;image_location&amp;rdquo;, at: [0, 0]
+end
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;adding a text annotation with content :-&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;prawn_pdf.text_annotation([a,b,c,d], annotation_content)&lt;/code&gt;&lt;/p&gt;
+
+&lt;p&gt;adding a links-anchor and registering destination :-&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+prawn_pdf.text_box &amp;ldquo;&lt;link anchor=&#39;anchor-#{anchor-identifier}&#39;&gt;THIS&lt;/link&gt;&amp;rdquo;,
+                   inline_format: true, width: width, height: height
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;prawn_pdf.add_dest(&amp;quot;anchor-#{anchor-identifier}&amp;quot;, prawn_pdf.dest_fit(prawn_pdf.page))&lt;/code&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mobile test automation framework appium introduction</title>
+      <link>/post/2016-04-09-mobile-test-automation-framework-appium-ruby/</link>
+      <pubDate>Sat, 09 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-04-09-mobile-test-automation-framework-appium-ruby/</guid>
+      <description>
+
+&lt;p&gt;[Appium](&amp;lsquo;&lt;a href=&#34;http://appium.io/&#39;&#34;&gt;http://appium.io/&#39;&lt;/a&gt;) is an open source test automation tool for mobile applications. Which is capable to test
+any kind of mobile application: native, hybrid and mobile web for iOs and android platform. It can also run the automated
+tests on devices as well as emulators.&lt;/p&gt;
+
+&lt;p&gt;We all have our mobile applications in at least these two major platforms and we need such a beautiful automation tool
+like &lt;code&gt;appium&lt;/code&gt;. It allows testing cross platform. It seems easy as such same code base is sufficient enough for both different
+frameworks.&lt;/p&gt;
+
+&lt;p&gt;The basic philosophy of &lt;code&gt;Appium&lt;/code&gt; is that you should be able to reuse code between iOS and Android, and that’s why
+when you see the API they are same across iOS and android. Another important thing to highlight here is that
+unlike Calabash, &lt;code&gt;Appium&lt;/code&gt; doesn’t modify your app or need you to even recompile the app.&lt;/p&gt;
+
+&lt;p&gt;You may choose any of your preferred language as it&amp;rsquo;s an open source project there are wrappers available in every major
+language.&lt;/p&gt;
+
+&lt;h1 id=&#34;appium-architecture&#34;&gt;Appium Architecture&lt;/h1&gt;
+
+&lt;p&gt;Let’s try to understand what happens behind the scenes.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Appium&lt;/code&gt; server which actullay you download is written in Node.js and that implements the Selenium WebDriver. It allows
+one to use available WebDriver client to fire your tests and then your mobile app acts precisely like a web app where
+the DOM is represented by View hierarchy.&lt;/p&gt;
+
+&lt;p&gt;So this server basically exposes REST api which performs the following actions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Receives connection from client
+ Listen command
+ Execute command
+ Respond back the command execution status
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In terms of architecture diagram, below is how &lt;code&gt;Appium&lt;/code&gt; can be explained.&lt;/p&gt;
+
+&lt;figure class=&#34;half&#34;&gt;
+    &lt;a href=&#34;/images/appium_architecture.jpg&#34;&gt;&lt;img src=&#34;/images/appium_architecture.jpg&#34;&gt;&lt;/a&gt;
+    &lt;figcaption&gt;`Appium` Architecture&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We&amp;rsquo;re going to dive into &lt;code&gt;appium&lt;/code&gt; a bit more, and we&amp;rsquo;ll be bind it to ruby in text series.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ruby vpim library generate expendable vcard</title>
+      <link>/post/2015-07-18-vpim-vcard-generation-ruby/</link>
+      <pubDate>Sat, 18 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-07-18-vpim-vcard-generation-ruby/</guid>
+      <description>
+
+&lt;h3 id=&#34;create-vcardfield-to-have-more-capabilities&#34;&gt;Create VCardField to have more capabilities&lt;/h3&gt;
+
+&lt;p&gt;&lt;img src=&#34;./../images/vcard.png&#34; alt=&#34;Target&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;p&gt;require &amp;lsquo;vpim/vcard&amp;rsquo;&lt;/p&gt;
+
+&lt;p&gt;class VCardField &amp;lt; Vpim::DirectoryInfo::Field&lt;/p&gt;
+
+&lt;p&gt;def VCardField.reset_custom_fields
+    @@custom_number = 1
+  end&lt;/p&gt;
+
+&lt;p&gt;#
+  # Create a name field: &amp;ldquo;N&amp;rdquo;
+  #
+  def VCardField.create_n (last, first=nil, middle=nil, prefix=nil, suffix=nil)
+    VCardField.create(&amp;lsquo;N&amp;rsquo;, &amp;ldquo;#{last};#{first};#{middle};#{prefix};#{suffix}&amp;rdquo;)
+  end&lt;/p&gt;
+
+&lt;p&gt;protected&lt;/p&gt;
+
+&lt;p&gt;def VCardField.valid_string(a_str)
+    return a_str != nil &amp;amp;&amp;amp; a_str.length &amp;gt; 0
+  end&lt;/p&gt;
+
+&lt;p&gt;public&lt;/p&gt;
+
+&lt;p&gt;#
+  # Create a formal name field: &amp;ldquo;FN&amp;rdquo;
+  #
+  def VCardField.create_fn (last, first=nil, middle=nil, prefix=nil, suffix=nil)
+    name = &amp;ldquo;&amp;rdquo;
+    if valid_string(prefix) then
+      name &amp;lt;&amp;lt; &amp;ldquo;#{prefix} &amp;ldquo;
+    end
+    if valid_string(first) then
+      name &amp;lt;&amp;lt; &amp;ldquo;#{first} &amp;ldquo;
+    end
+    if valid_string(middle) then
+      name &amp;lt;&amp;lt; &amp;ldquo;#{middle} &amp;ldquo;
+    end
+    if valid_string(last) then
+      name &amp;lt;&amp;lt; &amp;ldquo;#{last} &amp;ldquo;
+    end
+    if valid_string(suffix) then
+      name &amp;lt;&amp;lt; &amp;ldquo;#{suffix} &amp;ldquo;
+    end
+    VCardField.create(&amp;lsquo;FN&amp;rsquo;, &amp;ldquo;#{name}&amp;rdquo;)
+  end&lt;/p&gt;
+
+&lt;p&gt;#
+  # Create a formal name field: &amp;ldquo;ORG&amp;rdquo;
+  #
+  def VCardField.create_org (organization_name, department_name=nil)
+    VCardField.create(&amp;ldquo;ORG&amp;rdquo;, &amp;ldquo;#{organization_name};#{department_name}&amp;ldquo;)
+  end&lt;/p&gt;
+
+&lt;p&gt;#
+  # Create a title field: &amp;ldquo;TITLE&amp;rdquo;
+  #
+  def VCardField.create_job_title(title)
+    VCardField.create(&amp;ldquo;TITLE&amp;rdquo;, title)
+  end&lt;/p&gt;
+
+&lt;p&gt;#
+  # Create an email field: &amp;ldquo;EMAIL&amp;rdquo; with type=&amp;ldquo;INTERNET&amp;rdquo;
+  #
+  # For &lt;em&gt;type&lt;/em&gt;, use Ruby symbols :WORK or :HOME.
+  #
+  def VCardField.create_internet_email(address, type=:WORK, preferred_email=false)
+    if preferred_email == true
+      VCardField.create(&amp;ldquo;EMAIL&amp;rdquo;, address,
+                        &amp;ldquo;type&amp;rdquo; =&amp;gt; [&amp;ldquo;INTERNET&amp;rdquo;, type.to_s, &amp;ldquo;pref&amp;rdquo;])
+    else
+      VCardField.create(&amp;ldquo;EMAIL&amp;rdquo;, address,
+                        &amp;ldquo;type&amp;rdquo; =&amp;gt; [&amp;ldquo;INTERNET&amp;rdquo;, type.to_s])
+    end
+  end&lt;/p&gt;
+
+&lt;p&gt;protected
+  def VCardField.next_custom_name
+    name = &amp;ldquo;item#{@@custom_number}&amp;rdquo;
+    @@custom_number = @@custom_number + 1
+    name
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_phone(phone_num, is_preferred = false, type_arr = [&amp;ldquo;WORK&amp;rdquo;],
+      custom_name = nil)&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;field_name = &amp;quot;&amp;quot;
+if custom_name != nil
+  field_name &amp;lt;&amp;lt; next_custom_name
+  field_name &amp;lt;&amp;lt; &amp;quot;.&amp;quot;
+end
+
+# Flatten the array so we can add additional items to it.
+type_arr = [type_arr].flatten
+# If this phone number is preferred, then add that into the type array.
+if is_preferred
+  type_arr &amp;lt;&amp;lt; &amp;quot;pref&amp;quot;
+end
+# Create the TEL field.
+ret_val = [VCardField.create(&amp;quot;#{field_name}TEL&amp;quot;, phone_num, &amp;quot;type&amp;quot; =&amp;gt; type_arr)]
+# If we need a custom field . . .
+if custom_name != nil
+  ret_val &amp;lt;&amp;lt; VCardField.create(&amp;quot;#{field_name}X-ABLabel&amp;quot;, custom_name)
+end
+ret_val
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;end&lt;/p&gt;
+
+&lt;p&gt;public&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_note(note_text)
+    VCardField.create(&amp;ldquo;NOTE&amp;rdquo;, note_text)
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_custom_phone(phone_number, custom_name, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&amp;ldquo;HOME&amp;rdquo;], custom_name)
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_pager(pager_number, is_preferred = false)
+    VCardField.create_phone(pager_number, is_preferred, [&amp;ldquo;PAGER&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_work_fax(fax_number, is_preferred = false)
+    VCardField.create_phone(fax_number, is_preferred, [&amp;ldquo;FAX&amp;rdquo;, &amp;ldquo;WORK&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_work_phone(phone_number, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&amp;ldquo;WORK&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_home_fax(fax_number, is_preferred = false)
+    VCardField.create_phone(fax_number, is_preferred, [&amp;ldquo;FAX&amp;rdquo;, &amp;ldquo;HOME&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_home_phone(phone_number, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&amp;ldquo;HOME&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_cell_phone(phone_number, is_preferred = false)
+    VCardField.create_phone(phone_number, is_preferred, [&amp;ldquo;CELL&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_work_email(address, is_preferred = false)
+    VCardField.create_email(address, is_preferred, [&amp;ldquo;WORK&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_home_email(address, is_preferred = false)
+    VCardField.create_email(address, is_preferred, [&amp;ldquo;HOME&amp;rdquo;])
+  end&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_other_email(address, custom_name, is_preferred = false)
+    VCardField.create_email(address, is_preferred, [&amp;ldquo;WORK&amp;rdquo;], custom_name)
+  end&lt;/p&gt;
+
+&lt;p&gt;protected&lt;/p&gt;
+
+&lt;p&gt;def VCardField.create_email(address, is_preferred, type_arr = [&amp;ldquo;WORK&amp;rdquo;], custom_name = nil)
+    name = &amp;ldquo;&amp;rdquo;
+    if custom_name != nil
+      name &amp;lt;&amp;lt; next_custom_name
+      name &amp;lt;&amp;lt; &amp;ldquo;.&amp;rdquo;
+    end
+    if is_preferred
+      type_arr &amp;lt;&amp;lt; &amp;ldquo;pref&amp;rdquo;
+    end
+    ret_val = [VCardField.create(&amp;ldquo;#{name}EMAIL&amp;rdquo;, address, &amp;ldquo;type&amp;rdquo; =&amp;gt; type_arr)]
+    if custom_name != nil
+      ret_val &amp;lt;&amp;lt; VCardField.create(&amp;ldquo;#{name}X-ABLabel&amp;rdquo;, custom_name)
+    end
+    ret_val
+  end&lt;/p&gt;
+
+&lt;p&gt;end&lt;/p&gt;
+
+&lt;p&gt;info = {
+ title: &amp;lsquo;Mr./Mrs&amp;rsquo;,
+ display_name: &amp;lsquo;Card Holder Name&amp;rsquo;,
+ email: &amp;lsquo;email@example.com&amp;rsquo;,
+ note: &amp;lsquo;Note 1&amp;rsquo;,
+ first_name: &amp;lsquo;Card Holder FirstName&amp;rsquo;,
+ office_phone: &amp;lsquo;123456789&amp;rsquo;,
+ fax_phone: &amp;lsquo;123456789&amp;rsquo;,
+ home_phone: &amp;lsquo;123456789&amp;rsquo;,
+ mobile_phone: &amp;lsquo;123456789&amp;rsquo;
+}&lt;/p&gt;
+
+&lt;p&gt;vcard = Vpim::Vcard.create
+vcard &amp;lt;&amp;lt; VCardField.create_job_title(info[:title])
+vcard &amp;lt;&amp;lt; VCardField.create_n(info[:display_name])
+vcard &amp;lt;&amp;lt; VCardField.create_work_email(info[:email])
+vcard &amp;lt;&amp;lt; VCardField.create_note(info[:note])
+vcard &amp;lt;&amp;lt; VCardField.create_fn(info[:first_name])
+vcard &amp;lt;&amp;lt; VCardField.create_work_phone(info[:office_phone])
+vcard &amp;lt;&amp;lt; VCardField.create_work_fax(info[:fax_phone])
+vcard &amp;lt;&amp;lt; VCardField.create_home_phone(info[:home_phone])
+vcard &amp;lt;&amp;lt; VCardField.create_cell_phone(info[:mobile_phone])
+vcard.each { |card|
+    puts card.to_s
+}&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;&lt;a href=&#34;https://github.com/xing/vpim/blob/master/samples/tabbed-file-to-vcf.rb&#34;&gt;Source&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

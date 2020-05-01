@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>re-write | Rajeev Sharma</title>
+    <link>/tags/re-write/</link>
+      <atom:link href="/tags/re-write/index.xml" rel="self" type="application/rss+xml" />
+    <description>re-write</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 24 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>re-write</title>
+      <link>/tags/re-write/</link>
+    </image>
+    
+    <item>
+      <title>Redirect request based on URL paramters via nginx</title>
+      <link>/post/2015-10-24-nginx-redirect-request-url-parameters/</link>
+      <pubDate>Sat, 24 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-10-24-nginx-redirect-request-url-parameters/</guid>
+      <description>
+
+&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt; We&#39;ve an Enterprise level Mobile/iPad application and we did
+ major changes to our backEnd (Rails App) so as a usual process
+ we uploaded new app version and waiting to approve via app-Store,
+ We don&#39;t when Apple is going to approve it, We have to support
+ previous and upcoming version and Solution must be easy/Generic.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;We configured our Mobile/iPad application to send a new parameter
+with every single request say version=1 Or Version=Beta then we 
+utilized nginx to redirect such request to servers who&#39;re capable
+to serve New Changes and Others we&#39;re to old machines
+
+This could be an Hack or Not so good implementation but for now
+this seems easy, affordable and long term too.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;sudo-raw-solution-to-nginx-configuration&#34;&gt;sudo/RAW solution to nginx configuration&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+##########################################################################
+    if ($arg_version) { //
+       rewrite ^/(.*) &lt;a href=&#34;http://ip_addresss&#34;&gt;http://ip_addresss&lt;/a&gt; permanent; #new machine ip address
+    }
+##########################################################################`
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

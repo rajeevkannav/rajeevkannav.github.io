@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>snapshot | Rajeev Sharma</title>
+    <link>/tags/snapshot/</link>
+      <atom:link href="/tags/snapshot/index.xml" rel="self" type="application/rss+xml" />
+    <description>snapshot</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 17 Oct 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>snapshot</title>
+      <link>/tags/snapshot/</link>
+    </image>
+    
+    <item>
+      <title>fastlane tools family introduction snapshot</title>
+      <link>/post/2015-10-17-fastlane-tools-famliy-introduction-snapshot/</link>
+      <pubDate>Sat, 17 Oct 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-10-17-fastlane-tools-famliy-introduction-snapshot/</guid>
+      <description>
+
+&lt;p&gt;&lt;a href=&#34;!https://github.com/KrauseFx/snapshot&#34;&gt;fastlane-Snapshot&lt;/a&gt; lets you Automate taking localized screenshots of your iOS app on every device.&lt;/p&gt;
+
+&lt;h3 id=&#34;problem-you-have-an-iphone-app-you-support-20-languages-you-updated-the-design-you-want-to-release-the-update-to-the-app-store-what-s-missing&#34;&gt;Problem: You have an iPhone app. You support 20 languages. You updated the design. You want to release the update to the App Store. What&amp;rsquo;s missing?&lt;/h3&gt;
+
+&lt;h3 id=&#34;solution-you-have-to-manually-create-20-languages-x-5-devices-x-5-screenshots-500-screenshots&#34;&gt;Solution: You have to manually create 20 (languages) x 5 (devices) x 5 (screenshots) = 500 screenshots.&lt;/h3&gt;
+
+&lt;p&gt;Or Use fastlane famliy tool &lt;code&gt;snapshot&lt;/code&gt;&lt;/p&gt;
+
+&lt;h4 id=&#34;fastlane-features&#34;&gt;fastlane features&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Create hundreds of screenshots in multiple languages on all simulators&lt;/li&gt;
+&lt;li&gt;Configure it once, store the configuration in git&lt;/li&gt;
+&lt;li&gt;Do something else, while the computer takes the screenshots for you&lt;/li&gt;
+&lt;li&gt;Integrates with fastlane and deliver&lt;/li&gt;
+&lt;li&gt;Generates a beautiful web page, which shows all screenshots on all devices. This is perfect to send to Q&amp;amp;A or the marketing team&lt;/li&gt;
+&lt;li&gt;snapshot automatically waits for network requests to be finished before taking a screenshot
+ (we don&amp;rsquo;t want loading images in the App Store screenshots)&lt;/li&gt;
+&lt;li&gt;Support for advanced configuration, like preprocess macros or prefilling of data&lt;/li&gt;
+&lt;li&gt;100% open source unlike Apple&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;After &lt;code&gt;snapshot&lt;/code&gt; successfully created new screenshots, it will generate a beautiful html file to get a quick overview of all screens:&lt;/p&gt;
+
+&lt;figure&gt;
+    &lt;img src=&#34;/images/snapshot.jpg&#34;&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;start-snapshot&#34;&gt;Start snapshot&lt;/h4&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;cd [your_project_folder]&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;snapshot&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;Your screenshots will be stored in &lt;code&gt;./screenshots/&lt;/code&gt; by default.&lt;/p&gt;
+
+&lt;p&gt;From now on, you can run snapshot to create new &lt;code&gt;screenshots&lt;/code&gt; of your app.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

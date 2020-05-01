@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>https | Rajeev Sharma</title>
+    <link>/tags/https/</link>
+      <atom:link href="/tags/https/index.xml" rel="self" type="application/rss+xml" />
+    <description>https</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Tue, 03 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>https</title>
+      <link>/tags/https/</link>
+    </image>
+    
+    <item>
+      <title>Force Node/Heroku Application to https</title>
+      <link>/post/2017-01-13-force-node-heroku-app-to-https/</link>
+      <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-01-13-force-node-heroku-app-to-https/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;WE deployed our angular app to Heroku with custom domain. There are Heroku
+Add-ons by which SSL can be enabled but our problem was to enforce http
+requests to https.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;Inside your &lt;code&gt;server.js&lt;/code&gt; (in our case) put the following code after
+app or express (in our case) app variable.&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;/* Redirect http to https */
+app.get(&#39;*&#39;,function(req,res,next){
+  if(req.headers[&#39;x-forwarded-proto&#39;]!=&#39;https&#39;&amp;amp;&amp;amp;process.env.NODE_ENV === &#39;production&#39;)
+    res.redirect(&#39;https://&#39;+req.hostname+req.url)
+  else
+    next() /* Continue to other routes if we&#39;re not redirecting */
+});
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In the &lt;code&gt;if&lt;/code&gt; block, &lt;code&gt;req.headers[&#39;x-forwarded-proto&#39;]&lt;/code&gt; should be equal to &lt;code&gt;https&lt;/code&gt;.
+On the other hand, we don’t want the redirection on localhost as we don’t have a
+ssl certificate set up locally that&amp;rsquo;s why we used &lt;code&gt;process.env.NODE_ENV === &#39;production&#39;&lt;/code&gt;
+inside the condition to make sure that this will only run on Heroku/Production,
+which has the &lt;code&gt;NODE_ENV&lt;/code&gt; environment variable set to &lt;code&gt;production&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;If both these conditions are true, this means someone is trying to access
+our app though &lt;code&gt;http&lt;/code&gt;. We need to swap &lt;code&gt;http&lt;/code&gt; for &lt;code&gt;https&lt;/code&gt; and redirect them to
+the new url. To reform the url that they are trying to call we use
+&lt;code&gt;req.hostname&lt;/code&gt; in combination with &lt;code&gt;req.url&lt;/code&gt;.&lt;/p&gt;
+
+&lt;p&gt;And finally we redirect using &lt;code&gt;res.redirect()&lt;/code&gt;.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

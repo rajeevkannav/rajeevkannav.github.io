@@ -1,0 +1,126 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Docker-Compose | Rajeev Sharma</title>
+    <link>/tags/docker-compose/</link>
+      <atom:link href="/tags/docker-compose/index.xml" rel="self" type="application/rss+xml" />
+    <description>Docker-Compose</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 02 Dec 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Docker-Compose</title>
+      <link>/tags/docker-compose/</link>
+    </image>
+    
+    <item>
+      <title>Dockerization a rails application with docker-compose</title>
+      <link>/post/2016-12-02-docker-compose-on-rails-mysql/</link>
+      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-12-02-docker-compose-on-rails-mysql/</guid>
+      <description>
+
+&lt;h3 id=&#34;docker-compose-https-docs-docker-com-compose&#34;&gt;&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker-compose&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Compose is a tool for defining and running multi-container Docker applications.&lt;/p&gt;
+
+&lt;h3 id=&#34;use-docker-compose-to-set-up-and-run-a-rails-app&#34;&gt;use Docker Compose to set up and run a Rails app&lt;/h3&gt;
+
+&lt;h5 id=&#34;define-the-project&#34;&gt;Define the project&lt;/h5&gt;
+
+&lt;p&gt;Create a &lt;code&gt;Dockerfile&lt;/code&gt; for Rails app&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM ruby:2.3.3
+RUN apt-get update -qq &amp;amp;&amp;amp; apt-get install -y build-essential libpq-dev nodejs
+RUN mkdir /myapp
+WORKDIR /myapp
+ADD Gemfile /myapp/Gemfile
+ADD Gemfile.lock /myapp/Gemfile.lock
+RUN bundle install
+ADD . /myapp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a &lt;code&gt;Gemfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source &#39;https://rubygems.org&#39;
+gem &#39;rails&#39;, &#39;5.0.0.1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a &lt;code&gt;Gemfile.lock&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;touch Gemfile.lock
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create &lt;code&gt;docker-compose.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: &#39;2&#39;
+services:
+  db:
+    image: mysql
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b &#39;0.0.0.0&#39;
+    volumes:
+      - .:/myapp
+    ports:
+      - &amp;quot;3000:3000&amp;quot;
+    depends_on:
+      - db
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;build-the-project&#34;&gt;Build the project&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Connect the database
+  Replace the contents of &lt;code&gt;config/database.yml&lt;/code&gt; with the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;development: &amp;amp;default
+  adapter: mysql2
+  encoding: unicode
+  database: myapp_development
+  pool: 5
+  username: mysql_user_name
+  password: mysql_password
+  host: db
+
+test:
+  &amp;lt;&amp;lt;: *default
+  database: myapp_test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;boot-application&#34;&gt;Boot Application&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;if you&amp;rsquo;re done everthing correctly, You must have seen something like following on terminal&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;myapp_web_1 | [2014-01-17 17:16:29] INFO  WEBrick 1.3.1
+myapp_web_1 | [2014-01-17 17:16:29] INFO  ruby 2.2.0 (2014-12-25) [x86_64-linux-gnu]
+myapp_web_1 | [2014-01-17 17:16:29] INFO  WEBrick::HTTPServer#start: pid=1 port=3000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;setup-database&#34;&gt;Setup DataBase&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose run web rake db:create
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;get-set-go&#34;&gt;Get Set go&lt;/h5&gt;
+
+&lt;p&gt;VISIT &lt;a href=&#34;http://localhost:3000/&#34;&gt;http://localhost:3000/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;general-error-s&#34;&gt;General Error(s)&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;A server is already running. Check /myapp/tmp/pids/server.pid. 
+delete the file tmp/pids/server.pid to fix this
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

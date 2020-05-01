@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>CERT_AUTHORITY | Rajeev Sharma</title>
+    <link>/tags/cert_authority/</link>
+      <atom:link href="/tags/cert_authority/index.xml" rel="self" type="application/rss+xml" />
+    <description>CERT_AUTHORITY</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 06 Jan 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>CERT_AUTHORITY</title>
+      <link>/tags/cert_authority/</link>
+    </image>
+    
+    <item>
+      <title>namecheap ssl cert authority invalid fix</title>
+      <link>/post/2017-01-06-ssl-cert-authority-invalid-fix/</link>
+      <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-01-06-ssl-cert-authority-invalid-fix/</guid>
+      <description>
+
+&lt;h4 id=&#34;happy-new-year&#34;&gt;Happy New Year&lt;/h4&gt;
+
+&lt;p&gt;Last year we deployed our rails application over nginx with ssl certificates
+obtained from namecheap. everything ewas working fine but over Android moblie
+we found a bug as in image below&lt;/p&gt;
+
+&lt;figure class=&#34;third&#34;&gt;
+    &lt;img src=&#34;/images/ssl_cert_authority.png&#34;&gt;
+&lt;/figure&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;We got two files from NameCheap for example:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;em&gt;youdomainname&lt;/em&gt;.crt&lt;/li&gt;
+&lt;li&gt;&lt;em&gt;youdomainname&lt;/em&gt;.ca-bundle&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;What we missed to combine the certificates(thought ca-bundle is already combination).
+We&amp;rsquo;re wrong and our application stopped working on android phone&amp;rsquo;s browser.&lt;/p&gt;
+
+&lt;p&gt;It is mandatory to combine the certificates in case of PositiveSSL. It will look like:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;   $ cat *yourdomainname*.crt COMODO_DV_SHA-256_bundle.crt &amp;gt;&amp;gt; cert_chain.crt
+   or
+   $ cat *yourdomainname*.crt *yourdomainname*.ca-bundle &amp;gt;&amp;gt; cert_chain.crt
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;sample-nginx-configuration&#34;&gt;Sample nginx configuration&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;    ssl on;
+    # ssl_certificate should be pointed to the file with combined certificates (file you created in step 2)
+    ssl_certificate /etc/ssl/cert_chain.crt;
+    # ssl_certificate_key should be pointed to the Private Key that has been generated with the CSR code that you have used for activation of the certificate.
+    ssl_certificate_key /etc/ssl/*your_private_key*.key;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

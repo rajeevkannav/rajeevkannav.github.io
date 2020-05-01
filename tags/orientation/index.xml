@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Orientation | Rajeev Sharma</title>
+    <link>/tags/orientation/</link>
+      <atom:link href="/tags/orientation/index.xml" rel="self" type="application/rss+xml" />
+    <description>Orientation</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 16 Jan 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>Orientation</title>
+      <link>/tags/orientation/</link>
+    </image>
+    
+    <item>
+      <title>Orientation detection for NON-EXIF data/Text Images.</title>
+      <link>/post/2016-01-16-orientation-detection-non-exifdata-images/</link>
+      <pubDate>Sat, 16 Jan 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-01-16-orientation-detection-non-exifdata-images/</guid>
+      <description>
+
+&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;We&#39;ve a Enterprise level application which process images from pdf(s). 
+We&#39;ve to represent those images to exact image Orientation with intelligence.
+User May rotete images if Auto-Rotation Algorithm failed. 
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h3 id=&#34;tesseract-https-github-com-tesseract-ocr&#34;&gt;&lt;a href=&#34;https://github.com/tesseract-ocr&#34;&gt;TESSERACT&lt;/a&gt;&lt;/h3&gt;
+
+&lt;pre&gt;&lt;code&gt;tesseract(1) is a commercial quality OCR engine originally developed at 
+HP between 1985 and 1995.In 1995, this engine was among the top 3 evaluated
+by UNLV. It was open-sourced by HP and UNLV in 2005 and has been developed
+at Google since then.
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    &lt;code&gt;tesseract image - -psm 0&lt;/code&gt;
+     # &amp;gt;
+     # Orientation: 3
+     # Orientation in degrees: 90
+     # Orientation confidence: 4.76
+     # Script: 1
+     # Script confidence: 4.37&lt;br /&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h4 id=&#34;orientation-in-degrees-is-the-required-amount-of-orientation-required-for-image-you-may-use-any-imgae-processing-library-say-imagemagick-https-github-com-imagemagick-imagemagick-example-command-given-below&#34;&gt;Orientation in degrees is the required amount of Orientation required for image. You may use any imgae-processing library say &lt;a href=&#34;https://github.com/ImageMagick/ImageMagick&#34;&gt;ImageMagick&lt;/a&gt; example command given below&lt;/h4&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    &lt;code&gt;convert -rotate #{Orientation in degrees} rotest.jpg rotest90.jpg&lt;/code&gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

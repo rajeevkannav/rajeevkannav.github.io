@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>unix linux | Rajeev Sharma</title>
+    <link>/tags/unix-linux/</link>
+      <atom:link href="/tags/unix-linux/index.xml" rel="self" type="application/rss+xml" />
+    <description>unix linux</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 11 Jul 2015 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>unix linux</title>
+      <link>/tags/unix-linux/</link>
+    </image>
+    
+    <item>
+      <title>unix linux shell script code snippet</title>
+      <link>/post/2015-07-11-shell-script-code-snippets/</link>
+      <pubDate>Sat, 11 Jul 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-07-11-shell-script-code-snippets/</guid>
+      <description>
+
+&lt;h3 id=&#34;generating-script-logs-with-timestamp&#34;&gt;Generating script logs with timestamp&lt;/h3&gt;
+
+&lt;p&gt;Just as the duration of script it&amp;rsquo;s useful to have time-stampped log. Use following function to log time for every output.&lt;/p&gt;
+
+&lt;p&gt;{% highlight javascript %}
+  log() {
+       echo [&lt;code&gt;date +%Y-%m-%d\ %H:%M:%S&lt;/code&gt;] $*
+  }
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Call the function as follows instead of simply &amp;ldquo;echo&amp;rdquo;ing.&lt;/p&gt;
+
+&lt;p&gt;{% highlight javascript %}
+  log &amp;ldquo;my string to be logged&amp;rdquo;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;reading-variables-from-config-file&#34;&gt;Reading variables from config file&lt;/h5&gt;
+
+&lt;p&gt;Create a config file with contents as follows:&lt;/p&gt;
+
+&lt;p&gt;{% highlight javascript %}
+key1=value1
+key2=value2
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Add following line in the beginning of the shell script:&lt;/p&gt;
+
+&lt;p&gt;{% highlight javascript %}
+. configfile
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;This will load the key value pairs and you may verify &amp;amp; access the values as $key1 or $key2.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

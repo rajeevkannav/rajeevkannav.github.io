@@ -1,0 +1,809 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>rails | Rajeev Sharma</title>
+    <link>/tags/rails/</link>
+      <atom:link href="/tags/rails/index.xml" rel="self" type="application/rss+xml" />
+    <description>rails</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Fri, 31 Mar 2017 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>rails</title>
+      <link>/tags/rails/</link>
+    </image>
+    
+    <item>
+      <title>Over the ait update hack for oneplus india</title>
+      <link>/post/2017-03-24-over-the-air-update-oneplus-india-/</link>
+      <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-03-24-over-the-air-update-oneplus-india-/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;Roll-out of OTA for OnePlus, generally comes to india after
+requirement and excitement dies.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;It&amp;rsquo;s a Quick Hack&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;Install Opera VPN App.
+&lt;figure class=&#34;full&#34;&gt;
+&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-1.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Open App And connect to Canada(works always for me) Region.
+&lt;figure class=&#34;full&#34;&gt;
+&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-2.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;
+    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-3.png&#34;&gt;&lt;/a&gt;
+ &lt;/figure&gt;&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;Goto Settings -&amp;gt;&lt;/li&gt;
+&lt;li&gt;Goto System Updates -&amp;gt;&lt;/li&gt;
+&lt;li&gt;Goto Check for updates -&amp;gt;
+&lt;figure class=&#34;full&#34;&gt;
+&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-4.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Install Updates -&amp;gt;
+&lt;figure class=&#34;full&#34;&gt;
+&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-5.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Confirmation
+&lt;figure class=&#34;full&#34;&gt;
+&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-6.png&#34;&gt;&lt;/a&gt;
+&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h2 id=&#34;please-be-aware-about-langugae-support-for-your-phone-and-region-specfic-update&#34;&gt;Please be aware about langugae support for your phone and region specfic update&lt;/h2&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Gemfile audits in rails</title>
+      <link>/post/2017-02-12-gemfile-audits-in-rails/</link>
+      <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-02-12-gemfile-audits-in-rails/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;Ruby, majorly well-known for rapid web-development via rails.
+there are number of &lt;code&gt;rubygems&lt;/code&gt; coming everyday and un-countable
+versions of existing &lt;code&gt;rubygems&lt;/code&gt; are released per day. these
+updates may have problems like outdated support,vulnerabilities, bugs
+or deprecated features (In general it doesn&amp;rsquo;t happen).This may
+end-up project or major downtime.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;A very useful tool is built into bundler: &lt;code&gt;bundle outdated&lt;/code&gt;.
+You can see lists installed gems with newer versions available.
+Running bundle outdated looks like this:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;    % bundle outdated
+    Fetching gem metadata from https://rubygems.org/...........
+    Fetching version metadata from https://rubygems.org/..
+    Fetching dependency metadata from https://rubygems.org/.
+    Resolving dependencies....
+
+    Outdated gems included in the bundle:
+      * gemname (newest 0.11.1, installed 0.9.0) in group &amp;quot;production&amp;quot;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;There are two more gems, those help a-lot and must try those are&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;[Gemnasium](&amp;lsquo;&lt;a href=&#34;https://gemnasium.com/&#39;&#34;&gt;https://gemnasium.com/&#39;&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;[bundler-audit](&amp;lsquo;&lt;a href=&#34;https://github.com/rubysec/bundler-audit&#39;&#34;&gt;https://github.com/rubysec/bundler-audit&#39;&lt;/a&gt;)&lt;br /&gt;
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Bad to worse rails practice</title>
+      <link>/post/2017-02-03-bad-to-worse-rails-practice/</link>
+      <pubDate>Fri, 03 Feb 2017 00:00:00 +0000</pubDate>
+      <guid>/post/2017-02-03-bad-to-worse-rails-practice/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We used ruby gem &lt;code&gt;paranoia&lt;/code&gt; to soft delete our active-records. which is super easy
+to integrate with a rails application. Our migrations consists such code to update
+all &lt;code&gt;User/Project&lt;/code&gt;. While running migrations to a new created DB following code
+will break due to &lt;code&gt;paranoia&lt;/code&gt; expectations of having &lt;code&gt;deleted_at&lt;/code&gt; column, which is
+being added in later migrations. Now that sucks, I&amp;rsquo;ve to comment out
+&lt;code&gt;acts_as_paranoid&lt;/code&gt; every time while running migrations to new db.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;&lt;code&gt;User.all&lt;/code&gt; update should be &lt;code&gt;User.unscoped.all.&lt;/code&gt; updates. Well this is not related
+to only &lt;code&gt;paranoia&lt;/code&gt;. We should keep this always in mind,  In Case we want to update
+or operate all (all i mean) we must use &lt;code&gt;unscoped&lt;/code&gt; &lt;em&gt;always&lt;/em&gt;. Second thing, We should
+not use such code into migrations. This could be very obvious but i&amp;rsquo;ve seen such
+ignorance ever.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Dockerization a rails application with docker-compose</title>
+      <link>/post/2016-12-02-docker-compose-on-rails-mysql/</link>
+      <pubDate>Fri, 02 Dec 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-12-02-docker-compose-on-rails-mysql/</guid>
+      <description>
+
+&lt;h3 id=&#34;docker-compose-https-docs-docker-com-compose&#34;&gt;&lt;a href=&#34;https://docs.docker.com/compose/&#34;&gt;Docker-compose&lt;/a&gt;&lt;/h3&gt;
+
+&lt;p&gt;Compose is a tool for defining and running multi-container Docker applications.&lt;/p&gt;
+
+&lt;h3 id=&#34;use-docker-compose-to-set-up-and-run-a-rails-app&#34;&gt;use Docker Compose to set up and run a Rails app&lt;/h3&gt;
+
+&lt;h5 id=&#34;define-the-project&#34;&gt;Define the project&lt;/h5&gt;
+
+&lt;p&gt;Create a &lt;code&gt;Dockerfile&lt;/code&gt; for Rails app&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;FROM ruby:2.3.3
+RUN apt-get update -qq &amp;amp;&amp;amp; apt-get install -y build-essential libpq-dev nodejs
+RUN mkdir /myapp
+WORKDIR /myapp
+ADD Gemfile /myapp/Gemfile
+ADD Gemfile.lock /myapp/Gemfile.lock
+RUN bundle install
+ADD . /myapp
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a &lt;code&gt;Gemfile&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;source &#39;https://rubygems.org&#39;
+gem &#39;rails&#39;, &#39;5.0.0.1&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create a &lt;code&gt;Gemfile.lock&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;touch Gemfile.lock
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Create &lt;code&gt;docker-compose.yml&lt;/code&gt;&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;version: &#39;2&#39;
+services:
+  db:
+    image: mysql
+  web:
+    build: .
+    command: bundle exec rails s -p 3000 -b &#39;0.0.0.0&#39;
+    volumes:
+      - .:/myapp
+    ports:
+      - &amp;quot;3000:3000&amp;quot;
+    depends_on:
+      - db
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;build-the-project&#34;&gt;Build the project&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose build
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Connect the database
+  Replace the contents of &lt;code&gt;config/database.yml&lt;/code&gt; with the following:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;development: &amp;amp;default
+  adapter: mysql2
+  encoding: unicode
+  database: myapp_development
+  pool: 5
+  username: mysql_user_name
+  password: mysql_password
+  host: db
+
+test:
+  &amp;lt;&amp;lt;: *default
+  database: myapp_test
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;boot-application&#34;&gt;Boot Application&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose up
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;if you&amp;rsquo;re done everthing correctly, You must have seen something like following on terminal&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;myapp_web_1 | [2014-01-17 17:16:29] INFO  WEBrick 1.3.1
+myapp_web_1 | [2014-01-17 17:16:29] INFO  ruby 2.2.0 (2014-12-25) [x86_64-linux-gnu]
+myapp_web_1 | [2014-01-17 17:16:29] INFO  WEBrick::HTTPServer#start: pid=1 port=3000
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;setup-database&#34;&gt;Setup DataBase&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;docker-compose run web rake db:create
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h5 id=&#34;get-set-go&#34;&gt;Get Set go&lt;/h5&gt;
+
+&lt;p&gt;VISIT &lt;a href=&#34;http://localhost:3000/&#34;&gt;http://localhost:3000/&lt;/a&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;general-error-s&#34;&gt;General Error(s)&lt;/h5&gt;
+
+&lt;pre&gt;&lt;code&gt;A server is already running. Check /myapp/tmp/pids/server.pid. 
+delete the file tmp/pids/server.pid to fix this
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Object-based searching rails Active-Record</title>
+      <link>/post/2016-05-14-object-based-search-rails-ransack-/</link>
+      <pubDate>Sat, 14 May 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-05-14-object-based-search-rails-ransack-/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We have listing of all Users and other data list at our admin panels per application.
+A basic Search functionality was required with less efforts and adjustable quickly.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;In your Gemfile, for the last officially released gem:
+    &lt;code&gt;gem &#39;ransack&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;in-your-controller&#34;&gt;In your controller&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+def index
+  @q = Person.ransack(params[:q])
+  @people = @q.result(distinct: true)
+end
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;in-your-view&#34;&gt;In your view&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+&amp;lt;%= search_form_for @q do |f| %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;# Search if the name field contains&amp;hellip;
+  &amp;lt;%= f.label :name_cont %&amp;gt;
+  &amp;lt;%= f.search_field :name_cont %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;# Search if an associated articles.title starts with&amp;hellip;
+  &amp;lt;%= f.label :articles_title_start %&amp;gt;
+  &amp;lt;%= f.search_field :articles_title_start %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;# Attributes may be chained. Search multiple attributes for one value&amp;hellip;
+  &amp;lt;%= f.label :name_or_description_or_email_or_articles_title_cont %&amp;gt;
+  &amp;lt;%= f.search_field :name_or_description_or_email_or_articles_title_cont %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;%= f.submit %&amp;gt;
+&amp;lt;% end %&amp;gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;cont (contains) and start (starts with) are just two of the
+available search predicates. See &lt;a href=&#34;https://github.com/activerecord-hackery/ransack/blob/master/lib/ransack/constants.rb&#34;&gt;Constants&lt;/a&gt; for a full list
+and the &lt;a href=&#34;https://github.com/activerecord-hackery/ransack/wiki&#34;&gt;wiki&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;h5 id=&#34;ransack-s-sort-link-helper-creates-table-headers-that-are-sortable-links&#34;&gt;Ransack&amp;rsquo;s sort_link helper creates table headers that are sortable links&lt;/h5&gt;
+
+&lt;p&gt;&amp;lt;%= sort_link(@q, :name) %&amp;gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Rack::Utils Basic information</title>
+      <link>/post/2016-04-30-rack-utility-symbol-to-status-code/</link>
+      <pubDate>Sat, 23 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-04-30-rack-utility-symbol-to-status-code/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;Every HTTP statuses code are available in form of symbol in Rails in a slightly more readable form. You may heard few of
+them like&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    :ok
+    :not_modified
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;We&amp;rsquo;re interested to use every status to symbol which looks good to me. Following can be found on Rails Console/Documentation
+ via&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+ Rack::Utils::SYMBOL_TO_STATUS_CODE&lt;/p&gt;
+
+&lt;p&gt;=&amp;gt; {
+        :continue=&amp;gt;100, :switching_protocols=&amp;gt;101, :processing=&amp;gt;102,
+        :ok=&amp;gt;200, :created=&amp;gt;201, :accepted=&amp;gt;202,
+        :non_authoritative_information=&amp;gt;203, :no_content=&amp;gt;204,
+        :reset_content=&amp;gt;205, :partial_content=&amp;gt;206, :multi_status=&amp;gt;207,
+        :already_reported=&amp;gt;208, :im_used=&amp;gt;226, :multiple_choices=&amp;gt;300,
+        :moved_permanently=&amp;gt;301, :found=&amp;gt;302, :see_other=&amp;gt;303,
+        :not_modified=&amp;gt;304, :use_proxy=&amp;gt;305, :temporary_redirect=&amp;gt;307,
+        :permanent_redirect=&amp;gt;308, :bad_request=&amp;gt;400, :unauthorized=&amp;gt;401,
+        :payment_required=&amp;gt;402, :forbidden=&amp;gt;403, :not_found=&amp;gt;404,
+        :method_not_allowed=&amp;gt;405, :not_acceptable=&amp;gt;406,
+        :proxy_authentication_required=&amp;gt;407, :request_timeout=&amp;gt;408,
+        :conflict=&amp;gt;409, :gone=&amp;gt;410, :length_required=&amp;gt;411,
+        :precondition_failed=&amp;gt;412, :payload_too_large=&amp;gt;413,
+        :uri_too_long=&amp;gt;414, :unsupported_media_type=&amp;gt;415,
+        :range_not_satisfiable=&amp;gt;416, :expectation_failed=&amp;gt;417,
+        :unprocessable_entity=&amp;gt;422, :locked=&amp;gt;423, :failed_dependency=&amp;gt;424,
+        :upgrade_required=&amp;gt;426, :precondition_required=&amp;gt;428,
+        :too_many_requests=&amp;gt;429, :request_header_fields_too_large=&amp;gt;431,
+        :internal_server_error=&amp;gt;500, :not_implemented=&amp;gt;501, :bad_gateway=&amp;gt;502,
+        :service_unavailable=&amp;gt;503,:gateway_timeout=&amp;gt;504,
+        :http_version_not_supported=&amp;gt;505, :variant_also_negotiates=&amp;gt;506,
+        :insufficient_storage=&amp;gt;507, :loop_detected=&amp;gt;508, :not_extended=&amp;gt;510,
+        :network_authentication_required=&amp;gt;511
+  }&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;Rack::Utils contains a grab-bag of useful methods for writing web applications adopted from all kinds of Ruby libraries.
+It contains methods like -
+{% highlight ruby %}
+ .add_cookie_to_header(header, key, value) ⇒ Object
+ .add_remove_cookie_to_header(header, key, value = {}) ⇒ Object
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;which sound quite handy to play with header cookies and there are lots of more stuff.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>passenger 5.0.26 with nginx deployment fix</title>
+      <link>/post/2016-04-02-passenger-5.0.26-nginx-deployment-fix/</link>
+      <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-04-02-passenger-5.0.26-nginx-deployment-fix/</guid>
+      <description>
+
+&lt;p&gt;We&amp;rsquo;re using passenger and nginx combo for our Rails application at production environment. After upgrading passenger
+to 5.0.26, We&amp;rsquo;re seeing errors from passenger about building the native support so file.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+App 14490 stderr:  [passenger_native_support.so] trying to compile for the current user
+(deploy) and Ruby interpreter&amp;hellip;
+App 14490 stderr:      (set PASSENGER_COMPILE_NATIVE_SUPPORT_BINARY=0 to disable)
+App 14490 stderr:      Warning: compilation didn&amp;rsquo;t succeed. To learn why, read this file:
+App 14490 stderr:      /tmp/passenger_native_support-%@$#^^.log
+App 14490 stderr:  [passenger_native_support.so] not downloading because passenger wasn&amp;rsquo;t
+installed from a release package
+App 14490 stderr:  [passenger_native_support.so] will not be used (can&amp;rsquo;t compile or download)
+App 14490 stderr:   &amp;ndash;&amp;gt; Passenger will still operate normally.
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;In the /tmp/passenger_native_support-%@$#^^.log file log, the error looks like:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;h1 id=&#34;mkdir-p-usr-lib-buildout-ruby-ruby-version-linux&#34;&gt;mkdir -p /usr/lib/buildout/ruby/ruby-version-linux&lt;/h1&gt;
+
+&lt;h2 id=&#34;encountered-permission-error-trying-a-different-directory&#34;&gt;Encountered permission error, trying a different directory&amp;hellip;&lt;/h2&gt;
+
+&lt;h1 id=&#34;mkdir-p-home-deploy-passenger-native-support-5-0-26-ruby-version-linux&#34;&gt;mkdir -p /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
+
+&lt;h1 id=&#34;cd-home-deploy-passenger-native-support-5-0-26-ruby-version-linux&#34;&gt;cd /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
+
+&lt;h1 id=&#34;usr-bin-ruby-version-usr-lib-src-ruby-native-extension-extconf-rb&#34;&gt;/usr/bin/ruby-version /usr/lib/src/ruby_native_extension/extconf.rb&lt;/h1&gt;
+
+&lt;p&gt;/usr/bin/ruby-version: No such file or directory &amp;ndash; /usr/lib/src/ruby_native_extension/extconf.rb (LoadError)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;In short, ruby_native_extension isn&amp;rsquo;t the correct folder, but as a temporary fix to get the compilation going
+you could just copy the necessary files there anyway, e.g.:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;p&gt;sudo mkdir /usr/lib/src/&lt;br /&gt;
+cp -dpR /usr/share/passenger-enterprise/ruby_extension_source /usr/lib/src/ruby_native_extension&lt;/p&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;we-moved-our-machine-to-unicorn-as-we-ve-scope-to-migrate-till-now&#34;&gt;We moved our machine to Unicorn as we&amp;rsquo;ve scope to migrate till now.&lt;/h3&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>using twitter-bootstrap via rails engine.</title>
+      <link>/post/2016-03-05-bootstrap-via-rails-engine/</link>
+      <pubDate>Sat, 05 Mar 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-03-05-bootstrap-via-rails-engine/</guid>
+      <description>&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;We&amp;rsquo;re developing a Rails engine &lt;a href=&#34;https://github.com/rajeevkannav/message_broker/&#34;&gt;Message Broker&lt;/a&gt; which will do some
+awesome things. As User Interface proposed by me is rejected from the scratch (May be you know the person) hence we opted
+Twitter-Bootstrap for Engine User Interface for simplicity. following are the steps which need to be done to use
+Twitter-Bootstrap.&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add following to your engine_name.gemspec
+&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; s.add_dependency &#39;bootstrap-sass&#39;, &#39;~&amp;gt; 3.2.0&#39;        
+ s.add_dependency &#39;sass-rails&#39;
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;require bootstrap to lib/engine_name.rb &lt;code&gt;require &#39;bootstrap&#39;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Rename application.css to application.css.sass and add following code&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}
+        @import &amp;lsquo;bootstrap-sprockets&amp;rsquo;&lt;br /&gt;
+        @import &amp;lsquo;bootstrap&amp;rsquo;
+   {% endhighlight %}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;add &lt;code&gt;//= require bootstrap-sprockets&lt;/code&gt; to your application.js after&lt;br /&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}
+        //= require jquery&lt;br /&gt;
+        //= require jquery_ujs
+   {% endhighlight %}&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;apply changes to your application layout and views&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;Restart Rails Server&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Mysql2 Error Lost connection to MySQL server during query Rails Application</title>
+      <link>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</link>
+      <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</guid>
+      <description>&lt;nav&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;ul&gt;
+&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;/nav&gt;
+
+&lt;p&gt;In our Rails Application we faced several exception(s) saying&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt;Mysql2::Error: Lost connection to MySQL server during query
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;Usually it indicates network connectivity trouble and you should check the condition of your network if this error
+occurs frequently. If the error message includes “during query,” this is probably the case you are experiencing.&lt;/p&gt;
+
+&lt;p&gt;Sometimes the &lt;code&gt;during query&lt;/code&gt; form happens when millions of rows are being sent as part of one or more queries. If you
+know that this is happening, you should try increasing &lt;code&gt;net_read_timeout&lt;/code&gt; from its default of 30 seconds to 60 seconds
+or longer, sufficient for the data transfer to complete.&lt;/p&gt;
+
+&lt;p&gt;In our case luckily we&amp;rsquo;re on Amazon Relational Database Machine(s), so it can be done easily and Quickly.&lt;/p&gt;
+
+&lt;p&gt;Visit &lt;code&gt;Parameter Groups&lt;/code&gt; of your Amazon RDS machine. update &lt;code&gt;net_read_timeout&lt;/code&gt; value of that group which is being used.
+we make it 3600. default unit in mysql is seconds&lt;/p&gt;
+
+&lt;p&gt;Re-booted the rds instance, though it was a down for a while. After that a new sun arise we&amp;rsquo;ve not face such exceptions
+yet. still we&amp;rsquo;re investigating.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>Ordering Rack Middleware Rails Application</title>
+      <link>/post/2015-09-19-rack-middleware-ordering-rails/</link>
+      <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-09-19-rack-middleware-ordering-rails/</guid>
+      <description>
+
+&lt;p&gt;Rack middleware is a simply bigger thing then rails. It&amp;rsquo;s look-alike rack application that you can use to filter,
+process, or otherwise mess with responses.There is middleware like warden - devise, to work on catch and log exceptions,
+deal with cookies, SSO, and pretty much anything else you can think of. And in case you missed it,
+rails is a rack application. Create a new rails app and run&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    rake middleware
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;It will display results like this :&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    use Rack::Cors
+    use Rack::Sendfile
+    use ActionDispatch::Static
+    use Rack::Lock
+    use #&lt;a href=&#34;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168&#34;&gt;ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168&lt;/a&gt;
+    use Rack::Runtime
+    use Rack::MethodOverride
+    use ActionDispatch::RequestId
+    use Rails::Rack::Logger
+    use ActionDispatch::ShowExceptions
+    use ActionDispatch::DebugExceptions
+    use ActionDispatch::RemoteIp
+    use ActionDispatch::Reloader
+    use ActionDispatch::Callbacks
+    use ActiveRecord::Migration::CheckPending
+    use ActiveRecord::ConnectionAdapters::ConnectionManagement
+    use ActiveRecord::QueryCache
+    use ActionDispatch::Cookies
+    use ActionDispatch::Session::CookieStore
+    use ActionDispatch::Flash
+    use ActionDispatch::ParamsParser
+    use Remotipart::Middleware
+    use Rack::Head
+    use Rack::ConditionalGet
+    use Rack::ETag
+    run Banana::Application.routes
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;okay-so-what-s-the-problem&#34;&gt;Okay so what&amp;rsquo;s the problem?&lt;/h3&gt;
+
+&lt;p&gt;let&amp;rsquo;s you have an middleware say AwesomeMe. The AwesomeMe is calculated after the response time is injected,
+so that&amp;rsquo;s fine (imagine if the etag middleware was at the bottom). What about poor ExceptionNotifier?
+What if there is an exception thrown in the ResponseTimeInjector or AwesomeMe middleware? ExceptionNotifier isn&amp;rsquo;t
+going to catch it! The ExceptionNotifier middleware doesn&amp;rsquo;t modify anything in the response,
+so it needs to be up higher; it needs to be first.&lt;/p&gt;
+
+&lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
+
+&lt;p&gt;You can add a new middleware to the middleware stack using any of the following methods:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;&lt;p&gt;config.middleware.use(new_middleware, args) - Adds the new middleware at the bottom of the middleware stack.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;config.middleware.insert_before(existing_middleware, new_middleware, args) -
+Adds the new middleware before the specified existing middleware in the middleware stack.&lt;/p&gt;&lt;/li&gt;
+
+&lt;li&gt;&lt;p&gt;config.middleware.insert_after(existing_middleware, new_middleware, args) -
+Adds the new middleware after the specified existing middleware in the middleware stack.&lt;/p&gt;&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;h1 id=&#34;config-application-rb&#34;&gt;config/application.rb&lt;/h1&gt;
+
+&lt;h1 id=&#34;push-rack-bouncefavicon-at-the-bottom&#34;&gt;Push Rack::BounceFavicon at the bottom&lt;/h1&gt;
+
+&lt;p&gt;config.middleware.use Rack::BounceFavicon&lt;/p&gt;
+
+&lt;h1 id=&#34;add-lifo-cache-after-activerecord-querycache&#34;&gt;Add Lifo::Cache after ActiveRecord::QueryCache.&lt;/h1&gt;
+
+&lt;h1 id=&#34;pass-page-cache-false-argument-to-lifo-cache&#34;&gt;Pass { page_cache: false } argument to Lifo::Cache.&lt;/h1&gt;
+
+&lt;p&gt;config.middleware.insert_after ActiveRecord::QueryCache, Lifo::Cache, page_cache: false
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+    <item>
+      <title>ReactJS - To start guide for Rails developers. Part - 1</title>
+      <link>/post/2015-05-30-reactjs-rails-start-guide-part-1/</link>
+      <pubDate>Sat, 30 May 2015 00:00:00 +0000</pubDate>
+      <guid>/post/2015-05-30-reactjs-rails-start-guide-part-1/</guid>
+      <description>
+
+&lt;h3 id=&#34;introduction-to-react-js&#34;&gt;Introduction to React.js&lt;/h3&gt;
+
+&lt;p&gt;React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of
+React as the V in MVC. We built React to solve one problem: building large applications with data that changes over
+time. To do this, React uses two main ideas. For more details &lt;a href=&#34;https://facebook.github.io/react/docs/why-react.html&#34;&gt;visit&lt;/a&gt;&lt;/p&gt;
+
+&lt;h3 id=&#34;a-mock-expense-tracking-app&#34;&gt;A mock expense tracking app&lt;/h3&gt;
+
+&lt;p&gt;For this guide, we are building a small application from scratch to keep track of our expenses; each record will consist
+of a date, a title and an amount. A record will be treated as Credit if its amount is greater than zero, otherwise it
+will be treated as Debit. Here is a mockup of the project:&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/QB8S7ap.png&#34; alt=&#34;Target&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;Summarizing, the application will behave as follows:&lt;/p&gt;
+
+&lt;ul&gt;
+&lt;li&gt;When the user creates a new record through the horizontal form, it will be appended to the records table&lt;/li&gt;
+&lt;li&gt;The user will be able to inline-edit any existing record&lt;/li&gt;
+&lt;li&gt;Clicking on any Delete button will remove the associated record from the table&lt;/li&gt;
+&lt;li&gt;Adding, editing or removing an existing record will update the amount boxes at the top of the page&lt;/li&gt;
+&lt;/ul&gt;
+
+&lt;h3 id=&#34;let-s-start&#34;&gt;Let&amp;rsquo;s Start&lt;/h3&gt;
+
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
+
+&lt;h1 id=&#34;first-things-first-we-need-to-started-our-brand-new-rails-project&#34;&gt;First things first we need to started our brand new Rails project&lt;/h1&gt;
+
+&lt;p&gt;rails new reactExample&lt;/p&gt;
+
+&lt;h1 id=&#34;add-react-rails-to-your-gemfile&#34;&gt;Add react-rails to your Gemfile.&lt;/h1&gt;
+
+&lt;p&gt;gem &amp;lsquo;react-rails&amp;rsquo;, &amp;lsquo;~&amp;gt; 1.0&amp;rsquo;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;react-rails comes with an installation script, which will create a components.js
+file and a components directory under app/assets/javascripts where our React components will live.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+  rails g react:install
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;If you take a look at your application.js file after running the installer, you will notice three new lines:&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+//= require react
+//= require react_ujs
+//= require components
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+rails g resource Record title date:date amount:float # Creating the Resource&lt;/p&gt;
+
+&lt;p&gt;rake db:create db:migrate
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;db-seed-rb&#34;&gt;db/seed.rb&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+Record.create title: &amp;lsquo;Record 1&amp;rsquo;, date: Date.today, amount: 500
+Record.create title: &amp;lsquo;Record 2&amp;rsquo;, date: Date.today, amount: -100&lt;/p&gt;
+
+&lt;p&gt;rake db:seed
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h3 id=&#34;nesting-components-listing-records&#34;&gt;Nesting Components: Listing Records&lt;/h3&gt;
+
+&lt;h5 id=&#34;app-controllers-records-controller-rb&#34;&gt;app/controllers/records_controller.rb&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+class RecordsController &amp;lt; ApplicationController
+  def index
+    @records = Record.all
+  end
+end
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;app-views-records-index-html-erb&#34;&gt;app/views/records/index.html.erb&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+&amp;lt;%= react_component &amp;lsquo;Records&amp;rsquo;, { data: @records } %&amp;gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;app-assets-javascripts-components-records-js-coffee&#34;&gt;app/assets/javascripts/components/records.js.coffee&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+    @Records = React.createClass
+      getInitialState: -&amp;gt;
+        records: @props.data
+      getDefaultProps: -&amp;gt;
+        records: []
+      render: -&amp;gt;
+        React.DOM.div
+          className: &amp;lsquo;records&amp;rsquo;
+          React.DOM.h2
+            className: &amp;lsquo;title&amp;rsquo;
+            &amp;lsquo;Records&amp;rsquo;
+          React.DOM.table
+            className: &amp;lsquo;table table-bordered&amp;rsquo;
+            React.DOM.thead null,
+              React.DOM.tr null,
+                React.DOM.th null, &amp;lsquo;Date&amp;rsquo;
+                React.DOM.th null, &amp;lsquo;Title&amp;rsquo;
+                React.DOM.th null, &amp;lsquo;Amount&amp;rsquo;
+            React.DOM.tbody null,
+              for record in @state.records
+                React.createElement Record, key: record.id, record: record
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;app-assets-javascripts-utils-js-coffee&#34;&gt;app/assets/javascripts/utils.js.coffee&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+     @amountFormat = (amount) -&amp;gt;
+       &amp;lsquo;$ &amp;rsquo; + Number(amount).toLocaleString()
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;app-assets-javascripts-components-record-js-coffee&#34;&gt;app/assets/javascripts/components/record.js.coffee&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+     @Record = React.createClass
+       render: -&amp;gt;
+         React.DOM.tr null,
+           React.DOM.td null, @props.record.date
+           React.DOM.td null, @props.record.title
+           React.DOM.td null, amountFormat(@props.record.amount)
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/vETiEeF.png&#34; alt=&#34;Current State&#34; /&gt;&lt;/p&gt;
+
+&lt;p&gt;You can take a look at the resulting code of this section &lt;a href=&#34;https://github.com/rajeevkannav/reactExample&#34;&gt;here&lt;/a&gt;,
+And Please wait for Part-2.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

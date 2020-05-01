@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>appium | Rajeev Sharma</title>
+    <link>/tags/appium/</link>
+      <atom:link href="/tags/appium/index.xml" rel="self" type="application/rss+xml" />
+    <description>appium</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 09 Apr 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>appium</title>
+      <link>/tags/appium/</link>
+    </image>
+    
+    <item>
+      <title>Mobile test automation framework appium introduction</title>
+      <link>/post/2016-04-09-mobile-test-automation-framework-appium-ruby/</link>
+      <pubDate>Sat, 09 Apr 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-04-09-mobile-test-automation-framework-appium-ruby/</guid>
+      <description>
+
+&lt;p&gt;[Appium](&amp;lsquo;&lt;a href=&#34;http://appium.io/&#39;&#34;&gt;http://appium.io/&#39;&lt;/a&gt;) is an open source test automation tool for mobile applications. Which is capable to test
+any kind of mobile application: native, hybrid and mobile web for iOs and android platform. It can also run the automated
+tests on devices as well as emulators.&lt;/p&gt;
+
+&lt;p&gt;We all have our mobile applications in at least these two major platforms and we need such a beautiful automation tool
+like &lt;code&gt;appium&lt;/code&gt;. It allows testing cross platform. It seems easy as such same code base is sufficient enough for both different
+frameworks.&lt;/p&gt;
+
+&lt;p&gt;The basic philosophy of &lt;code&gt;Appium&lt;/code&gt; is that you should be able to reuse code between iOS and Android, and that’s why
+when you see the API they are same across iOS and android. Another important thing to highlight here is that
+unlike Calabash, &lt;code&gt;Appium&lt;/code&gt; doesn’t modify your app or need you to even recompile the app.&lt;/p&gt;
+
+&lt;p&gt;You may choose any of your preferred language as it&amp;rsquo;s an open source project there are wrappers available in every major
+language.&lt;/p&gt;
+
+&lt;h1 id=&#34;appium-architecture&#34;&gt;Appium Architecture&lt;/h1&gt;
+
+&lt;p&gt;Let’s try to understand what happens behind the scenes.&lt;/p&gt;
+
+&lt;p&gt;&lt;code&gt;Appium&lt;/code&gt; server which actullay you download is written in Node.js and that implements the Selenium WebDriver. It allows
+one to use available WebDriver client to fire your tests and then your mobile app acts precisely like a web app where
+the DOM is represented by View hierarchy.&lt;/p&gt;
+
+&lt;p&gt;So this server basically exposes REST api which performs the following actions:&lt;/p&gt;
+
+&lt;pre&gt;&lt;code&gt; Receives connection from client
+ Listen command
+ Execute command
+ Respond back the command execution status
+&lt;/code&gt;&lt;/pre&gt;
+
+&lt;p&gt;In terms of architecture diagram, below is how &lt;code&gt;Appium&lt;/code&gt; can be explained.&lt;/p&gt;
+
+&lt;figure class=&#34;half&#34;&gt;
+    &lt;a href=&#34;/images/appium_architecture.jpg&#34;&gt;&lt;img src=&#34;/images/appium_architecture.jpg&#34;&gt;&lt;/a&gt;
+    &lt;figcaption&gt;`Appium` Architecture&lt;/figcaption&gt;
+&lt;/figure&gt;
+
+&lt;p&gt;We&amp;rsquo;re going to dive into &lt;code&gt;appium&lt;/code&gt; a bit more, and we&amp;rsquo;ll be bind it to ruby in text series.&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

@@ -1,0 +1,81 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>callbacks | Rajeev Sharma</title>
+    <link>/tags/callbacks/</link>
+      <atom:link href="/tags/callbacks/index.xml" rel="self" type="application/rss+xml" />
+    <description>callbacks</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 13 Feb 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>callbacks</title>
+      <link>/tags/callbacks/</link>
+    </image>
+    
+    <item>
+      <title>Observer in Rails</title>
+      <link>/post/2016-02-13-observers-in-rails-introduction/</link>
+      <pubDate>Sat, 13 Feb 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-02-13-observers-in-rails-introduction/</guid>
+      <description>
+
+&lt;h3 id=&#34;rails-observer&#34;&gt;Rails observer&lt;/h3&gt;
+
+&lt;p&gt;Rails::Observers was introdused in Rails 3. They&amp;rsquo;re another abstracted
+way to watch/tarck an object life-cycle events while watching you may
+trigger some/any other event.&lt;/p&gt;
+
+&lt;p&gt;It&amp;rsquo;s a nice to have structure/solution(not recommanded) for fatty models.
+Observer reduce the clutter that normally comes when the model class is
+Over-burdened with functionality.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+class OrderObserver &amp;lt; ActiveRecord::Observer
+  def after_create(order)
+    OrderMailer.confirm(&amp;ldquo;example@domain.com&amp;rdquo;, &amp;ldquo;Your Order has been confirmed.&amp;rdquo;, order).deliver
+  end
+end
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;This Order Observer sends an email when a Order#create is done.&lt;/p&gt;
+
+&lt;p&gt;{% highlight ruby %}
+class OrderObserver &amp;lt; ActiveRecord::Observer
+  def after_create(order)
+    order.logger.info(&amp;lsquo;New order added!&amp;rsquo;)
+  end&lt;/p&gt;
+
+&lt;p&gt;def after_destroy(order)
+    order.logger.warn(&amp;ldquo;Order with an id of #{order.id} was destroyed!&amp;rdquo;)
+  end
+end
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;This Observer uses logger to log when specific callbacks as given
+order created/destroyed are triggered.&lt;/p&gt;
+
+&lt;h4 id=&#34;available-callback-methods&#34;&gt;Available callback methods&lt;/h4&gt;
+
+&lt;p&gt;The observer(s) can implement callback methods for each of the methods described
+in the &lt;a href=&#34;http://api.rubyonrails.org/v3.2.0/classes/ActiveRecord/Callbacks.html&#34;&gt;Rails Callbacks&lt;/a&gt;
+module.&lt;/p&gt;
+
+&lt;h4 id=&#34;rails-4&#34;&gt;Rails 4&lt;/h4&gt;
+
+&lt;p&gt;Observers are removed from rails core from Rails4. In Rails 4 it&amp;rsquo;s an
+seperate &lt;a href=&#34;https://github.com/rails/rails-observers&#34;&gt;gem&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;to-be-continued-note&#34;&gt;To be continued note &amp;hellip;&lt;/h6&gt;
+
+&lt;p&gt;I am digging more into Rails::Observers. I&amp;rsquo;ll cover much more things in
+upcoming blog series related to Rails::Observers with an implementation
+of &lt;a href=&#34;https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern.&#34;&gt;Publish–subscribe pattern&lt;/a&gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>

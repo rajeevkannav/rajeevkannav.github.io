@@ -1,0 +1,77 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>search | Rajeev Sharma</title>
+    <link>/tags/search/</link>
+      <atom:link href="/tags/search/index.xml" rel="self" type="application/rss+xml" />
+    <description>search</description>
+    <generator>Source Themes Academic (https://sourcethemes.com/academic/)</generator><language>en-us</language><copyright>© 2020 Rajeev Sharma</copyright><lastBuildDate>Sat, 14 May 2016 00:00:00 +0000</lastBuildDate>
+    <image>
+      <url>/img/rajeevkannav.jpeg</url>
+      <title>search</title>
+      <link>/tags/search/</link>
+    </image>
+    
+    <item>
+      <title>Object-based searching rails Active-Record</title>
+      <link>/post/2016-05-14-object-based-search-rails-ransack-/</link>
+      <pubDate>Sat, 14 May 2016 00:00:00 +0000</pubDate>
+      <guid>/post/2016-05-14-object-based-search-rails-ransack-/</guid>
+      <description>
+
+&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
+
+&lt;p&gt;We have listing of all Users and other data list at our admin panels per application.
+A basic Search functionality was required with less efforts and adjustable quickly.&lt;/p&gt;
+
+&lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
+
+&lt;p&gt;In your Gemfile, for the last officially released gem:
+    &lt;code&gt;gem &#39;ransack&#39;&lt;/code&gt;&lt;/p&gt;
+
+&lt;h5 id=&#34;in-your-controller&#34;&gt;In your controller&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+def index
+  @q = Person.ransack(params[:q])
+  @people = @q.result(distinct: true)
+end
+{% endhighlight %}&lt;/p&gt;
+
+&lt;h5 id=&#34;in-your-view&#34;&gt;In your view&lt;/h5&gt;
+
+&lt;p&gt;{% highlight ruby %}
+&amp;lt;%= search_form_for @q do |f| %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;# Search if the name field contains&amp;hellip;
+  &amp;lt;%= f.label :name_cont %&amp;gt;
+  &amp;lt;%= f.search_field :name_cont %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;# Search if an associated articles.title starts with&amp;hellip;
+  &amp;lt;%= f.label :articles_title_start %&amp;gt;
+  &amp;lt;%= f.search_field :articles_title_start %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;# Attributes may be chained. Search multiple attributes for one value&amp;hellip;
+  &amp;lt;%= f.label :name_or_description_or_email_or_articles_title_cont %&amp;gt;
+  &amp;lt;%= f.search_field :name_or_description_or_email_or_articles_title_cont %&amp;gt;&lt;/p&gt;
+
+&lt;p&gt;&amp;lt;%= f.submit %&amp;gt;
+&amp;lt;% end %&amp;gt;
+{% endhighlight %}&lt;/p&gt;
+
+&lt;p&gt;cont (contains) and start (starts with) are just two of the
+available search predicates. See &lt;a href=&#34;https://github.com/activerecord-hackery/ransack/blob/master/lib/ransack/constants.rb&#34;&gt;Constants&lt;/a&gt; for a full list
+and the &lt;a href=&#34;https://github.com/activerecord-hackery/ransack/wiki&#34;&gt;wiki&lt;/a&gt; for more information.&lt;/p&gt;
+
+&lt;h5 id=&#34;ransack-s-sort-link-helper-creates-table-headers-that-are-sortable-links&#34;&gt;Ransack&amp;rsquo;s sort_link helper creates table headers that are sortable links&lt;/h5&gt;
+
+&lt;p&gt;&amp;lt;%= sort_link(@q, :name) %&amp;gt;&lt;/p&gt;
+
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+</description>
+    </item>
+    
+  </channel>
+</rss>
