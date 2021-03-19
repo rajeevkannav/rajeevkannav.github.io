@@ -1,7 +1,9 @@
 ---
 title: "Install Rails 7 Edge Alpha "
 date: 2021-03-19T21:40:30+05:30
-draft: true
+categories:
+ - rails7
+ - edge-rails
 ---
 
 ### Setup your app directory
