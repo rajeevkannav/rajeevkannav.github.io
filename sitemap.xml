@@ -33,6 +33,31 @@
   </url>
   
   <url>
+    <loc>/categories/</loc>
+    <lastmod>2021-03-19T21:40:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/edge-rails/</loc>
+    <lastmod>2021-03-19T21:40:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/2021-03-19-install-rails7-alpha-edge/</loc>
+    <lastmod>2021-03-19T21:40:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/post/</loc>
+    <lastmod>2021-03-19T21:40:30+05:30</lastmod>
+  </url>
+  
+  <url>
+    <loc>/categories/rails7/</loc>
+    <lastmod>2021-03-19T21:40:30+05:30</lastmod>
+  </url>
+  
+  <url>
     <loc>/courses/</loc>
     <lastmod>2019-05-05T00:00:00+01:00</lastmod>
   </url>
@@ -75,16 +100,6 @@
   <url>
     <loc>/tags/</loc>
     <lastmod>2019-04-07T00:00:00+00:00</lastmod>
-  </url>
-  
-  <url>
-    <loc>/categories/</loc>
-    <lastmod>2019-02-18T15:36:27+05:30</lastmod>
-  </url>
-  
-  <url>
-    <loc>/post/</loc>
-    <lastmod>2019-02-18T15:36:27+05:30</lastmod>
   </url>
   
   <url>

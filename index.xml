@@ -77,6 +77,34 @@
     </item>
     
     <item>
+      <title>Install Rails 7 Edge Alpha </title>
+      <link>/post/2021-03-19-install-rails7-alpha-edge/</link>
+      <pubDate>Fri, 19 Mar 2021 21:40:30 +0530</pubDate>
+      <guid>/post/2021-03-19-install-rails7-alpha-edge/</guid>
+      <description>&lt;h3 id=&#34;setup-your-app-directory&#34;&gt;Setup your app directory&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;mkdir rails7-edge-alpha-app
+cd rails7-edge-alpha-app
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;specify-your-ruby-version&#34;&gt;Specify your Ruby version&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;touch .ruby-version
+echo &#39;ruby-3.0.0&#39; &amp;gt; .ruby-version
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;setup-gemfile-with-edge-rails7&#34;&gt;Setup Gemfile with edge rails7&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;touch Gemfile
+printf &amp;quot;source &#39;https://rubygems.org&#39;\nruby &#39;3.0.0&#39;\n\n\ngem &#39;rails&#39;, github: &#39;rails/rails&#39;&amp;quot; &amp;gt;&amp;gt; Gemfile
+bundle install
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h3 id=&#34;edge-rails7&#34;&gt;edge Rails7&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;bundle exec rails new . --dev --force
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;&lt;code&gt;The --dev will tell rails to use the latest development version you just installed. Otherwise Bundler will try and find gem version on RubyGems.org that are not available yet.&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id=&#34;ta-daa&#34;&gt;ta-daa!!!&lt;/h3&gt;
+&lt;pre&gt;&lt;code&gt;bundle exec rails s
+&lt;/code&gt;&lt;/pre&gt;
+</description>
+    </item>
+    
+    <item>
       <title>An example preprint / working paper</title>
       <link>/publication/preprint/</link>
       <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
