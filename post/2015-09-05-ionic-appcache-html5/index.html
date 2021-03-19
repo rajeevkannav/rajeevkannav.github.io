@@ -641,39 +641,28 @@ Requirements  Deploy an Ionic App to Heroku Refer last blog √ Ionic app that d
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>Recently I worked on IonicApp, AppCache @ HTML5 and thought it to update application assets in cache without updating app to Stores.</p>
-
+      <p>Recently I worked on IonicApp, AppCache @ HTML5 and thought it to update application assets in cache without updating app to Stores.</p>
 <h4 id="requirements">Requirements</h4>
-
 <ul>
-<li>Deploy an Ionic App to Heroku Refer <a href="http://rajeevkannav.github.io/ionic-heroku-deploy/">last blog</a> √</li>
+<li>Deploy an Ionic App to Heroku Refer 
+<a href="http://rajeevkannav.github.io/ionic-heroku-deploy/" target="_blank" rel="noopener">last blog</a> √</li>
 <li>Ionic app that display webView of server√</li>
 </ul>
-
-<h3 id="update-config-xml">update config.xml</h3>
-
-<h5 id="update-html-tag-on-serving-remote-app">update html tag on serving/Remote App</h5>
-
-<p>{% highlight ruby %}
+<h3 id="update-configxml">update config.xml</h3>
+<h5 id="update-html-tag-on-servingremote-app">update html tag on serving/Remote App</h5>
+<p>{% highlight ruby %}</p>
 <html manifest="remote.appcache">
-{% endhighlight %}</p>
-
+{% endhighlight %}
 <h6 id="setup-manifest-to-remote-carefully-list-files">Setup manifest to remote, carefully list files</h6>
-
 <p>{% highlight ruby %}
 CACHE MANIFEST</p>
-
-<h1 id="v2-9-901">v2.9.901</h1>
-
+<h1 id="v29901">v2.9.901</h1>
 <p>/lib/ionic/css/ionic.css
 /css/style.css
 /lib/ionic/js/ionic.bundle.js
 /js/app.js
 /index.html
 /#/</p>
-
 <p>#CACHE:
 /lib/ionic/css/ionic.css
 /css/style.css
@@ -681,43 +670,35 @@ CACHE MANIFEST</p>
 /js/app.js
 /index.html
 #/#</p>
-
 <p>#NETWORK:
-#*
- # nothing yet</p>
-
+#*</p>
+<h1 id="nothing-yet">nothing yet</h1>
 <p>FALLBACK:
-#/index.html
- # nothing yet
-{% endhighlight %}</p>
-
-<h4 id="considered-server-address-is-http-appcacheionic-herokuapp-com-do-following-changes-to-your-ionic-app">considered Server address is <a href="http://appcacheionic.herokuapp.com">http://appcacheionic.herokuapp.com</a>, do following changes to your Ionic App</h4>
-
-<h5 id="at-config-xml">at config.xml</h5>
-
+#/index.html</p>
+<h1 id="nothing-yet-1">nothing yet</h1>
+<p>{% endhighlight %}</p>
+<h4 id="considered-server-address-is-httpappcacheionicherokuappcom-do-following-changes-to-your-ionic-app">considered Server address is <a href="http://appcacheionic.herokuapp.com">http://appcacheionic.herokuapp.com</a>, do following changes to your Ionic App</h4>
+<h5 id="at-configxml">at config.xml</h5>
 <p>{% highlight html %}
-  <content src="https://appcacheionic.herokuapp.com"/>
+<content src="https://appcacheionic.herokuapp.com"/>
 {% endhighlight %}</p>
-
-<h5 id="at-index-html">at index.html</h5>
-
+<h5 id="at-indexhtml">at index.html</h5>
 <p>{% highlight javascript %}
-    <script>
-      function onBodyLoad()
-      {
-        document.addEventListener(&ldquo;deviceready&rdquo;, function(){
-          //one of these ip-addresses is normally used to address the host machine when using genymotion
-          location.href = &ldquo;<a href="https://appcacheionic.herokuapp.com/&quot;">https://appcacheionic.herokuapp.com/&quot;</a>;
-        }, false);
-      }
-    </script>
+<script>
+function onBodyLoad()
+{
+document.addEventListener(&ldquo;deviceready&rdquo;, function(){
+//one of these ip-addresses is normally used to address the host machine when using genymotion
+location.href = &ldquo;<a href="https://appcacheionic.herokuapp.com/%22;">https://appcacheionic.herokuapp.com/&quot;;</a>
+}, false);
+}
+</script>
 {% endhighlight %}</p>
-
 <p>Do changes to application assets, kill application at simulator/device. Be careful on updating app, Cache Limits</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1077,7 +1058,7 @@ CACHE MANIFEST</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

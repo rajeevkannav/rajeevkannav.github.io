@@ -17,45 +17,20 @@
       <link>/post/2016-02-20-amazon-rds-sql-triggers/</link>
       <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-02-20-amazon-rds-sql-triggers/</guid>
-      <description>&lt;nav&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-&lt;p&gt;Few months ago we&amp;rsquo;ve tried to create SQL database triggers for an AWS RDS
+      <description>&lt;p&gt;Few months ago we&amp;rsquo;ve tried to create SQL database triggers for an AWS RDS
 instance and got following error.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;ERROR 1419 (HY000) at line #: You do not have the SUPER privilege
 and binary logging is enabled (you might want to use the less safe
 log_bin_trust_function_creators variable).
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Amazon RDS disable all user defined SQL code be default, as binary
 procedures could compromise the RDS architecture. And for this purpose, Amazon
 blocked granting the missing &lt;code&gt;SUPER&lt;/code&gt; privileges to any database user except the
 &lt;code&gt;rdsadmin&lt;/code&gt; user owned by Amazon itself.&lt;/p&gt;
-
 &lt;p&gt;As a workaround, there is an option to set the mysterious parameter
 &lt;code&gt;log_bin_trust_function_creators&lt;/code&gt; to 1, that prevents the database
 from complaining against simple and inoffensive triggers. Though,
 setting this parameter requires following steps:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Open the RDS web console Goto the &lt;code&gt;Parameter Groups&lt;/code&gt; tab.&lt;/li&gt;
 &lt;li&gt;Create a new Parameter Group. On the dialog, select the MySQL
@@ -69,13 +44,12 @@ named &lt;code&gt;Modify&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Again, open the &lt;code&gt;Instances&lt;/code&gt; tab. Expand your MySQL instance and issue the
 &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Modify&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Dont forget: Open the &lt;code&gt;Instances&lt;/code&gt; tab. Expand your MySQL instance and issue
-the &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Reboot&lt;/code&gt;.
-&lt;br /&gt;&lt;/li&gt;
+the &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Reboot&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Rails-5-0-beta1:  Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production based on Rails-5.0-beta1 for Example Basecamp 3.  Featured New Stuff  Action Cable Rails API New Command Router Attributes API Application Record ActiveRecord::Relation#or   Attributes API Your models are getting a new attribute class method in Rails 5, allowing you to easily define a relationship between the model and a non-Active Record type.">
+  <meta name="description" content="Rails-5-0-beta1:  Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production based on Rails-5.0-beta1 for Example Basecamp 3.  Featured New Stuff  [Action Cable] (https://github.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2016-01-09-rails5-attribute-api-beta-awakens/">
@@ -271,7 +271,7 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2016-01-09-rails5-attribute-api-beta-awakens/">
   <meta property="og:title" content="Rails 5 - beta Attribute API | Rajeev Sharma">
-  <meta property="og:description" content="Rails-5-0-beta1:  Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production based on Rails-5.0-beta1 for Example Basecamp 3.  Featured New Stuff  Action Cable Rails API New Command Router Attributes API Application Record ActiveRecord::Relation#or   Attributes API Your models are getting a new attribute class method in Rails 5, allowing you to easily define a relationship between the model and a non-Active Record type."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="Rails-5-0-beta1:  Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production based on Rails-5.0-beta1 for Example Basecamp 3.  Featured New Stuff  [Action Cable] (https://github."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +321,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Rails-5-0-beta1:  Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production based on Rails-5.0-beta1 for Example Basecamp 3.  Featured New Stuff  Action Cable Rails API New Command Router Attributes API Application Record ActiveRecord::Relation#or   Attributes API Your models are getting a new attribute class method in Rails 5, allowing you to easily define a relationship between the model and a non-Active Record type."
+  "description": "Rails-5-0-beta1:  Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production based on Rails-5.0-beta1 for Example Basecamp 3.  Featured New Stuff  [Action Cable] (https://github."
 }
 </script>
 
@@ -639,33 +639,24 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="rails-5-0-beta1">Rails-5-0-beta1:</h3>
-
+      <h3 id="rails-5-0-beta1">Rails-5-0-beta1:</h3>
 <pre><code> Rails-5.0-beta1 is available after tenth anniversary of Rails 1.0. still there are apps ruunning in production
  based on Rails-5.0-beta1 for Example Basecamp 3.
 </code></pre>
-
 <h3 id="featured-new-stuff">Featured New Stuff</h3>
-
 <ul>
-<li><a href="https://github.com/rails/rails/tree/master/actioncable">Action Cable</a></li>
-<li><a href="https://github.com/rails/rails/pull/19832">Rails API</a></li>
-<li><a href="https://github.com/rails/rails/issues/18878">New Command Router</a></li>
-<li><a href="https://github.com/rails/rails/blob/8c752c7ac739d5a86d4136ab1e9d0142c4041e58/activerecord/lib/active_record/attributes.rb">Attributes API</a></li>
-<li><a href="https://github.com/rails/rails/pull/22567">Application Record</a></li>
-<li><a href="https://github.com/rails/rails/pull/16052">ActiveRecord::Relation#or </a></li>
+<li>[Action Cable] (<a href="https://github.com/rails/rails/tree/master/actioncable">https://github.com/rails/rails/tree/master/actioncable</a>)</li>
+<li>[Rails API] (<a href="https://github.com/rails/rails/pull/19832">https://github.com/rails/rails/pull/19832</a>)</li>
+<li>[New Command Router] (<a href="https://github.com/rails/rails/issues/18878">https://github.com/rails/rails/issues/18878</a>)</li>
+<li>[Attributes API] (<a href="https://github.com/rails/rails/blob/8c752c7ac739d5a86d4136ab1e9d0142c4041e58/activerecord/lib/active_record/attributes.rb">https://github.com/rails/rails/blob/8c752c7ac739d5a86d4136ab1e9d0142c4041e58/activerecord/lib/active_record/attributes.rb</a>)</li>
+<li>[Application Record] (<a href="https://github.com/rails/rails/pull/22567">https://github.com/rails/rails/pull/22567</a>)</li>
+<li>[ActiveRecord::Relation#or ] (<a href="https://github.com/rails/rails/pull/16052">https://github.com/rails/rails/pull/16052</a>)</li>
 </ul>
-
 <h3 id="attributes-api">Attributes API</h3>
-
 <pre><code>Your models are getting a new attribute class method in Rails 5, allowing you to easily define a relationship
 between the model and a non-Active Record type. No more misusing serialize!
 </code></pre>
-
 <p>{% highlight ruby %}</p>
-
 <pre><code># before
 # The type detected by Active Record can be overridden.
 
@@ -673,19 +664,19 @@ between the model and a non-Active Record type. No more misusing serialize!
     create_table :store_listings, force: true do |t|
         t.decimal :price_in_cents
     end
-
+    
     # app/models/store_listing.rb
     class StoreListing &lt; ActiveRecord::Base
     end
-
+    
     store_listing = StoreListing.new(price_in_cents: '10.1')
-
+    
     store_listing.price_in_cents # =&gt; BigDecimal.new(10.1)
-
+    
     class StoreListing &lt; ActiveRecord::Base
         attribute :price_in_cents, :integer
     end
-
+    
     store_listing.price_in_cents # =&gt; 10
 
 # after
@@ -696,7 +687,7 @@ between the model and a non-Active Record type. No more misusing serialize!
         attribute :my_int_array, :integer, array: true
         attribute :my_float_range, :float, range: true
     end
-
+    
     model = MyModel.new(
         my_string: &quot;string&quot;,
         my_int_array: [&quot;1&quot;, &quot;2&quot;, &quot;3&quot;],
@@ -710,12 +701,11 @@ between the model and a non-Active Record type. No more misusing serialize!
         my_float_range: 1.0..3.5
     }
 </code></pre>
-
 <p>{% endhighlight %}</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1060,7 +1050,7 @@ between the model and a non-Active Record type. No more misusing serialize!
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

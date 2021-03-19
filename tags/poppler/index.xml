@@ -17,15 +17,10 @@
       <link>/post/2015-05-16-install-poppler-fontforge-pdf2htmlex-ubuntu15.05/</link>
       <pubDate>Sat, 09 May 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-05-16-install-poppler-fontforge-pdf2htmlex-ubuntu15.05/</guid>
-      <description>
-
-&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt; 
+      <description>&lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt; 
 &lt;script async defer src=&#34;//platform.instagram.com/en_US/embeds.js&#34;&gt;&lt;/script&gt;
-
 &lt;p&gt;This blog is for those of you who may have seen problem to install pdf2htmlEX at Ubuntu 15.05.&lt;/p&gt;
-
 &lt;h1 id=&#34;dependencies-are&#34;&gt;Dependencies are:&lt;/h1&gt;
-
 &lt;ul&gt;
 &lt;li&gt;CMake, pkg-config&lt;/li&gt;
 &lt;li&gt;GNU Getopt&lt;/li&gt;
@@ -33,29 +28,22 @@
 &lt;li&gt;poppler&lt;/li&gt;
 &lt;li&gt;fontforge&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;I tried to prepare a shell script to have pdf2htmlEX installed on Ubuntu 15.05 in single shot.
 fortunately it works to.&lt;/p&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://gist.githubusercontent.com/rajeevkannav/d07f822e209a22d07176/raw/256da0e23eacb27fc52f07f293d35a1315ce37e9/pdf2htmlEX.sh&#34;&gt;script for Download.&lt;/a&gt;&lt;/p&gt;
-
+&lt;p&gt;
+&lt;a href=&#34;https://gist.githubusercontent.com/rajeevkannav/d07f822e209a22d07176/raw/256da0e23eacb27fc52f07f293d35a1315ce37e9/pdf2htmlEX.sh&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;script for Download.&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;following-are-the-steps-to-install&#34;&gt;following are the steps to install&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Download script via link given above&lt;/li&gt;
 &lt;li&gt;[sudo] chmod 775 pdf2htmlEX.sh&lt;/li&gt;
-&lt;li&gt;[sudo] ./pdf2htmlEX.sh
-&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;[sudo] ./pdf2htmlEX.sh&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h3 id=&#34;gist-embeded&#34;&gt;Gist Embeded&lt;/h3&gt;
-
 &lt;p&gt;{% gist rajeevkannav/d07f822e209a22d07176 %}&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -639,18 +639,13 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>We&rsquo;ve Rails,Django and Node has yet to be established. Now, there is a powerful framework gaining steam: LoopBack, an
+      <p>We&rsquo;ve Rails,Django and Node has yet to be established. Now, there is a powerful framework gaining steam: LoopBack, an
 open source API framework built by StrongLoop. StrongLoop is an important contributor to the latest Node version,
 not to mention the current maintainers of Express, one of the most popular Node frameworks in existence.</p>
-
 <figure class="third">
-    <img src="/images/loopback.svg">
+	<img src="/images/loopback.svg">
 </figure>
-
 <h2 id="about">About</h2>
-
 <ul>
 <li>Quickly create dynamic end-to-end REST APIs.</li>
 <li>Connect devices and browsers to data and services.</li>
@@ -660,44 +655,31 @@ not to mention the current maintainers of Express, one of the most popular Node 
 <li>StrongLoop API Gateway acts an intermediary between API consumers (clients) and API providers to externalize, secure, and manage APIs.</li>
 <li>Runs on-premises or in the cloud</li>
 </ul>
-
 <h3 id="install">Install</h3>
-
 <p>Assuming you have already installed Node, Install the StrongLoop tools for LoopBack applications.</p>
-
 <pre><code>$ npm install -g strongloop
 </code></pre>
-
 <h5 id="create-a-hello-world-loopback-application">Create a &ldquo;Hello World&rdquo; LoopBack application.</h5>
-
 <pre><code>$ slc loopback
 [?] Enter a directory name where to create the project: hello-world
 [?] What's the name of your application? hello-world
 </code></pre>
-
 <h5 id="create-models">Create models</h5>
-
 <pre><code>$ cd hello-world
 $ slc loopback:model
 </code></pre>
-
 <p>The generator guides you through creating your model. Enter the values highlighted in blue.
 To accept the default, just press Enter.</p>
-
 <pre><code>[?] Enter the model name: person
 [?] Select the data-source to attach person to: db (memory)
 [?] Expose person via the REST API? Yes
 [?] Custom plural form (used to build REST URL): people
 </code></pre>
-
 <p>Let&rsquo;s add some person properties now. Define a firstname property for the person model</p>
-
 <pre><code>Enter an empty property name when done.
 [?] Property name: firstname
 </code></pre>
-
 <p>Hit Enter to accept the default string type:</p>
-
 <pre><code>[?] Property type: (Use arrow keys)
 ❯ string
   number
@@ -709,38 +691,29 @@ To accept the default, just press Enter.</p>
   geopoint
   (other)
 </code></pre>
-
 <p>Make the property required.</p>
-
 <pre><code>[?] Required? (y/N) y
 </code></pre>
-
 <p>Repeat these steps for lastname property.</p>
-
 <p>Press Enter when prompted for a property name to finish up and create the model.</p>
-
 <h5 id="run-the-application">Run the application</h5>
-
 <p>Run as you would any Node application.</p>
-
 <pre><code>$ node .
 Browse your REST API at http://0.0.0.0:3000/explorer
 Web server listening at: http://0.0.0.0:3000/
 </code></pre>
-
 <p>When you&rsquo;re ready to think about moving to production, you can use slc start to run the app under the control of a local
 instance of StrongLoop Process Manager. This enables you to profile, monitor, and control clustering for the app and
 keep it running forever. See strong-pm.io for more information. Explore your REST API</p>
-
-<p>Visit <a href="http://0.0.0.0:3000/explorer">localhost</a></p>
-
+<p>Visit 
+<a href="http://0.0.0.0:3000/explorer" target="_blank" rel="noopener">localhost</a></p>
 <p>The API Explorer enables you to exercise all the generated API endpoints. There are create, read, update, and delete (CRUD)
 endpoints for the people model you just created. For more information, see the Using the API Explorer in the documentation.
 You may also want to follow the Getting Started tutorial.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1087,7 +1060,7 @@ You may also want to follow the Getting Started tutorial.</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

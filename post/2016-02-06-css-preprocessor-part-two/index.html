@@ -639,45 +639,33 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="stuff">stuff</h3>
-
+      <h3 id="stuff">stuff</h3>
 <h5 id="css-import-rule">CSS @import Rule</h5>
-
 <p>CSS @-rule have @import directive which is one of the most popular and
 helpful directive for web developer(s)/designer(s). Sass also extends the
 CSS @import rule to allow it to import SCSS and Sass files. All imported
 SCSS and Sass files will be merged together into a single CSS output file.
 In addition, any variables or mixins defined in imported files can be used
 in the main file.</p>
-
 <p>Sass preprocessors automatically consider all .scss or .sass files inside the
 current directory or given <code>load_paths</code> for compliation .but if you need to
 import you may not need to compile it directly, for that you need to inform
 preprocessors to not compile a file. put an underscore to the start of that
 file name, Sass preprocessors will ignore it for compilation. for example
 rename <code>extended.scss</code> to <code>extended.scss</code></p>
-
 <p>Files named this way are called <code>partials</code> in Sass terminology.</p>
-
-<h3 id="how-they-works-backstage">How they works - BackStage</h3>
-
+<h3 id="how-they-works---backstage">How they works - BackStage</h3>
 <h5 id="rules-for-include-style-into-our-styles">Rules for include style into our styles</h5>
-
 <p><code>@import</code> takes a filename to import. By default, it looks for a Sass file to import
- directly, but there are a few circumstances under which it will compile to a CSS
- <code>@import</code> rule:</p>
-
+directly, but there are a few circumstances under which it will compile to a CSS
+<code>@import</code> rule:</p>
 <ul>
 <li>If the file’s extension is .css.</li>
 <li>If the filename begins with http://.</li>
 <li>If the filename is a url().</li>
 <li>If the @import has any media queries.</li>
 </ul>
-
 <h5 id="ways-for-include-style-into-our-styles">ways for include style into our styles</h5>
-
 <p>{% highlight css %}
 @import &ldquo;extended.scss&rdquo;;
 {% endhighlight %}
@@ -686,31 +674,27 @@ OR
 @import &ldquo;extended.scss&rdquo;;
 {% endhighlight %}
 would both import the file extended.scss, whereas</p>
-
 <p>{% highlight css %}
 @import &ldquo;foo.css&rdquo;;
 @import &ldquo;foo&rdquo; screen;
-@import &ldquo;<a href="http://foo.com/bar&quot;">http://foo.com/bar&quot;</a>;
+@import &ldquo;<a href="http://foo.com/bar%22;">http://foo.com/bar&quot;;</a>
 @import url(foo);
 {% endhighlight %}</p>
-
 <p>would all compile to</p>
-
 <p>{% highlight css %}
 @import &ldquo;foo.css&rdquo;;
 @import &ldquo;foo&rdquo; screen;
-@import &ldquo;<a href="http://foo.com/bar&quot;">http://foo.com/bar&quot;</a>;
+@import &ldquo;<a href="http://foo.com/bar%22;">http://foo.com/bar&quot;;</a>
 @import url(foo);
 {% endhighlight %}</p>
-
 <p>To import multiple files in one import.
 {% highlight css %}
 @import &ldquo;rounded-corners&rdquo;, &ldquo;text-shadow&rdquo;;
 {% endhighlight %}</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1064,7 +1048,7 @@ would both import the file extended.scss, whereas</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

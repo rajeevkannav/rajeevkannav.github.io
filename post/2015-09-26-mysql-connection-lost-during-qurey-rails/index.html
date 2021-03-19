@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="And if you get stuck… Ask Here        In our Rails Application we faced several exception(s) saying">
+  <meta name="description" content="In our Rails Application we faced several exception(s) saying
+Mysql2::Error: Lost connection to MySQL server during query  Usually it indicates network connectivity trouble and you should check the condition of your network if this error occurs frequently.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2015-09-26-mysql-connection-lost-during-qurey-rails/">
@@ -271,7 +272,8 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2015-09-26-mysql-connection-lost-during-qurey-rails/">
   <meta property="og:title" content="Mysql2 Error Lost connection to MySQL server during query Rails Application | Rajeev Sharma">
-  <meta property="og:description" content="And if you get stuck… Ask Here        In our Rails Application we faced several exception(s) saying"><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="In our Rails Application we faced several exception(s) saying
+Mysql2::Error: Lost connection to MySQL server during query  Usually it indicates network connectivity trouble and you should check the condition of your network if this error occurs frequently."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +323,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "And if you get stuck… Ask Here        In our Rails Application we faced several exception(s) saying"
+  "description": "In our Rails Application we faced several exception(s) saying\nMysql2::Error: Lost connection to MySQL server during query  Usually it indicates network connectivity trouble and you should check the condition of your network if this error occurs frequently."
 }
 </script>
 
@@ -639,50 +641,23 @@
   <div class="article-container">
 
     <div class="article-style">
-      <nav>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-
-<p>In our Rails Application we faced several exception(s) saying</p>
-
+      <p>In our Rails Application we faced several exception(s) saying</p>
 <pre><code>Mysql2::Error: Lost connection to MySQL server during query
 </code></pre>
-
 <p>Usually it indicates network connectivity trouble and you should check the condition of your network if this error
 occurs frequently. If the error message includes “during query,” this is probably the case you are experiencing.</p>
-
 <p>Sometimes the <code>during query</code> form happens when millions of rows are being sent as part of one or more queries. If you
 know that this is happening, you should try increasing <code>net_read_timeout</code> from its default of 30 seconds to 60 seconds
 or longer, sufficient for the data transfer to complete.</p>
-
 <p>In our case luckily we&rsquo;re on Amazon Relational Database Machine(s), so it can be done easily and Quickly.</p>
-
 <p>Visit <code>Parameter Groups</code> of your Amazon RDS machine. update <code>net_read_timeout</code> value of that group which is being used.
 we make it 3600. default unit in mysql is seconds</p>
-
 <p>Re-booted the rds instance, though it was a down for a while. After that a new sun arise we&rsquo;ve not face such exceptions
 yet. still we&rsquo;re investigating.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1044,7 +1019,7 @@ yet. still we&rsquo;re investigating.</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

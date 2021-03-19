@@ -17,45 +17,33 @@
       <link>/post/2016-02-06-css-preprocessor-part-two/</link>
       <pubDate>Sat, 06 Feb 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-02-06-css-preprocessor-part-two/</guid>
-      <description>
-
-&lt;h3 id=&#34;stuff&#34;&gt;stuff&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;stuff&#34;&gt;stuff&lt;/h3&gt;
 &lt;h5 id=&#34;css-import-rule&#34;&gt;CSS @import Rule&lt;/h5&gt;
-
 &lt;p&gt;CSS @-rule have @import directive which is one of the most popular and
 helpful directive for web developer(s)/designer(s). Sass also extends the
 CSS @import rule to allow it to import SCSS and Sass files. All imported
 SCSS and Sass files will be merged together into a single CSS output file.
 In addition, any variables or mixins defined in imported files can be used
 in the main file.&lt;/p&gt;
-
 &lt;p&gt;Sass preprocessors automatically consider all .scss or .sass files inside the
 current directory or given &lt;code&gt;load_paths&lt;/code&gt; for compliation .but if you need to
 import you may not need to compile it directly, for that you need to inform
 preprocessors to not compile a file. put an underscore to the start of that
 file name, Sass preprocessors will ignore it for compilation. for example
 rename &lt;code&gt;extended.scss&lt;/code&gt; to &lt;code&gt;extended.scss&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;Files named this way are called &lt;code&gt;partials&lt;/code&gt; in Sass terminology.&lt;/p&gt;
-
-&lt;h3 id=&#34;how-they-works-backstage&#34;&gt;How they works - BackStage&lt;/h3&gt;
-
+&lt;h3 id=&#34;how-they-works---backstage&#34;&gt;How they works - BackStage&lt;/h3&gt;
 &lt;h5 id=&#34;rules-for-include-style-into-our-styles&#34;&gt;Rules for include style into our styles&lt;/h5&gt;
-
 &lt;p&gt;&lt;code&gt;@import&lt;/code&gt; takes a filename to import. By default, it looks for a Sass file to import
- directly, but there are a few circumstances under which it will compile to a CSS
- &lt;code&gt;@import&lt;/code&gt; rule:&lt;/p&gt;
-
+directly, but there are a few circumstances under which it will compile to a CSS
+&lt;code&gt;@import&lt;/code&gt; rule:&lt;/p&gt;
 &lt;ul&gt;
 &lt;li&gt;If the file’s extension is .css.&lt;/li&gt;
 &lt;li&gt;If the filename begins with http://.&lt;/li&gt;
 &lt;li&gt;If the filename is a url().&lt;/li&gt;
 &lt;li&gt;If the @import has any media queries.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h5 id=&#34;ways-for-include-style-into-our-styles&#34;&gt;ways for include style into our styles&lt;/h5&gt;
-
 &lt;p&gt;{% highlight css %}
 @import &amp;ldquo;extended.scss&amp;rdquo;;
 {% endhighlight %}
@@ -64,31 +52,27 @@ OR
 @import &amp;ldquo;extended.scss&amp;rdquo;;
 {% endhighlight %}
 would both import the file extended.scss, whereas&lt;/p&gt;
-
 &lt;p&gt;{% highlight css %}
 @import &amp;ldquo;foo.css&amp;rdquo;;
 @import &amp;ldquo;foo&amp;rdquo; screen;
-@import &amp;ldquo;&lt;a href=&#34;http://foo.com/bar&amp;quot;&#34;&gt;http://foo.com/bar&amp;quot;&lt;/a&gt;;
+@import &amp;ldquo;&lt;a href=&#34;http://foo.com/bar%22;&#34;&gt;http://foo.com/bar&amp;quot;;&lt;/a&gt;
 @import url(foo);
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;would all compile to&lt;/p&gt;
-
 &lt;p&gt;{% highlight css %}
 @import &amp;ldquo;foo.css&amp;rdquo;;
 @import &amp;ldquo;foo&amp;rdquo; screen;
-@import &amp;ldquo;&lt;a href=&#34;http://foo.com/bar&amp;quot;&#34;&gt;http://foo.com/bar&amp;quot;&lt;/a&gt;;
+@import &amp;ldquo;&lt;a href=&#34;http://foo.com/bar%22;&#34;&gt;http://foo.com/bar&amp;quot;;&lt;/a&gt;
 @import url(foo);
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;To import multiple files in one import.
 {% highlight css %}
 @import &amp;ldquo;rounded-corners&amp;rdquo;, &amp;ldquo;text-shadow&amp;rdquo;;
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

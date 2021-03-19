@@ -639,19 +639,13 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem">Problem</h4>
-
+      <h4 id="problem">Problem</h4>
 <p>WE deployed our angular app to Heroku with custom domain. There are Heroku
 Add-ons by which SSL can be enabled but our problem was to enforce http
 requests to https.</p>
-
 <h4 id="solution">Solution</h4>
-
 <p>Inside your <code>server.js</code> (in our case) put the following code after
 app or express (in our case) app variable.</p>
-
 <pre><code>/* Redirect http to https */
 app.get('*',function(req,res,next){
   if(req.headers['x-forwarded-proto']!='https'&amp;&amp;process.env.NODE_ENV === 'production')
@@ -660,23 +654,20 @@ app.get('*',function(req,res,next){
     next() /* Continue to other routes if we're not redirecting */
 });
 </code></pre>
-
 <p>In the <code>if</code> block, <code>req.headers['x-forwarded-proto']</code> should be equal to <code>https</code>.
 On the other hand, we don’t want the redirection on localhost as we don’t have a
 ssl certificate set up locally that&rsquo;s why we used <code>process.env.NODE_ENV === 'production'</code>
 inside the condition to make sure that this will only run on Heroku/Production,
 which has the <code>NODE_ENV</code> environment variable set to <code>production</code>.</p>
-
 <p>If both these conditions are true, this means someone is trying to access
 our app though <code>http</code>. We need to swap <code>http</code> for <code>https</code> and redirect them to
 the new url. To reform the url that they are trying to call we use
 <code>req.hostname</code> in combination with <code>req.url</code>.</p>
-
 <p>And finally we redirect using <code>res.redirect()</code>.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1040,7 +1031,7 @@ the new url. To reform the url that they are trying to call we use
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

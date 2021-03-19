@@ -17,33 +17,25 @@
       <link>/post/2016-04-23-multiple-selecttion-sort-with-javascript/</link>
       <pubDate>Sat, 23 Apr 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-04-23-multiple-selecttion-sort-with-javascript/</guid>
-      <description>
-
-&lt;p&gt;[jquery.multisortable](&amp;lsquo;&lt;a href=&#34;https://github.com/shvetsgroup/jquery.multisortable&#39;&#34;&gt;https://github.com/shvetsgroup/jquery.multisortable&#39;&lt;/a&gt;) is an open source Extension of jQuery
+      <description>&lt;p&gt;
+&lt;a href=&#34;%27https://github.com/shvetsgroup/jquery.multisortable%27&#34;&gt;jquery.multisortable&lt;/a&gt; is an open source Extension of jQuery
 UI Sortable, which works with multiple selected elements.&lt;/p&gt;
-
 &lt;h4 id=&#34;usage&#34;&gt;Usage&lt;/h4&gt;
-
 &lt;p&gt;{% highlight ruby %}
 // simple case
 $(&amp;lsquo;ul&amp;rsquo;).multisortable();&lt;/p&gt;
-
 &lt;p&gt;// some of the advanced usages
 $(&amp;lsquo;div.container&amp;rsquo;).multisortable({
-    items: &amp;ldquo;div.item&amp;rdquo;,
-    selectedClass: &amp;ldquo;selected&amp;rdquo;,
-    click: function(e){ console.log(&amp;ldquo;I&amp;rsquo;m selected.&amp;rdquo;); }
-    stop: function(e){ console.log(&amp;ldquo;I&amp;rsquo;ve been sorted.&amp;rdquo;); }
+items: &amp;ldquo;div.item&amp;rdquo;,
+selectedClass: &amp;ldquo;selected&amp;rdquo;,
+click: function(e){ console.log(&amp;ldquo;I&amp;rsquo;m selected.&amp;quot;); }
+stop: function(e){ console.log(&amp;ldquo;I&amp;rsquo;ve been sorted.&amp;quot;); }
 });
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h4 id=&#34;options&#34;&gt;Options&lt;/h4&gt;
-
 &lt;pre&gt;&lt;code&gt;selectedClass: class which will be assigned to selected items.
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h4 id=&#34;events&#34;&gt;Events&lt;/h4&gt;
-
 &lt;ul&gt;
 &lt;li&gt;mousedown: this event will be fired when user starts to drag item(s).&lt;/li&gt;
 &lt;li&gt;click: this event will be fired when user clicks item(s).&lt;/li&gt;
@@ -51,14 +43,13 @@ $(&amp;lsquo;div.container&amp;rsquo;).multisortable({
 &lt;li&gt;stop: this event will be fired when user stop to drag item(s).&lt;/li&gt;
 &lt;li&gt;sort: this event will be fired when user sort item(s) after drag stop.&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h4 id=&#34;demo&#34;&gt;Demo&lt;/h4&gt;
-
-&lt;p&gt;[js.fiddle](&amp;lsquo;&lt;a href=&#34;http://jsfiddle.net/neochief/KWeMM/&#39;&#34;&gt;http://jsfiddle.net/neochief/KWeMM/&#39;&lt;/a&gt;)&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;%27http://jsfiddle.net/neochief/KWeMM/%27&#34;&gt;js.fiddle&lt;/a&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -31,7 +31,8 @@
   <meta name="description" content="Create VCardField to have more capabilities Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.
 {% highlight ruby %}
 require &lsquo;vpim/vcard&rsquo;
-class VCardField &lt; Vpim::DirectoryInfo::Field">
+class VCardField &lt; Vpim::DirectoryInfo::Field
+def VCardField.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2015-07-18-vpim-vcard-generation-ruby/">
@@ -277,7 +278,8 @@ class VCardField &lt; Vpim::DirectoryInfo::Field">
   <meta property="og:description" content="Create VCardField to have more capabilities Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.
 {% highlight ruby %}
 require &lsquo;vpim/vcard&rsquo;
-class VCardField &lt; Vpim::DirectoryInfo::Field"><meta property="og:image" content="/img/rajeevkannav.jpeg">
+class VCardField &lt; Vpim::DirectoryInfo::Field
+def VCardField."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -327,7 +329,7 @@ class VCardField &lt; Vpim::DirectoryInfo::Field"><meta property="og:image" cont
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Create VCardField to have more capabilities Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.\n{% highlight ruby %}\nrequire \u0026lsquo;vpim/vcard\u0026rsquo;\nclass VCardField \u0026lt; Vpim::DirectoryInfo::Field"
+  "description": "Create VCardField to have more capabilities Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.\n{% highlight ruby %}\nrequire \u0026lsquo;vpim/vcard\u0026rsquo;\nclass VCardField \u0026lt; Vpim::DirectoryInfo::Field\ndef VCardField."
 }
 </script>
 
@@ -645,101 +647,82 @@ class VCardField &lt; Vpim::DirectoryInfo::Field"><meta property="og:image" cont
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="create-vcardfield-to-have-more-capabilities">Create VCardField to have more capabilities</h3>
-
-<p><img src="./../images/vcard.png" alt="Target" /></p>
-
+      <h3 id="create-vcardfield-to-have-more-capabilities">Create VCardField to have more capabilities</h3>
+<p><img src="./../images/vcard.png" alt="Target"></p>
 <p>Subclass of Vpim::DirectoryInfo::Field adds a number of helpful methods for creating VCard fields.</p>
-
 <p>{% highlight ruby %}</p>
-
 <p>require &lsquo;vpim/vcard&rsquo;</p>
-
 <p>class VCardField &lt; Vpim::DirectoryInfo::Field</p>
-
 <p>def VCardField.reset_custom_fields
-    @@custom_number = 1
-  end</p>
-
-<p>#
-  # Create a name field: &ldquo;N&rdquo;
-  #
-  def VCardField.create_n (last, first=nil, middle=nil, prefix=nil, suffix=nil)
-    VCardField.create(&lsquo;N&rsquo;, &ldquo;#{last};#{first};#{middle};#{prefix};#{suffix}&rdquo;)
-  end</p>
-
+@@custom_number = 1
+end</p>
+<h1 id="heading"></h1>
+<h1 id="create-a-name-field-n">Create a name field: &ldquo;N&rdquo;</h1>
+<h1 id="heading-1"></h1>
+<p>def VCardField.create_n (last, first=nil, middle=nil, prefix=nil, suffix=nil)
+VCardField.create(&lsquo;N&rsquo;, &ldquo;#{last};#{first};#{middle};#{prefix};#{suffix}&quot;)
+end</p>
 <p>protected</p>
-
 <p>def VCardField.valid_string(a_str)
-    return a_str != nil &amp;&amp; a_str.length &gt; 0
-  end</p>
-
+return a_str != nil &amp;&amp; a_str.length &gt; 0
+end</p>
 <p>public</p>
-
-<p>#
-  # Create a formal name field: &ldquo;FN&rdquo;
-  #
-  def VCardField.create_fn (last, first=nil, middle=nil, prefix=nil, suffix=nil)
-    name = &ldquo;&rdquo;
-    if valid_string(prefix) then
-      name &lt;&lt; &ldquo;#{prefix} &ldquo;
-    end
-    if valid_string(first) then
-      name &lt;&lt; &ldquo;#{first} &ldquo;
-    end
-    if valid_string(middle) then
-      name &lt;&lt; &ldquo;#{middle} &ldquo;
-    end
-    if valid_string(last) then
-      name &lt;&lt; &ldquo;#{last} &ldquo;
-    end
-    if valid_string(suffix) then
-      name &lt;&lt; &ldquo;#{suffix} &ldquo;
-    end
-    VCardField.create(&lsquo;FN&rsquo;, &ldquo;#{name}&rdquo;)
-  end</p>
-
-<p>#
-  # Create a formal name field: &ldquo;ORG&rdquo;
-  #
-  def VCardField.create_org (organization_name, department_name=nil)
-    VCardField.create(&ldquo;ORG&rdquo;, &ldquo;#{organization_name};#{department_name}&ldquo;)
-  end</p>
-
-<p>#
-  # Create a title field: &ldquo;TITLE&rdquo;
-  #
-  def VCardField.create_job_title(title)
-    VCardField.create(&ldquo;TITLE&rdquo;, title)
-  end</p>
-
-<p>#
-  # Create an email field: &ldquo;EMAIL&rdquo; with type=&ldquo;INTERNET&rdquo;
-  #
-  # For <em>type</em>, use Ruby symbols :WORK or :HOME.
-  #
-  def VCardField.create_internet_email(address, type=:WORK, preferred_email=false)
-    if preferred_email == true
-      VCardField.create(&ldquo;EMAIL&rdquo;, address,
-                        &ldquo;type&rdquo; =&gt; [&ldquo;INTERNET&rdquo;, type.to_s, &ldquo;pref&rdquo;])
-    else
-      VCardField.create(&ldquo;EMAIL&rdquo;, address,
-                        &ldquo;type&rdquo; =&gt; [&ldquo;INTERNET&rdquo;, type.to_s])
-    end
-  end</p>
-
+<h1 id="heading-2"></h1>
+<h1 id="create-a-formal-name-field-fn">Create a formal name field: &ldquo;FN&rdquo;</h1>
+<h1 id="heading-3"></h1>
+<p>def VCardField.create_fn (last, first=nil, middle=nil, prefix=nil, suffix=nil)
+name = &quot;&rdquo;
+if valid_string(prefix) then
+name &laquo; &ldquo;#{prefix} &quot;
+end
+if valid_string(first) then
+name &laquo; &ldquo;#{first} &quot;
+end
+if valid_string(middle) then
+name &laquo; &ldquo;#{middle} &quot;
+end
+if valid_string(last) then
+name &laquo; &ldquo;#{last} &quot;
+end
+if valid_string(suffix) then
+name &laquo; &ldquo;#{suffix} &quot;
+end
+VCardField.create(&lsquo;FN&rsquo;, &ldquo;#{name}&quot;)
+end</p>
+<h1 id="heading-4"></h1>
+<h1 id="create-a-formal-name-field-org">Create a formal name field: &ldquo;ORG&rdquo;</h1>
+<h1 id="heading-5"></h1>
+<p>def VCardField.create_org (organization_name, department_name=nil)
+VCardField.create(&ldquo;ORG&rdquo;, &ldquo;#{organization_name};#{department_name}&quot;)
+end</p>
+<h1 id="heading-6"></h1>
+<h1 id="create-a-title-field-title">Create a title field: &ldquo;TITLE&rdquo;</h1>
+<h1 id="heading-7"></h1>
+<p>def VCardField.create_job_title(title)
+VCardField.create(&ldquo;TITLE&rdquo;, title)
+end</p>
+<h1 id="heading-8"></h1>
+<h1 id="create-an-email-field-email-with-typeinternet">Create an email field: &ldquo;EMAIL&rdquo; with type=&quot;INTERNET&rdquo;</h1>
+<h1 id="heading-9"></h1>
+<h1 id="for-_type_-use-ruby-symbols-work-or-home">For <em>type</em>, use Ruby symbols :WORK or :HOME.</h1>
+<h1 id="heading-10"></h1>
+<p>def VCardField.create_internet_email(address, type=:WORK, preferred_email=false)
+if preferred_email == true
+VCardField.create(&ldquo;EMAIL&rdquo;, address,
+&ldquo;type&rdquo; =&gt; [&ldquo;INTERNET&rdquo;, type.to_s, &ldquo;pref&rdquo;])
+else
+VCardField.create(&ldquo;EMAIL&rdquo;, address,
+&ldquo;type&rdquo; =&gt; [&ldquo;INTERNET&rdquo;, type.to_s])
+end
+end</p>
 <p>protected
-  def VCardField.next_custom_name
-    name = &ldquo;item#{@@custom_number}&rdquo;
-    @@custom_number = @@custom_number + 1
-    name
-  end</p>
-
+def VCardField.next_custom_name
+name = &ldquo;item#{@@custom_number}&rdquo;
+@@custom_number = @@custom_number + 1
+name
+end</p>
 <p>def VCardField.create_phone(phone_num, is_preferred = false, type_arr = [&ldquo;WORK&rdquo;],
-      custom_name = nil)</p>
-
+custom_name = nil)</p>
 <pre><code>field_name = &quot;&quot;
 if custom_name != nil
   field_name &lt;&lt; next_custom_name
@@ -760,108 +743,88 @@ if custom_name != nil
 end
 ret_val
 </code></pre>
-
 <p>end</p>
-
 <p>public</p>
-
 <p>def VCardField.create_note(note_text)
-    VCardField.create(&ldquo;NOTE&rdquo;, note_text)
-  end</p>
-
+VCardField.create(&ldquo;NOTE&rdquo;, note_text)
+end</p>
 <p>def VCardField.create_custom_phone(phone_number, custom_name, is_preferred = false)
-    VCardField.create_phone(phone_number, is_preferred, [&ldquo;HOME&rdquo;], custom_name)
-  end</p>
-
+VCardField.create_phone(phone_number, is_preferred, [&ldquo;HOME&rdquo;], custom_name)
+end</p>
 <p>def VCardField.create_pager(pager_number, is_preferred = false)
-    VCardField.create_phone(pager_number, is_preferred, [&ldquo;PAGER&rdquo;])
-  end</p>
-
+VCardField.create_phone(pager_number, is_preferred, [&ldquo;PAGER&rdquo;])
+end</p>
 <p>def VCardField.create_work_fax(fax_number, is_preferred = false)
-    VCardField.create_phone(fax_number, is_preferred, [&ldquo;FAX&rdquo;, &ldquo;WORK&rdquo;])
-  end</p>
-
+VCardField.create_phone(fax_number, is_preferred, [&ldquo;FAX&rdquo;, &ldquo;WORK&rdquo;])
+end</p>
 <p>def VCardField.create_work_phone(phone_number, is_preferred = false)
-    VCardField.create_phone(phone_number, is_preferred, [&ldquo;WORK&rdquo;])
-  end</p>
-
+VCardField.create_phone(phone_number, is_preferred, [&ldquo;WORK&rdquo;])
+end</p>
 <p>def VCardField.create_home_fax(fax_number, is_preferred = false)
-    VCardField.create_phone(fax_number, is_preferred, [&ldquo;FAX&rdquo;, &ldquo;HOME&rdquo;])
-  end</p>
-
+VCardField.create_phone(fax_number, is_preferred, [&ldquo;FAX&rdquo;, &ldquo;HOME&rdquo;])
+end</p>
 <p>def VCardField.create_home_phone(phone_number, is_preferred = false)
-    VCardField.create_phone(phone_number, is_preferred, [&ldquo;HOME&rdquo;])
-  end</p>
-
+VCardField.create_phone(phone_number, is_preferred, [&ldquo;HOME&rdquo;])
+end</p>
 <p>def VCardField.create_cell_phone(phone_number, is_preferred = false)
-    VCardField.create_phone(phone_number, is_preferred, [&ldquo;CELL&rdquo;])
-  end</p>
-
+VCardField.create_phone(phone_number, is_preferred, [&ldquo;CELL&rdquo;])
+end</p>
 <p>def VCardField.create_work_email(address, is_preferred = false)
-    VCardField.create_email(address, is_preferred, [&ldquo;WORK&rdquo;])
-  end</p>
-
+VCardField.create_email(address, is_preferred, [&ldquo;WORK&rdquo;])
+end</p>
 <p>def VCardField.create_home_email(address, is_preferred = false)
-    VCardField.create_email(address, is_preferred, [&ldquo;HOME&rdquo;])
-  end</p>
-
+VCardField.create_email(address, is_preferred, [&ldquo;HOME&rdquo;])
+end</p>
 <p>def VCardField.create_other_email(address, custom_name, is_preferred = false)
-    VCardField.create_email(address, is_preferred, [&ldquo;WORK&rdquo;], custom_name)
-  end</p>
-
+VCardField.create_email(address, is_preferred, [&ldquo;WORK&rdquo;], custom_name)
+end</p>
 <p>protected</p>
-
 <p>def VCardField.create_email(address, is_preferred, type_arr = [&ldquo;WORK&rdquo;], custom_name = nil)
-    name = &ldquo;&rdquo;
-    if custom_name != nil
-      name &lt;&lt; next_custom_name
-      name &lt;&lt; &ldquo;.&rdquo;
-    end
-    if is_preferred
-      type_arr &lt;&lt; &ldquo;pref&rdquo;
-    end
-    ret_val = [VCardField.create(&ldquo;#{name}EMAIL&rdquo;, address, &ldquo;type&rdquo; =&gt; type_arr)]
-    if custom_name != nil
-      ret_val &lt;&lt; VCardField.create(&ldquo;#{name}X-ABLabel&rdquo;, custom_name)
-    end
-    ret_val
-  end</p>
-
+name = &quot;&rdquo;
+if custom_name != nil
+name &laquo; next_custom_name
+name &laquo; &ldquo;.&rdquo;
+end
+if is_preferred
+type_arr &laquo; &ldquo;pref&rdquo;
+end
+ret_val = [VCardField.create(&quot;#{name}EMAIL&rdquo;, address, &ldquo;type&rdquo; =&gt; type_arr)]
+if custom_name != nil
+ret_val &laquo; VCardField.create(&quot;#{name}X-ABLabel&rdquo;, custom_name)
+end
+ret_val
+end</p>
 <p>end</p>
-
 <p>info = {
- title: &lsquo;Mr./Mrs&rsquo;,
- display_name: &lsquo;Card Holder Name&rsquo;,
- email: &lsquo;email@example.com&rsquo;,
- note: &lsquo;Note 1&rsquo;,
- first_name: &lsquo;Card Holder FirstName&rsquo;,
- office_phone: &lsquo;123456789&rsquo;,
- fax_phone: &lsquo;123456789&rsquo;,
- home_phone: &lsquo;123456789&rsquo;,
- mobile_phone: &lsquo;123456789&rsquo;
+title: &lsquo;Mr./Mrs&rsquo;,
+display_name: &lsquo;Card Holder Name&rsquo;,
+email: &lsquo;<a href="mailto:email@example.com">email@example.com</a>&rsquo;,
+note: &lsquo;Note 1&rsquo;,
+first_name: &lsquo;Card Holder FirstName&rsquo;,
+office_phone: &lsquo;123456789&rsquo;,
+fax_phone: &lsquo;123456789&rsquo;,
+home_phone: &lsquo;123456789&rsquo;,
+mobile_phone: &lsquo;123456789&rsquo;
 }</p>
-
 <p>vcard = Vpim::Vcard.create
-vcard &lt;&lt; VCardField.create_job_title(info[:title])
-vcard &lt;&lt; VCardField.create_n(info[:display_name])
-vcard &lt;&lt; VCardField.create_work_email(info[:email])
-vcard &lt;&lt; VCardField.create_note(info[:note])
-vcard &lt;&lt; VCardField.create_fn(info[:first_name])
-vcard &lt;&lt; VCardField.create_work_phone(info[:office_phone])
-vcard &lt;&lt; VCardField.create_work_fax(info[:fax_phone])
-vcard &lt;&lt; VCardField.create_home_phone(info[:home_phone])
-vcard &lt;&lt; VCardField.create_cell_phone(info[:mobile_phone])
+vcard &laquo; VCardField.create_job_title(info[:title])
+vcard &laquo; VCardField.create_n(info[:display_name])
+vcard &laquo; VCardField.create_work_email(info[:email])
+vcard &laquo; VCardField.create_note(info[:note])
+vcard &laquo; VCardField.create_fn(info[:first_name])
+vcard &laquo; VCardField.create_work_phone(info[:office_phone])
+vcard &laquo; VCardField.create_work_fax(info[:fax_phone])
+vcard &laquo; VCardField.create_home_phone(info[:home_phone])
+vcard &laquo; VCardField.create_cell_phone(info[:mobile_phone])
 vcard.each { |card|
-    puts card.to_s
+puts card.to_s
 }</p>
-
 <p>{% endhighlight %}</p>
-
-<p><a href="https://github.com/xing/vpim/blob/master/samples/tabbed-file-to-vcf.rb">Source</a></p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<p>[Source] (<a href="https://github.com/xing/vpim/blob/master/samples/tabbed-file-to-vcf.rb">https://github.com/xing/vpim/blob/master/samples/tabbed-file-to-vcf.rb</a>)</p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1223,7 +1186,7 @@ vcard.each { |card|
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

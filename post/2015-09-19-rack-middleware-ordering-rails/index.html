@@ -639,88 +639,75 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>Rack middleware is a simply bigger thing then rails. It&rsquo;s look-alike rack application that you can use to filter,
+      <p>Rack middleware is a simply bigger thing then rails. It&rsquo;s look-alike rack application that you can use to filter,
 process, or otherwise mess with responses.There is middleware like warden - devise, to work on catch and log exceptions,
 deal with cookies, SSO, and pretty much anything else you can think of. And in case you missed it,
 rails is a rack application. Create a new rails app and run</p>
-
 <p>{% highlight ruby %}
-    rake middleware
+rake middleware
 {% endhighlight %}</p>
-
 <p>It will display results like this :</p>
-
 <p>{% highlight ruby %}
-    use Rack::Cors
-    use Rack::Sendfile
-    use ActionDispatch::Static
-    use Rack::Lock
-    use #<a href="ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168">ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168</a>
-    use Rack::Runtime
-    use Rack::MethodOverride
-    use ActionDispatch::RequestId
-    use Rails::Rack::Logger
-    use ActionDispatch::ShowExceptions
-    use ActionDispatch::DebugExceptions
-    use ActionDispatch::RemoteIp
-    use ActionDispatch::Reloader
-    use ActionDispatch::Callbacks
-    use ActiveRecord::Migration::CheckPending
-    use ActiveRecord::ConnectionAdapters::ConnectionManagement
-    use ActiveRecord::QueryCache
-    use ActionDispatch::Cookies
-    use ActionDispatch::Session::CookieStore
-    use ActionDispatch::Flash
-    use ActionDispatch::ParamsParser
-    use Remotipart::Middleware
-    use Rack::Head
-    use Rack::ConditionalGet
-    use Rack::ETag
-    run Banana::Application.routes
+use Rack::Cors
+use Rack::Sendfile
+use ActionDispatch::Static
+use Rack::Lock
+use #<a href="ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168">ActiveSupport::Cache::Strategy::LocalCache::Middleware:0x00000007238168</a>
+use Rack::Runtime
+use Rack::MethodOverride
+use ActionDispatch::RequestId
+use Rails::Rack::Logger
+use ActionDispatch::ShowExceptions
+use ActionDispatch::DebugExceptions
+use ActionDispatch::RemoteIp
+use ActionDispatch::Reloader
+use ActionDispatch::Callbacks
+use ActiveRecord::Migration::CheckPending
+use ActiveRecord::ConnectionAdapters::ConnectionManagement
+use ActiveRecord::QueryCache
+use ActionDispatch::Cookies
+use ActionDispatch::Session::CookieStore
+use ActionDispatch::Flash
+use ActionDispatch::ParamsParser
+use Remotipart::Middleware
+use Rack::Head
+use Rack::ConditionalGet
+use Rack::ETag
+run Banana::Application.routes
 {% endhighlight %}</p>
-
-<h3 id="okay-so-what-s-the-problem">Okay so what&rsquo;s the problem?</h3>
-
+<h3 id="okay-so-whats-the-problem">Okay so what&rsquo;s the problem?</h3>
 <p>let&rsquo;s you have an middleware say AwesomeMe. The AwesomeMe is calculated after the response time is injected,
 so that&rsquo;s fine (imagine if the etag middleware was at the bottom). What about poor ExceptionNotifier?
 What if there is an exception thrown in the ResponseTimeInjector or AwesomeMe middleware? ExceptionNotifier isn&rsquo;t
 going to catch it! The ExceptionNotifier middleware doesn&rsquo;t modify anything in the response,
 so it needs to be up higher; it needs to be first.</p>
-
 <h3 id="solution">Solution</h3>
-
 <p>You can add a new middleware to the middleware stack using any of the following methods:</p>
-
 <ul>
-<li><p>config.middleware.use(new_middleware, args) - Adds the new middleware at the bottom of the middleware stack.</p></li>
-
-<li><p>config.middleware.insert_before(existing_middleware, new_middleware, args) -
-Adds the new middleware before the specified existing middleware in the middleware stack.</p></li>
-
-<li><p>config.middleware.insert_after(existing_middleware, new_middleware, args) -
-Adds the new middleware after the specified existing middleware in the middleware stack.</p></li>
+<li>
+<p>config.middleware.use(new_middleware, args) - Adds the new middleware at the bottom of the middleware stack.</p>
+</li>
+<li>
+<p>config.middleware.insert_before(existing_middleware, new_middleware, args) -
+Adds the new middleware before the specified existing middleware in the middleware stack.</p>
+</li>
+<li>
+<p>config.middleware.insert_after(existing_middleware, new_middleware, args) -
+Adds the new middleware after the specified existing middleware in the middleware stack.</p>
+</li>
 </ul>
-
 <p>{% highlight ruby %}</p>
-
-<h1 id="config-application-rb">config/application.rb</h1>
-
-<h1 id="push-rack-bouncefavicon-at-the-bottom">Push Rack::BounceFavicon at the bottom</h1>
-
+<h1 id="configapplicationrb">config/application.rb</h1>
+<h1 id="push-rackbouncefavicon-at-the-bottom">Push Rack::BounceFavicon at the bottom</h1>
 <p>config.middleware.use Rack::BounceFavicon</p>
-
-<h1 id="add-lifo-cache-after-activerecord-querycache">Add Lifo::Cache after ActiveRecord::QueryCache.</h1>
-
-<h1 id="pass-page-cache-false-argument-to-lifo-cache">Pass { page_cache: false } argument to Lifo::Cache.</h1>
-
+<h1 id="add-lifocache-after-activerecordquerycache">Add Lifo::Cache after ActiveRecord::QueryCache.</h1>
+<h1 id="pass--page_cache-false--argument-to-lifocache">Pass { page_cache: false } argument to Lifo::Cache.</h1>
 <p>config.middleware.insert_after ActiveRecord::QueryCache, Lifo::Cache, page_cache: false
 {% endhighlight %}</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1080,7 +1067,7 @@ Adds the new middleware after the specified existing middleware in the middlewar
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

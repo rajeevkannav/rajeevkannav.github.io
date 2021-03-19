@@ -641,63 +641,51 @@ It&rsquo;s a nice to have structure/solution(not recommanded) for fatty models."
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="rails-observer">Rails observer</h3>
-
+      <h3 id="rails-observer">Rails observer</h3>
 <p>Rails::Observers was introdused in Rails 3. They&rsquo;re another abstracted
 way to watch/tarck an object life-cycle events while watching you may
 trigger some/any other event.</p>
-
 <p>It&rsquo;s a nice to have structure/solution(not recommanded) for fatty models.
 Observer reduce the clutter that normally comes when the model class is
 Over-burdened with functionality.</p>
-
 <p>{% highlight ruby %}
 class OrderObserver &lt; ActiveRecord::Observer
-  def after_create(order)
-    OrderMailer.confirm(&ldquo;example@domain.com&rdquo;, &ldquo;Your Order has been confirmed.&rdquo;, order).deliver
-  end
+def after_create(order)
+OrderMailer.confirm(&ldquo;<a href="mailto:example@domain.com">example@domain.com</a>&rdquo;, &ldquo;Your Order has been confirmed.&rdquo;, order).deliver
+end
 end
 {% endhighlight %}</p>
-
 <p>This Order Observer sends an email when a Order#create is done.</p>
-
 <p>{% highlight ruby %}
 class OrderObserver &lt; ActiveRecord::Observer
-  def after_create(order)
-    order.logger.info(&lsquo;New order added!&rsquo;)
-  end</p>
-
+def after_create(order)
+order.logger.info(&lsquo;New order added!')
+end</p>
 <p>def after_destroy(order)
-    order.logger.warn(&ldquo;Order with an id of #{order.id} was destroyed!&rdquo;)
-  end
+order.logger.warn(&ldquo;Order with an id of #{order.id} was destroyed!&quot;)
+end
 end
 {% endhighlight %}</p>
-
 <p>This Observer uses logger to log when specific callbacks as given
 order created/destroyed are triggered.</p>
-
 <h4 id="available-callback-methods">Available callback methods</h4>
-
 <p>The observer(s) can implement callback methods for each of the methods described
-in the <a href="http://api.rubyonrails.org/v3.2.0/classes/ActiveRecord/Callbacks.html">Rails Callbacks</a>
+in the 
+<a href="http://api.rubyonrails.org/v3.2.0/classes/ActiveRecord/Callbacks.html" target="_blank" rel="noopener">Rails Callbacks</a>
 module.</p>
-
 <h4 id="rails-4">Rails 4</h4>
-
 <p>Observers are removed from rails core from Rails4. In Rails 4 it&rsquo;s an
-seperate <a href="https://github.com/rails/rails-observers">gem</a></p>
-
-<h6 id="to-be-continued-note">To be continued note &hellip;</h6>
-
+seperate 
+<a href="https://github.com/rails/rails-observers" target="_blank" rel="noopener">gem</a></p>
+<h6 id="to-be-continued-note-">To be continued note &hellip;</h6>
 <p>I am digging more into Rails::Observers. I&rsquo;ll cover much more things in
 upcoming blog series related to Rails::Observers with an implementation
-of <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern.">Publish–subscribe pattern</a></p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+of 
+<a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern." target="_blank" rel="noopener">Publish–subscribe pattern</a></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1044,7 +1032,7 @@ of <a href="https://en.wikipedia.org/wiki/Publish%E2%80%93subscribe_pattern.">Pu
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

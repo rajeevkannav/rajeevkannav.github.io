@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="And if you get stuck… Ask Here        Few months ago we&rsquo;ve tried to create SQL database triggers for an AWS RDS instance and got following error.">
+  <meta name="description" content="Few months ago we&rsquo;ve tried to create SQL database triggers for an AWS RDS instance and got following error.
+ERROR 1419 (HY000) at line #: You do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe log_bin_trust_function_creators variable).">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2016-02-20-amazon-rds-sql-triggers/">
@@ -271,7 +272,8 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2016-02-20-amazon-rds-sql-triggers/">
   <meta property="og:title" content="Using SQL triggers in AWS Relational Database Service (RDS). | Rajeev Sharma">
-  <meta property="og:description" content="And if you get stuck… Ask Here        Few months ago we&rsquo;ve tried to create SQL database triggers for an AWS RDS instance and got following error."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="Few months ago we&rsquo;ve tried to create SQL database triggers for an AWS RDS instance and got following error.
+ERROR 1419 (HY000) at line #: You do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe log_bin_trust_function_creators variable)."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +323,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "And if you get stuck… Ask Here        Few months ago we\u0026rsquo;ve tried to create SQL database triggers for an AWS RDS instance and got following error."
+  "description": "Few months ago we\u0026rsquo;ve tried to create SQL database triggers for an AWS RDS instance and got following error.\nERROR 1419 (HY000) at line #: You do not have the SUPER privilege and binary logging is enabled (you might want to use the less safe log_bin_trust_function_creators variable)."
 }
 </script>
 
@@ -639,45 +641,20 @@
   <div class="article-container">
 
     <div class="article-style">
-      <nav>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-
-<p>Few months ago we&rsquo;ve tried to create SQL database triggers for an AWS RDS
+      <p>Few months ago we&rsquo;ve tried to create SQL database triggers for an AWS RDS
 instance and got following error.</p>
-
 <pre><code>ERROR 1419 (HY000) at line #: You do not have the SUPER privilege
 and binary logging is enabled (you might want to use the less safe
 log_bin_trust_function_creators variable).
 </code></pre>
-
 <p>Amazon RDS disable all user defined SQL code be default, as binary
 procedures could compromise the RDS architecture. And for this purpose, Amazon
 blocked granting the missing <code>SUPER</code> privileges to any database user except the
 <code>rdsadmin</code> user owned by Amazon itself.</p>
-
 <p>As a workaround, there is an option to set the mysterious parameter
 <code>log_bin_trust_function_creators</code> to 1, that prevents the database
 from complaining against simple and inoffensive triggers. Though,
 setting this parameter requires following steps:</p>
-
 <ul>
 <li>Open the RDS web console Goto the <code>Parameter Groups</code> tab.</li>
 <li>Create a new Parameter Group. On the dialog, select the MySQL
@@ -691,13 +668,12 @@ named <code>Modify</code>.</li>
 <li>Again, open the <code>Instances</code> tab. Expand your MySQL instance and issue the
 <code>Instance Action</code> named <code>Modify</code>.</li>
 <li>Dont forget: Open the <code>Instances</code> tab. Expand your MySQL instance and issue
-the <code>Instance Action</code> named <code>Reboot</code>.
-<br /></li>
+the <code>Instance Action</code> named <code>Reboot</code>.</li>
 </ul>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1053,7 +1029,7 @@ the <code>Instance Action</code> named <code>Reboot</code>.
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

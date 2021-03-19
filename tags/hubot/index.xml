@@ -17,64 +17,49 @@
       <link>/post/2016-08-20-hubot-introduction/</link>
       <pubDate>Sat, 20 Aug 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-08-20-hubot-introduction/</guid>
-      <description>
-
-&lt;h2 id=&#34;what-is-hubot&#34;&gt;What is Hubot?&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;what-is-hubot&#34;&gt;What is Hubot?&lt;/h2&gt;
 &lt;p&gt;Hubot is your company&amp;rsquo;s robot. Install him in your company
 to dramatically improve and reduce employee efficiency.&lt;/p&gt;
-
 &lt;p&gt;Hubot is open source, written in CoffeeScript on Node.js,
 and easily deployed on platforms like Heroku. More importantly,
 Hubot is a standardized way to share scripts between everyone&amp;rsquo;s
 robots.&lt;/p&gt;
-
 &lt;p&gt;You will need node.js and npm. Once those are installed, we can
 install the hubot generator:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 % npm install -g yo generator-hubot
 % mkdir myhubot
 % cd myhubot
 % yo hubot&lt;/p&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;At this point, you&amp;rsquo;ll be asked a few questions about who is creating the bot,
 and which adapter you&amp;rsquo;ll be using. Adapters are hubot&amp;rsquo;s
 way of integrating with different chat providers.&lt;/p&gt;
-
 &lt;p&gt;If you are using git, the generated directory includes a .gitignore, so you can
 initialize and add everything:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 % git init
 % git add .
 % git commit -m &amp;ldquo;Initial commit&amp;rdquo;
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 % bin/hubot
 Hubot&amp;gt;
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;This starts hubot using the shell adapter, which is mostly
 useful for development. Make note of Hubot&amp;gt;; this is the
 name your hubot will respond to with commands.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 hubot&amp;gt; hubot help
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;You can deploy hubot to Heroku, which is the officially
 supported method. Additionally you are able to deploy hubot
 to a UNIX-like system or Windows.&lt;/p&gt;
-
-&lt;h5 id=&#34;we-ll-cover-more-hubot-features-and-build-it-for-surein-upcoming-posts&#34;&gt;We&amp;rsquo;ll cover more Hubot features and build it for surein upcoming posts.&lt;/h5&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h5 id=&#34;well-cover-more-hubot-features-and-build-it-for-surein-upcoming-posts&#34;&gt;We&amp;rsquo;ll cover more Hubot features and build it for surein upcoming posts.&lt;/h5&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

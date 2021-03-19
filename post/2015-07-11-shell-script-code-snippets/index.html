@@ -641,44 +641,32 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="generating-script-logs-with-timestamp">Generating script logs with timestamp</h3>
-
+      <h3 id="generating-script-logs-with-timestamp">Generating script logs with timestamp</h3>
 <p>Just as the duration of script it&rsquo;s useful to have time-stampped log. Use following function to log time for every output.</p>
-
 <p>{% highlight javascript %}
-  log() {
-       echo [<code>date +%Y-%m-%d\ %H:%M:%S</code>] $*
-  }
+log() {
+echo [<code>date +%Y-%m-%d\ %H:%M:%S</code>] $*
+}
 {% endhighlight %}</p>
-
-<p>Call the function as follows instead of simply &ldquo;echo&rdquo;ing.</p>
-
+<p>Call the function as follows instead of simply &ldquo;echo&quot;ing.</p>
 <p>{% highlight javascript %}
-  log &ldquo;my string to be logged&rdquo;
+log &ldquo;my string to be logged&rdquo;
 {% endhighlight %}</p>
-
 <h5 id="reading-variables-from-config-file">Reading variables from config file</h5>
-
 <p>Create a config file with contents as follows:</p>
-
 <p>{% highlight javascript %}
 key1=value1
 key2=value2
 {% endhighlight %}</p>
-
 <p>Add following line in the beginning of the shell script:</p>
-
 <p>{% highlight javascript %}
 . configfile
 {% endhighlight %}</p>
-
 <p>This will load the key value pairs and you may verify &amp; access the values as $key1 or $key2.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1021,7 +1009,7 @@ key2=value2
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

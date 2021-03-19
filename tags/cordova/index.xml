@@ -17,42 +17,29 @@
       <link>/post/2017-06-27-install-phonegap-pushplugin-2.0.0-ubuntu/</link>
       <pubDate>Tue, 27 Jun 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-06-27-install-phonegap-pushplugin-2.0.0-ubuntu/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
 &lt;p&gt;We&amp;rsquo;re using &lt;code&gt;phonegap-plugin-push&lt;/code&gt; to Register and receive push notifications to
 ionic applications and unfortunately that&amp;rsquo;s get updated.&lt;/p&gt;
-
 &lt;p&gt;Version 2.0.0, this plugin will support CocoaPods installation of the
 Firebase Cloud Messaging library.&lt;/p&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;p&gt;Install CocoaPods and re-build the platforms is only the requirement&lt;/p&gt;
-
 &lt;p&gt;To install CocoaPods, please follow the installation instructions here.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo gem install cocoapods
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;After installing CocoaPods, please run:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;pod setup
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;This will clone the required CocoaPods specs-repo into your home folder
 at ~/.cocoapods/repos, so it might take a while.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;cordova plugin add phonegap-plugin-push@2.0.0
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;and do the build process for android and iOs. You also need a google-services.json
 from Firebase to build apk(s).&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -61,37 +48,12 @@ from Firebase to build apk(s).&lt;/p&gt;
       <link>/post/2015-04-02-ionic-cordova-geolocation/</link>
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-04-02-ionic-cordova-geolocation/</guid>
-      <description>&lt;nav&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-&lt;ul&gt;
+      <description>&lt;ul&gt;
 &lt;li&gt;Install cordova plugin by running this command&lt;/li&gt;
 &lt;li&gt;Try to handle every possible situations like Location services disbaled / Or user don&amp;rsquo;t allow permission to your application&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;&lt;code&gt;cordova plugin add org.apache.cordova.geolocation&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;and Then&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;.controller(&#39;YourCtrl&#39;, function (loadingService) {
     loadingService.show        
     var posOptions = {
@@ -113,12 +75,11 @@ from Firebase to build apk(s).&lt;/p&gt;
   }
 })
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h6 id=&#34;more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/h6&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -127,28 +88,21 @@ from Firebase to build apk(s).&lt;/p&gt;
       <link>/post/2015-03-21-ionic-hide-keyboard/</link>
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-03-21-ionic-hide-keyboard/</guid>
-      <description>
-
-&lt;p&gt;On both Android and iOS, Ionic will attempt to prevent the keyboard from obscuring inputs and focusable elements when it
+      <description>&lt;p&gt;On both Android and iOS, Ionic will attempt to prevent the keyboard from obscuring inputs and focusable elements when it
 appears by scrolling them into view. In order for this to work, any focusable elements must be within a Scroll View or a
 directive such as Content that has a Scroll View.&lt;/p&gt;
-
 &lt;h3 id=&#34;hide-when-keyboard-shows&#34;&gt;Hide when keyboard shows&lt;/h3&gt;
-
 &lt;p&gt;To hide an element when the keyboard is open, add the class hide-on-keyboard-open.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;hide-on-keyboard-open&amp;quot;&amp;gt;
   &amp;lt;div id=&amp;quot;google-map&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
 &amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;plugin-usage&#34;&gt;Plugin Usage&lt;/h3&gt;
-
 &lt;p&gt;Information on using the plugin can be found at &lt;a href=&#34;https://github.com/driftyco/ionic-plugins-keyboard&#34;&gt;https://github.com/driftyco/ionic-plugins-keyboard&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -157,10 +111,7 @@ directive such as Content that has a Scroll View.&lt;/p&gt;
       <link>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</link>
       <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</guid>
-      <description>
-
-&lt;h4 id=&#34;requirements&#34;&gt;Requirements:&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;requirements&#34;&gt;Requirements:&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Java JDK&lt;/li&gt;
 &lt;li&gt;Apache Ant&lt;/li&gt;
@@ -169,9 +120,7 @@ directive such as Content that has a Scroll View.&lt;/p&gt;
 &lt;li&gt;Apache Cordova&lt;/li&gt;
 &lt;li&gt;Ionic Framework&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h4 id=&#34;steps&#34;&gt;Steps:&lt;/h4&gt;
-
 &lt;pre&gt;&lt;code&gt;* Download a shell script by clicking on this link 
 ** https://github.com/nraboy/ubuntu-ionic-installer/archive/master.zip  
 * Extract and goto extracted folder.
@@ -184,10 +133,10 @@ directive such as Content that has a Scroll View.&lt;/p&gt;
 * ionic build android
 * That&#39;s It.
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

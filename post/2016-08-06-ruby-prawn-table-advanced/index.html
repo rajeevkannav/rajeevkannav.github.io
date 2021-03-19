@@ -639,70 +639,56 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h2 id="prawn-table-content-and-subtable">Prawn table content and subtable</h2>
-
+      <h2 id="prawn-table-content-and-subtable">Prawn table content and subtable</h2>
 <p>As we discussed in last post about Prawn Table via ruby. Today we&rsquo;re
 giving dive more deeper. In Prawn table there are five kind of objects
 which can be put in table cells:</p>
-
 <pre><code>• String: produces a text cell
 • Prawn::Table::Cell
 • Prawn::Table
 • Array
 • Images
 </code></pre>
-
 <p>whenever a table or an array is provided as a cell, a subtable will be
 created(a table within a cell). if you&rsquo;d like to provide a cell or table
 directly, the best way is to use the <code>make_cell</code> and <code>make_table</code>
 methods as they don&rsquo;t call <code>draw</code> on the created object. To insert an
 image just provide a hash with an <code>:image</code> key pointing to the image path.</p>
-
 <p>{% highlight ruby %}
 cell_1 = make_cell(:content =&gt; &ldquo;this row content comes directly &ldquo;)
 cell_2 = make_cell(:content =&gt; &ldquo;from cell objects&rdquo;)
-two_dimensional_array = [ [&ldquo;&hellip;&rdquo;], [&ldquo;subtable from an array&rdquo;], [&ldquo;&hellip;&rdquo;] ]
-my_table = make_table([ [&ldquo;&hellip;&rdquo;], [&ldquo;subtable from another table&rdquo;], [&ldquo;&hellip;&rdquo;] ])
+two_dimensional_array = [ [&rdquo;&hellip;&quot;], [&ldquo;subtable from an array&rdquo;], [&rdquo;&hellip;&quot;] ]
+my_table = make_table([ [&rdquo;&hellip;&quot;], [&ldquo;subtable from another table&rdquo;], [&rdquo;&hellip;&quot;] ])
 image_path = &ldquo;#{Prawn::DATADIR}/images/stef.jpg&rdquo;
 table([ [&ldquo;just a regular row&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;, &ldquo;blah blah blah&rdquo;],
- [cell_1, cell_2, &ldquo;&rdquo;, &ldquo;&rdquo;],
- [&ldquo;&rdquo;, &ldquo;&rdquo;, two_dimensional_array, &ldquo;&rdquo;],
- [&ldquo;just another regular row&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;],
- [{:image =&gt; image_path}, &ldquo;&rdquo;, my_table, &ldquo;&rdquo;]])
+[cell_1, cell_2, &ldquo;&rdquo;, &ldquo;&quot;],
+[&quot;&rdquo;, &ldquo;&rdquo;, two_dimensional_array, &ldquo;&quot;],
+[&ldquo;just another regular row&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;, &ldquo;&quot;],
+[{:image =&gt; image_path}, &ldquo;&rdquo;, my_table, &ldquo;&quot;]])
 {% endhighlight %}</p>
-
 <h5 id="output-will-be-like-as">Output will be like as:</h5>
-
 <figure class="full">
-    <a href="javascript:void(0);"><img src="/images/prawntable.png"></a>
+	<a href="javascript:void(0);"><img src="/images/prawntable.png"></a>
 </figure>
-
 <h2 id="prawn-table-flow-and-header">Prawn table Flow and Header</h2>
-
 <p>if the table cannot fit on the current page it will flow to the next
 page just like free flowing text. if you would like to have the first
 row treated as a header which will be repeated on subsequent pages set
 the :header option to true</p>
-
 <p>{% highlight ruby %}
 data = [[&ldquo;This row should be repeated on every new page&rdquo;]]
-data += [[&ldquo;&hellip;&rdquo;]] * 30
+data += [[&rdquo;&hellip;&quot;]] * 30
 table(data, :header =&gt; true)
 {% endhighlight %}</p>
-
 <h5 id="output-will-be-like-as-1">Output will be like as:</h5>
-
 <figure class="full">
-    <a href="javascript:void(0);"><img src="/images/prawn_flow_and_header.png"></a>
+	<a href="javascript:void(0);"><img src="/images/prawn_flow_and_header.png"></a>
 </figure>
-
-<h5 id="we-ll-cover-more-prawn-and-prawn-table-features-in-upcoming-posts">We&rsquo;ll cover more prawn and prawn table features in upcoming posts.</h5>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h5 id="well-cover-more-prawn-and-prawn-table-features-in-upcoming-posts">We&rsquo;ll cover more prawn and prawn table features in upcoming posts.</h5>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1066,7 +1052,7 @@ table(data, :header =&gt; true)
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

@@ -641,83 +641,63 @@ Requirements  Heroku-Toolbet √ Ionic √ node √  Install express {% highligh
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>Recently I worked on IonicApp and thought it must be possible to run it over Heroku and that works.</p>
-
+      <p>Recently I worked on IonicApp and thought it must be possible to run it over Heroku and that works.</p>
 <h4 id="requirements">Requirements</h4>
-
 <ul>
 <li>Heroku-Toolbet √</li>
 <li>Ionic √</li>
 <li>node √</li>
 </ul>
-
 <h6 id="install-express">Install express</h6>
-
 <p>{% highlight ruby %}
-    npm install express &ndash;save
+npm install express &ndash;save
 {% endhighlight %}</p>
-
-<h6 id="setup-app-json">Setup App.json</h6>
-
+<h6 id="setup-appjson">Setup App.json</h6>
 <p>Additional, a app.json is needed for some meta information about your app.</p>
-
 <p>{% highlight ruby %}
 {
-    &ldquo;name&rdquo;: &ldquo;Ionic to Heroku Example&rdquo;,
-    &ldquo;description&rdquo;: &ldquo;A simple Ionic app for Heroku&rdquo;,
-    &ldquo;repository&rdquo;: &ldquo;<a href="https://github.com/yourUsername/repositoryName&quot;">https://github.com/yourUsername/repositoryName&quot;</a>,
-    &ldquo;logo&rdquo;: &ldquo;logoURL&rdquo;,
-    &ldquo;keywords&rdquo;: [&ldquo;ionic&rdquo;, &ldquo;Heroku&rdquo;, &ldquo;whatever&rdquo;]
+&ldquo;name&rdquo;: &ldquo;Ionic to Heroku Example&rdquo;,
+&ldquo;description&rdquo;: &ldquo;A simple Ionic app for Heroku&rdquo;,
+&ldquo;repository&rdquo;: &ldquo;<a href="https://github.com/yourUsername/repositoryName%22,">https://github.com/yourUsername/repositoryName&quot;,</a>
+&ldquo;logo&rdquo;: &ldquo;logoURL&rdquo;,
+&ldquo;keywords&rdquo;: [&ldquo;ionic&rdquo;, &ldquo;Heroku&rdquo;, &ldquo;whatever&rdquo;]
 }</p>
-
 <p>{% endhighlight %}</p>
-
-<h6 id="setup-server-js">Setup server.js</h6>
-
+<h6 id="setup-serverjs">Setup server.js</h6>
 <p>The last thing we need is the file which will be executed by Heroku. Heroku will look for a server.js,
 so create this file as well on the top level of your ionic project and insert:</p>
-
 <p>{% highlight ruby %}
 var express = require(&lsquo;express&rsquo;),
 app = express();
 app.use(express.static(&lsquo;www&rsquo;));
 app.set(&lsquo;port&rsquo;, process.env.PORT || 5000);
 app.listen(app.get(&lsquo;port&rsquo;), function () {
-    console.log(&lsquo;Express server listening on port &rsquo; + app.get(&lsquo;port&rsquo;));
+console.log(&lsquo;Express server listening on port ' + app.get(&lsquo;port&rsquo;));
 });
 {% endhighlight %}</p>
-
 <p>Now you can test your app local. Instead of <code>ionic serve</code>, we will install the modules and run it with our express server,
 so go ahead:</p>
-
 <p>{% highlight ruby %}
 npm install
 npm start
 {% endhighlight %}</p>
-
 <p>If you receive no error, you can access your app on <code>http://localhost:5000/</code>. If you have problems, fix that at your local
 Once application works fine, You&rsquo;re almost done! Make sure to commit/push these changes to your repo, so Heroku receives all files we just added.</p>
-
 <p>Deploying your App on Heroku, The above workflow was just standard git stuff, now we make our Heroku deployment.
 To use Heroku from the command line, you need to have the Heroku-Toolbelt installed.
 If you are done, open your Terminal and type:</p>
-
 <p>{% highlight ruby %}
 heroku create
 git push heroku master
 {% endhighlight %}</p>
-
 <p>This can take some time, depending on your project size. You can now try to open your app:</p>
-
 <p>{% highlight ruby %}
 heroku open
 {% endhighlight %}</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1077,7 +1057,7 @@ heroku open
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

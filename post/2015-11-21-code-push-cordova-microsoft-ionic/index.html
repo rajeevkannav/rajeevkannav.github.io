@@ -639,129 +639,95 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="problem">Problem:</h3>
-
+      <h3 id="problem">Problem:</h3>
 <pre><code> We're using an Mobile Application creator framework which need to update application instantly.
  Without using Store(s) Google-Play, App-store and as expected solution must be easy/Generic.
 </code></pre>
-
 <h3 id="solution">Solution</h3>
-
 <h4 id="codepush">CodePush</h4>
-
 <pre><code>CodePush is a cloud service that enables Cordova and React Native developers to deploy mobile app updates directly
 to their users’ devices. It works by acting as a central repository that developers can publish certain updates to
 (e.g. JS, HTML, CSS and image changes), and that apps can query for updates from (using our provided client SDKs).
 </code></pre>
-
 <h5 id="how-to-give-it-a-try">How to give it a Try.</h5>
-
 <h6 id="install-the-codepush-cli">Install the CodePush CLI</h6>
-
 <p><code>npm install -g code-push-cli # may be with sudo</code></p>
-
 <h6 id="create-a-codepush-account">Create a CodePush account</h6>
-
 <p><code>code-push register</code></p>
-
 <h6 id="dologin">doLogin()</h6>
-
 <p><code>code-push login</code></p>
-
 <h6 id="create-a-blank-ionic-app-lets-call-it-instantapp">create a blank Ionic App, lets call it instantApp</h6>
-
 <p><code>$ ionic start instantApp sidemenu</code></p>
-
 <h6 id="codepush-ify-your-mobile-client">CodePush-ify your mobile client</h6>
-
 <p><code>cordova plugin add cordova-plugin-code-push</code></p>
-
 <h6 id="register-your-app-with-the-service">Register your app with the service</h6>
-
 <p><code>code-push app add instantApp</code> # you&rsquo;ll get deployment keys per environment</p>
-
 <h6 id="create-one-deployment-per-target-platform-using-the">Create one deployment per target platform using the</h6>
-
 <p>{% highlight ruby %}</p>
-
-<p><platform name="android">
+<platform name="android">
     <preference name="CodePushDeploymentKey" value="YOUR-ANDROID-DEPLOYMENT-KEY" />
 </platform>
 <platform name="ios">
     <preference name="CodePushDeploymentKey" value="YOUR-IOS-DEPLOYMENT-KEY" />
-</platform></p>
-
+</platform>
 <p>{% endhighlight %}</p>
-
 <h6 id="allow-access-to-the-codepush-server">Allow access to the CodePush server:</h6>
-
 <ul>
 <li>In config.xml, add
 <code>&lt;access origin=&quot;https://codepush.azurewebsites.net/ &quot; /&gt;</code></li>
 <li>In your html pages where the plugin is used, add the server URL to your existing Content Security Policy (CSP) header:
-<code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src https://codepush.azurewebsites.net/ 'self' ... &quot;&gt;</code>
-<br /></li>
+<code>&lt;meta http-equiv=&quot;Content-Security-Policy&quot; content=&quot;default-src https://codepush.azurewebsites.net/ 'self' ... &quot;&gt;</code></li>
 </ul>
-
-<h6 id="dosomecode-it-s-sample">doSomeCode It&rsquo;s Sample</h6>
-
+<h6 id="dosomecode-its-sample">doSomeCode It&rsquo;s Sample</h6>
 <p>{% highlight ruby %}</p>
-
 <p>var onError = function (error) {
-      console.log(&ldquo;An error occurred. &rdquo; + error);
-  };</p>
-
+console.log(&ldquo;An error occurred. &quot; + error);
+};</p>
 <p>var onApplySuccess = function () {
-      console.log(&ldquo;Apply succeeded. Reloading the application&hellip;&rdquo;);
-  };</p>
-
+console.log(&ldquo;Apply succeeded. Reloading the application&hellip;&quot;);
+};</p>
 <p>var onPackageDownloaded = function (localPackage) {
-      localPackage.apply(onApplySuccess, onError);
-  };</p>
-
+localPackage.apply(onApplySuccess, onError);
+};</p>
 <p>var onUpdateCheck = function (remotePackage) {
-      if (!remotePackage) {
-          console.log(&ldquo;The application is up to date.&rdquo;);
-      } else {
-          console.log(&ldquo;A CodePush update is available. Package hash: &ldquo; + remotePackage.packageHash);
-          remotePackage.download(onPackageDownloaded, onError);
-      }
-  };</p>
-
+if (!remotePackage) {
+console.log(&ldquo;The application is up to date.&quot;);
+} else {
+console.log(&ldquo;A CodePush update is available. Package hash: &quot; + remotePackage.packageHash);
+remotePackage.download(onPackageDownloaded, onError);
+}
+};</p>
 <p>window.codePush.checkForUpdate(onUpdateCheck, onError);</p>
-
 <p>{% endhighlight %}</p>
-
 <h6 id="create-an-application-update-package">Create an application update package</h6>
-
 <ul>
 <li>Prepare your application
-<code>cordova prepare &lt;platform&gt;</code>
-<br /></li>
+<code>cordova prepare &lt;platform&gt;</code></li>
 </ul>
-
 <p>We are not deploying binaries in updates, so prepare is enough for this step. The cordova build command works as well
- for this step, since it calls cordova prepare behind the scenes.</p>
-
+for this step, since it calls cordova prepare behind the scenes.</p>
 <ul>
-<li><p>Deploy update using the CodePush CLI</p>
-
+<li>
+<p>Deploy update using the CodePush CLI</p>
 <ul>
-<li><p>For Android:<br />
-<code>code-push release &lt;appName&gt; path_to_your_app/platforms/android/assets/www &lt;appStoreVersion&gt; --deploymentName &lt;AndroidDeploymentName&gt;</code></p></li>
-
-<li><p>For iOS:
-<code>code-push release &lt;appName&gt; path_to_your_app/platforms/ios/www &lt;appStoreVersion&gt; --deploymentName &lt;iOSDeploymentName&gt;</code></p></li>
-</ul></li>
-
-<li><p>The service should now return an update when calling <code>codePush.checkForUpdate</code>.</p></li>
+<li>
+<p>For Android:<br>
+<code>code-push release &lt;appName&gt; path_to_your_app/platforms/android/assets/www &lt;appStoreVersion&gt; --deploymentName &lt;AndroidDeploymentName&gt;</code></p>
+</li>
+<li>
+<p>For iOS:
+<code>code-push release &lt;appName&gt; path_to_your_app/platforms/ios/www &lt;appStoreVersion&gt; --deploymentName &lt;iOSDeploymentName&gt;</code></p>
+</li>
 </ul>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+</li>
+<li>
+<p>The service should now return an update when calling <code>codePush.checkForUpdate</code>.</p>
+</li>
+</ul>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1119,7 +1085,7 @@ to their users’ devices. It works by acting as a central repository that devel
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

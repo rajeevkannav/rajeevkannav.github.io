@@ -639,45 +639,36 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="table-via-prawn-in-ruby-for-pdf">Table via Prawn in ruby for Pdf</h4>
-
+      <h4 id="table-via-prawn-in-ruby-for-pdf">Table via Prawn in ruby for Pdf</h4>
 <p>Prawn comes with table support out of the box. Tables can be styled in whatever way you see fit.
 The whole table, rows, columns and cells can be styled independently from each other.
 The examples show:
-  • How to create tables
-  • What content can be placed on tables
-  • Subtables (or tables within tables)
-  • How to style the whole table
-  • How to use initializer blocks to style only specific portions of the table</p>
-
+• How to create tables
+• What content can be placed on tables
+• Subtables (or tables within tables)
+• How to style the whole table
+• How to use initializer blocks to style only specific portions of the table</p>
 <h4 id="sudo-code">Sudo-Code</h4>
-
 <p>{% highlight ruby %}</p>
-
 <p>cell_1 = make_cell(:content =&gt; &ldquo;this row content comes directly &ldquo;)
 cell_2 = make_cell(:content =&gt; &ldquo;from cell objects&rdquo;)
-two_dimensional_array = [ [&ldquo;&hellip;&rdquo;], [&ldquo;subtable from an array&rdquo;], [&ldquo;&hellip;&rdquo;] ]
-my_table = make_table([ [&ldquo;&hellip;&rdquo;], [&ldquo;subtable from another table&rdquo;], [&ldquo;&hellip;&rdquo;] ])
+two_dimensional_array = [ [&rdquo;&hellip;&quot;], [&ldquo;subtable from an array&rdquo;], [&rdquo;&hellip;&quot;] ]
+my_table = make_table([ [&rdquo;&hellip;&quot;], [&ldquo;subtable from another table&rdquo;], [&rdquo;&hellip;&quot;] ])
 image_path = &ldquo;#{Prawn::DATADIR}/images/stef.jpg&rdquo;
 table([ [&ldquo;just a regular row&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;, &ldquo;blah blah blah&rdquo;],
- [cell_1, cell_2, &ldquo;&rdquo;, &ldquo;&rdquo;],
- [&ldquo;&rdquo;, &ldquo;&rdquo;, two_dimensional_array, &ldquo;&rdquo;],
- [&ldquo;just another regular row&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;],
- [{:image =&gt; image_path}, &ldquo;&rdquo;, my_table, &ldquo;&rdquo;]])</p>
-
+[cell_1, cell_2, &ldquo;&rdquo;, &ldquo;&quot;],
+[&quot;&rdquo;, &ldquo;&rdquo;, two_dimensional_array, &ldquo;&quot;],
+[&ldquo;just another regular row&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;, &ldquo;&quot;],
+[{:image =&gt; image_path}, &ldquo;&rdquo;, my_table, &ldquo;&quot;]])</p>
 <p>{% endhighlight %}</p>
-
 <h5 id="output-will-be-like-as">Output will be like as:</h5>
-
 <figure class="full">
-    <a href="javascript:void(0);"><img src="/images/prawntable.png"></a>
+	<a href="javascript:void(0);"><img src="/images/prawntable.png"></a>
 </figure>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1041,7 +1032,7 @@ table([ [&ldquo;just a regular row&rdquo;, &ldquo;&rdquo;, &ldquo;&rdquo;, &ldqu
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

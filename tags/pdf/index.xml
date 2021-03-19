@@ -17,70 +17,56 @@
       <link>/post/2016-08-06-ruby-prawn-table-advanced/</link>
       <pubDate>Sat, 06 Aug 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-08-06-ruby-prawn-table-advanced/</guid>
-      <description>
-
-&lt;h2 id=&#34;prawn-table-content-and-subtable&#34;&gt;Prawn table content and subtable&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;prawn-table-content-and-subtable&#34;&gt;Prawn table content and subtable&lt;/h2&gt;
 &lt;p&gt;As we discussed in last post about Prawn Table via ruby. Today we&amp;rsquo;re
 giving dive more deeper. In Prawn table there are five kind of objects
 which can be put in table cells:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;• String: produces a text cell
 • Prawn::Table::Cell
 • Prawn::Table
 • Array
 • Images
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;whenever a table or an array is provided as a cell, a subtable will be
 created(a table within a cell). if you&amp;rsquo;d like to provide a cell or table
 directly, the best way is to use the &lt;code&gt;make_cell&lt;/code&gt; and &lt;code&gt;make_table&lt;/code&gt;
 methods as they don&amp;rsquo;t call &lt;code&gt;draw&lt;/code&gt; on the created object. To insert an
 image just provide a hash with an &lt;code&gt;:image&lt;/code&gt; key pointing to the image path.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 cell_1 = make_cell(:content =&amp;gt; &amp;ldquo;this row content comes directly &amp;ldquo;)
 cell_2 = make_cell(:content =&amp;gt; &amp;ldquo;from cell objects&amp;rdquo;)
-two_dimensional_array = [ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from an array&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ]
-my_table = make_table([ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from another table&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ])
+two_dimensional_array = [ [&amp;rdquo;&amp;hellip;&amp;quot;], [&amp;ldquo;subtable from an array&amp;rdquo;], [&amp;rdquo;&amp;hellip;&amp;quot;] ]
+my_table = make_table([ [&amp;rdquo;&amp;hellip;&amp;quot;], [&amp;ldquo;subtable from another table&amp;rdquo;], [&amp;rdquo;&amp;hellip;&amp;quot;] ])
 image_path = &amp;ldquo;#{Prawn::DATADIR}/images/stef.jpg&amp;rdquo;
 table([ [&amp;ldquo;just a regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;blah blah blah&amp;rdquo;],
- [cell_1, cell_2, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
- [&amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, two_dimensional_array, &amp;ldquo;&amp;rdquo;],
- [&amp;ldquo;just another regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
- [{:image =&amp;gt; image_path}, &amp;ldquo;&amp;rdquo;, my_table, &amp;ldquo;&amp;rdquo;]])
+[cell_1, cell_2, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;quot;],
+[&amp;quot;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, two_dimensional_array, &amp;ldquo;&amp;quot;],
+[&amp;ldquo;just another regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;quot;],
+[{:image =&amp;gt; image_path}, &amp;ldquo;&amp;rdquo;, my_table, &amp;ldquo;&amp;quot;]])
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h5 id=&#34;output-will-be-like-as&#34;&gt;Output will be like as:&lt;/h5&gt;
-
 &lt;figure class=&#34;full&#34;&gt;
-    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawntable.png&#34;&gt;&lt;/a&gt;
+	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawntable.png&#34;&gt;&lt;/a&gt;
 &lt;/figure&gt;
-
 &lt;h2 id=&#34;prawn-table-flow-and-header&#34;&gt;Prawn table Flow and Header&lt;/h2&gt;
-
 &lt;p&gt;if the table cannot fit on the current page it will flow to the next
 page just like free flowing text. if you would like to have the first
 row treated as a header which will be repeated on subsequent pages set
 the :header option to true&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 data = [[&amp;ldquo;This row should be repeated on every new page&amp;rdquo;]]
-data += [[&amp;ldquo;&amp;hellip;&amp;rdquo;]] * 30
+data += [[&amp;rdquo;&amp;hellip;&amp;quot;]] * 30
 table(data, :header =&amp;gt; true)
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h5 id=&#34;output-will-be-like-as-1&#34;&gt;Output will be like as:&lt;/h5&gt;
-
 &lt;figure class=&#34;full&#34;&gt;
-    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawn_flow_and_header.png&#34;&gt;&lt;/a&gt;
+	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawn_flow_and_header.png&#34;&gt;&lt;/a&gt;
 &lt;/figure&gt;
-
-&lt;h5 id=&#34;we-ll-cover-more-prawn-and-prawn-table-features-in-upcoming-posts&#34;&gt;We&amp;rsquo;ll cover more prawn and prawn table features in upcoming posts.&lt;/h5&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h5 id=&#34;well-cover-more-prawn-and-prawn-table-features-in-upcoming-posts&#34;&gt;We&amp;rsquo;ll cover more prawn and prawn table features in upcoming posts.&lt;/h5&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -89,45 +75,36 @@ table(data, :header =&amp;gt; true)
       <link>/post/2016-07-30-ruby-prawn-table-introduction/</link>
       <pubDate>Sat, 30 Jul 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-07-30-ruby-prawn-table-introduction/</guid>
-      <description>
-
-&lt;h4 id=&#34;table-via-prawn-in-ruby-for-pdf&#34;&gt;Table via Prawn in ruby for Pdf&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;table-via-prawn-in-ruby-for-pdf&#34;&gt;Table via Prawn in ruby for Pdf&lt;/h4&gt;
 &lt;p&gt;Prawn comes with table support out of the box. Tables can be styled in whatever way you see fit.
 The whole table, rows, columns and cells can be styled independently from each other.
 The examples show:
-  • How to create tables
-  • What content can be placed on tables
-  • Subtables (or tables within tables)
-  • How to style the whole table
-  • How to use initializer blocks to style only specific portions of the table&lt;/p&gt;
-
+• How to create tables
+• What content can be placed on tables
+• Subtables (or tables within tables)
+• How to style the whole table
+• How to use initializer blocks to style only specific portions of the table&lt;/p&gt;
 &lt;h4 id=&#34;sudo-code&#34;&gt;Sudo-Code&lt;/h4&gt;
-
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
 &lt;p&gt;cell_1 = make_cell(:content =&amp;gt; &amp;ldquo;this row content comes directly &amp;ldquo;)
 cell_2 = make_cell(:content =&amp;gt; &amp;ldquo;from cell objects&amp;rdquo;)
-two_dimensional_array = [ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from an array&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ]
-my_table = make_table([ [&amp;ldquo;&amp;hellip;&amp;rdquo;], [&amp;ldquo;subtable from another table&amp;rdquo;], [&amp;ldquo;&amp;hellip;&amp;rdquo;] ])
+two_dimensional_array = [ [&amp;rdquo;&amp;hellip;&amp;quot;], [&amp;ldquo;subtable from an array&amp;rdquo;], [&amp;rdquo;&amp;hellip;&amp;quot;] ]
+my_table = make_table([ [&amp;rdquo;&amp;hellip;&amp;quot;], [&amp;ldquo;subtable from another table&amp;rdquo;], [&amp;rdquo;&amp;hellip;&amp;quot;] ])
 image_path = &amp;ldquo;#{Prawn::DATADIR}/images/stef.jpg&amp;rdquo;
 table([ [&amp;ldquo;just a regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;blah blah blah&amp;rdquo;],
- [cell_1, cell_2, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
- [&amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, two_dimensional_array, &amp;ldquo;&amp;rdquo;],
- [&amp;ldquo;just another regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;],
- [{:image =&amp;gt; image_path}, &amp;ldquo;&amp;rdquo;, my_table, &amp;ldquo;&amp;rdquo;]])&lt;/p&gt;
-
+[cell_1, cell_2, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;quot;],
+[&amp;quot;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, two_dimensional_array, &amp;ldquo;&amp;quot;],
+[&amp;ldquo;just another regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;ldquo;&amp;quot;],
+[{:image =&amp;gt; image_path}, &amp;ldquo;&amp;rdquo;, my_table, &amp;ldquo;&amp;quot;]])&lt;/p&gt;
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
 &lt;h5 id=&#34;output-will-be-like-as&#34;&gt;Output will be like as:&lt;/h5&gt;
-
 &lt;figure class=&#34;full&#34;&gt;
-    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawntable.png&#34;&gt;&lt;/a&gt;
+	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/prawntable.png&#34;&gt;&lt;/a&gt;
 &lt;/figure&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -136,48 +113,35 @@ table([ [&amp;ldquo;just a regular row&amp;rdquo;, &amp;ldquo;&amp;rdquo;, &amp;
       <link>/post/2016-07-09-ruby-prawn-svg-export/</link>
       <pubDate>Sat, 09 Jul 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-07-09-ruby-prawn-svg-export/</guid>
-      <description>
-
-&lt;h4 id=&#34;text-annotation-pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;text-annotation---pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
 &lt;p&gt;Pdf(Portable document format) has beautiful feature called text annotation.
 you can add detailed text information with available clipped images&lt;/p&gt;
-
 &lt;p&gt;Available annotations in current pdf spec are :&lt;/p&gt;
-
 &lt;figure class=&#34;third&#34;&gt;
-    &lt;img src=&#34;/images/annotations.png&#34;&gt;
+	&lt;img src=&#34;/images/annotations.png&#34;&gt;
 &lt;/figure&gt;
-  
-
-&lt;h4 id=&#34;text-annotation-prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
-
+&lt;h4 id=&#34;text-annotation---prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
 &lt;p&gt;Via prawn you can define Text annotations easily. A convenience method
 for creating Text annotations. rect must be an array of four numbers,
 describing the bounds of the annotation. contents should be a string,
 to be shown when the annotation is activated.&lt;/p&gt;
-
 &lt;p&gt;Text annotation by Code - Sample:
 {% highlight ruby %}
 prawn_pdf = Prawn::Document.new
 prawn_pdf.text_annotation(rect, contents, options = {})
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h4 id=&#34;ruby-select-quick-note&#34;&gt;Ruby Select Quick note&lt;/h4&gt;
-
 &lt;p&gt;if we need to grep some strings from an array with a defined pattern,
 it is advisable to use select. and this is how i used it.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 array = [&amp;lsquo;dhhjdfshgd&amp;rsquo;, &amp;lsquo;sadsdhjgsfgdhf   &amp;lsquo;, &amp;lsquo;example@gmail.com&amp;rsquo;]
 array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;Quite useful for me.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -186,48 +150,35 @@ array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
       <link>/post/2016-06-25-ruby-prawn-text-annotation/</link>
       <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-06-25-ruby-prawn-text-annotation/</guid>
-      <description>
-
-&lt;h4 id=&#34;text-annotation-pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;text-annotation---pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
 &lt;p&gt;Pdf(Portable document format) has beautiful feature called text annotation.
 you can add detailed text information with available clipped images&lt;/p&gt;
-
 &lt;p&gt;Available annotations in current pdf spec are :&lt;/p&gt;
-
 &lt;figure class=&#34;third&#34;&gt;
-    &lt;img src=&#34;/images/annotations.png&#34;&gt;
+	&lt;img src=&#34;/images/annotations.png&#34;&gt;
 &lt;/figure&gt;
-  
-
-&lt;h4 id=&#34;text-annotation-prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
-
+&lt;h4 id=&#34;text-annotation---prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
 &lt;p&gt;Via prawn you can define Text annotations easily. A convenience method
 for creating Text annotations. rect must be an array of four numbers,
 describing the bounds of the annotation. contents should be a string,
 to be shown when the annotation is activated.&lt;/p&gt;
-
 &lt;p&gt;Text annotation by Code - Sample:
 {% highlight ruby %}
 prawn_pdf = Prawn::Document.new
 prawn_pdf.text_annotation(rect, contents, options = {})
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h4 id=&#34;ruby-select-quick-note&#34;&gt;Ruby Select Quick note&lt;/h4&gt;
-
 &lt;p&gt;if we need to grep some strings from an array with a defined pattern,
 it is advisable to use select. and this is how i used it.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 array = [&amp;lsquo;dhhjdfshgd&amp;rsquo;, &amp;lsquo;sadsdhjgsfgdhf   &amp;lsquo;, &amp;lsquo;example@gmail.com&amp;rsquo;]
 array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;Quite useful for me.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -236,38 +187,30 @@ array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
       <link>/post/2016-06-18-ruby-prawn-link-annotation/</link>
       <pubDate>Sat, 18 Jun 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-06-18-ruby-prawn-link-annotation/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem-prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem---prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
 &lt;p&gt;In Prawn pdf we need to put links on the Image text and fortunatley we&amp;rsquo;re keeping
 required co-ordinates with objects. We tried to put Text link with anchor on text
 available inside image but that wasn&amp;rsquo;t cool because our images can rotate&lt;/p&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;p&gt;Instead of marking text link above image text, we tried to put
 link annotation.&lt;/p&gt;
-
 &lt;p&gt;Link annotation by Prawn are :&lt;/p&gt;
-
 &lt;p&gt;A convenience method for creating Link annotations. rect must be an
 array of four numbers, describing the bounds of the annotation. The
 options hash should include either :Dest (describing the target
 destination, usually as a string that has been recorded in the
 document&amp;rsquo;s Dests tree), or :A (describing an action to perform on
 clicking the link), or :PA (for describing a URL to link to).&lt;/p&gt;
-
 &lt;p&gt;Link annotation by Code - Sample:
 {% highlight ruby %}
 prawn_pdf = Prawn::Document.new(skip_page_creation: true)
 link_coordinates = [:left, :top, :right, :bottom] # a.k.a coordinates
 prawn_pdf.link_annotation(link_coordinates, :Dest =&amp;gt; &amp;ldquo;target destination&amp;rdquo;)
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -276,21 +219,15 @@ prawn_pdf.link_annotation(link_coordinates, :Dest =&amp;gt; &amp;ldquo;target de
       <link>/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/</link>
       <pubDate>Sat, 11 Jun 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-06-04-ruby-prawn-marking-stamp-center-page-2/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem-prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem---prawn&#34;&gt;Problem - Prawn&lt;/h4&gt;
 &lt;p&gt;We have to put a default text on every page center if we&amp;rsquo;re not able to
 insert image at it&amp;rsquo;s bounding box.&lt;/p&gt;
-
 &lt;h4 id=&#34;sample-usage&#34;&gt;Sample Usage&lt;/h4&gt;
-
 &lt;p&gt;define a stamp :-&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 prawn_pdf.create_stamp(&amp;ldquo;stamp&amp;rdquo;) {
 prawn_page.fill_color &amp;lsquo;#4a8bc2&amp;rsquo;
-prawn_page.text_box &amp;lsquo;[Image not available.]&amp;lsquo;,
+prawn_page.text_box &amp;lsquo;[Image not available.]&amp;rsquo;,
 :width  =&amp;gt; bounds.width,
 :height =&amp;gt; bounds.height,
 :align  =&amp;gt; :center,
@@ -300,21 +237,17 @@ prawn_page.text_box &amp;lsquo;[Image not available.]&amp;lsquo;,
 :rotate_around =&amp;gt; :center
 }
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;mark stamp at any page by just calling it by name :-&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;prawn_page.stamp(&amp;quot;stamp&amp;quot;)&lt;/code&gt;&lt;/p&gt;
-
 &lt;h4 id=&#34;things-to-take-care&#34;&gt;Things to take care&lt;/h4&gt;
-
 &lt;ul&gt;
 &lt;li&gt;stamp name should be unique.&lt;/li&gt;
 &lt;li&gt;should be take care of stamp dimension and its content.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -323,47 +256,32 @@ prawn_page.text_box &amp;lsquo;[Image not available.]&amp;lsquo;,
       <link>/post/2016-06-04-ruby-prawn-introduction-1/</link>
       <pubDate>Sat, 21 May 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-06-04-ruby-prawn-introduction-1/</guid>
-      <description>
-
-&lt;h4 id=&#34;prawn&#34;&gt;Prawn&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;prawn&#34;&gt;Prawn&lt;/h4&gt;
 &lt;p&gt;Prawn is a pure Ruby PDF generation library that provides a lot of great
 functionality while trying to remain simple and reasonably performant.&lt;/p&gt;
-
 &lt;h4 id=&#34;sample-usage&#34;&gt;Sample Usage&lt;/h4&gt;
-
 &lt;p&gt;create/Initialize new document without having first page created :-&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;prawn_pdf = Prawn::Document.new(skip_page_creation: true)&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;adding new page with giving dimension :-&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;prawn_pdf.start_new_page(size: [width,height])&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;adding a bounding box having a image into it :-&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 prawn_pdf.bounding_box([0, 0], :width =&amp;gt; width, :height =&amp;gt; height) do
 prawn_pdf.image &amp;ldquo;image_location&amp;rdquo;, at: [0, 0]
 end
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;adding a text annotation with content :-&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;prawn_pdf.text_annotation([a,b,c,d], annotation_content)&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;adding a links-anchor and registering destination :-&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 prawn_pdf.text_box &amp;ldquo;&lt;link anchor=&#39;anchor-#{anchor-identifier}&#39;&gt;THIS&lt;/link&gt;&amp;rdquo;,
-                   inline_format: true, width: width, height: height
+inline_format: true, width: width, height: height
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;prawn_pdf.add_dest(&amp;quot;anchor-#{anchor-identifier}&amp;quot;, prawn_pdf.dest_fit(prawn_pdf.page))&lt;/code&gt;&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -641,47 +641,32 @@ Sample Usage create/Initialize new document without having first page created :-
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="prawn">Prawn</h4>
-
+      <h4 id="prawn">Prawn</h4>
 <p>Prawn is a pure Ruby PDF generation library that provides a lot of great
 functionality while trying to remain simple and reasonably performant.</p>
-
 <h4 id="sample-usage">Sample Usage</h4>
-
 <p>create/Initialize new document without having first page created :-</p>
-
 <p><code>prawn_pdf = Prawn::Document.new(skip_page_creation: true)</code></p>
-
 <p>adding new page with giving dimension :-</p>
-
 <p><code>prawn_pdf.start_new_page(size: [width,height])</code></p>
-
 <p>adding a bounding box having a image into it :-</p>
-
 <p>{% highlight ruby %}
 prawn_pdf.bounding_box([0, 0], :width =&gt; width, :height =&gt; height) do
 prawn_pdf.image &ldquo;image_location&rdquo;, at: [0, 0]
 end
 {% endhighlight %}</p>
-
 <p>adding a text annotation with content :-</p>
-
 <p><code>prawn_pdf.text_annotation([a,b,c,d], annotation_content)</code></p>
-
 <p>adding a links-anchor and registering destination :-</p>
-
 <p>{% highlight ruby %}
 prawn_pdf.text_box &ldquo;<link anchor='anchor-#{anchor-identifier}'>THIS</link>&rdquo;,
-                   inline_format: true, width: width, height: height
+inline_format: true, width: width, height: height
 {% endhighlight %}</p>
-
 <p><code>prawn_pdf.add_dest(&quot;anchor-#{anchor-identifier}&quot;, prawn_pdf.dest_fit(prawn_pdf.page))</code></p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1043,7 +1028,7 @@ prawn_pdf.text_box &ldquo;<link anchor='anchor-#{anchor-identifier}'>THIS</link>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

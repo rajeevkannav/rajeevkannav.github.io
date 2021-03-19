@@ -639,49 +639,37 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="happy-new-year">Happy New Year</h4>
-
+      <h4 id="happy-new-year">Happy New Year</h4>
 <p>Last year we deployed our rails application over nginx with ssl certificates
 obtained from namecheap. everything ewas working fine but over Android moblie
 we found a bug as in image below</p>
-
 <figure class="third">
-    <img src="/images/ssl_cert_authority.png">
+	<img src="/images/ssl_cert_authority.png">
 </figure>
-
 <h4 id="solution">Solution</h4>
-
 <p>We got two files from NameCheap for example:</p>
-
 <ul>
 <li><em>youdomainname</em>.crt</li>
 <li><em>youdomainname</em>.ca-bundle</li>
 </ul>
-
 <p>What we missed to combine the certificates(thought ca-bundle is already combination).
 We&rsquo;re wrong and our application stopped working on android phone&rsquo;s browser.</p>
-
 <p>It is mandatory to combine the certificates in case of PositiveSSL. It will look like:</p>
-
 <pre><code>   $ cat *yourdomainname*.crt COMODO_DV_SHA-256_bundle.crt &gt;&gt; cert_chain.crt
    or
    $ cat *yourdomainname*.crt *yourdomainname*.ca-bundle &gt;&gt; cert_chain.crt
 </code></pre>
-
 <h5 id="sample-nginx-configuration">Sample nginx configuration</h5>
-
 <pre><code>    ssl on;
     # ssl_certificate should be pointed to the file with combined certificates (file you created in step 2)
     ssl_certificate /etc/ssl/cert_chain.crt;
     # ssl_certificate_key should be pointed to the Private Key that has been generated with the CSR code that you have used for activation of the certificate.
     ssl_certificate_key /etc/ssl/*your_private_key*.key;
 </code></pre>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1035,7 +1023,7 @@ We&rsquo;re wrong and our application stopped working on android phone&rsquo;s b
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

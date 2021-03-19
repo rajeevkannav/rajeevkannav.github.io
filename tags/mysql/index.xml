@@ -17,50 +17,23 @@
       <link>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</link>
       <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</guid>
-      <description>&lt;nav&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-&lt;p&gt;In our Rails Application we faced several exception(s) saying&lt;/p&gt;
-
+      <description>&lt;p&gt;In our Rails Application we faced several exception(s) saying&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Mysql2::Error: Lost connection to MySQL server during query
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Usually it indicates network connectivity trouble and you should check the condition of your network if this error
 occurs frequently. If the error message includes “during query,” this is probably the case you are experiencing.&lt;/p&gt;
-
 &lt;p&gt;Sometimes the &lt;code&gt;during query&lt;/code&gt; form happens when millions of rows are being sent as part of one or more queries. If you
 know that this is happening, you should try increasing &lt;code&gt;net_read_timeout&lt;/code&gt; from its default of 30 seconds to 60 seconds
 or longer, sufficient for the data transfer to complete.&lt;/p&gt;
-
 &lt;p&gt;In our case luckily we&amp;rsquo;re on Amazon Relational Database Machine(s), so it can be done easily and Quickly.&lt;/p&gt;
-
 &lt;p&gt;Visit &lt;code&gt;Parameter Groups&lt;/code&gt; of your Amazon RDS machine. update &lt;code&gt;net_read_timeout&lt;/code&gt; value of that group which is being used.
 we make it 3600. default unit in mysql is seconds&lt;/p&gt;
-
 &lt;p&gt;Re-booted the rds instance, though it was a down for a while. After that a new sun arise we&amp;rsquo;ve not face such exceptions
 yet. still we&amp;rsquo;re investigating.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

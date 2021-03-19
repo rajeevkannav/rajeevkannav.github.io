@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Bash Basics  Learn basic Bash. Actually, type man bash and at least skim the whole thing; it&rsquo;s pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc.">
+  <meta name="description" content="Bash Basics   Learn basic Bash. Actually, type man bash and at least skim the whole thing; it&rsquo;s pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2015-06-20-bash-basics/">
@@ -271,7 +271,7 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2015-06-20-bash-basics/">
   <meta property="og:title" content="bash basics linux | Rajeev Sharma">
-  <meta property="og:description" content="Bash Basics  Learn basic Bash. Actually, type man bash and at least skim the whole thing; it&rsquo;s pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="Bash Basics   Learn basic Bash. Actually, type man bash and at least skim the whole thing; it&rsquo;s pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +321,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Bash Basics  Learn basic Bash. Actually, type man bash and at least skim the whole thing; it\u0026rsquo;s pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc."
+  "description": "Bash Basics   Learn basic Bash. Actually, type man bash and at least skim the whole thing; it\u0026rsquo;s pretty easy to follow and not that long. Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc."
 }
 </script>
 
@@ -639,43 +639,51 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="bash-basics">Bash Basics</h3>
-
+      <h3 id="bash-basics">Bash Basics</h3>
 <ul>
-<li><p>Learn basic Bash. Actually, type man bash and at least skim the whole thing; it&rsquo;s pretty easy to follow and not that long.
-Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).</p></li>
-
-<li><p>Learn at least one text-based editor well. Ideally Vim (vi), as there&rsquo;s really no competition for random editing in a
-terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).</p></li>
-
-<li><p>Learn about stdout and stderr also learn about redirection of output and input using &gt; and &lt; and pipes using &ldquo;|&rdquo;</p></li>
-
-<li><p>Learn about file glob expansion with * (and perhaps ? and {&hellip;}) and quoting and the difference between double &ldquo; and single &lsquo; quotes.
-(See more on variable expansion below.)</p></li>
-
-<li><p>Be familiar with Bash job management: &amp;, ctrl-z, ctrl-c, jobs, fg, bg, kill, etc.</p></li>
-
-<li><p>Know ssh, and the basics of passwordless authentication, via ssh-agent, ssh-add, etc.</p></li>
-
-<li><p>Basic file management: ls and ls -l (in particular, learn what every column in ls -l means), less, head, tail and
+<li>
+<p>Learn basic Bash. Actually, type man bash and at least skim the whole thing; it&rsquo;s pretty easy to follow and not that long.
+Alternate shells can be nice, but Bash is powerful and always available (learning only zsh, fish, etc., while tempting on your own laptop, restricts you in many situations, such as using existing servers).</p>
+</li>
+<li>
+<p>Learn at least one text-based editor well. Ideally Vim (vi), as there&rsquo;s really no competition for random editing in a
+terminal (even if you use Emacs, a big IDE, or a modern hipster editor most of the time).</p>
+</li>
+<li>
+<p>Learn about stdout and stderr also learn about redirection of output and input using &gt; and &lt; and pipes using &ldquo;|&rdquo;</p>
+</li>
+<li>
+<p>Learn about file glob expansion with * (and perhaps ? and {&hellip;}) and quoting and the difference between double &quot; and single ' quotes.
+(See more on variable expansion below.)</p>
+</li>
+<li>
+<p>Be familiar with Bash job management: &amp;, ctrl-z, ctrl-c, jobs, fg, bg, kill, etc.</p>
+</li>
+<li>
+<p>Know ssh, and the basics of passwordless authentication, via ssh-agent, ssh-add, etc.</p>
+</li>
+<li>
+<p>Basic file management: ls and ls -l (in particular, learn what every column in ls -l means), less, head, tail and
 tail -f (or even better, less +F), ln and ln -s (learn the differences and advantages of hard versus soft links),
-chown, chmod, du (for a quick summary of disk usage: du -sk *), df, mount.</p></li>
-
-<li><p>Basic network management: ip or ifconfig, dig.</p></li>
-
-<li><p>Know regular expressions well, and the various flags to grep/egrep. The -i, -o, -A, and -B options are worth knowing.</p></li>
-
-<li><p>Learn to use apt-get, yum, or dnf (depending on distro) to find and install packages. And make sure you have pip to
-install Python-based command-line tools (a few below are easiest to install via pip).</p></li>
+chown, chmod, du (for a quick summary of disk usage: du -sk *), df, mount.</p>
+</li>
+<li>
+<p>Basic network management: ip or ifconfig, dig.</p>
+</li>
+<li>
+<p>Know regular expressions well, and the various flags to grep/egrep. The -i, -o, -A, and -B options are worth knowing.</p>
+</li>
+<li>
+<p>Learn to use apt-get, yum, or dnf (depending on distro) to find and install packages. And make sure you have pip to
+install Python-based command-line tools (a few below are easiest to install via pip).</p>
+</li>
 </ul>
-
-<p>For More : <a href="https://github.com/jlevy/the-art-of-command-line">Source</a></p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<p>For More : 
+<a href="https://github.com/jlevy/the-art-of-command-line" target="_blank" rel="noopener">Source</a></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1020,7 +1028,7 @@ install Python-based command-line tools (a few below are easiest to install via 
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

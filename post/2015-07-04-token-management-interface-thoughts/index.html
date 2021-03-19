@@ -641,61 +641,44 @@ During each request, a new token is generated. The access-token header that shou
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="conceptual-token-handling">Conceptual Token Handling</h3>
-
+      <h3 id="conceptual-token-handling">Conceptual Token Handling</h3>
 <p>Tokens should be invalidated after each request to the API. The following diagram illustrates this concept:</p>
-
-<p><img src="https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/token-update-detail.jpg" alt="Target" /></p>
-
+<p><img src="https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/token-update-detail.jpg" alt="Target"></p>
 <p>During each request, a new token is generated. The access-token header that should be used in the next request is
 returned in the access-token header of the response to the previous request. The last request in the diagram fails
 because it tries to use a token that was invalidated by the previous request.</p>
-
 <p>The only case where an expired token is allowed is during batch requests.</p>
-
 <h3 id="about-batch-requests">About batch requests</h3>
-
 <p>By default, the API should update the auth token for each request (read more). But sometimes it&rsquo;s neccessary to make
 several concurrent requests to the API, for example:</p>
-
 <h5 id="batch-request-example">Batch request example</h5>
-
 <p>{% highlight javascript %}</p>
-
-<p>$scope.getResourceData = function() {<br />
-    $http.get(&lsquo;/api/restricted_resource_1&rsquo;).success(function(resp) {
-      // handle response
-      $scope.resource1 = resp.data;
-    });<br />
-    $http.get(&lsquo;/api/restricted_resource_2&rsquo;).success(function(resp) {
-      // handle response
-      $scope.resource2 = resp.data;
-    });
-  };</p>
-
+<p>$scope.getResourceData = function() {<br>
+$http.get('/api/restricted_resource_1&rsquo;).success(function(resp) {
+// handle response
+$scope.resource1 = resp.data;
+});<br>
+$http.get('/api/restricted_resource_2&rsquo;).success(function(resp) {
+// handle response
+$scope.resource2 = resp.data;
+});
+};</p>
 <p>{% endhighlight %}</p>
-
 <p>In this case, it&rsquo;s impossible to update the access-token header for the second request with the access-token header of
 the first response because the second request will begin before the first one is complete. The server must allow these
 batches of concurrent requests to share the same auth token. This diagram illustrates how batch requests are identified
 by the server:</p>
-
-<p><img src="https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-overview.jpg" alt="Target" /></p>
-
+<p><img src="https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-overview.jpg" alt="Target"></p>
 <p>The following diagram details the relationship between the client, server, and access tokens used over time when dealing
 with batch requests:</p>
-
-<p><img src="https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-detail.jpg" alt="Target" /></p>
-
+<p><img src="https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-detail.jpg" alt="Target"></p>
 <p>Note that when the server identifies that a request is part of a batch request, the user&rsquo;s auth token is not updated.
 The auth token will be updated for the first request in the batch, and then that same token will be returned in the
 responses for each subsequent request in the batch (as shown in the diagram).</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1040,7 +1023,7 @@ responses for each subsequent request in the batch (as shown in the diagram).</p
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

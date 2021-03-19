@@ -17,144 +17,110 @@
       <link>/post/2015-05-30-reactjs-rails-start-guide-part-1/</link>
       <pubDate>Sat, 30 May 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-05-30-reactjs-rails-start-guide-part-1/</guid>
-      <description>
-
-&lt;h3 id=&#34;introduction-to-react-js&#34;&gt;Introduction to React.js&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;introduction-to-reactjs&#34;&gt;Introduction to React.js&lt;/h3&gt;
 &lt;p&gt;React is a JavaScript library for creating user interfaces by Facebook and Instagram. Many people choose to think of
 React as the V in MVC. We built React to solve one problem: building large applications with data that changes over
-time. To do this, React uses two main ideas. For more details &lt;a href=&#34;https://facebook.github.io/react/docs/why-react.html&#34;&gt;visit&lt;/a&gt;&lt;/p&gt;
-
+time. To do this, React uses two main ideas. For more details 
+&lt;a href=&#34;https://facebook.github.io/react/docs/why-react.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;visit&lt;/a&gt;&lt;/p&gt;
 &lt;h3 id=&#34;a-mock-expense-tracking-app&#34;&gt;A mock expense tracking app&lt;/h3&gt;
-
 &lt;p&gt;For this guide, we are building a small application from scratch to keep track of our expenses; each record will consist
 of a date, a title and an amount. A record will be treated as Credit if its amount is greater than zero, otherwise it
 will be treated as Debit. Here is a mockup of the project:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/QB8S7ap.png&#34; alt=&#34;Target&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/QB8S7ap.png&#34; alt=&#34;Target&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Summarizing, the application will behave as follows:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;When the user creates a new record through the horizontal form, it will be appended to the records table&lt;/li&gt;
 &lt;li&gt;The user will be able to inline-edit any existing record&lt;/li&gt;
 &lt;li&gt;Clicking on any Delete button will remove the associated record from the table&lt;/li&gt;
 &lt;li&gt;Adding, editing or removing an existing record will update the amount boxes at the top of the page&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&#34;let-s-start&#34;&gt;Let&amp;rsquo;s Start&lt;/h3&gt;
-
+&lt;h3 id=&#34;lets-start&#34;&gt;Let&amp;rsquo;s Start&lt;/h3&gt;
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
 &lt;h1 id=&#34;first-things-first-we-need-to-started-our-brand-new-rails-project&#34;&gt;First things first we need to started our brand new Rails project&lt;/h1&gt;
-
 &lt;p&gt;rails new reactExample&lt;/p&gt;
-
 &lt;h1 id=&#34;add-react-rails-to-your-gemfile&#34;&gt;Add react-rails to your Gemfile.&lt;/h1&gt;
-
 &lt;p&gt;gem &amp;lsquo;react-rails&amp;rsquo;, &amp;lsquo;~&amp;gt; 1.0&amp;rsquo;
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;react-rails comes with an installation script, which will create a components.js
 file and a components directory under app/assets/javascripts where our React components will live.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
-  rails g react:install
+rails g react:install
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;If you take a look at your application.js file after running the installer, you will notice three new lines:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 //= require react
 //= require react_ujs
 //= require components
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 rails g resource Record title date:date amount:float # Creating the Resource&lt;/p&gt;
-
 &lt;p&gt;rake db:create db:migrate
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h5 id=&#34;db-seed-rb&#34;&gt;db/seed.rb&lt;/h5&gt;
-
+&lt;h5 id=&#34;dbseedrb&#34;&gt;db/seed.rb&lt;/h5&gt;
 &lt;p&gt;{% highlight ruby %}
 Record.create title: &amp;lsquo;Record 1&amp;rsquo;, date: Date.today, amount: 500
 Record.create title: &amp;lsquo;Record 2&amp;rsquo;, date: Date.today, amount: -100&lt;/p&gt;
-
 &lt;p&gt;rake db:seed
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h3 id=&#34;nesting-components-listing-records&#34;&gt;Nesting Components: Listing Records&lt;/h3&gt;
-
-&lt;h5 id=&#34;app-controllers-records-controller-rb&#34;&gt;app/controllers/records_controller.rb&lt;/h5&gt;
-
+&lt;h5 id=&#34;appcontrollersrecords_controllerrb&#34;&gt;app/controllers/records_controller.rb&lt;/h5&gt;
 &lt;p&gt;{% highlight ruby %}
 class RecordsController &amp;lt; ApplicationController
-  def index
-    @records = Record.all
-  end
+def index
+@records = Record.all
+end
 end
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h5 id=&#34;app-views-records-index-html-erb&#34;&gt;app/views/records/index.html.erb&lt;/h5&gt;
-
+&lt;h5 id=&#34;appviewsrecordsindexhtmlerb&#34;&gt;app/views/records/index.html.erb&lt;/h5&gt;
 &lt;p&gt;{% highlight ruby %}
 &amp;lt;%= react_component &amp;lsquo;Records&amp;rsquo;, { data: @records } %&amp;gt;
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h5 id=&#34;app-assets-javascripts-components-records-js-coffee&#34;&gt;app/assets/javascripts/components/records.js.coffee&lt;/h5&gt;
-
+&lt;h5 id=&#34;appassetsjavascriptscomponentsrecordsjscoffee&#34;&gt;app/assets/javascripts/components/records.js.coffee&lt;/h5&gt;
 &lt;p&gt;{% highlight ruby %}
-    @Records = React.createClass
-      getInitialState: -&amp;gt;
-        records: @props.data
-      getDefaultProps: -&amp;gt;
-        records: []
-      render: -&amp;gt;
-        React.DOM.div
-          className: &amp;lsquo;records&amp;rsquo;
-          React.DOM.h2
-            className: &amp;lsquo;title&amp;rsquo;
-            &amp;lsquo;Records&amp;rsquo;
-          React.DOM.table
-            className: &amp;lsquo;table table-bordered&amp;rsquo;
-            React.DOM.thead null,
-              React.DOM.tr null,
-                React.DOM.th null, &amp;lsquo;Date&amp;rsquo;
-                React.DOM.th null, &amp;lsquo;Title&amp;rsquo;
-                React.DOM.th null, &amp;lsquo;Amount&amp;rsquo;
-            React.DOM.tbody null,
-              for record in @state.records
-                React.createElement Record, key: record.id, record: record
+@Records = React.createClass
+getInitialState: -&amp;gt;
+records: @props.data
+getDefaultProps: -&amp;gt;
+records: []
+render: -&amp;gt;
+React.DOM.div
+className: &amp;lsquo;records&amp;rsquo;
+React.DOM.h2
+className: &amp;lsquo;title&amp;rsquo;
+&amp;lsquo;Records&amp;rsquo;
+React.DOM.table
+className: &amp;lsquo;table table-bordered&amp;rsquo;
+React.DOM.thead null,
+React.DOM.tr null,
+React.DOM.th null, &amp;lsquo;Date&amp;rsquo;
+React.DOM.th null, &amp;lsquo;Title&amp;rsquo;
+React.DOM.th null, &amp;lsquo;Amount&amp;rsquo;
+React.DOM.tbody null,
+for record in @state.records
+React.createElement Record, key: record.id, record: record
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h5 id=&#34;app-assets-javascripts-utils-js-coffee&#34;&gt;app/assets/javascripts/utils.js.coffee&lt;/h5&gt;
-
+&lt;h5 id=&#34;appassetsjavascriptsutilsjscoffee&#34;&gt;app/assets/javascripts/utils.js.coffee&lt;/h5&gt;
 &lt;p&gt;{% highlight ruby %}
-     @amountFormat = (amount) -&amp;gt;
-       &amp;lsquo;$ &amp;rsquo; + Number(amount).toLocaleString()
+@amountFormat = (amount) -&amp;gt;
+&amp;lsquo;$ &#39; + Number(amount).toLocaleString()
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h5 id=&#34;app-assets-javascripts-components-record-js-coffee&#34;&gt;app/assets/javascripts/components/record.js.coffee&lt;/h5&gt;
-
+&lt;h5 id=&#34;appassetsjavascriptscomponentsrecordjscoffee&#34;&gt;app/assets/javascripts/components/record.js.coffee&lt;/h5&gt;
 &lt;p&gt;{% highlight ruby %}
-     @Record = React.createClass
-       render: -&amp;gt;
-         React.DOM.tr null,
-           React.DOM.td null, @props.record.date
-           React.DOM.td null, @props.record.title
-           React.DOM.td null, amountFormat(@props.record.amount)
+@Record = React.createClass
+render: -&amp;gt;
+React.DOM.tr null,
+React.DOM.td null, @props.record.date
+React.DOM.td null, @props.record.title
+React.DOM.td null, amountFormat(@props.record.amount)
 {% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/vETiEeF.png&#34; alt=&#34;Current State&#34; /&gt;&lt;/p&gt;
-
-&lt;p&gt;You can take a look at the resulting code of this section &lt;a href=&#34;https://github.com/rajeevkannav/reactExample&#34;&gt;here&lt;/a&gt;,
+&lt;p&gt;&lt;img src=&#34;https://i.imgur.com/vETiEeF.png&#34; alt=&#34;Current State&#34;&gt;&lt;/p&gt;
+&lt;p&gt;You can take a look at the resulting code of this section 
+&lt;a href=&#34;https://github.com/rajeevkannav/reactExample&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;here&lt;/a&gt;,
 And Please wait for Part-2.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

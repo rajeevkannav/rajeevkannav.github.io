@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="Remove old “node” Package to Avoid Conflicts Linuxbrew is a fork of Homebrew , the Mac OS package manager, for Linux.
-Dependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform">
+Dependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform  sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev  Install Linuxbrew Paste at Terminal prompt:">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2015-06-13-linuxbrew-node-installation-ubuntu/">
@@ -273,7 +273,7 @@ Dependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform">
   <meta property="og:url" content="/post/2015-06-13-linuxbrew-node-installation-ubuntu/">
   <meta property="og:title" content="linuxbrew node nodejs npm on ubuntu | Rajeev Sharma">
   <meta property="og:description" content="Remove old “node” Package to Avoid Conflicts Linuxbrew is a fork of Homebrew , the Mac OS package manager, for Linux.
-Dependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform"><meta property="og:image" content="/img/rajeevkannav.jpeg">
+Dependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform  sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev  Install Linuxbrew Paste at Terminal prompt:"><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -323,7 +323,7 @@ Dependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform"><meta pr
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Remove old “node” Package to Avoid Conflicts Linuxbrew is a fork of Homebrew , the Mac OS package manager, for Linux.\nDependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform"
+  "description": "Remove old “node” Package to Avoid Conflicts Linuxbrew is a fork of Homebrew , the Mac OS package manager, for Linux.\nDependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform  sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev  Install Linuxbrew Paste at Terminal prompt:"
 }
 </script>
 
@@ -641,64 +641,45 @@ Dependencies  Ruby 1.8.6 or newer GCC 4.2 or newer 64-bit x86 platform"><meta pr
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="remove-old-node-package-to-avoid-conflicts">Remove old “node” Package to Avoid Conflicts</h3>
-
-<p>Linuxbrew is a fork of <a href="http://brew.sh/">Homebrew</a> , the Mac OS package manager, for Linux.</p>
-
+      <h3 id="remove-old-node-package-to-avoid-conflicts">Remove old “node” Package to Avoid Conflicts</h3>
+<p>Linuxbrew is a fork of 
+<a href="http://brew.sh/" target="_blank" rel="noopener">Homebrew</a> , the Mac OS package manager, for Linux.</p>
 <h3 id="dependencies">Dependencies</h3>
-
 <ul>
 <li>Ruby 1.8.6 or newer</li>
 <li>GCC 4.2 or newer</li>
-
-<li><p>64-bit x86 platform</p>
-
-<p>sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev</p></li>
+<li>64-bit x86 platform</li>
 </ul>
-
+<pre><code>sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+</code></pre>
 <h3 id="install-linuxbrew">Install Linuxbrew</h3>
-
 <p>Paste at Terminal prompt:</p>
-
 <pre><code>ruby -e &quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)&quot;
 </code></pre>
-
 <p>Add to your .bashrc or .zshrc:</p>
-
 <pre><code>export PATH=&quot;$HOME/.linuxbrew/bin:$PATH&quot;
 export MANPATH=&quot;$HOME/.linuxbrew/share/man:$MANPATH&quot;
 export INFOPATH=&quot;$HOME/.linuxbrew/share/info:$INFOPATH&quot;
 </code></pre>
-
 <p>then:</p>
-
 <pre><code>source ~/.bashrc
 </code></pre>
-
 <h3 id="update-linuxbrew">update Linuxbrew</h3>
-
 <p>Paste at a Terminal prompt:</p>
-
 <pre><code>    brew update
     brew doctor
 </code></pre>
-
 <h3 id="install-node-package">Install “node” Package</h3>
-
 <pre><code> brew install node
 </code></pre>
-
 <h3 id="confirm-installation">Confirm Installation</h3>
-
 <pre><code>node -v # Output should be something like v0.12.4
 npm -v  # Output should be something like 2.10.1  
 </code></pre>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1056,7 +1037,7 @@ npm -v  # Output should be something like 2.10.1
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

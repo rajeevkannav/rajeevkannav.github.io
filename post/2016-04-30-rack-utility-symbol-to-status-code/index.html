@@ -641,64 +641,54 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem">Problem</h4>
-
+      <h4 id="problem">Problem</h4>
 <p>Every HTTP statuses code are available in form of symbol in Rails in a slightly more readable form. You may heard few of
 them like</p>
-
 <p>{% highlight ruby %}
-    :ok
-    :not_modified
+:ok
+:not_modified
 {% endhighlight %}</p>
-
 <p>We&rsquo;re interested to use every status to symbol which looks good to me. Following can be found on Rails Console/Documentation
- via</p>
-
+via</p>
 <p>{% highlight ruby %}
- Rack::Utils::SYMBOL_TO_STATUS_CODE</p>
-
+Rack::Utils::SYMBOL_TO_STATUS_CODE</p>
 <p>=&gt; {
-        :continue=&gt;100, :switching_protocols=&gt;101, :processing=&gt;102,
-        :ok=&gt;200, :created=&gt;201, :accepted=&gt;202,
-        :non_authoritative_information=&gt;203, :no_content=&gt;204,
-        :reset_content=&gt;205, :partial_content=&gt;206, :multi_status=&gt;207,
-        :already_reported=&gt;208, :im_used=&gt;226, :multiple_choices=&gt;300,
-        :moved_permanently=&gt;301, :found=&gt;302, :see_other=&gt;303,
-        :not_modified=&gt;304, :use_proxy=&gt;305, :temporary_redirect=&gt;307,
-        :permanent_redirect=&gt;308, :bad_request=&gt;400, :unauthorized=&gt;401,
-        :payment_required=&gt;402, :forbidden=&gt;403, :not_found=&gt;404,
-        :method_not_allowed=&gt;405, :not_acceptable=&gt;406,
-        :proxy_authentication_required=&gt;407, :request_timeout=&gt;408,
-        :conflict=&gt;409, :gone=&gt;410, :length_required=&gt;411,
-        :precondition_failed=&gt;412, :payload_too_large=&gt;413,
-        :uri_too_long=&gt;414, :unsupported_media_type=&gt;415,
-        :range_not_satisfiable=&gt;416, :expectation_failed=&gt;417,
-        :unprocessable_entity=&gt;422, :locked=&gt;423, :failed_dependency=&gt;424,
-        :upgrade_required=&gt;426, :precondition_required=&gt;428,
-        :too_many_requests=&gt;429, :request_header_fields_too_large=&gt;431,
-        :internal_server_error=&gt;500, :not_implemented=&gt;501, :bad_gateway=&gt;502,
-        :service_unavailable=&gt;503,:gateway_timeout=&gt;504,
-        :http_version_not_supported=&gt;505, :variant_also_negotiates=&gt;506,
-        :insufficient_storage=&gt;507, :loop_detected=&gt;508, :not_extended=&gt;510,
-        :network_authentication_required=&gt;511
-  }</p>
-
+:continue=&gt;100, :switching_protocols=&gt;101, :processing=&gt;102,
+:ok=&gt;200, :created=&gt;201, :accepted=&gt;202,
+:non_authoritative_information=&gt;203, :no_content=&gt;204,
+:reset_content=&gt;205, :partial_content=&gt;206, :multi_status=&gt;207,
+:already_reported=&gt;208, :im_used=&gt;226, :multiple_choices=&gt;300,
+:moved_permanently=&gt;301, :found=&gt;302, :see_other=&gt;303,
+:not_modified=&gt;304, :use_proxy=&gt;305, :temporary_redirect=&gt;307,
+:permanent_redirect=&gt;308, :bad_request=&gt;400, :unauthorized=&gt;401,
+:payment_required=&gt;402, :forbidden=&gt;403, :not_found=&gt;404,
+:method_not_allowed=&gt;405, :not_acceptable=&gt;406,
+:proxy_authentication_required=&gt;407, :request_timeout=&gt;408,
+:conflict=&gt;409, :gone=&gt;410, :length_required=&gt;411,
+:precondition_failed=&gt;412, :payload_too_large=&gt;413,
+:uri_too_long=&gt;414, :unsupported_media_type=&gt;415,
+:range_not_satisfiable=&gt;416, :expectation_failed=&gt;417,
+:unprocessable_entity=&gt;422, :locked=&gt;423, :failed_dependency=&gt;424,
+:upgrade_required=&gt;426, :precondition_required=&gt;428,
+:too_many_requests=&gt;429, :request_header_fields_too_large=&gt;431,
+:internal_server_error=&gt;500, :not_implemented=&gt;501, :bad_gateway=&gt;502,
+:service_unavailable=&gt;503,:gateway_timeout=&gt;504,
+:http_version_not_supported=&gt;505, :variant_also_negotiates=&gt;506,
+:insufficient_storage=&gt;507, :loop_detected=&gt;508, :not_extended=&gt;510,
+:network_authentication_required=&gt;511
+}</p>
 <p>{% endhighlight %}</p>
-
 <p>Rack::Utils contains a grab-bag of useful methods for writing web applications adopted from all kinds of Ruby libraries.
 It contains methods like -
 {% highlight ruby %}
- .add_cookie_to_header(header, key, value) ⇒ Object
- .add_remove_cookie_to_header(header, key, value = {}) ⇒ Object
+.add_cookie_to_header(header, key, value) ⇒ Object
+.add_remove_cookie_to_header(header, key, value = {}) ⇒ Object
 {% endhighlight %}</p>
-
 <p>which sound quite handy to play with header cookies and there are lots of more stuff.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1060,7 +1050,7 @@ It contains methods like -
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

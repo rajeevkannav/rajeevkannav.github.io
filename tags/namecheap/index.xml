@@ -17,49 +17,37 @@
       <link>/post/2017-01-06-ssl-cert-authority-invalid-fix/</link>
       <pubDate>Fri, 06 Jan 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-01-06-ssl-cert-authority-invalid-fix/</guid>
-      <description>
-
-&lt;h4 id=&#34;happy-new-year&#34;&gt;Happy New Year&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;happy-new-year&#34;&gt;Happy New Year&lt;/h4&gt;
 &lt;p&gt;Last year we deployed our rails application over nginx with ssl certificates
 obtained from namecheap. everything ewas working fine but over Android moblie
 we found a bug as in image below&lt;/p&gt;
-
 &lt;figure class=&#34;third&#34;&gt;
-    &lt;img src=&#34;/images/ssl_cert_authority.png&#34;&gt;
+	&lt;img src=&#34;/images/ssl_cert_authority.png&#34;&gt;
 &lt;/figure&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;p&gt;We got two files from NameCheap for example:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;&lt;em&gt;youdomainname&lt;/em&gt;.crt&lt;/li&gt;
 &lt;li&gt;&lt;em&gt;youdomainname&lt;/em&gt;.ca-bundle&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;What we missed to combine the certificates(thought ca-bundle is already combination).
 We&amp;rsquo;re wrong and our application stopped working on android phone&amp;rsquo;s browser.&lt;/p&gt;
-
 &lt;p&gt;It is mandatory to combine the certificates in case of PositiveSSL. It will look like:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;   $ cat *yourdomainname*.crt COMODO_DV_SHA-256_bundle.crt &amp;gt;&amp;gt; cert_chain.crt
    or
    $ cat *yourdomainname*.crt *yourdomainname*.ca-bundle &amp;gt;&amp;gt; cert_chain.crt
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h5 id=&#34;sample-nginx-configuration&#34;&gt;Sample nginx configuration&lt;/h5&gt;
-
 &lt;pre&gt;&lt;code&gt;    ssl on;
     # ssl_certificate should be pointed to the file with combined certificates (file you created in step 2)
     ssl_certificate /etc/ssl/cert_chain.crt;
     # ssl_certificate_key should be pointed to the Private Key that has been generated with the CSR code that you have used for activation of the certificate.
     ssl_certificate_key /etc/ssl/*your_private_key*.key;
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -68,57 +56,43 @@ We&amp;rsquo;re wrong and our application stopped working on android phone&amp;r
       <link>/post/2015-05-23-ssl-csr-certificate-postprocessing/</link>
       <pubDate>Tue, 26 May 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-05-23-ssl-csr-certificate-postprocessing/</guid>
-      <description>
-
-&lt;p&gt;For those of you who may refer my early written post &lt;a href=&#34;http://rajeevkannav.github.io/openssl-csr-SHA2&#34;&gt;Openssl CSR SHA-2.&lt;/a&gt;.
+      <description>&lt;p&gt;For those of you who may refer my early written post 
+&lt;a href=&#34;http://rajeevkannav.github.io/openssl-csr-SHA2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Openssl CSR SHA-2.&lt;/a&gt;.
 Here is Part 2.&lt;/p&gt;
-
 &lt;h3 id=&#34;install-the-certificate-crt&#34;&gt;Install the Certificate (CRT)&lt;/h3&gt;
-
 &lt;p&gt;After giving your CSR to SSL Provider, you need to wait for their response. They&amp;rsquo;ll validate your CSR and give you some
 certificates and file as in package. We&amp;rsquo;re using NameCheap as SSL Provider so this blog will follow according to their
 response. NameCheap sends you an zipped folder which will have :&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;AddTrustExternalCARoot.crt&lt;/li&gt;
 &lt;li&gt;COMODORSAAddTrustCA.crt&lt;/li&gt;
 &lt;li&gt;COMODORSADomainValidationSecureServerCA.crt&lt;/li&gt;
 &lt;li&gt;STAR_xxxxx_com.crt&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;And you already have&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;xxxxx.key&lt;/li&gt;
 &lt;li&gt;xxxxx.csr&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Now you&amp;rsquo;ll need to have one pass phrase protected key and one combined ssl certificate in right order. You need to remove
 the pass phrase. To do that have that key and run following command&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;openssl rsa -in xxxxx.key -out xxxxx.nopass.key
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Enter the private key pass phrase when asked. And Get set Go! Use this new key to your
 Elastic Load Balancer/nginx/Apache. For combined SSL certificate :&amp;ndash;&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;cat STAR_xxxxx_com.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &amp;gt; SSL.crt
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Use SSL.crt and xxxxx.nopass.key to your Web Server configuration.&lt;/p&gt;
-
 &lt;h3 id=&#34;test-your-installed-certificate&#34;&gt;Test your installed Certificate&lt;/h3&gt;
-
 &lt;p&gt;Visit your web Application after configuring certificates and key at web server and see Browser console.
 There should not any waring or error related to SSL. for e.g.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;This site makes use of a SHA-1 Certificate; it&#39;s recommended you use certificates
 with signature algorithms that use hash functions stronger than SHA-1.
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

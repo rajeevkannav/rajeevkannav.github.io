@@ -641,30 +641,20 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem">Problem</h4>
-
+      <h4 id="problem">Problem</h4>
 <p>We frequently add developer ssh keys to remote machine with following three steps</p>
-
 <ul>
 <li><code>ssh username@remote_host</code></li>
 <li><code>mkdir -p ~/.ssh</code></li>
 <li><code>cat ~/.ssh/id_rsa.pub</code> and copy it</li>
 <li><code>nano ~/.ssh/authorized_keys</code> and paste copied content.</li>
 </ul>
-
 <p>Quite Annoying.</p>
-
 <h4 id="solution">Solution</h4>
-
 <pre><code>`ssh-copy-id`.
 </code></pre>
-
 <p>ssh-copy-id [-i [identity_file]] [user@]machine</p>
-
 <h5 id="description">Description</h5>
-
 <p>ssh-copy-id is a script that uses ssh to log into a remote
 machine (presumably using a login password, so password
 authentication should be enabled, unless you&rsquo;ve done some
@@ -682,10 +672,10 @@ produced no output, then it uses the contents of the identity
 file. Once it has one or more fingerprints (by whatever means)
 it uses ssh to append them to <code>~/.ssh/authorized_keys</code> on the
 remote machine (creating the file, and directory, if necessary)</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1028,7 +1018,7 @@ remote machine (creating the file, and directory, if necessary)</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

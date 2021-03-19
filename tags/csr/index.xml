@@ -17,57 +17,43 @@
       <link>/post/2015-05-23-ssl-csr-certificate-postprocessing/</link>
       <pubDate>Tue, 26 May 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-05-23-ssl-csr-certificate-postprocessing/</guid>
-      <description>
-
-&lt;p&gt;For those of you who may refer my early written post &lt;a href=&#34;http://rajeevkannav.github.io/openssl-csr-SHA2&#34;&gt;Openssl CSR SHA-2.&lt;/a&gt;.
+      <description>&lt;p&gt;For those of you who may refer my early written post 
+&lt;a href=&#34;http://rajeevkannav.github.io/openssl-csr-SHA2&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Openssl CSR SHA-2.&lt;/a&gt;.
 Here is Part 2.&lt;/p&gt;
-
 &lt;h3 id=&#34;install-the-certificate-crt&#34;&gt;Install the Certificate (CRT)&lt;/h3&gt;
-
 &lt;p&gt;After giving your CSR to SSL Provider, you need to wait for their response. They&amp;rsquo;ll validate your CSR and give you some
 certificates and file as in package. We&amp;rsquo;re using NameCheap as SSL Provider so this blog will follow according to their
 response. NameCheap sends you an zipped folder which will have :&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;AddTrustExternalCARoot.crt&lt;/li&gt;
 &lt;li&gt;COMODORSAAddTrustCA.crt&lt;/li&gt;
 &lt;li&gt;COMODORSADomainValidationSecureServerCA.crt&lt;/li&gt;
 &lt;li&gt;STAR_xxxxx_com.crt&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;And you already have&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;xxxxx.key&lt;/li&gt;
 &lt;li&gt;xxxxx.csr&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;Now you&amp;rsquo;ll need to have one pass phrase protected key and one combined ssl certificate in right order. You need to remove
 the pass phrase. To do that have that key and run following command&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;openssl rsa -in xxxxx.key -out xxxxx.nopass.key
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Enter the private key pass phrase when asked. And Get set Go! Use this new key to your
 Elastic Load Balancer/nginx/Apache. For combined SSL certificate :&amp;ndash;&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;cat STAR_xxxxx_com.crt COMODORSADomainValidationSecureServerCA.crt COMODORSAAddTrustCA.crt AddTrustExternalCARoot.crt &amp;gt; SSL.crt
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Use SSL.crt and xxxxx.nopass.key to your Web Server configuration.&lt;/p&gt;
-
 &lt;h3 id=&#34;test-your-installed-certificate&#34;&gt;Test your installed Certificate&lt;/h3&gt;
-
 &lt;p&gt;Visit your web Application after configuring certificates and key at web server and see Browser console.
 There should not any waring or error related to SSL. for e.g.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;This site makes use of a SHA-1 Certificate; it&#39;s recommended you use certificates
 with signature algorithms that use hash functions stronger than SHA-1.
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -76,61 +62,40 @@ with signature algorithms that use hash functions stronger than SHA-1.
       <link>/post/2015-05-09-openssl-csr-sha2/</link>
       <pubDate>Sat, 09 May 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-05-09-openssl-csr-sha2/</guid>
-      <description>
-
-&lt;p&gt;For those of you who may have seen&lt;/p&gt;
-
+      <description>&lt;p&gt;For those of you who may have seen&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;This site makes use of a SHA-1 Certificate; it&#39;s recommended you use certificates
 with signature algorithms that use hash functions stronger than SHA-1. 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Mozilla, along with other browser vendors, is working on a plan to phase out support for the SHA-1 hash algorithm.
 Weaknesses in hash algorithms can lead to situations in which attackers can obtain fraudulent certificates.&lt;/p&gt;
-
 &lt;h3 id=&#34;generate-a-ssl-key-file&#34;&gt;Generate a SSL Key File&lt;/h3&gt;
-
 &lt;p&gt;Firstly you will need to generate a key  file. The example below will generate a 2048 bit key file with a SHA-256 signature.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;openssl genrsa -out key_name.key 2048 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;If you want extra security you could increase the bit lengths.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;openssl genrsa -out key_name.key 4096
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;** Please note that both these examples will not add a password to the key file. To do that you will need to add -des3 to the command.&lt;/p&gt;
-
 &lt;h3 id=&#34;create-a-certificate-signing-request-csr&#34;&gt;Create a Certificate Signing Request (CSR)&lt;/h3&gt;
-
 &lt;p&gt;This step will create the actually request file that you will submit to the Certificate Authority (CA) of your choice.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;openssl req -out CSR.csr -key key_name.key -new -sha256
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;You can check that your Certificate Signing Request (CSR) has the correct signature by running the following.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;openssl req -in CSR.csr -noout -text
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;It should display the following if the signature is correct.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;Signature Algorithm: sha256WithRSAEncryption
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;install-the-certificate-crt&#34;&gt;Install the Certificate (CRT)&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt;Will Come Soon.
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;test-your-installed-certificate&#34;&gt;Test your installed Certificate&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt;Will Come Soon.
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

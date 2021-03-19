@@ -17,135 +17,105 @@
       <link>/post/2016-01-23-css-preprocessors-introduction-1/</link>
       <pubDate>Sat, 23 Jan 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-01-23-css-preprocessors-introduction-1/</guid>
-      <description>
-
-&lt;h3 id=&#34;stuff&#34;&gt;stuff&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;stuff&#34;&gt;stuff&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;CSS preprocessors are awesome. they adds functionality to css mainly
 in the form of abstraction like variables, mixins and super powers :).
 that&#39;s how they make development quicker, easier, maintainable,
 scalable and blah blah blah (things you can&#39;t do with CSS).
-
+    
 There are plenty of options for css preprocessor to choose. Top 3 
 choices are 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;http://lesscss.org/&#34;&gt;LESS&lt;/a&gt;,&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://sass-lang.com/&#34;&gt;Sass&lt;/a&gt;,&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;http://stylus-lang.com/&#34;&gt;Stylus&lt;/a&gt;
-&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://lesscss.org/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;LESS&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://sass-lang.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Sass&lt;/a&gt;,&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;http://stylus-lang.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Stylus&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&#34;how-they-works-backstage&#34;&gt;How they works - BackStage&lt;/h3&gt;
-
+&lt;h3 id=&#34;how-they-works---backstage&#34;&gt;How they works - BackStage&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;CSS preprocessors take code written in the preprocessed language and then convert
 that code into the same old css we’ve been writing for years. If you understand
 how ruby/php/jsp or any other server side programming language works it amounts to
 the same thing. 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;basic-usage&#34;&gt;Basic Usage&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt;Sass (.scss syntax) and what the css output would look like.
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;variables-interpolation-operations&#34;&gt;Variables — Interpolation — Operations&lt;/h5&gt;
-
+&lt;h5 id=&#34;variables--interpolation--operations&#34;&gt;Variables — Interpolation — Operations&lt;/h5&gt;
 &lt;pre&gt;&lt;code&gt;It should be obvious that changing the value of a variable once is much
 more maintainable than changing the many instances.
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;{% highlight css %}&lt;/p&gt;
-
 &lt;p&gt;/* &amp;ndash; Variables  .scss &amp;ndash;  */
 $color: #efefef;
 body {background:  $color;}&lt;/p&gt;
-
 &lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
 body {background:  #efefef;}&lt;/p&gt;
-
 &lt;p&gt;/* &amp;ndash; Interpolation .scss &amp;ndash;  */
 $side: top;
 border-#{$side): 1px solid #000;&lt;/p&gt;
-
 &lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
 border-top: 1px solid #000;&lt;/p&gt;
-
 &lt;p&gt;/* &amp;ndash; Operators .scss &amp;ndash;  */
 $navbar-width: 800px;
 $items: 5;
 #navbar li {width: $navbar-width/$items - 10px;}&lt;/p&gt;
-
 &lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
 #navbar li {width: 150px}&lt;/p&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;h5 id=&#34;mixins-nesting&#34;&gt;Mixins - Nesting&lt;/h5&gt;
-
+&lt;h5 id=&#34;mixins---nesting&#34;&gt;Mixins - Nesting&lt;/h5&gt;
 &lt;pre&gt;&lt;code&gt; Mixins :- DRY (DO NOT REPEAT YOUR-SELF). Principle allow for the easy reuse of blocks of code
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;{% highlight css %}
- /* &amp;ndash; .scss &amp;ndash;  */
- @mixin rounded-corners {
-   $radius: 5px;&lt;/p&gt;
-
+/* &amp;ndash; .scss &amp;ndash;  */
+@mixin rounded-corners {
+$radius: 5px;&lt;/p&gt;
 &lt;p&gt;border-radius: $radius;
-   -webkit-border-radius: $radius;
-   -moz-border-radius: $radius;
- }&lt;/p&gt;
-
+-webkit-border-radius: $radius;
+-moz-border-radius: $radius;
+}&lt;/p&gt;
 &lt;p&gt;#navbar li { @include rounded-corners; }
- #footer { @include rounded-corners; }&lt;/p&gt;
-
+#footer { @include rounded-corners; }&lt;/p&gt;
 &lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
- #header {
-   border-radius: 5px;
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
- }&lt;/p&gt;
-
+#header {
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}&lt;/p&gt;
 &lt;p&gt;#footer {
-   border-radius: 5px;
-   -webkit-border-radius: 5px;
-   -moz-border-radius: 5px;
- }&lt;/p&gt;
-
+border-radius: 5px;
+-webkit-border-radius: 5px;
+-moz-border-radius: 5px;
+}&lt;/p&gt;
 &lt;p&gt;/* &amp;ndash; Nesting .scss &amp;ndash; */&lt;/p&gt;
-
 &lt;p&gt;#navbar {
 width: 80%;
 height: 25px;&lt;/p&gt;
-
 &lt;p&gt;ul { list-style: none; }&lt;/p&gt;
-
 &lt;p&gt;li {
- float: left;
- a { text-decoration: none; }
- &amp;amp;:hover { text-decoration: underline; }
+float: left;
+a { text-decoration: none; }
+&amp;amp;:hover { text-decoration: underline; }
 }
 }&lt;/p&gt;
-
 &lt;p&gt;/* &amp;ndash; resulting css &amp;ndash; */
 #navbar {width: 80%; height: 25px;}
 #navbar ul {list-style: none;}
 #navbar li {float: left;}
 #navbar li a {text-decoration: none;}
 #navbar li a:hover {text-decoration: underline;},&lt;/p&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;CSS Preprocessors aren’t css, so not bound by css&#39;s limitations.
 The preprocessed language can give you more functionality. We&#39;ll
 cover much more things in upcoming blog series related to CSS
 Preprocessors. 
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

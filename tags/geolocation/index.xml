@@ -17,37 +17,12 @@
       <link>/post/2015-04-02-ionic-cordova-geolocation/</link>
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-04-02-ionic-cordova-geolocation/</guid>
-      <description>&lt;nav&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/a&gt;&lt;/li&gt;
-&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-&lt;ul&gt;
+      <description>&lt;ul&gt;
 &lt;li&gt;Install cordova plugin by running this command&lt;/li&gt;
 &lt;li&gt;Try to handle every possible situations like Location services disbaled / Or user don&amp;rsquo;t allow permission to your application&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;&lt;code&gt;cordova plugin add org.apache.cordova.geolocation&lt;/code&gt;&lt;/p&gt;
-
 &lt;p&gt;and Then&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;.controller(&#39;YourCtrl&#39;, function (loadingService) {
     loadingService.show        
     var posOptions = {
@@ -69,12 +44,11 @@
   }
 })
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h6 id=&#34;more-blogs-posts-will-come-very-soon-related-to-ionicpushnotifications-you-just-need-to-stay-glued&#34;&gt;More blogs posts will come very soon related to IonicPushNotifications. You just need to stay glued.&lt;/h6&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

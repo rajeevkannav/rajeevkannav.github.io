@@ -17,65 +17,45 @@
       <link>/post/2017-06-30-managing-node-versions-with-n/</link>
       <pubDate>Fri, 30 Jun 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-06-30-managing-node-versions-with-n/</guid>
-      <description>
-
-&lt;h4 id=&#34;node-version-management-with-n&#34;&gt;Node version management with n&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;node-version-management-with-n&#34;&gt;Node version management with n&lt;/h4&gt;
 &lt;p&gt;Node version management with nvm is great yet there is one
 new tool comes up which is n. Currently n supports only linux
 and Osx not available for windows.&lt;/p&gt;
-
 &lt;h4 id=&#34;installation&#34;&gt;Installation&lt;/h4&gt;
-
 &lt;h6 id=&#34;already-have-node&#34;&gt;already have &lt;code&gt;node&lt;/code&gt;&lt;/h6&gt;
-
 &lt;pre&gt;&lt;code&gt;$ npm install -g n
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h6 id=&#34;alternatively&#34;&gt;Alternatively&lt;/h6&gt;
-
 &lt;pre&gt;&lt;code&gt;git clone git@github.com:tj/n.git
 cd n
 make install
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h6 id=&#34;third-party-installer-recommended&#34;&gt;Third-party installer (Recommended)&lt;/h6&gt;
-
 &lt;pre&gt;&lt;code&gt;curl -L https://git.io/n-install | bash
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h4 id=&#34;usage&#34;&gt;Usage&lt;/h4&gt;
-
 &lt;h6 id=&#34;installing-versions&#34;&gt;Installing Versions&lt;/h6&gt;
-
 &lt;p&gt;For installing version 0.8.14&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ n 0.8.14 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h6 id=&#34;activating-versions&#34;&gt;Activating Versions&lt;/h6&gt;
-
 &lt;p&gt;Execute n on its own to view your currently installed
 versions. Use the up and down arrow keys to navigate
 and press enter or the right arrow key to select.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ n
 
   0.8.14
 ο 0.8.17
   0.9.6
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h6 id=&#34;removing-versions&#34;&gt;Removing Versions&lt;/h6&gt;
-
 &lt;p&gt;Remove some versions:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ n rm 0.9.4 v0.10.0
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -84,19 +64,13 @@ and press enter or the right arrow key to select.&lt;/p&gt;
       <link>/post/2017-01-13-force-node-heroku-app-to-https/</link>
       <pubDate>Tue, 03 Jan 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-01-13-force-node-heroku-app-to-https/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
 &lt;p&gt;WE deployed our angular app to Heroku with custom domain. There are Heroku
 Add-ons by which SSL can be enabled but our problem was to enforce http
 requests to https.&lt;/p&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;p&gt;Inside your &lt;code&gt;server.js&lt;/code&gt; (in our case) put the following code after
 app or express (in our case) app variable.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;/* Redirect http to https */
 app.get(&#39;*&#39;,function(req,res,next){
   if(req.headers[&#39;x-forwarded-proto&#39;]!=&#39;https&#39;&amp;amp;&amp;amp;process.env.NODE_ENV === &#39;production&#39;)
@@ -105,23 +79,20 @@ app.get(&#39;*&#39;,function(req,res,next){
     next() /* Continue to other routes if we&#39;re not redirecting */
 });
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;In the &lt;code&gt;if&lt;/code&gt; block, &lt;code&gt;req.headers[&#39;x-forwarded-proto&#39;]&lt;/code&gt; should be equal to &lt;code&gt;https&lt;/code&gt;.
 On the other hand, we don’t want the redirection on localhost as we don’t have a
 ssl certificate set up locally that&amp;rsquo;s why we used &lt;code&gt;process.env.NODE_ENV === &#39;production&#39;&lt;/code&gt;
 inside the condition to make sure that this will only run on Heroku/Production,
 which has the &lt;code&gt;NODE_ENV&lt;/code&gt; environment variable set to &lt;code&gt;production&lt;/code&gt;.&lt;/p&gt;
-
 &lt;p&gt;If both these conditions are true, this means someone is trying to access
 our app though &lt;code&gt;http&lt;/code&gt;. We need to swap &lt;code&gt;http&lt;/code&gt; for &lt;code&gt;https&lt;/code&gt; and redirect them to
 the new url. To reform the url that they are trying to call we use
 &lt;code&gt;req.hostname&lt;/code&gt; in combination with &lt;code&gt;req.url&lt;/code&gt;.&lt;/p&gt;
-
 &lt;p&gt;And finally we redirect using &lt;code&gt;res.redirect()&lt;/code&gt;.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -130,95 +101,69 @@ the new url. To reform the url that they are trying to call we use
       <link>/post/2015-06-12-uninstall-install-node-nodejs-npm-ubuntu/</link>
       <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-06-12-uninstall-install-node-nodejs-npm-ubuntu/</guid>
-      <description>
-
-&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;$ dpkg --get-selections | grep node
 ax25-node                                       install
 node                                            install
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;If you found the old “node” package installed, run this command to completely remove it:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get remove --purge node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;script async src=&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;&gt;&lt;/script&gt;
-&lt;ins class=&#34;adsbygoogle&#34;
-     style=&#34;display:block&#34;
-     data-ad-client=&#34;ca-pub-1411898088670168&#34;
-     data-ad-slot=&#34;3525987534&#34;
-     data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;
+&lt;p&gt;&lt;ins class=&#34;adsbygoogle&#34;
+style=&#34;display:block&#34;
+data-ad-client=&#34;ca-pub-1411898088670168&#34;
+data-ad-slot=&#34;3525987534&#34;
+data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;script&gt;
 (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;
-
-&lt;h3 id=&#34;install-node-js-with-ubuntu-package-manager&#34;&gt;Install Node.js with Ubuntu Package Manager&lt;/h3&gt;
-
+&lt;h3 id=&#34;install-nodejs-with-ubuntu-package-manager&#34;&gt;Install Node.js with Ubuntu Package Manager&lt;/h3&gt;
 &lt;p&gt;To install Node.js, open a terminal and type the following command:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Then install the Node package manager called “npm”:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install npm
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Create a symbolic link for “node” as many Node.js tools use this name to execute.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo ln -s /usr/bin/nodejs /usr/bin/node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Now we should have both the node and npm commands working:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ node -v
 v0.10.25
 $ npm -v
 1.3.10
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;script async src=&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;&gt;&lt;/script&gt;
-&lt;ins class=&#34;adsbygoogle&#34;
-     style=&#34;display:block&#34;
-     data-ad-client=&#34;ca-pub-1411898088670168&#34;
-     data-ad-slot=&#34;3525987534&#34;
-     data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;
+&lt;p&gt;&lt;ins class=&#34;adsbygoogle&#34;
+style=&#34;display:block&#34;
+data-ad-client=&#34;ca-pub-1411898088670168&#34;
+data-ad-slot=&#34;3525987534&#34;
+data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;script&gt;
 (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;
-
-&lt;h3 id=&#34;install-node-js-with-maintained-ubuntu-packages&#34;&gt;Install Node.js with Maintained Ubuntu Packages&lt;/h3&gt;
-
+&lt;h3 id=&#34;install-nodejs-with-maintained-ubuntu-packages&#34;&gt;Install Node.js with Maintained Ubuntu Packages&lt;/h3&gt;
 &lt;p&gt;The process below is described here, too.&lt;/p&gt;
-
 &lt;p&gt;Add the Node.js maintained repositories to your Ubuntu package source list with this command:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;curl -sL https://deb.nodesource.com/setup | sudo bash -
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Then install Node.js with apt-get:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Optionally we can create a symbolic link for “node” (for reasons mentioned earlier):&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo ln -s /usr/bin/nodejs /usr/bin/node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Using this install option, we end up with newer versions of “nodejs” and “npm”:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ node -v
 v0.10.35
 $ npm -v
 1.4.28
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

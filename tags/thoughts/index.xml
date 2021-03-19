@@ -17,61 +17,44 @@
       <link>/post/2015-07-04-token-management-interface-thoughts/</link>
       <pubDate>Sat, 04 Jul 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-07-04-token-management-interface-thoughts/</guid>
-      <description>
-
-&lt;h3 id=&#34;conceptual-token-handling&#34;&gt;Conceptual Token Handling&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;conceptual-token-handling&#34;&gt;Conceptual Token Handling&lt;/h3&gt;
 &lt;p&gt;Tokens should be invalidated after each request to the API. The following diagram illustrates this concept:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/token-update-detail.jpg&#34; alt=&#34;Target&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/token-update-detail.jpg&#34; alt=&#34;Target&#34;&gt;&lt;/p&gt;
 &lt;p&gt;During each request, a new token is generated. The access-token header that should be used in the next request is
 returned in the access-token header of the response to the previous request. The last request in the diagram fails
 because it tries to use a token that was invalidated by the previous request.&lt;/p&gt;
-
 &lt;p&gt;The only case where an expired token is allowed is during batch requests.&lt;/p&gt;
-
 &lt;h3 id=&#34;about-batch-requests&#34;&gt;About batch requests&lt;/h3&gt;
-
 &lt;p&gt;By default, the API should update the auth token for each request (read more). But sometimes it&amp;rsquo;s neccessary to make
 several concurrent requests to the API, for example:&lt;/p&gt;
-
 &lt;h5 id=&#34;batch-request-example&#34;&gt;Batch request example&lt;/h5&gt;
-
 &lt;p&gt;{% highlight javascript %}&lt;/p&gt;
-
-&lt;p&gt;$scope.getResourceData = function() {&lt;br /&gt;
-    $http.get(&amp;lsquo;/api/restricted_resource_1&amp;rsquo;).success(function(resp) {
-      // handle response
-      $scope.resource1 = resp.data;
-    });&lt;br /&gt;
-    $http.get(&amp;lsquo;/api/restricted_resource_2&amp;rsquo;).success(function(resp) {
-      // handle response
-      $scope.resource2 = resp.data;
-    });
-  };&lt;/p&gt;
-
+&lt;p&gt;$scope.getResourceData = function() {&lt;br&gt;
+$http.get(&#39;/api/restricted_resource_1&amp;rsquo;).success(function(resp) {
+// handle response
+$scope.resource1 = resp.data;
+});&lt;br&gt;
+$http.get(&#39;/api/restricted_resource_2&amp;rsquo;).success(function(resp) {
+// handle response
+$scope.resource2 = resp.data;
+});
+};&lt;/p&gt;
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;In this case, it&amp;rsquo;s impossible to update the access-token header for the second request with the access-token header of
 the first response because the second request will begin before the first one is complete. The server must allow these
 batches of concurrent requests to share the same auth token. This diagram illustrates how batch requests are identified
 by the server:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-overview.jpg&#34; alt=&#34;Target&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-overview.jpg&#34; alt=&#34;Target&#34;&gt;&lt;/p&gt;
 &lt;p&gt;The following diagram details the relationship between the client, server, and access tokens used over time when dealing
 with batch requests:&lt;/p&gt;
-
-&lt;p&gt;&lt;img src=&#34;https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-detail.jpg&#34; alt=&#34;Target&#34; /&gt;&lt;/p&gt;
-
+&lt;p&gt;&lt;img src=&#34;https://github.com/lynndylanhurley/ng-token-auth/raw/master/test/app/images/flow/batch-request-detail.jpg&#34; alt=&#34;Target&#34;&gt;&lt;/p&gt;
 &lt;p&gt;Note that when the server identifies that a request is part of a batch request, the user&amp;rsquo;s auth token is not updated.
 The auth token will be updated for the first request in the batch, and then that same token will be returned in the
 responses for each subsequent request in the batch (as shown in the diagram).&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

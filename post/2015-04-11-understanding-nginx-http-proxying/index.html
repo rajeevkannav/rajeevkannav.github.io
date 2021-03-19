@@ -639,16 +639,10 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="general-proxying-information">General Proxying Information</h3>
-
+      <h3 id="general-proxying-information">General Proxying Information</h3>
 <p>One reason to proxy to other servers from Nginx is the ability to scale out your infrastructure. Nginx is built to handle many concurrent connections at the same time. This makes it ideal for being the point-of-contact for clients.</p>
-
 <h6 id="deconstructing-a-basic-http-proxy-pass">Deconstructing a Basic HTTP Proxy Pass</h6>
-
 <p>Let&rsquo;s take a look at an example:</p>
-
 <pre><code># server context
 
 location /match/here {
@@ -656,27 +650,21 @@ location /match/here {
 }
 
 </code></pre>
-
 <p>In the above configuration snippet, For definitions that fit this pattern, the URI requested by the client will be passed to the upstream server as-is.</p>
-
 <p>For example, when a request for <code>/match/here/please</code> is handled by this block, the request URI will be sent to the <code>example.com</code> server as <code>http://example.com/match/here/please</code>.</p>
-
 <p>Let&rsquo;s take a look at the alternative scenario:</p>
-
 <pre><code># server context
 
 location /match/here {
     proxy_pass http://example.com/new/prefix;
 }
 </code></pre>
-
 <p>In the above example, the proxy server is defined with a URI segment on the end (<code>/new/prefix</code>). When a URI is given in the proxy_pass definition, the portion of the request that matches the location definition is replaced by this URI during the pass.</p>
-
 <p>For example, a request for <code>/match/here/please</code> on the Nginx server will be passed to the upstream server as <code>http://example.com/new/prefix/please</code>. The <code>/match/here</code> is replaced by <code>/new/prefix</code>. This is an important point to keep in mind.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1034,7 +1022,7 @@ location /match/here {
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

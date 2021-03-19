@@ -641,61 +641,40 @@ This site makes use of a SHA-1 Certificate; it&#39;s recommended you use certifi
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>For those of you who may have seen</p>
-
+      <p>For those of you who may have seen</p>
 <pre><code>This site makes use of a SHA-1 Certificate; it's recommended you use certificates
 with signature algorithms that use hash functions stronger than SHA-1. 
 </code></pre>
-
 <p>Mozilla, along with other browser vendors, is working on a plan to phase out support for the SHA-1 hash algorithm.
 Weaknesses in hash algorithms can lead to situations in which attackers can obtain fraudulent certificates.</p>
-
 <h3 id="generate-a-ssl-key-file">Generate a SSL Key File</h3>
-
 <p>Firstly you will need to generate a key  file. The example below will generate a 2048 bit key file with a SHA-256 signature.</p>
-
 <pre><code>openssl genrsa -out key_name.key 2048 
 </code></pre>
-
 <p>If you want extra security you could increase the bit lengths.</p>
-
 <pre><code>openssl genrsa -out key_name.key 4096
 </code></pre>
-
 <p>** Please note that both these examples will not add a password to the key file. To do that you will need to add -des3 to the command.</p>
-
 <h3 id="create-a-certificate-signing-request-csr">Create a Certificate Signing Request (CSR)</h3>
-
 <p>This step will create the actually request file that you will submit to the Certificate Authority (CA) of your choice.</p>
-
 <pre><code>openssl req -out CSR.csr -key key_name.key -new -sha256
 </code></pre>
-
 <p>You can check that your Certificate Signing Request (CSR) has the correct signature by running the following.</p>
-
 <pre><code>openssl req -in CSR.csr -noout -text
 </code></pre>
-
 <p>It should display the following if the signature is correct.</p>
-
 <pre><code>Signature Algorithm: sha256WithRSAEncryption
 </code></pre>
-
 <h3 id="install-the-certificate-crt">Install the Certificate (CRT)</h3>
-
 <pre><code>Will Come Soon.
 </code></pre>
-
 <h3 id="test-your-installed-certificate">Test your installed Certificate</h3>
-
 <pre><code>Will Come Soon.
 </code></pre>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1049,7 +1028,7 @@ Weaknesses in hash algorithms can lead to situations in which attackers can obta
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

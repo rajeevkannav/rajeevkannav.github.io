@@ -550,7 +550,7 @@
       <h2><a href="/post/2017-02-03-bad-to-worse-rails-practice/" >Bad to worse rails practice</a></h2>
       <div class="article-style">
         
-          Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project.
+          Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project. While running migrations to a new created DB following code will break due to paranoia expectations of having deleted_at column, which is being added in later migrations.
         
       </div>
     </div>
@@ -672,7 +672,7 @@
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

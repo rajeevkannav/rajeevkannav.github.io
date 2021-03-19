@@ -641,48 +641,35 @@ Available annotations in current pdf spec are :"><meta property="og:image" conte
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="text-annotation-pdf">Text Annotation - Pdf</h4>
-
+      <h4 id="text-annotation---pdf">Text Annotation - Pdf</h4>
 <p>Pdf(Portable document format) has beautiful feature called text annotation.
 you can add detailed text information with available clipped images</p>
-
 <p>Available annotations in current pdf spec are :</p>
-
 <figure class="third">
-    <img src="/images/annotations.png">
+	<img src="/images/annotations.png">
 </figure>
-  
-
-<h4 id="text-annotation-prawn">Text Annotation - Prawn</h4>
-
+<h4 id="text-annotation---prawn">Text Annotation - Prawn</h4>
 <p>Via prawn you can define Text annotations easily. A convenience method
 for creating Text annotations. rect must be an array of four numbers,
 describing the bounds of the annotation. contents should be a string,
 to be shown when the annotation is activated.</p>
-
 <p>Text annotation by Code - Sample:
 {% highlight ruby %}
 prawn_pdf = Prawn::Document.new
 prawn_pdf.text_annotation(rect, contents, options = {})
 {% endhighlight %}</p>
-
 <h4 id="ruby-select-quick-note">Ruby Select Quick note</h4>
-
 <p>if we need to grep some strings from an array with a defined pattern,
 it is advisable to use select. and this is how i used it.</p>
-
 <p>{% highlight ruby %}
 array = [&lsquo;dhhjdfshgd&rsquo;, &lsquo;sadsdhjgsfgdhf   &lsquo;, &lsquo;example@gmail.com&rsquo;]
 array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
 {% endhighlight %}</p>
-
 <p>Quite useful for me.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1046,7 +1033,7 @@ array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

@@ -641,118 +641,99 @@ Setup SNI does need to have registered domain names in order to serve the certif
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="how-to-host-multiple-ssl-certificates-on-one-web-server-apache">How to host multiple SSL certificates on one Web-Server(Apache) ?</h3>
-
+      <h3 id="how-to-host-multiple-ssl-certificates-on-one-web-serverapache-">How to host multiple SSL certificates on one Web-Server(Apache) ?</h3>
 <p>To host multiple SSL certificates on one IP Address, We need to configure
 Apache Server Name Indication (SNI).</p>
-
 <h3 id="setup">Setup</h3>
-
 <p>SNI does need to have registered domain names in order to serve the certificates.</p>
-
 <ul>
 <li>Install Apache2 <code>sudo apt-get install apache2</code></li>
 <li>Get SSL certificates for site1.com,site2.com</li>
 <li>have directory structure like
- <code>/etc/apache2/ssl/site1.com</code>
- <code>/etc/apache2/ssl/site2.com</code></li>
+<code>/etc/apache2/ssl/site1.com</code>
+<code>/etc/apache2/ssl/site2.com</code></li>
 <li>enable ssl mod for apache <code>sudo a2enmod ssl</code></li>
 <li>restart apache <code>sudo service apache2 restart</code></li>
 </ul>
-
 <p>Assuming you have the certificates saved as per above directory structure,
 we can create two virtual host files to store virtual host configurations
 in separate files.</p>
-
 <ul>
 <li><code>sudo nano /etc/apache2/sites-available/site1.com</code></li>
 <li><code>sudo nano /etc/apache2/sites-available/site2.com</code></li>
 </ul>
-
 <p>Following configurations I&rsquo;ve used for site1 and site2 respectively.</p>
-
 <p>{% highlight ruby %}
-<VirtualHost *:80>
-    ServerName site1.com
-    ServerAlias www.site1.com
-    Redirect / <a href="https://www.site1.com/">https://www.site1.com/</a>
+&lt;VirtualHost *:80&gt;
+ServerName site1.com
+ServerAlias <a href="http://www.site1.com">www.site1.com</a>
+Redirect / <a href="https://www.site1.com/">https://www.site1.com/</a>
 </VirtualHost>
-<VirtualHost *:443>
-    ServerName site1.com
-    ServerAlias www.site1.com
-    SSLEngine on
-    SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
-    SSLCertificateFile /etc/ssl/crt/site1.crt
-    SSLCertificateKeyFile /etc/ssl/key/site1.key
-    SSLCertificateChainFile /etc/ssl/crt/site1.ca-bundle<br />
-    DocumentRoot site1SourcePath
-    <Directory site1SourcePath>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;VirtualHost *:443&gt;
+ServerName site1.com
+ServerAlias <a href="http://www.site1.com">www.site1.com</a>
+SSLEngine on
+SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
+SSLCertificateFile /etc/ssl/crt/site1.crt
+SSLCertificateKeyFile /etc/ssl/key/site1.key
+SSLCertificateChainFile /etc/ssl/crt/site1.ca-bundle<br>
+DocumentRoot site1SourcePath
+<Directory site1SourcePath>
+Options Indexes FollowSymLinks
+AllowOverride All
+Require all granted
+</Directory>
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 {% endhighlight %}</p>
-
 <p>{% highlight ruby %}
-<VirtualHost *:80>
-    ServerName site2.com
-    ServerAlias www.site2.com
-    Redirect / <a href="https://www.site2.com/">https://www.site2.com/</a>
+&lt;VirtualHost *:80&gt;
+ServerName site2.com
+ServerAlias <a href="http://www.site2.com">www.site2.com</a>
+Redirect / <a href="https://www.site2.com/">https://www.site2.com/</a>
 </VirtualHost>
-<VirtualHost *:443>
-    ServerName site2.com
-    ServerAlias www.site2.com
-    SSLEngine on
-    SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
-    SSLCertificateFile /etc/ssl/crt/site2.crt
-    SSLCertificateKeyFile /etc/ssl/key/site2.key
-    SSLCertificateChainFile /etc/ssl/crt/site2.ca-bundle<br />
-    DocumentRoot site1SourcePath
-    <Directory site1SourcePath>
-        Options Indexes FollowSymLinks
-        AllowOverride All
-        Require all granted
-    </Directory>
-    ErrorLog ${APACHE_LOG_DIR}/error.log
-    CustomLog ${APACHE_LOG_DIR}/access.log combined
+&lt;VirtualHost *:443&gt;
+ServerName site2.com
+ServerAlias <a href="http://www.site2.com">www.site2.com</a>
+SSLEngine on
+SSLOptions +FakeBasicAuth +ExportCertData +StrictRequire
+SSLCertificateFile /etc/ssl/crt/site2.crt
+SSLCertificateKeyFile /etc/ssl/key/site2.key
+SSLCertificateChainFile /etc/ssl/crt/site2.ca-bundle<br>
+DocumentRoot site1SourcePath
+<Directory site1SourcePath>
+Options Indexes FollowSymLinks
+AllowOverride All
+Require all granted
+</Directory>
+ErrorLog ${APACHE_LOG_DIR}/error.log
+CustomLog ${APACHE_LOG_DIR}/access.log combined
 </VirtualHost>
 {% endhighlight %}</p>
-
 <p>and just to confirm <code>/etc/apache2/ports.conf</code> looks like this :-</p>
-
 <p>{% highlight ruby %}
 Listen 80
 <IfModule ssl_module>
-    Listen 443
+Listen 443
 </IfModule>
 <IfModule mod_gnutls.c>
-    Listen 443
+Listen 443
 </IfModule>
 {% endhighlight %}</p>
-
 <h3 id="activate-the-virtual-hosts">Activate the Virtual Hosts</h3>
-
 <ul>
 <li><code>sudo a2ensite site1.com</code></li>
 <li><code>sudo a2ensite site2.com</code></li>
 </ul>
-
 <p>(You can deactivate virtual hosts with the command: <code>sudo a2dissite site1.com</code>)</p>
-
 <p>With all of the virtual hosts in enabled, restart apache.</p>
-
 <p><code>sudo service apache2 restart</code></p>
-
 <p>You should now be able to access both sites, each with its own domain name and SSL certificate.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1106,7 +1087,7 @@ Listen 80
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

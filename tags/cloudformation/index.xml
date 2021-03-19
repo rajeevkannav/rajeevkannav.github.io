@@ -17,31 +17,22 @@
       <link>/post/2017-04-07-autoscaling-via-aws-cloudformation/</link>
       <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-04-07-autoscaling-via-aws-cloudformation/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
 &lt;p&gt;We&amp;rsquo;re currently looking into such an option to run multiple number
 of ec2 instances into already running environment(VPC) with launch
 configurations too.&lt;/p&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;pre&gt;&lt;code&gt;       Amazon web services - Cloudformation - AutoScaling
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;CloudFormation is one of the coolest services from AWS at no additional charge.
 You can run/start and update a full stack(collection of resources) over aws with
 the help of a template written in JSON/YAML by using the AWS Management Console,
 AWS Command Line Interface, or APIs. It gives developers and systems administrators
 an easy way to create and manage a collection of related AWS resources,
 provisioning and updating them.&lt;/p&gt;
-
-&lt;h5 id=&#34;syntax-and-example-s&#34;&gt;Syntax and Example(s)&lt;/h5&gt;
-
+&lt;h5 id=&#34;syntax-and-examples&#34;&gt;Syntax and Example(s)&lt;/h5&gt;
 &lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::AutoScalingGroup
- resource.&lt;/p&gt;
-
+resource.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{
    &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::AutoScalingGroup&amp;quot;,
    &amp;quot;Properties&amp;quot; : {
@@ -86,10 +77,8 @@ provisioning and updating them.&lt;/p&gt;
    }
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::LaunchConfiguration
- resource.&lt;/p&gt;
-
+resource.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{
    &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::LaunchConfiguration&amp;quot;,
    &amp;quot;Properties&amp;quot; : {
@@ -145,16 +134,14 @@ provisioning and updating them.&lt;/p&gt;
    }
 } 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;On the back-ground it will create given number of EC2 instances to current
 stack following with the launch-configurations.&lt;/p&gt;
-
 &lt;p&gt;Still we&amp;rsquo;re digging into AWS-CloudFormation as beginner level and continue
 with major-minor details with this blog series.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

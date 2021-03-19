@@ -17,32 +17,21 @@
       <link>/post/2015-08-08-ionic-autoupdate-application-nodeploy/</link>
       <pubDate>Sat, 08 Aug 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-08-08-ionic-autoupdate-application-nodeploy/</guid>
-      <description>
-
-&lt;h2 id=&#34;cordova-app-loader&#34;&gt;cordova-app-loader&lt;/h2&gt;
-
+      <description>&lt;h2 id=&#34;cordova-app-loader&#34;&gt;cordova-app-loader&lt;/h2&gt;
 &lt;p&gt;Remote update your Cordova App, Write a manifest.json to bootstrap.js your app. Build and deploy your app.&lt;/p&gt;
-
 &lt;p&gt;A little later&amp;hellip;&lt;/p&gt;
-
 &lt;p&gt;Upload an update to your server (manifest.json + files)
 Use CordovaAppLoader to&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;check() for a new manifest
 download() files
 update() your app!
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;p&gt;Check out &lt;a href=&#34;http://data.madebymark.nl/cordova-app-loader/index.html&#34;&gt;Cordova App Loader&lt;/a&gt; in Chrome for a demo! (Chrome only!)&lt;/p&gt;
-
+&lt;p&gt;Check out 
+&lt;a href=&#34;http://data.madebymark.nl/cordova-app-loader/index.html&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Cordova App Loader&lt;/a&gt; in Chrome for a demo! (Chrome only!)&lt;/p&gt;
 &lt;p&gt;Or run on your own computer:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;git clone git@github.com:markmarijnissen/cordova-app-loader.git
 cd cordova-app-loader
 cordova platform add ios@3.7.0
@@ -50,14 +39,12 @@ cordova plugin add org.apache.cordova.file
 cordova plugin add org.apache.cordova.file-transfer
 cordova run ios
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;All code is in the &lt;code&gt;www&lt;/code&gt; directory. Modify serverRoot in &lt;code&gt;www/app.js&lt;/code&gt; to run your own server.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

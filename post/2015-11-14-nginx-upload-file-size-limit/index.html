@@ -639,41 +639,32 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="problem">Problem:</h3>
-
+      <h3 id="problem">Problem:</h3>
 <pre><code> We've an Enterprise level Rails application and we need to have 
  Upload size restrictions because this could lead to a DOS(denial-of-service)
  to the application via filling the HDD or utilizing web resources and 
  solution must be easy/Generic.
 </code></pre>
-
 <h3 id="solution">Solution</h3>
-
 <pre><code>We updated our nginx configuration `client_max_body_size size` which
 sets the maximum allowed size of the client request body, specified
 in the “Content-Length” request header field. If the size in a request
 exceeds the configured value, the 413 (Request Entity Too Large) error
 is returned to the client. 
 </code></pre>
-
-<h5 id="sudo-raw-solution-to-nginx-configuration">sudo/RAW solution to nginx configuration</h5>
-
+<h5 id="sudoraw-solution-to-nginx-configuration">sudo/RAW solution to nginx configuration</h5>
 <p>{% highlight ruby %}
 client_max_body_size 50m; # 50MB for file size restriction
 {% endhighlight %}</p>
-
-<pre><code>Syntax:     client_max_body_size size;
-Default:    client_max_body_size 1m;
-Context:    http, server, location
+<pre><code>Syntax: 	client_max_body_size size;
+Default: 	client_max_body_size 1m;
+Context: 	http, server, location
 </code></pre>
-
 <h3 id="please-be-aware-that-browsers-cannot-correctly-display-this-error-setting-size-to-0-disables-checking-of-client-request-body-size">Please be aware that browsers cannot correctly display this error. Setting size to 0 disables checking of client request body size.</h3>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1031,7 +1022,7 @@ Context:    http, server, location
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

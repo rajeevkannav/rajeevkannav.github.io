@@ -17,36 +17,27 @@
       <link>/post/2015-09-09-cordova-errorpage-handling-template/</link>
       <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-09-09-cordova-errorpage-handling-template/</guid>
-      <description>
-
-&lt;p&gt;Recently I worked on Hybrid Mobile Application and got Network Dependency to Start Application. Also What if Internet now available.
+      <description>&lt;p&gt;Recently I worked on Hybrid Mobile Application and got Network Dependency to Start Application. Also What if Internet now available.
 So it&amp;rsquo;s pretty simple without writing own code and using Cordova Configuration.&lt;/p&gt;
-
-&lt;h4 id=&#34;cordova-error-page-html&#34;&gt;cordova-error-page.html&lt;/h4&gt;
-
+&lt;h4 id=&#34;cordova-error-pagehtml&#34;&gt;cordova-error-page.html&lt;/h4&gt;
 &lt;p&gt;Have such (Any name) html page to your application www folder. Write information which you need to share to user.&lt;/p&gt;
-
-&lt;h3 id=&#34;update-config-xml&#34;&gt;update config.xml&lt;/h3&gt;
-
+&lt;h3 id=&#34;update-configxml&#34;&gt;update config.xml&lt;/h3&gt;
 &lt;h5 id=&#34;for-ios&#34;&gt;For iOs&lt;/h5&gt;
-
 &lt;p&gt;{% highlight ruby %}
-  &lt;platform name=&#34;ios&#34;&gt;
-    &lt;preference name=&#34;ErrorUrl&#34; value=&#34;cordova-error-page.html&#34;/&gt;
-  &lt;/platform&gt;
+&lt;platform name=&#34;ios&#34;&gt;
+&lt;preference name=&#34;ErrorUrl&#34; value=&#34;cordova-error-page.html&#34;/&gt;
+&lt;/platform&gt;
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h5 id=&#34;for-android&#34;&gt;For Android&lt;/h5&gt;
-
 &lt;p&gt;{% highlight ruby %}
-    &lt;platform name=&#34;android&#34;&gt;
-        &lt;preference name=&#34;ErrorUrl&#34; value=&#34;file:///android_asset/www/cordova-error-page.html&#34;/&gt;
-    &lt;/platform&gt;
+&lt;platform name=&#34;android&#34;&gt;
+&lt;preference name=&#34;ErrorUrl&#34; value=&#34;file:///android_asset/www/cordova-error-page.html&#34;/&gt;
+&lt;/platform&gt;
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -55,39 +46,28 @@ So it&amp;rsquo;s pretty simple without writing own code and using Cordova Confi
       <link>/post/2015-09-05-ionic-appcache-html5/</link>
       <pubDate>Sat, 05 Sep 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-09-05-ionic-appcache-html5/</guid>
-      <description>
-
-&lt;p&gt;Recently I worked on IonicApp, AppCache @ HTML5 and thought it to update application assets in cache without updating app to Stores.&lt;/p&gt;
-
+      <description>&lt;p&gt;Recently I worked on IonicApp, AppCache @ HTML5 and thought it to update application assets in cache without updating app to Stores.&lt;/p&gt;
 &lt;h4 id=&#34;requirements&#34;&gt;Requirements&lt;/h4&gt;
-
 &lt;ul&gt;
-&lt;li&gt;Deploy an Ionic App to Heroku Refer &lt;a href=&#34;http://rajeevkannav.github.io/ionic-heroku-deploy/&#34;&gt;last blog&lt;/a&gt; √&lt;/li&gt;
+&lt;li&gt;Deploy an Ionic App to Heroku Refer 
+&lt;a href=&#34;http://rajeevkannav.github.io/ionic-heroku-deploy/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;last blog&lt;/a&gt; √&lt;/li&gt;
 &lt;li&gt;Ionic app that display webView of server√&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h3 id=&#34;update-config-xml&#34;&gt;update config.xml&lt;/h3&gt;
-
-&lt;h5 id=&#34;update-html-tag-on-serving-remote-app&#34;&gt;update html tag on serving/Remote App&lt;/h5&gt;
-
-&lt;p&gt;{% highlight ruby %}
+&lt;h3 id=&#34;update-configxml&#34;&gt;update config.xml&lt;/h3&gt;
+&lt;h5 id=&#34;update-html-tag-on-servingremote-app&#34;&gt;update html tag on serving/Remote App&lt;/h5&gt;
+&lt;p&gt;{% highlight ruby %}&lt;/p&gt;
 &lt;html manifest=&#34;remote.appcache&#34;&gt;
-{% endhighlight %}&lt;/p&gt;
-
+{% endhighlight %}
 &lt;h6 id=&#34;setup-manifest-to-remote-carefully-list-files&#34;&gt;Setup manifest to remote, carefully list files&lt;/h6&gt;
-
 &lt;p&gt;{% highlight ruby %}
 CACHE MANIFEST&lt;/p&gt;
-
-&lt;h1 id=&#34;v2-9-901&#34;&gt;v2.9.901&lt;/h1&gt;
-
+&lt;h1 id=&#34;v29901&#34;&gt;v2.9.901&lt;/h1&gt;
 &lt;p&gt;/lib/ionic/css/ionic.css
 /css/style.css
 /lib/ionic/js/ionic.bundle.js
 /js/app.js
 /index.html
 /#/&lt;/p&gt;
-
 &lt;p&gt;#CACHE:
 /lib/ionic/css/ionic.css
 /css/style.css
@@ -95,43 +75,35 @@ CACHE MANIFEST&lt;/p&gt;
 /js/app.js
 /index.html
 #/#&lt;/p&gt;
-
 &lt;p&gt;#NETWORK:
-#*
- # nothing yet&lt;/p&gt;
-
+#*&lt;/p&gt;
+&lt;h1 id=&#34;nothing-yet&#34;&gt;nothing yet&lt;/h1&gt;
 &lt;p&gt;FALLBACK:
-#/index.html
- # nothing yet
-{% endhighlight %}&lt;/p&gt;
-
-&lt;h4 id=&#34;considered-server-address-is-http-appcacheionic-herokuapp-com-do-following-changes-to-your-ionic-app&#34;&gt;considered Server address is &lt;a href=&#34;http://appcacheionic.herokuapp.com&#34;&gt;http://appcacheionic.herokuapp.com&lt;/a&gt;, do following changes to your Ionic App&lt;/h4&gt;
-
-&lt;h5 id=&#34;at-config-xml&#34;&gt;at config.xml&lt;/h5&gt;
-
+#/index.html&lt;/p&gt;
+&lt;h1 id=&#34;nothing-yet-1&#34;&gt;nothing yet&lt;/h1&gt;
+&lt;p&gt;{% endhighlight %}&lt;/p&gt;
+&lt;h4 id=&#34;considered-server-address-is-httpappcacheionicherokuappcom-do-following-changes-to-your-ionic-app&#34;&gt;considered Server address is &lt;a href=&#34;http://appcacheionic.herokuapp.com&#34;&gt;http://appcacheionic.herokuapp.com&lt;/a&gt;, do following changes to your Ionic App&lt;/h4&gt;
+&lt;h5 id=&#34;at-configxml&#34;&gt;at config.xml&lt;/h5&gt;
 &lt;p&gt;{% highlight html %}
-  &lt;content src=&#34;https://appcacheionic.herokuapp.com&#34;/&gt;
+&lt;content src=&#34;https://appcacheionic.herokuapp.com&#34;/&gt;
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h5 id=&#34;at-index-html&#34;&gt;at index.html&lt;/h5&gt;
-
+&lt;h5 id=&#34;at-indexhtml&#34;&gt;at index.html&lt;/h5&gt;
 &lt;p&gt;{% highlight javascript %}
-    &lt;script&gt;
-      function onBodyLoad()
-      {
-        document.addEventListener(&amp;ldquo;deviceready&amp;rdquo;, function(){
-          //one of these ip-addresses is normally used to address the host machine when using genymotion
-          location.href = &amp;ldquo;&lt;a href=&#34;https://appcacheionic.herokuapp.com/&amp;quot;&#34;&gt;https://appcacheionic.herokuapp.com/&amp;quot;&lt;/a&gt;;
-        }, false);
-      }
-    &lt;/script&gt;
+&lt;script&gt;
+function onBodyLoad()
+{
+document.addEventListener(&amp;ldquo;deviceready&amp;rdquo;, function(){
+//one of these ip-addresses is normally used to address the host machine when using genymotion
+location.href = &amp;ldquo;&lt;a href=&#34;https://appcacheionic.herokuapp.com/%22;&#34;&gt;https://appcacheionic.herokuapp.com/&amp;quot;;&lt;/a&gt;
+}, false);
+}
+&lt;/script&gt;
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;Do changes to application assets, kill application at simulator/device. Be careful on updating app, Cache Limits&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

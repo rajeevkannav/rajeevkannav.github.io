@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project.">
+  <meta name="description" content="Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project. While running migrations to a new created DB following code will break due to paranoia expectations of having deleted_at column, which is being added in later migrations.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2017-02-03-bad-to-worse-rails-practice/">
@@ -271,7 +271,7 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2017-02-03-bad-to-worse-rails-practice/">
   <meta property="og:title" content="Bad to worse rails practice | Rajeev Sharma">
-  <meta property="og:description" content="Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project. While running migrations to a new created DB following code will break due to paranoia expectations of having deleted_at column, which is being added in later migrations."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +321,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project."
+  "description": "Problem We used ruby gem paranoia to soft delete our active-records. which is super easy to integrate with a rails application. Our migrations consists such code to update all User/Project. While running migrations to a new created DB following code will break due to paranoia expectations of having deleted_at column, which is being added in later migrations."
 }
 </script>
 
@@ -639,28 +639,23 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem">Problem</h4>
-
+      <h4 id="problem">Problem</h4>
 <p>We used ruby gem <code>paranoia</code> to soft delete our active-records. which is super easy
 to integrate with a rails application. Our migrations consists such code to update
 all <code>User/Project</code>. While running migrations to a new created DB following code
 will break due to <code>paranoia</code> expectations of having <code>deleted_at</code> column, which is
 being added in later migrations. Now that sucks, I&rsquo;ve to comment out
 <code>acts_as_paranoid</code> every time while running migrations to new db.</p>
-
 <h4 id="solution">Solution</h4>
-
 <p><code>User.all</code> update should be <code>User.unscoped.all.</code> updates. Well this is not related
 to only <code>paranoia</code>. We should keep this always in mind,  In Case we want to update
 or operate all (all i mean) we must use <code>unscoped</code> <em>always</em>. Second thing, We should
 not use such code into migrations. This could be very obvious but i&rsquo;ve seen such
 ignorance ever.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1022,7 +1017,7 @@ ignorance ever.</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

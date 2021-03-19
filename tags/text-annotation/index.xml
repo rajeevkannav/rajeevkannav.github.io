@@ -17,48 +17,35 @@
       <link>/post/2016-07-09-ruby-prawn-svg-export/</link>
       <pubDate>Sat, 09 Jul 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-07-09-ruby-prawn-svg-export/</guid>
-      <description>
-
-&lt;h4 id=&#34;text-annotation-pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;text-annotation---pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
 &lt;p&gt;Pdf(Portable document format) has beautiful feature called text annotation.
 you can add detailed text information with available clipped images&lt;/p&gt;
-
 &lt;p&gt;Available annotations in current pdf spec are :&lt;/p&gt;
-
 &lt;figure class=&#34;third&#34;&gt;
-    &lt;img src=&#34;/images/annotations.png&#34;&gt;
+	&lt;img src=&#34;/images/annotations.png&#34;&gt;
 &lt;/figure&gt;
-  
-
-&lt;h4 id=&#34;text-annotation-prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
-
+&lt;h4 id=&#34;text-annotation---prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
 &lt;p&gt;Via prawn you can define Text annotations easily. A convenience method
 for creating Text annotations. rect must be an array of four numbers,
 describing the bounds of the annotation. contents should be a string,
 to be shown when the annotation is activated.&lt;/p&gt;
-
 &lt;p&gt;Text annotation by Code - Sample:
 {% highlight ruby %}
 prawn_pdf = Prawn::Document.new
 prawn_pdf.text_annotation(rect, contents, options = {})
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h4 id=&#34;ruby-select-quick-note&#34;&gt;Ruby Select Quick note&lt;/h4&gt;
-
 &lt;p&gt;if we need to grep some strings from an array with a defined pattern,
 it is advisable to use select. and this is how i used it.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 array = [&amp;lsquo;dhhjdfshgd&amp;rsquo;, &amp;lsquo;sadsdhjgsfgdhf   &amp;lsquo;, &amp;lsquo;example@gmail.com&amp;rsquo;]
 array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;Quite useful for me.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -67,48 +54,35 @@ array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
       <link>/post/2016-06-25-ruby-prawn-text-annotation/</link>
       <pubDate>Sat, 25 Jun 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-06-25-ruby-prawn-text-annotation/</guid>
-      <description>
-
-&lt;h4 id=&#34;text-annotation-pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;text-annotation---pdf&#34;&gt;Text Annotation - Pdf&lt;/h4&gt;
 &lt;p&gt;Pdf(Portable document format) has beautiful feature called text annotation.
 you can add detailed text information with available clipped images&lt;/p&gt;
-
 &lt;p&gt;Available annotations in current pdf spec are :&lt;/p&gt;
-
 &lt;figure class=&#34;third&#34;&gt;
-    &lt;img src=&#34;/images/annotations.png&#34;&gt;
+	&lt;img src=&#34;/images/annotations.png&#34;&gt;
 &lt;/figure&gt;
-  
-
-&lt;h4 id=&#34;text-annotation-prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
-
+&lt;h4 id=&#34;text-annotation---prawn&#34;&gt;Text Annotation - Prawn&lt;/h4&gt;
 &lt;p&gt;Via prawn you can define Text annotations easily. A convenience method
 for creating Text annotations. rect must be an array of four numbers,
 describing the bounds of the annotation. contents should be a string,
 to be shown when the annotation is activated.&lt;/p&gt;
-
 &lt;p&gt;Text annotation by Code - Sample:
 {% highlight ruby %}
 prawn_pdf = Prawn::Document.new
 prawn_pdf.text_annotation(rect, contents, options = {})
 {% endhighlight %}&lt;/p&gt;
-
 &lt;h4 id=&#34;ruby-select-quick-note&#34;&gt;Ruby Select Quick note&lt;/h4&gt;
-
 &lt;p&gt;if we need to grep some strings from an array with a defined pattern,
 it is advisable to use select. and this is how i used it.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 array = [&amp;lsquo;dhhjdfshgd&amp;rsquo;, &amp;lsquo;sadsdhjgsfgdhf   &amp;lsquo;, &amp;lsquo;example@gmail.com&amp;rsquo;]
 array.select {|item| item[/\A([^@\s]+)@((?:[-a-z0-9]+.)+[a-z]{2,})\Z/i]}
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;Quite useful for me.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

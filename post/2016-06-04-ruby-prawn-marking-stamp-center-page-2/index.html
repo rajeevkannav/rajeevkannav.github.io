@@ -641,21 +641,15 @@ Sample Usage define a stamp :-"><meta property="og:image" content="/img/rajeevka
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem-prawn">Problem - Prawn</h4>
-
+      <h4 id="problem---prawn">Problem - Prawn</h4>
 <p>We have to put a default text on every page center if we&rsquo;re not able to
 insert image at it&rsquo;s bounding box.</p>
-
 <h4 id="sample-usage">Sample Usage</h4>
-
 <p>define a stamp :-</p>
-
 <p>{% highlight ruby %}
 prawn_pdf.create_stamp(&ldquo;stamp&rdquo;) {
 prawn_page.fill_color &lsquo;#4a8bc2&rsquo;
-prawn_page.text_box &lsquo;[Image not available.]&lsquo;,
+prawn_page.text_box &lsquo;[Image not available.]&rsquo;,
 :width  =&gt; bounds.width,
 :height =&gt; bounds.height,
 :align  =&gt; :center,
@@ -665,21 +659,17 @@ prawn_page.text_box &lsquo;[Image not available.]&lsquo;,
 :rotate_around =&gt; :center
 }
 {% endhighlight %}</p>
-
 <p>mark stamp at any page by just calling it by name :-</p>
-
 <p><code>prawn_page.stamp(&quot;stamp&quot;)</code></p>
-
 <h4 id="things-to-take-care">Things to take care</h4>
-
 <ul>
 <li>stamp name should be unique.</li>
 <li>should be take care of stamp dimension and its content.</li>
 </ul>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1043,7 +1033,7 @@ prawn_page.text_box &lsquo;[Image not available.]&lsquo;,
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

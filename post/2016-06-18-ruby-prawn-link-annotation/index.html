@@ -639,38 +639,30 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem-prawn">Problem - Prawn</h4>
-
+      <h4 id="problem---prawn">Problem - Prawn</h4>
 <p>In Prawn pdf we need to put links on the Image text and fortunatley we&rsquo;re keeping
 required co-ordinates with objects. We tried to put Text link with anchor on text
 available inside image but that wasn&rsquo;t cool because our images can rotate</p>
-
 <h4 id="solution">Solution</h4>
-
 <p>Instead of marking text link above image text, we tried to put
 link annotation.</p>
-
 <p>Link annotation by Prawn are :</p>
-
 <p>A convenience method for creating Link annotations. rect must be an
 array of four numbers, describing the bounds of the annotation. The
 options hash should include either :Dest (describing the target
 destination, usually as a string that has been recorded in the
 document&rsquo;s Dests tree), or :A (describing an action to perform on
 clicking the link), or :PA (for describing a URL to link to).</p>
-
 <p>Link annotation by Code - Sample:
 {% highlight ruby %}
 prawn_pdf = Prawn::Document.new(skip_page_creation: true)
 link_coordinates = [:left, :top, :right, :bottom] # a.k.a coordinates
 prawn_pdf.link_annotation(link_coordinates, :Dest =&gt; &ldquo;target destination&rdquo;)
 {% endhighlight %}</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1034,7 +1026,7 @@ prawn_pdf.link_annotation(link_coordinates, :Dest =&gt; &ldquo;target destinatio
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards compatibility issues with code written against older MySql versions. for Rails specific see this">
+  <meta name="description" content="Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards compatibility issues with code written against older MySql versions. for Rails specific see this
+Oracle maintains a list of official APT repositories for MySql 5.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2018-08-14-downgrade-mysql-ubuntu/">
@@ -271,7 +272,8 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2018-08-14-downgrade-mysql-ubuntu/">
   <meta property="og:title" content="Downgrade Mysql to 5.6 from 5.7 on Ubuntu 16.04(xenial) | Rajeev Sharma">
-  <meta property="og:description" content="Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards compatibility issues with code written against older MySql versions. for Rails specific see this"><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards compatibility issues with code written against older MySql versions. for Rails specific see this
+Oracle maintains a list of official APT repositories for MySql 5."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +323,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards compatibility issues with code written against older MySql versions. for Rails specific see this"
+  "description": "Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards compatibility issues with code written against older MySql versions. for Rails specific see this\nOracle maintains a list of official APT repositories for MySql 5."
 }
 </script>
 
@@ -643,44 +645,30 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards
+      <p>Ubuntu 16.04 only provides packages for MySql 5.7(by default) which has a range of backwards
 compatibility issues with code written against older MySql versions. for Rails specific see
-<a href="https://github.com/brianmario/mysql2/issues/784">this</a></p>
 
+<a href="https://github.com/brianmario/mysql2/issues/784" target="_blank" rel="noopener">this</a></p>
 <p>Oracle maintains a list of official APT repositories for MySql 5.6, but those repository do
 not yet support Ubuntu 16.04, However the 15.10 repos will work for 16.04.</p>
-
-<h4 id="uninstall-mysql-5-7-in-any-exists">Uninstall MySql 5.7 in any exists:</h4>
-
+<h4 id="uninstall-mysql-57-in-any-exists">Uninstall MySql 5.7 in any exists:</h4>
 <pre><code class="language-SHELL">sudo apt remove mysql-client mysql-server mysql-comman libmysqlclient-dev
 </code></pre>
-
 <h4 id="check-you-removed-everything">Check you removed everything</h4>
-
 <pre><code class="language-SHELL">sudo dpkg -l | grep mysql
 </code></pre>
-
-<h4 id="purge-reminders-e-g-merged-with-rc-with">Purge reminders (e.g. merged with rc) with</h4>
-
+<h4 id="purge-reminders-eg-merged-with-rc-with">Purge reminders (e.g. merged with rc) with</h4>
 <pre><code class="language-SHELL">sudo dkpg P &lt;package&gt; [&lt;package&gt;]
 </code></pre>
-
-<h4 id="download-the-apt-config-debain-package-from-oracle-https-dev-mysql-com-get-mysql-apt-config-0-8-0-1-all-deb-and-install-it">Download the apt_config-debain package from <a href="https://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb">Oracle</a> and install it</h4>
-
+<h4 id="download-the-apt_config-debain-package-from-oraclehttpsdevmysqlcomgetmysql-apt-config_080-1_alldeb-and-install-it">Download the apt_config-debain package from 
+<a href="https://dev.mysql.com/get/mysql-apt-config_0.8.0-1_all.deb" target="_blank" rel="noopener">Oracle</a> and install it</h4>
 <pre><code class="language-SHELL">sudo dpkg -i mysql-apt-config_0.8.0-1_all.deb
 </code></pre>
-
-<h4 id="choose-mysql-5-6-and-run">Choose &ldquo;MySQL 5.6&rdquo; and RUN</h4>
-
+<h4 id="choose-mysql-56-and-run">Choose &ldquo;MySQL 5.6&rdquo; and RUN</h4>
 <pre><code class="language-SHELL">sudo apt-cache policy mysql-server
 </code></pre>
-
-<h4 id="if-this-shows-a-5-6-version-continue">If this shows a 5.6 version, continue.</h4>
-
-<h4 id="if-not-check-your-etc-apt-sources-list-d-mysql-list-it-should-look-roughly-like-this">If not, check your <code>/etc/apt/sources.list.d/mysql.list</code>. It should look roughly like this:</h4>
-
+<h4 id="if-this-shows-a-56-version-continue">If this shows a 5.6 version, continue.</h4>
+<h4 id="if-not-check-your-etcaptsourceslistdmysqllist-it-should-look-roughly-like-this">If not, check your <code>/etc/apt/sources.list.d/mysql.list</code>. It should look roughly like this:</h4>
 <pre><code class="language-SHELL">
 ### THIS FILE IS AUTOMATICALLY CONFIGURED ###
 # You may Ubuntu 16.04 only provides packages for MySQL 5.7 which has a range of backwards
@@ -696,30 +684,22 @@ deb-src http://repo.mysql.com/apt/ubuntu/ wily mysql-5.6
 ###  those sources work for 16.04, too.
 
 </code></pre>
-
-<h4 id="create-a-file-etc-apt-preferences-d-mysql-with-this-content">Create a file <code>/etc/apt/preferences.d/mysql</code> with this content</h4>
-
+<h4 id="create-a-file-etcaptpreferencesdmysql-with-this-content">Create a file <code>/etc/apt/preferences.d/mysql</code> with this content</h4>
 <pre><code class="language-SHELL">Package: *
 Pin: origin &quot;repo.mysql.com&quot;
 Pin-Priority: 999
 </code></pre>
-
 <p>Run</p>
-
 <pre><code class="language-SHELL">sudo apt-get update
 </code></pre>
-
 <p>Now recipe&rsquo;s run should provide</p>
-
 <pre><code class="language-SHELL">sudo apt install mysql-client mysql-server libmysqlclient-dev
 </code></pre>
-
 <p>You should get 5.6 versions. Extra Things I learned : Use P(purge), dpkg -l. Cheers :)</p>
-
 <h4 id="links">Links</h4>
-
 <ul>
-<li><a href="https://gist.github.com/Voronenko/31161ab292c7967fcd38c092335a99e1">Gist</a></li>
+<li>
+<a href="https://gist.github.com/Voronenko/31161ab292c7967fcd38c092335a99e1" target="_blank" rel="noopener">Gist</a></li>
 </ul>
 
     </div>
@@ -1055,7 +1035,7 @@ Pin-Priority: 999
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

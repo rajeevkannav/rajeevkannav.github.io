@@ -17,57 +17,45 @@
       <link>/post/2016-11-28-over-the-air-update-for-an-ios-application/</link>
       <pubDate>Mon, 28 Nov 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-11-28-over-the-air-update-for-an-ios-application/</guid>
-      <description>
-
-&lt;h3 id=&#34;apple-app-distribution&#34;&gt;Apple App Distribution&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;apple-app-distribution&#34;&gt;Apple App Distribution&lt;/h3&gt;
 &lt;p&gt;Distributing an iPhone application is a headache. We(our iOs Team) use a service called
-  &lt;a href=&#34;https://www.diawi.com/&#34;&gt;Diawi&lt;/a&gt; to deploy Development and In-house applications directly
-  to the devices. We must need to add allowed devices already to those provisioning profile
-  and these files with ipa to diawi.&lt;/p&gt;
 
+&lt;a href=&#34;https://www.diawi.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Diawi&lt;/a&gt; to deploy Development and In-house applications directly
+to the devices. We must need to add allowed devices already to those provisioning profile
+and these files with ipa to diawi.&lt;/p&gt;
 &lt;h3 id=&#34;problem&#34;&gt;Problem&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;https://www.diawi.com/&#34;&gt;Diawi&lt;/a&gt; provides a link with an expiry time and we need to share
-  provisioning profile and certificates with them too. Everytime they produce a new link.&lt;/p&gt;
-
+&lt;p&gt;
+&lt;a href=&#34;https://www.diawi.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Diawi&lt;/a&gt; provides a link with an expiry time and we need to share
+provisioning profile and certificates with them too. Everytime they produce a new link.&lt;/p&gt;
 &lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;generate an IPA via xcode/CLI&lt;/li&gt;
 &lt;li&gt;get the link of the IPA and add in the plist&lt;/li&gt;
 &lt;li&gt;place generated plist file in drop box&lt;/li&gt;
 &lt;li&gt;get the link from the dropbox&lt;/li&gt;
-&lt;li&gt;construct an items link with the dropbox
-&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;construct an items link with the dropbox&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;You can send the items link to the testing team to use the file for testing.
-  This setting up is an one time process and for further changes and the updates
-  you just replace the IPA file is the already uploaded path. The testing team
-  in the remote can fetch the updated file with the same link path.&lt;/p&gt;
-
+This setting up is an one time process and for further changes and the updates
+you just replace the IPA file is the already uploaded path. The testing team
+in the remote can fetch the updated file with the same link path.&lt;/p&gt;
 &lt;p&gt;A sample items link is given below.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;itms-services://?action=download-manifest&amp;amp;url=https://myWebsite/myApp/myApp.plist
 
 itms-services://?action=download-manifest&amp;amp;url=&amp;lt;Dropbox URL&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h4 id=&#34;note&#34;&gt;Note:&lt;/h4&gt;
-
 &lt;pre&gt;&lt;code&gt;We haven&#39;t implemented this yet to our iOS Team app distibution process, We got this excellent
 idea from the reference given below, By this way, for sure we&#39;ll solve the issue of testing of
 iOS apps with the team in a remote location.
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;references&#34;&gt;References:&lt;/h3&gt;
-
-&lt;p&gt;&lt;a href=&#34;http://54.173.149.226/2016/09/how-to-send-test-version-over-the-air-ota/&#34;&gt;Mallow Technologies Private Limited&lt;/a&gt;&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;p&gt;
+&lt;a href=&#34;http://54.173.149.226/2016/09/how-to-send-test-version-over-the-air-ota/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Mallow Technologies Private Limited&lt;/a&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

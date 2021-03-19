@@ -28,7 +28,8 @@
   
     
   
-  <meta name="description" content="Problem We have listing of all Users and other data list at our admin panels per application. A basic Search functionality was required with less efforts and adjustable quickly.">
+  <meta name="description" content="Problem We have listing of all Users and other data list at our admin panels per application. A basic Search functionality was required with less efforts and adjustable quickly.
+Solution In your Gemfile, for the last officially released gem: gem &#39;ransack&#39;">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2016-05-14-object-based-search-rails-ransack-/">
@@ -271,7 +272,8 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2016-05-14-object-based-search-rails-ransack-/">
   <meta property="og:title" content="Object-based searching rails Active-Record | Rajeev Sharma">
-  <meta property="og:description" content="Problem We have listing of all Users and other data list at our admin panels per application. A basic Search functionality was required with less efforts and adjustable quickly."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="Problem We have listing of all Users and other data list at our admin panels per application. A basic Search functionality was required with less efforts and adjustable quickly.
+Solution In your Gemfile, for the last officially released gem: gem &#39;ransack&#39;"><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +323,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Problem We have listing of all Users and other data list at our admin panels per application. A basic Search functionality was required with less efforts and adjustable quickly."
+  "description": "Problem We have listing of all Users and other data list at our admin panels per application. A basic Search functionality was required with less efforts and adjustable quickly.\nSolution In your Gemfile, for the last officially released gem: gem 'ransack'"
 }
 </script>
 
@@ -639,59 +641,45 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem">Problem</h4>
-
+      <h4 id="problem">Problem</h4>
 <p>We have listing of all Users and other data list at our admin panels per application.
 A basic Search functionality was required with less efforts and adjustable quickly.</p>
-
 <h4 id="solution">Solution</h4>
-
 <p>In your Gemfile, for the last officially released gem:
-    <code>gem 'ransack'</code></p>
-
+<code>gem 'ransack'</code></p>
 <h5 id="in-your-controller">In your controller</h5>
-
 <p>{% highlight ruby %}
 def index
-  @q = Person.ransack(params[:q])
-  @people = @q.result(distinct: true)
+@q = Person.ransack(params[:q])
+@people = @q.result(distinct: true)
 end
 {% endhighlight %}</p>
-
 <h5 id="in-your-view">In your view</h5>
-
 <p>{% highlight ruby %}
 &lt;%= search_form_for @q do |f| %&gt;</p>
-
-<p># Search if the name field contains&hellip;
-  &lt;%= f.label :name_cont %&gt;
-  &lt;%= f.search_field :name_cont %&gt;</p>
-
-<p># Search if an associated articles.title starts with&hellip;
-  &lt;%= f.label :articles_title_start %&gt;
-  &lt;%= f.search_field :articles_title_start %&gt;</p>
-
-<p># Attributes may be chained. Search multiple attributes for one value&hellip;
-  &lt;%= f.label :name_or_description_or_email_or_articles_title_cont %&gt;
-  &lt;%= f.search_field :name_or_description_or_email_or_articles_title_cont %&gt;</p>
-
+<h1 id="search-if-the-name-field-contains">Search if the name field contains&hellip;</h1>
+<p>&lt;%= f.label :name_cont %&gt;
+&lt;%= f.search_field :name_cont %&gt;</p>
+<h1 id="search-if-an-associated-articlestitle-starts-with">Search if an associated articles.title starts with&hellip;</h1>
+<p>&lt;%= f.label :articles_title_start %&gt;
+&lt;%= f.search_field :articles_title_start %&gt;</p>
+<h1 id="attributes-may-be-chained-search-multiple-attributes-for-one-value">Attributes may be chained. Search multiple attributes for one value&hellip;</h1>
+<p>&lt;%= f.label :name_or_description_or_email_or_articles_title_cont %&gt;
+&lt;%= f.search_field :name_or_description_or_email_or_articles_title_cont %&gt;</p>
 <p>&lt;%= f.submit %&gt;
 &lt;% end %&gt;
 {% endhighlight %}</p>
-
 <p>cont (contains) and start (starts with) are just two of the
-available search predicates. See <a href="https://github.com/activerecord-hackery/ransack/blob/master/lib/ransack/constants.rb">Constants</a> for a full list
-and the <a href="https://github.com/activerecord-hackery/ransack/wiki">wiki</a> for more information.</p>
-
-<h5 id="ransack-s-sort-link-helper-creates-table-headers-that-are-sortable-links">Ransack&rsquo;s sort_link helper creates table headers that are sortable links</h5>
-
+available search predicates. See 
+<a href="https://github.com/activerecord-hackery/ransack/blob/master/lib/ransack/constants.rb" target="_blank" rel="noopener">Constants</a> for a full list
+and the 
+<a href="https://github.com/activerecord-hackery/ransack/wiki" target="_blank" rel="noopener">wiki</a> for more information.</p>
+<h5 id="ransacks-sort_link-helper-creates-table-headers-that-are-sortable-links">Ransack&rsquo;s sort_link helper creates table headers that are sortable links</h5>
 <p>&lt;%= sort_link(@q, :name) %&gt;</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1053,7 +1041,7 @@ and the <a href="https://github.com/activerecord-hackery/ransack/wiki">wiki</a> 
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

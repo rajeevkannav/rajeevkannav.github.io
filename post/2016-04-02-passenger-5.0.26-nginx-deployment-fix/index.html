@@ -639,11 +639,8 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>We&rsquo;re using passenger and nginx combo for our Rails application at production environment. After upgrading passenger
+      <p>We&rsquo;re using passenger and nginx combo for our Rails application at production environment. After upgrading passenger
 to 5.0.26, We&rsquo;re seeing errors from passenger about building the native support so file.</p>
-
 <p>{% highlight ruby %}
 App 14490 stderr:  [passenger_native_support.so] trying to compile for the current user
 (deploy) and Ruby interpreter&hellip;
@@ -655,39 +652,26 @@ installed from a release package
 App 14490 stderr:  [passenger_native_support.so] will not be used (can&rsquo;t compile or download)
 App 14490 stderr:   &ndash;&gt; Passenger will still operate normally.
 {% endhighlight %}</p>
-
 <p>In the /tmp/passenger_native_support-%@$#^^.log file log, the error looks like:</p>
-
 <p>{% highlight ruby %}</p>
-
-<h1 id="mkdir-p-usr-lib-buildout-ruby-ruby-version-linux">mkdir -p /usr/lib/buildout/ruby/ruby-version-linux</h1>
-
+<h1 id="mkdir--p-usrlibbuildoutrubyruby-version-linux">mkdir -p /usr/lib/buildout/ruby/ruby-version-linux</h1>
 <h2 id="encountered-permission-error-trying-a-different-directory">Encountered permission error, trying a different directory&hellip;</h2>
-
-<h1 id="mkdir-p-home-deploy-passenger-native-support-5-0-26-ruby-version-linux">mkdir -p /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux</h1>
-
-<h1 id="cd-home-deploy-passenger-native-support-5-0-26-ruby-version-linux">cd /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux</h1>
-
-<h1 id="usr-bin-ruby-version-usr-lib-src-ruby-native-extension-extconf-rb">/usr/bin/ruby-version /usr/lib/src/ruby_native_extension/extconf.rb</h1>
-
+<h1 id="mkdir--p-homedeploypassengernative_support5026ruby-version-linux">mkdir -p /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux</h1>
+<h1 id="cd-homedeploypassengernative_support5026ruby-version-linux">cd /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux</h1>
+<h1 id="usrbinruby-version-usrlibsrcruby_native_extensionextconfrb">/usr/bin/ruby-version /usr/lib/src/ruby_native_extension/extconf.rb</h1>
 <p>/usr/bin/ruby-version: No such file or directory &ndash; /usr/lib/src/ruby_native_extension/extconf.rb (LoadError)
 {% endhighlight %}</p>
-
 <p>In short, ruby_native_extension isn&rsquo;t the correct folder, but as a temporary fix to get the compilation going
 you could just copy the necessary files there anyway, e.g.:</p>
-
 <p>{% highlight ruby %}</p>
-
-<p>sudo mkdir /usr/lib/src/<br />
+<p>sudo mkdir /usr/lib/src/     <br>
 cp -dpR /usr/share/passenger-enterprise/ruby_extension_source /usr/lib/src/ruby_native_extension</p>
-
 <p>{% endhighlight %}</p>
-
-<h3 id="we-moved-our-machine-to-unicorn-as-we-ve-scope-to-migrate-till-now">We moved our machine to Unicorn as we&rsquo;ve scope to migrate till now.</h3>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h3 id="we-moved-our-machine-to-unicorn-as-weve-scope-to-migrate-till-now">We moved our machine to Unicorn as we&rsquo;ve scope to migrate till now.</h3>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1049,7 +1033,7 @@ cp -dpR /usr/share/passenger-enterprise/ruby_extension_source /usr/lib/src/ruby_
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

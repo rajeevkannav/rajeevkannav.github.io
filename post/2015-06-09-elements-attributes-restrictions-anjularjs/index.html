@@ -639,84 +639,66 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<p>At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that
+      <p>At a high level, directives are markers on a DOM element (such as an attribute, element name, comment or CSS class) that
 tell AngularJS&rsquo;s HTML compiler ($compile) to attach a specified behavior to that DOM element or even transform the DOM
 element and its children.</p>
-
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
 <!-- Github Page Add 1 -->
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1411898088670168"
-     data-ad-slot="3525987534"
-     data-ad-format="auto"></ins>
+<p><ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-1411898088670168"
+data-ad-slot="3525987534"
+data-ad-format="auto"></ins></p>
 <script>
     (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
 <h3 id="best-practice">Best Practice:</h3>
-
 <p>Prefer using directives via tag name and attributes over comment and class names. Doing so generally makes it easier to
 determine what directives a given element matches.</p>
-
-<p>{% highlight javascript %}
+<p>{% highlight javascript %}</p>
 <!-- avoid -->
-<div class="my-range-slider"></div></p>
-
+<div class="my-range-slider"></div> 
 <p>/* avoid */
 angular
-    .module(&lsquo;app.tools&rsquo;)
-    .directive(&lsquo;myRangeSlider&rsquo;, myRangeSlider);</p>
-
+.module(&lsquo;app.tools&rsquo;)
+.directive(&lsquo;myRangeSlider&rsquo;, myRangeSlider);</p>
 <p>function myRangeSlider() {
-    var directive = {
-        link: link,
-        templateUrl: &lsquo;/template_path/filenamehtml&rsquo;,
-        restrict: &lsquo;C&rsquo;
-    };
-    return directive;</p>
-
+var directive = {
+link: link,
+templateUrl: &lsquo;/template_path/filenamehtml&rsquo;,
+restrict: &lsquo;C&rsquo;
+};
+return directive;</p>
 <pre><code>function link(scope, element, attrs) {
   /* */
 }
 </code></pre>
-
 <p>}</p>
-
 <!-- recommended -->
-
-<p><my-range-slider></my-range-slider>
-<div my-range-slider></div></p>
-
+<p><my-range-slider></my-range-slider></p>
+<div my-range-slider></div>
 <p>/* recommended */
 angular
-    .module(&lsquo;app.tools&rsquo;)
-    .directive(&lsquo;myRangeSlider&rsquo;, myRangeSlider);</p>
-
+.module(&lsquo;app.tools&rsquo;)
+.directive(&lsquo;myRangeSlider&rsquo;, myRangeSlider);</p>
 <p>function myRangeSlider() {
-    var directive = {
-        link: link,
-        templateUrl: &lsquo;/template_path/filename.html&rsquo;,
-        restrict: &lsquo;EA&rsquo;
-    };
-    return directive;</p>
-
+var directive = {
+link: link,
+templateUrl: &lsquo;/template_path/filename.html&rsquo;,
+restrict: &lsquo;EA&rsquo;
+};
+return directive;</p>
 <pre><code>function link(scope, element, attrs) {
   /* */
 }
 </code></pre>
-
 <p>}</p>
-
 <p>{% endhighlight %}</p>
-
-<h4 id="note-ea-is-the-default-for-angularjs-1-3">Note: EA is the default for AngularJS 1.3 +</h4>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h4 id="note-ea-is-the-default-for-angularjs-13-">Note: EA is the default for AngularJS 1.3 +</h4>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1061,7 +1043,7 @@ angular
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

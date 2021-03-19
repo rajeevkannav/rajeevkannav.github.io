@@ -12,45 +12,5 @@
       <link>/categories/</link>
     </image>
     
-    <item>
-      <title>tools</title>
-      <link>/categories/tools/</link>
-      <pubDate>Mon, 18 Feb 2019 15:36:27 +0530</pubDate>
-      <guid>/categories/tools/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>utilities</title>
-      <link>/categories/utilities/</link>
-      <pubDate>Mon, 18 Feb 2019 15:36:27 +0530</pubDate>
-      <guid>/categories/utilities/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>backwards compatibility</title>
-      <link>/categories/backwards-compatibility/</link>
-      <pubDate>Tue, 14 Aug 2018 15:36:27 +0530</pubDate>
-      <guid>/categories/backwards-compatibility/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>infrastructure</title>
-      <link>/categories/infrastructure/</link>
-      <pubDate>Tue, 14 Aug 2018 15:36:27 +0530</pubDate>
-      <guid>/categories/infrastructure/</guid>
-      <description></description>
-    </item>
-    
-    <item>
-      <title>linux</title>
-      <link>/categories/linux/</link>
-      <pubDate>Tue, 14 Aug 2018 15:36:27 +0530</pubDate>
-      <guid>/categories/linux/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

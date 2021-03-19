@@ -17,64 +17,45 @@
       <link>/post/2015-06-13-linuxbrew-node-installation-ubuntu/</link>
       <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-06-13-linuxbrew-node-installation-ubuntu/</guid>
-      <description>
-
-&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
-
-&lt;p&gt;Linuxbrew is a fork of &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; , the Mac OS package manager, for Linux.&lt;/p&gt;
-
+      <description>&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
+&lt;p&gt;Linuxbrew is a fork of 
+&lt;a href=&#34;http://brew.sh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Homebrew&lt;/a&gt; , the Mac OS package manager, for Linux.&lt;/p&gt;
 &lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Ruby 1.8.6 or newer&lt;/li&gt;
 &lt;li&gt;GCC 4.2 or newer&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;64-bit x86 platform&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;64-bit x86 platform&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;pre&gt;&lt;code&gt;sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;install-linuxbrew&#34;&gt;Install Linuxbrew&lt;/h3&gt;
-
 &lt;p&gt;Paste at Terminal prompt:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Add to your .bashrc or .zshrc:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;export PATH=&amp;quot;$HOME/.linuxbrew/bin:$PATH&amp;quot;
 export MANPATH=&amp;quot;$HOME/.linuxbrew/share/man:$MANPATH&amp;quot;
 export INFOPATH=&amp;quot;$HOME/.linuxbrew/share/info:$INFOPATH&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;then:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;source ~/.bashrc
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;update-linuxbrew&#34;&gt;update Linuxbrew&lt;/h3&gt;
-
 &lt;p&gt;Paste at a Terminal prompt:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;    brew update
     brew doctor
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;install-node-package&#34;&gt;Install “node” Package&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt; brew install node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;confirm-installation&#34;&gt;Confirm Installation&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt;node -v # Output should be something like v0.12.4
 npm -v  # Output should be something like 2.10.1  
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -83,95 +64,69 @@ npm -v  # Output should be something like 2.10.1
       <link>/post/2015-06-12-uninstall-install-node-nodejs-npm-ubuntu/</link>
       <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-06-12-uninstall-install-node-nodejs-npm-ubuntu/</guid>
-      <description>
-
-&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;$ dpkg --get-selections | grep node
 ax25-node                                       install
 node                                            install
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;If you found the old “node” package installed, run this command to completely remove it:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get remove --purge node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;script async src=&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;&gt;&lt;/script&gt;
-&lt;ins class=&#34;adsbygoogle&#34;
-     style=&#34;display:block&#34;
-     data-ad-client=&#34;ca-pub-1411898088670168&#34;
-     data-ad-slot=&#34;3525987534&#34;
-     data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;
+&lt;p&gt;&lt;ins class=&#34;adsbygoogle&#34;
+style=&#34;display:block&#34;
+data-ad-client=&#34;ca-pub-1411898088670168&#34;
+data-ad-slot=&#34;3525987534&#34;
+data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;script&gt;
 (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;
-
-&lt;h3 id=&#34;install-node-js-with-ubuntu-package-manager&#34;&gt;Install Node.js with Ubuntu Package Manager&lt;/h3&gt;
-
+&lt;h3 id=&#34;install-nodejs-with-ubuntu-package-manager&#34;&gt;Install Node.js with Ubuntu Package Manager&lt;/h3&gt;
 &lt;p&gt;To install Node.js, open a terminal and type the following command:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Then install the Node package manager called “npm”:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install npm
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Create a symbolic link for “node” as many Node.js tools use this name to execute.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo ln -s /usr/bin/nodejs /usr/bin/node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Now we should have both the node and npm commands working:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ node -v
 v0.10.25
 $ npm -v
 1.3.10
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;script async src=&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;&gt;&lt;/script&gt;
-&lt;ins class=&#34;adsbygoogle&#34;
-     style=&#34;display:block&#34;
-     data-ad-client=&#34;ca-pub-1411898088670168&#34;
-     data-ad-slot=&#34;3525987534&#34;
-     data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;
+&lt;p&gt;&lt;ins class=&#34;adsbygoogle&#34;
+style=&#34;display:block&#34;
+data-ad-client=&#34;ca-pub-1411898088670168&#34;
+data-ad-slot=&#34;3525987534&#34;
+data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;script&gt;
 (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;
-
-&lt;h3 id=&#34;install-node-js-with-maintained-ubuntu-packages&#34;&gt;Install Node.js with Maintained Ubuntu Packages&lt;/h3&gt;
-
+&lt;h3 id=&#34;install-nodejs-with-maintained-ubuntu-packages&#34;&gt;Install Node.js with Maintained Ubuntu Packages&lt;/h3&gt;
 &lt;p&gt;The process below is described here, too.&lt;/p&gt;
-
 &lt;p&gt;Add the Node.js maintained repositories to your Ubuntu package source list with this command:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;curl -sL https://deb.nodesource.com/setup | sudo bash -
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Then install Node.js with apt-get:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Optionally we can create a symbolic link for “node” (for reasons mentioned earlier):&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo ln -s /usr/bin/nodejs /usr/bin/node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Using this install option, we end up with newer versions of “nodejs” and “npm”:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ node -v
 v0.10.35
 $ npm -v
 1.4.28
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

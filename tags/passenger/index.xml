@@ -17,11 +17,8 @@
       <link>/post/2016-04-02-passenger-5.0.26-nginx-deployment-fix/</link>
       <pubDate>Sat, 02 Apr 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-04-02-passenger-5.0.26-nginx-deployment-fix/</guid>
-      <description>
-
-&lt;p&gt;We&amp;rsquo;re using passenger and nginx combo for our Rails application at production environment. After upgrading passenger
+      <description>&lt;p&gt;We&amp;rsquo;re using passenger and nginx combo for our Rails application at production environment. After upgrading passenger
 to 5.0.26, We&amp;rsquo;re seeing errors from passenger about building the native support so file.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 App 14490 stderr:  [passenger_native_support.so] trying to compile for the current user
 (deploy) and Ruby interpreter&amp;hellip;
@@ -33,39 +30,26 @@ installed from a release package
 App 14490 stderr:  [passenger_native_support.so] will not be used (can&amp;rsquo;t compile or download)
 App 14490 stderr:   &amp;ndash;&amp;gt; Passenger will still operate normally.
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;In the /tmp/passenger_native_support-%@$#^^.log file log, the error looks like:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
-&lt;h1 id=&#34;mkdir-p-usr-lib-buildout-ruby-ruby-version-linux&#34;&gt;mkdir -p /usr/lib/buildout/ruby/ruby-version-linux&lt;/h1&gt;
-
+&lt;h1 id=&#34;mkdir--p-usrlibbuildoutrubyruby-version-linux&#34;&gt;mkdir -p /usr/lib/buildout/ruby/ruby-version-linux&lt;/h1&gt;
 &lt;h2 id=&#34;encountered-permission-error-trying-a-different-directory&#34;&gt;Encountered permission error, trying a different directory&amp;hellip;&lt;/h2&gt;
-
-&lt;h1 id=&#34;mkdir-p-home-deploy-passenger-native-support-5-0-26-ruby-version-linux&#34;&gt;mkdir -p /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
-
-&lt;h1 id=&#34;cd-home-deploy-passenger-native-support-5-0-26-ruby-version-linux&#34;&gt;cd /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
-
-&lt;h1 id=&#34;usr-bin-ruby-version-usr-lib-src-ruby-native-extension-extconf-rb&#34;&gt;/usr/bin/ruby-version /usr/lib/src/ruby_native_extension/extconf.rb&lt;/h1&gt;
-
+&lt;h1 id=&#34;mkdir--p-homedeploypassengernative_support5026ruby-version-linux&#34;&gt;mkdir -p /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
+&lt;h1 id=&#34;cd-homedeploypassengernative_support5026ruby-version-linux&#34;&gt;cd /home/deploy/.passenger/native_support/5.0.26/ruby-version-linux&lt;/h1&gt;
+&lt;h1 id=&#34;usrbinruby-version-usrlibsrcruby_native_extensionextconfrb&#34;&gt;/usr/bin/ruby-version /usr/lib/src/ruby_native_extension/extconf.rb&lt;/h1&gt;
 &lt;p&gt;/usr/bin/ruby-version: No such file or directory &amp;ndash; /usr/lib/src/ruby_native_extension/extconf.rb (LoadError)
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;In short, ruby_native_extension isn&amp;rsquo;t the correct folder, but as a temporary fix to get the compilation going
 you could just copy the necessary files there anyway, e.g.:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
-&lt;p&gt;sudo mkdir /usr/lib/src/&lt;br /&gt;
+&lt;p&gt;sudo mkdir /usr/lib/src/     &lt;br&gt;
 cp -dpR /usr/share/passenger-enterprise/ruby_extension_source /usr/lib/src/ruby_native_extension&lt;/p&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;h3 id=&#34;we-moved-our-machine-to-unicorn-as-we-ve-scope-to-migrate-till-now&#34;&gt;We moved our machine to Unicorn as we&amp;rsquo;ve scope to migrate till now.&lt;/h3&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h3 id=&#34;we-moved-our-machine-to-unicorn-as-weve-scope-to-migrate-till-now&#34;&gt;We moved our machine to Unicorn as we&amp;rsquo;ve scope to migrate till now.&lt;/h3&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

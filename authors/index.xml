@@ -12,25 +12,5 @@
       <link>/authors/</link>
     </image>
     
-    <item>
-      <title></title>
-      <link>/authors/admin/</link>
-      <pubDate>Sun, 07 Apr 2019 00:00:00 +0000</pubDate>
-      <guid>/authors/admin/</guid>
-      <description>&lt;p&gt;Currently working as Technical Lead, expertise in web application and restful web
-services built on ruby on rails. Having 10+ years of industry experience in design, development
-and support of various applications across various domains (Ed-tech, Healthcare, Architectural
-and others).&lt;/p&gt;
-</description>
-    </item>
-    
-    <item>
-      <title>Robert Ford</title>
-      <link>/authors/robert-ford/</link>
-      <pubDate>Tue, 01 Sep 2015 00:00:00 +0000</pubDate>
-      <guid>/authors/robert-ford/</guid>
-      <description></description>
-    </item>
-    
   </channel>
 </rss>

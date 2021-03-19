@@ -29,7 +29,7 @@
     
   
   <meta name="description" content="Problem We used a super simple code in ruby to generate tempfiles with dynamic filename.
-temp_file = Tempfile.new([title, &#39;.pdf&#39;])  where title is a variable value (Input taken from user).">
+temp_file = Tempfile.new([title, &#39;.pdf&#39;])  where title is a variable value (Input taken from user).so if your insert special or not allowed/expected character as a filename in any Operating system this code will fail.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2017-03-31-tempfile-name-ruby-problem/">
@@ -273,7 +273,7 @@ temp_file = Tempfile.new([title, &#39;.pdf&#39;])  where title is a variable val
   <meta property="og:url" content="/post/2017-03-31-tempfile-name-ruby-problem/">
   <meta property="og:title" content="tempfile generation issue from user generated filename in ruby/OS | Rajeev Sharma">
   <meta property="og:description" content="Problem We used a super simple code in ruby to generate tempfiles with dynamic filename.
-temp_file = Tempfile.new([title, &#39;.pdf&#39;])  where title is a variable value (Input taken from user)."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+temp_file = Tempfile.new([title, &#39;.pdf&#39;])  where title is a variable value (Input taken from user).so if your insert special or not allowed/expected character as a filename in any Operating system this code will fail."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -323,7 +323,7 @@ temp_file = Tempfile.new([title, &#39;.pdf&#39;])  where title is a variable val
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Problem We used a super simple code in ruby to generate tempfiles with dynamic filename.\ntemp_file = Tempfile.new([title, '.pdf'])  where title is a variable value (Input taken from user)."
+  "description": "Problem We used a super simple code in ruby to generate tempfiles with dynamic filename.\ntemp_file = Tempfile.new([title, '.pdf'])  where title is a variable value (Input taken from user).so if your insert special or not allowed/expected character as a filename in any Operating system this code will fail."
 }
 </script>
 
@@ -641,32 +641,24 @@ temp_file = Tempfile.new([title, &#39;.pdf&#39;])  where title is a variable val
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h4 id="problem">Problem</h4>
-
+      <h4 id="problem">Problem</h4>
 <p>We used a super simple code in ruby to generate tempfiles with dynamic filename.</p>
-
 <pre><code>temp_file = Tempfile.new([title, '.pdf'])
 </code></pre>
-
 <p>where title is a variable value (Input taken from user).so if your insert special
 or not allowed/expected character as a filename in any Operating system this code
 will fail. Well this is not related to Ruby directly as its a filename constraint
 in every Operating system but it happened to us via Ruby code.</p>
-
 <h4 id="solution">Solution</h4>
-
 <pre><code>temp_file = Tempfile.new([title.gsub(/[^\w\.]/, '_'), '.pdf'])
 </code></pre>
-
 <p>Pretty simple solution to remove/Replace not allowed values there. This is very
 minor thing to correct as well to take notes, but we had exception from production
 and that is not acceptable at all.</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1028,7 +1020,7 @@ and that is not acceptable at all.</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

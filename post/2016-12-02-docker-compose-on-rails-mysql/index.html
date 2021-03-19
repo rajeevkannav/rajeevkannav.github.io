@@ -641,18 +641,12 @@ use Docker Compose to set up and run a Rails app Define the project Create a Doc
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="docker-compose-https-docs-docker-com-compose"><a href="https://docs.docker.com/compose/">Docker-compose</a></h3>
-
+      <h3 id="docker-composehttpsdocsdockercomcompose">
+<a href="https://docs.docker.com/compose/" target="_blank" rel="noopener">Docker-compose</a></h3>
 <p>Compose is a tool for defining and running multi-container Docker applications.</p>
-
 <h3 id="use-docker-compose-to-set-up-and-run-a-rails-app">use Docker Compose to set up and run a Rails app</h3>
-
 <h5 id="define-the-project">Define the project</h5>
-
 <p>Create a <code>Dockerfile</code> for Rails app</p>
-
 <pre><code>FROM ruby:2.3.3
 RUN apt-get update -qq &amp;&amp; apt-get install -y build-essential libpq-dev nodejs
 RUN mkdir /myapp
@@ -662,20 +656,14 @@ ADD Gemfile.lock /myapp/Gemfile.lock
 RUN bundle install
 ADD . /myapp
 </code></pre>
-
 <p>Create a <code>Gemfile</code></p>
-
 <pre><code>source 'https://rubygems.org'
 gem 'rails', '5.0.0.1'
 </code></pre>
-
 <p>Create a <code>Gemfile.lock</code></p>
-
 <pre><code>touch Gemfile.lock
 </code></pre>
-
 <p>Create <code>docker-compose.yml</code></p>
-
 <pre><code>version: '2'
 services:
   db:
@@ -690,15 +678,11 @@ services:
     depends_on:
       - db
 </code></pre>
-
 <h5 id="build-the-project">Build the project</h5>
-
 <pre><code>docker-compose build
 </code></pre>
-
 <p>Connect the database
-  Replace the contents of <code>config/database.yml</code> with the following:</p>
-
+Replace the contents of <code>config/database.yml</code> with the following:</p>
 <pre><code>development: &amp;default
   adapter: mysql2
   encoding: unicode
@@ -712,37 +696,28 @@ test:
   &lt;&lt;: *default
   database: myapp_test
 </code></pre>
-
 <h5 id="boot-application">Boot Application</h5>
-
 <pre><code>docker-compose up
 </code></pre>
-
 <p>if you&rsquo;re done everthing correctly, You must have seen something like following on terminal</p>
-
 <pre><code>myapp_web_1 | [2014-01-17 17:16:29] INFO  WEBrick 1.3.1
 myapp_web_1 | [2014-01-17 17:16:29] INFO  ruby 2.2.0 (2014-12-25) [x86_64-linux-gnu]
 myapp_web_1 | [2014-01-17 17:16:29] INFO  WEBrick::HTTPServer#start: pid=1 port=3000
 </code></pre>
-
 <h5 id="setup-database">Setup DataBase</h5>
-
 <pre><code>docker-compose run web rake db:create
 </code></pre>
-
 <h5 id="get-set-go">Get Set go</h5>
-
-<p>VISIT <a href="http://localhost:3000/">http://localhost:3000/</a></p>
-
-<h5 id="general-error-s">General Error(s)</h5>
-
+<p>VISIT 
+<a href="http://localhost:3000/" target="_blank" rel="noopener">http://localhost:3000/</a></p>
+<h5 id="general-errors">General Error(s)</h5>
 <pre><code>A server is already running. Check /myapp/tmp/pids/server.pid. 
 delete the file tmp/pids/server.pid to fix this
 </code></pre>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1100,7 +1075,7 @@ delete the file tmp/pids/server.pid to fix this
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

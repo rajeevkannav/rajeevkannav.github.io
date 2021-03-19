@@ -17,83 +17,63 @@
       <link>/post/2015-08-22-ionic-heroku-deploy/</link>
       <pubDate>Sat, 22 Aug 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-08-22-ionic-heroku-deploy/</guid>
-      <description>
-
-&lt;p&gt;Recently I worked on IonicApp and thought it must be possible to run it over Heroku and that works.&lt;/p&gt;
-
+      <description>&lt;p&gt;Recently I worked on IonicApp and thought it must be possible to run it over Heroku and that works.&lt;/p&gt;
 &lt;h4 id=&#34;requirements&#34;&gt;Requirements&lt;/h4&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Heroku-Toolbet √&lt;/li&gt;
 &lt;li&gt;Ionic √&lt;/li&gt;
 &lt;li&gt;node √&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h6 id=&#34;install-express&#34;&gt;Install express&lt;/h6&gt;
-
 &lt;p&gt;{% highlight ruby %}
-    npm install express &amp;ndash;save
+npm install express &amp;ndash;save
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h6 id=&#34;setup-app-json&#34;&gt;Setup App.json&lt;/h6&gt;
-
+&lt;h6 id=&#34;setup-appjson&#34;&gt;Setup App.json&lt;/h6&gt;
 &lt;p&gt;Additional, a app.json is needed for some meta information about your app.&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 {
-    &amp;ldquo;name&amp;rdquo;: &amp;ldquo;Ionic to Heroku Example&amp;rdquo;,
-    &amp;ldquo;description&amp;rdquo;: &amp;ldquo;A simple Ionic app for Heroku&amp;rdquo;,
-    &amp;ldquo;repository&amp;rdquo;: &amp;ldquo;&lt;a href=&#34;https://github.com/yourUsername/repositoryName&amp;quot;&#34;&gt;https://github.com/yourUsername/repositoryName&amp;quot;&lt;/a&gt;,
-    &amp;ldquo;logo&amp;rdquo;: &amp;ldquo;logoURL&amp;rdquo;,
-    &amp;ldquo;keywords&amp;rdquo;: [&amp;ldquo;ionic&amp;rdquo;, &amp;ldquo;Heroku&amp;rdquo;, &amp;ldquo;whatever&amp;rdquo;]
+&amp;ldquo;name&amp;rdquo;: &amp;ldquo;Ionic to Heroku Example&amp;rdquo;,
+&amp;ldquo;description&amp;rdquo;: &amp;ldquo;A simple Ionic app for Heroku&amp;rdquo;,
+&amp;ldquo;repository&amp;rdquo;: &amp;ldquo;&lt;a href=&#34;https://github.com/yourUsername/repositoryName%22,&#34;&gt;https://github.com/yourUsername/repositoryName&amp;quot;,&lt;/a&gt;
+&amp;ldquo;logo&amp;rdquo;: &amp;ldquo;logoURL&amp;rdquo;,
+&amp;ldquo;keywords&amp;rdquo;: [&amp;ldquo;ionic&amp;rdquo;, &amp;ldquo;Heroku&amp;rdquo;, &amp;ldquo;whatever&amp;rdquo;]
 }&lt;/p&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
-&lt;h6 id=&#34;setup-server-js&#34;&gt;Setup server.js&lt;/h6&gt;
-
+&lt;h6 id=&#34;setup-serverjs&#34;&gt;Setup server.js&lt;/h6&gt;
 &lt;p&gt;The last thing we need is the file which will be executed by Heroku. Heroku will look for a server.js,
 so create this file as well on the top level of your ionic project and insert:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 var express = require(&amp;lsquo;express&amp;rsquo;),
 app = express();
 app.use(express.static(&amp;lsquo;www&amp;rsquo;));
 app.set(&amp;lsquo;port&amp;rsquo;, process.env.PORT || 5000);
 app.listen(app.get(&amp;lsquo;port&amp;rsquo;), function () {
-    console.log(&amp;lsquo;Express server listening on port &amp;rsquo; + app.get(&amp;lsquo;port&amp;rsquo;));
+console.log(&amp;lsquo;Express server listening on port &#39; + app.get(&amp;lsquo;port&amp;rsquo;));
 });
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;Now you can test your app local. Instead of &lt;code&gt;ionic serve&lt;/code&gt;, we will install the modules and run it with our express server,
 so go ahead:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 npm install
 npm start
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;If you receive no error, you can access your app on &lt;code&gt;http://localhost:5000/&lt;/code&gt;. If you have problems, fix that at your local
 Once application works fine, You&amp;rsquo;re almost done! Make sure to commit/push these changes to your repo, so Heroku receives all files we just added.&lt;/p&gt;
-
 &lt;p&gt;Deploying your App on Heroku, The above workflow was just standard git stuff, now we make our Heroku deployment.
 To use Heroku from the command line, you need to have the Heroku-Toolbelt installed.
 If you are done, open your Terminal and type:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 heroku create
 git push heroku master
 {% endhighlight %}&lt;/p&gt;
-
 &lt;p&gt;This can take some time, depending on your project size. You can now try to open your app:&lt;/p&gt;
-
 &lt;p&gt;{% highlight ruby %}
 heroku open
 {% endhighlight %}&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

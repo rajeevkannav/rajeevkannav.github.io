@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="And if you get stuck… Ask Here        We&rsquo;re developing a Rails engine Message Broker which will do some awesome things.">
+  <meta name="description" content="We&rsquo;re developing a Rails engine Message Broker which will do some awesome things. As User Interface proposed by me is rejected from the scratch (May be you know the person) hence we opted Twitter-Bootstrap for Engine User Interface for simplicity.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2016-03-05-bootstrap-via-rails-engine/">
@@ -271,7 +271,7 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2016-03-05-bootstrap-via-rails-engine/">
   <meta property="og:title" content="using twitter-bootstrap via rails engine. | Rajeev Sharma">
-  <meta property="og:description" content="And if you get stuck… Ask Here        We&rsquo;re developing a Rails engine Message Broker which will do some awesome things."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="We&rsquo;re developing a Rails engine Message Broker which will do some awesome things. As User Interface proposed by me is rejected from the scratch (May be you know the person) hence we opted Twitter-Bootstrap for Engine User Interface for simplicity."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +321,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "And if you get stuck… Ask Here        We\u0026rsquo;re developing a Rails engine Message Broker which will do some awesome things."
+  "description": "We\u0026rsquo;re developing a Rails engine Message Broker which will do some awesome things. As User Interface proposed by me is rejected from the scratch (May be you know the person) hence we opted Twitter-Bootstrap for Engine User Interface for simplicity."
 }
 </script>
 
@@ -639,74 +639,47 @@
   <div class="article-container">
 
     <div class="article-style">
-      <nav>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li>
-<ul>
-<li><a href="#and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></a></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul></li>
-</ul>
-</nav>
-
-<p>We&rsquo;re developing a Rails engine <a href="https://github.com/rajeevkannav/message_broker/">Message Broker</a> which will do some
+      <p>We&rsquo;re developing a Rails engine 
+<a href="https://github.com/rajeevkannav/message_broker/" target="_blank" rel="noopener">Message Broker</a> which will do some
 awesome things. As User Interface proposed by me is rejected from the scratch (May be you know the person) hence we opted
 Twitter-Bootstrap for Engine User Interface for simplicity. following are the steps which need to be done to use
 Twitter-Bootstrap.</p>
-
 <ul>
-<li>add following to your engine_name.gemspec
-<br /></li>
-</ul>
-
+<li>
+<p>add following to your engine_name.gemspec</p>
 <p>{% highlight ruby %}</p>
-
-<pre><code> s.add_dependency 'bootstrap-sass', '~&gt; 3.2.0'        
- s.add_dependency 'sass-rails'
-</code></pre>
-
+<p>s.add_dependency &lsquo;bootstrap-sass&rsquo;, &lsquo;~&gt; 3.2.0&rsquo;     <br>
+s.add_dependency &lsquo;sass-rails&rsquo;</p>
 <p>{% endhighlight %}</p>
-
-<ul>
-<li><p>require bootstrap to lib/engine_name.rb <code>require 'bootstrap'</code></p></li>
-
-<li><p>Rename application.css to application.css.sass and add following code</p></li>
-</ul>
-
+</li>
+<li>
+<p>require bootstrap to lib/engine_name.rb <code>require 'bootstrap'</code></p>
+</li>
+<li>
+<p>Rename application.css to application.css.sass and add following code</p>
 <p>{% highlight ruby %}
-        @import &lsquo;bootstrap-sprockets&rsquo;<br />
-        @import &lsquo;bootstrap&rsquo;
-   {% endhighlight %}</p>
-
-<ul>
-<li>add <code>//= require bootstrap-sprockets</code> to your application.js after<br /></li>
-</ul>
-
+@import &lsquo;bootstrap-sprockets&rsquo;     <br>
+@import &lsquo;bootstrap&rsquo;
+{% endhighlight %}</p>
+</li>
+<li>
+<p>add <code>//= require bootstrap-sprockets</code> to your application.js after</p>
 <p>{% highlight ruby %}
-        //= require jquery<br />
-        //= require jquery_ujs
-   {% endhighlight %}</p>
-
-<ul>
-<li><p>apply changes to your application layout and views</p></li>
-
-<li><p>Restart Rails Server</p></li>
+//= require jquery     <br>
+//= require jquery_ujs
+{% endhighlight %}</p>
+</li>
+<li>
+<p>apply changes to your application layout and views</p>
+</li>
+<li>
+<p>Restart Rails Server</p>
+</li>
 </ul>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1068,7 +1041,7 @@ Twitter-Bootstrap.</p>
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

@@ -639,19 +639,14 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="problem">Problem:</h3>
-
+      <h3 id="problem">Problem:</h3>
 <pre><code> We've an Enterprise level Mobile/iPad application and we did
  major changes to our backEnd (Rails App) so as a usual process
  we uploaded new app version and waiting to approve via app-Store,
  We don't when Apple is going to approve it, We have to support
  previous and upcoming version and Solution must be easy/Generic.
 </code></pre>
-
 <h3 id="solution">Solution</h3>
-
 <pre><code>We configured our Mobile/iPad application to send a new parameter
 with every single request say version=1 Or Version=Beta then we 
 utilized nginx to redirect such request to servers who're capable
@@ -660,20 +655,18 @@ to serve New Changes and Others we're to old machines
 This could be an Hack or Not so good implementation but for now
 this seems easy, affordable and long term too.
 </code></pre>
-
-<h5 id="sudo-raw-solution-to-nginx-configuration">sudo/RAW solution to nginx configuration</h5>
-
+<h5 id="sudoraw-solution-to-nginx-configuration">sudo/RAW solution to nginx configuration</h5>
 <p>{% highlight ruby %}
 ##########################################################################
-    if ($arg_version) { //
-       rewrite ^/(.*) <a href="http://ip_addresss">http://ip_addresss</a> permanent; #new machine ip address
-    }
+if ($arg_version) { //
+rewrite ^/(.*) http://ip_addresss permanent; #new machine ip address
+}
 ##########################################################################`
 {% endhighlight %}</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1033,7 +1026,7 @@ this seems easy, affordable and long term too.
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

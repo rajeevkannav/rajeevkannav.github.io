@@ -17,57 +17,49 @@
       <link>/post/2017-03-24-over-the-air-update-oneplus-india-/</link>
       <pubDate>Fri, 31 Mar 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-03-24-over-the-air-update-oneplus-india-/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
 &lt;p&gt;Roll-out of OTA for OnePlus, generally comes to india after
 requirement and excitement dies.&lt;/p&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;p&gt;It&amp;rsquo;s a Quick Hack&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Install Opera VPN App.
-&lt;figure class=&#34;full&#34;&gt;
-&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-1.png&#34;&gt;&lt;/a&gt;
-&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Open App And connect to Canada(works always for me) Region.
-&lt;figure class=&#34;full&#34;&gt;
-&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-2.png&#34;&gt;&lt;/a&gt;
-&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Install Opera VPN App.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;p&gt;&lt;figure class=&#34;full&#34;&gt;
-    &lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-3.png&#34;&gt;&lt;/a&gt;
- &lt;/figure&gt;&lt;/p&gt;
-
+ &lt;figure class=&#34;full&#34;&gt;
+ 	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-1.png&#34;&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;Open App And connect to Canada(works always for me) Region.&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;figure class=&#34;full&#34;&gt;
+ 	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-2.png&#34;&gt;&lt;/a&gt;
+ &lt;/figure&gt;
+ &lt;figure class=&#34;full&#34;&gt;
+ 	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-3.png&#34;&gt;&lt;/a&gt;
+ &lt;/figure&gt;
 &lt;ul&gt;
 &lt;li&gt;Goto Settings -&amp;gt;&lt;/li&gt;
 &lt;li&gt;Goto System Updates -&amp;gt;&lt;/li&gt;
-&lt;li&gt;Goto Check for updates -&amp;gt;
-&lt;figure class=&#34;full&#34;&gt;
-&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-4.png&#34;&gt;&lt;/a&gt;
-&lt;/figure&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Install Updates -&amp;gt;
-&lt;figure class=&#34;full&#34;&gt;
-&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-5.png&#34;&gt;&lt;/a&gt;
-&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;Confirmation
-&lt;figure class=&#34;full&#34;&gt;
-&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-6.png&#34;&gt;&lt;/a&gt;
-&lt;/figure&gt;&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;Goto Check for updates -&amp;gt;&lt;/li&gt;
 &lt;/ul&gt;
-
+  &lt;figure class=&#34;full&#34;&gt;
+  	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-4.png&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+ * Install Updates -&gt; 
+  &lt;figure class=&#34;full&#34;&gt;
+  	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-5.png&#34;&gt;&lt;/a&gt;
+  &lt;/figure&gt;
+&lt;ul&gt;
+&lt;li&gt;Confirmation&lt;/li&gt;
+&lt;/ul&gt;
+ &lt;figure class=&#34;full&#34;&gt;
+ 	&lt;a href=&#34;javascript:void(0);&#34;&gt;&lt;img src=&#34;/images/ota-6.png&#34;&gt;&lt;/a&gt;
+ &lt;/figure&gt;
 &lt;h2 id=&#34;please-be-aware-about-langugae-support-for-your-phone-and-region-specfic-update&#34;&gt;Please be aware about langugae support for your phone and region specfic update&lt;/h2&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -76,44 +68,37 @@ requirement and excitement dies.&lt;/p&gt;
       <link>/post/2017-02-12-gemfile-audits-in-rails/</link>
       <pubDate>Sun, 12 Feb 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-02-12-gemfile-audits-in-rails/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
 &lt;p&gt;Ruby, majorly well-known for rapid web-development via rails.
 there are number of &lt;code&gt;rubygems&lt;/code&gt; coming everyday and un-countable
 versions of existing &lt;code&gt;rubygems&lt;/code&gt; are released per day. these
 updates may have problems like outdated support,vulnerabilities, bugs
 or deprecated features (In general it doesn&amp;rsquo;t happen).This may
 end-up project or major downtime.&lt;/p&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;p&gt;A very useful tool is built into bundler: &lt;code&gt;bundle outdated&lt;/code&gt;.
 You can see lists installed gems with newer versions available.
 Running bundle outdated looks like this:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;    % bundle outdated
     Fetching gem metadata from https://rubygems.org/...........
     Fetching version metadata from https://rubygems.org/..
     Fetching dependency metadata from https://rubygems.org/.
     Resolving dependencies....
-
+    
     Outdated gems included in the bundle:
       * gemname (newest 0.11.1, installed 0.9.0) in group &amp;quot;production&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;There are two more gems, those help a-lot and must try those are&lt;/p&gt;
-
 &lt;ul&gt;
-&lt;li&gt;[Gemnasium](&amp;lsquo;&lt;a href=&#34;https://gemnasium.com/&#39;&#34;&gt;https://gemnasium.com/&#39;&lt;/a&gt;)&lt;br /&gt;&lt;/li&gt;
-&lt;li&gt;[bundler-audit](&amp;lsquo;&lt;a href=&#34;https://github.com/rubysec/bundler-audit&#39;&#34;&gt;https://github.com/rubysec/bundler-audit&#39;&lt;/a&gt;)&lt;br /&gt;
-&lt;br /&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;%27https://gemnasium.com/%27&#34;&gt;Gemnasium&lt;/a&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;a href=&#34;%27https://github.com/rubysec/bundler-audit%27&#34;&gt;bundler-audit&lt;/a&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

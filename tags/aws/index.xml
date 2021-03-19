@@ -17,31 +17,22 @@
       <link>/post/2017-04-07-autoscaling-via-aws-cloudformation/</link>
       <pubDate>Fri, 07 Apr 2017 00:00:00 +0000</pubDate>
       <guid>/post/2017-04-07-autoscaling-via-aws-cloudformation/</guid>
-      <description>
-
-&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;problem&#34;&gt;Problem&lt;/h4&gt;
 &lt;p&gt;We&amp;rsquo;re currently looking into such an option to run multiple number
 of ec2 instances into already running environment(VPC) with launch
 configurations too.&lt;/p&gt;
-
 &lt;h4 id=&#34;solution&#34;&gt;Solution&lt;/h4&gt;
-
 &lt;pre&gt;&lt;code&gt;       Amazon web services - Cloudformation - AutoScaling
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;CloudFormation is one of the coolest services from AWS at no additional charge.
 You can run/start and update a full stack(collection of resources) over aws with
 the help of a template written in JSON/YAML by using the AWS Management Console,
 AWS Command Line Interface, or APIs. It gives developers and systems administrators
 an easy way to create and manage a collection of related AWS resources,
 provisioning and updating them.&lt;/p&gt;
-
-&lt;h5 id=&#34;syntax-and-example-s&#34;&gt;Syntax and Example(s)&lt;/h5&gt;
-
+&lt;h5 id=&#34;syntax-and-examples&#34;&gt;Syntax and Example(s)&lt;/h5&gt;
 &lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::AutoScalingGroup
- resource.&lt;/p&gt;
-
+resource.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{
    &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::AutoScalingGroup&amp;quot;,
    &amp;quot;Properties&amp;quot; : {
@@ -86,10 +77,8 @@ provisioning and updating them.&lt;/p&gt;
    }
 }
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;This example shows an Auto Scaling AWS::AutoScaling::LaunchConfiguration
- resource.&lt;/p&gt;
-
+resource.&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;{
    &amp;quot;Type&amp;quot; : &amp;quot;AWS::AutoScaling::LaunchConfiguration&amp;quot;,
    &amp;quot;Properties&amp;quot; : {
@@ -145,16 +134,14 @@ provisioning and updating them.&lt;/p&gt;
    }
 } 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;On the back-ground it will create given number of EC2 instances to current
 stack following with the launch-configurations.&lt;/p&gt;
-
 &lt;p&gt;Still we&amp;rsquo;re digging into AWS-CloudFormation as beginner level and continue
 with major-minor details with this blog series.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -163,45 +150,20 @@ with major-minor details with this blog series.&lt;/p&gt;
       <link>/post/2016-02-20-amazon-rds-sql-triggers/</link>
       <pubDate>Sat, 20 Feb 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-02-20-amazon-rds-sql-triggers/</guid>
-      <description>&lt;nav&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-&lt;p&gt;Few months ago we&amp;rsquo;ve tried to create SQL database triggers for an AWS RDS
+      <description>&lt;p&gt;Few months ago we&amp;rsquo;ve tried to create SQL database triggers for an AWS RDS
 instance and got following error.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;ERROR 1419 (HY000) at line #: You do not have the SUPER privilege
 and binary logging is enabled (you might want to use the less safe
 log_bin_trust_function_creators variable).
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Amazon RDS disable all user defined SQL code be default, as binary
 procedures could compromise the RDS architecture. And for this purpose, Amazon
 blocked granting the missing &lt;code&gt;SUPER&lt;/code&gt; privileges to any database user except the
 &lt;code&gt;rdsadmin&lt;/code&gt; user owned by Amazon itself.&lt;/p&gt;
-
 &lt;p&gt;As a workaround, there is an option to set the mysterious parameter
 &lt;code&gt;log_bin_trust_function_creators&lt;/code&gt; to 1, that prevents the database
 from complaining against simple and inoffensive triggers. Though,
 setting this parameter requires following steps:&lt;/p&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Open the RDS web console Goto the &lt;code&gt;Parameter Groups&lt;/code&gt; tab.&lt;/li&gt;
 &lt;li&gt;Create a new Parameter Group. On the dialog, select the MySQL
@@ -215,13 +177,12 @@ named &lt;code&gt;Modify&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Again, open the &lt;code&gt;Instances&lt;/code&gt; tab. Expand your MySQL instance and issue the
 &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Modify&lt;/code&gt;.&lt;/li&gt;
 &lt;li&gt;Dont forget: Open the &lt;code&gt;Instances&lt;/code&gt; tab. Expand your MySQL instance and issue
-the &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Reboot&lt;/code&gt;.
-&lt;br /&gt;&lt;/li&gt;
+the &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Reboot&lt;/code&gt;.&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -230,50 +191,23 @@ the &lt;code&gt;Instance Action&lt;/code&gt; named &lt;code&gt;Reboot&lt;/code&g
       <link>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</link>
       <pubDate>Sat, 26 Sep 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-09-26-mysql-connection-lost-during-qurey-rails/</guid>
-      <description>&lt;nav&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;
-&lt;ul&gt;
-&lt;li&gt;&lt;a href=&#34;#and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/a&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-&lt;/ul&gt;
-&lt;/nav&gt;
-
-&lt;p&gt;In our Rails Application we faced several exception(s) saying&lt;/p&gt;
-
+      <description>&lt;p&gt;In our Rails Application we faced several exception(s) saying&lt;/p&gt;
 &lt;pre&gt;&lt;code&gt;Mysql2::Error: Lost connection to MySQL server during query
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Usually it indicates network connectivity trouble and you should check the condition of your network if this error
 occurs frequently. If the error message includes “during query,” this is probably the case you are experiencing.&lt;/p&gt;
-
 &lt;p&gt;Sometimes the &lt;code&gt;during query&lt;/code&gt; form happens when millions of rows are being sent as part of one or more queries. If you
 know that this is happening, you should try increasing &lt;code&gt;net_read_timeout&lt;/code&gt; from its default of 30 seconds to 60 seconds
 or longer, sufficient for the data transfer to complete.&lt;/p&gt;
-
 &lt;p&gt;In our case luckily we&amp;rsquo;re on Amazon Relational Database Machine(s), so it can be done easily and Quickly.&lt;/p&gt;
-
 &lt;p&gt;Visit &lt;code&gt;Parameter Groups&lt;/code&gt; of your Amazon RDS machine. update &lt;code&gt;net_read_timeout&lt;/code&gt; value of that group which is being used.
 we make it 3600. default unit in mysql is seconds&lt;/p&gt;
-
 &lt;p&gt;Re-booted the rds instance, though it was a down for a while. After that a new sun arise we&amp;rsquo;ve not face such exceptions
 yet. still we&amp;rsquo;re investigating.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

@@ -17,51 +17,39 @@
       <link>/post/2016-04-09-mobile-test-automation-framework-appium-ruby/</link>
       <pubDate>Sat, 09 Apr 2016 00:00:00 +0000</pubDate>
       <guid>/post/2016-04-09-mobile-test-automation-framework-appium-ruby/</guid>
-      <description>
-
-&lt;p&gt;[Appium](&amp;lsquo;&lt;a href=&#34;http://appium.io/&#39;&#34;&gt;http://appium.io/&#39;&lt;/a&gt;) is an open source test automation tool for mobile applications. Which is capable to test
+      <description>&lt;p&gt;
+&lt;a href=&#34;%27http://appium.io/%27&#34;&gt;Appium&lt;/a&gt; is an open source test automation tool for mobile applications. Which is capable to test
 any kind of mobile application: native, hybrid and mobile web for iOs and android platform. It can also run the automated
 tests on devices as well as emulators.&lt;/p&gt;
-
 &lt;p&gt;We all have our mobile applications in at least these two major platforms and we need such a beautiful automation tool
 like &lt;code&gt;appium&lt;/code&gt;. It allows testing cross platform. It seems easy as such same code base is sufficient enough for both different
 frameworks.&lt;/p&gt;
-
 &lt;p&gt;The basic philosophy of &lt;code&gt;Appium&lt;/code&gt; is that you should be able to reuse code between iOS and Android, and that’s why
 when you see the API they are same across iOS and android. Another important thing to highlight here is that
 unlike Calabash, &lt;code&gt;Appium&lt;/code&gt; doesn’t modify your app or need you to even recompile the app.&lt;/p&gt;
-
 &lt;p&gt;You may choose any of your preferred language as it&amp;rsquo;s an open source project there are wrappers available in every major
 language.&lt;/p&gt;
-
 &lt;h1 id=&#34;appium-architecture&#34;&gt;Appium Architecture&lt;/h1&gt;
-
 &lt;p&gt;Let’s try to understand what happens behind the scenes.&lt;/p&gt;
-
 &lt;p&gt;&lt;code&gt;Appium&lt;/code&gt; server which actullay you download is written in Node.js and that implements the Selenium WebDriver. It allows
 one to use available WebDriver client to fire your tests and then your mobile app acts precisely like a web app where
 the DOM is represented by View hierarchy.&lt;/p&gt;
-
 &lt;p&gt;So this server basically exposes REST api which performs the following actions:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt; Receives connection from client
  Listen command
  Execute command
  Respond back the command execution status
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;In terms of architecture diagram, below is how &lt;code&gt;Appium&lt;/code&gt; can be explained.&lt;/p&gt;
-
 &lt;figure class=&#34;half&#34;&gt;
     &lt;a href=&#34;/images/appium_architecture.jpg&#34;&gt;&lt;img src=&#34;/images/appium_architecture.jpg&#34;&gt;&lt;/a&gt;
     &lt;figcaption&gt;`Appium` Architecture&lt;/figcaption&gt;
 &lt;/figure&gt;
-
 &lt;p&gt;We&amp;rsquo;re going to dive into &lt;code&gt;appium&lt;/code&gt; a bit more, and we&amp;rsquo;ll be bind it to ruby in text series.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -70,64 +58,45 @@ the DOM is represented by View hierarchy.&lt;/p&gt;
       <link>/post/2015-06-13-linuxbrew-node-installation-ubuntu/</link>
       <pubDate>Sat, 13 Jun 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-06-13-linuxbrew-node-installation-ubuntu/</guid>
-      <description>
-
-&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
-
-&lt;p&gt;Linuxbrew is a fork of &lt;a href=&#34;http://brew.sh/&#34;&gt;Homebrew&lt;/a&gt; , the Mac OS package manager, for Linux.&lt;/p&gt;
-
+      <description>&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
+&lt;p&gt;Linuxbrew is a fork of 
+&lt;a href=&#34;http://brew.sh/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Homebrew&lt;/a&gt; , the Mac OS package manager, for Linux.&lt;/p&gt;
 &lt;h3 id=&#34;dependencies&#34;&gt;Dependencies&lt;/h3&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Ruby 1.8.6 or newer&lt;/li&gt;
 &lt;li&gt;GCC 4.2 or newer&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;64-bit x86 platform&lt;/p&gt;
-
-&lt;p&gt;sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;64-bit x86 platform&lt;/li&gt;
 &lt;/ul&gt;
-
+&lt;pre&gt;&lt;code&gt;sudo apt-get install build-essential curl git m4 ruby texinfo libbz2-dev libcurl4-openssl-dev libexpat-dev libncurses-dev zlib1g-dev
+&lt;/code&gt;&lt;/pre&gt;
 &lt;h3 id=&#34;install-linuxbrew&#34;&gt;Install Linuxbrew&lt;/h3&gt;
-
 &lt;p&gt;Paste at Terminal prompt:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;ruby -e &amp;quot;$(curl -fsSL https://raw.githubusercontent.com/Homebrew/linuxbrew/go/install)&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Add to your .bashrc or .zshrc:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;export PATH=&amp;quot;$HOME/.linuxbrew/bin:$PATH&amp;quot;
 export MANPATH=&amp;quot;$HOME/.linuxbrew/share/man:$MANPATH&amp;quot;
 export INFOPATH=&amp;quot;$HOME/.linuxbrew/share/info:$INFOPATH&amp;quot;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;then:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;source ~/.bashrc
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;update-linuxbrew&#34;&gt;update Linuxbrew&lt;/h3&gt;
-
 &lt;p&gt;Paste at a Terminal prompt:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;    brew update
     brew doctor
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;install-node-package&#34;&gt;Install “node” Package&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt; brew install node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;confirm-installation&#34;&gt;Confirm Installation&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt;node -v # Output should be something like v0.12.4
 npm -v  # Output should be something like 2.10.1  
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -136,95 +105,69 @@ npm -v  # Output should be something like 2.10.1
       <link>/post/2015-06-12-uninstall-install-node-nodejs-npm-ubuntu/</link>
       <pubDate>Fri, 12 Jun 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-06-12-uninstall-install-node-nodejs-npm-ubuntu/</guid>
-      <description>
-
-&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;remove-old-node-package-to-avoid-conflicts&#34;&gt;Remove old “node” Package to Avoid Conflicts&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt;$ dpkg --get-selections | grep node
 ax25-node                                       install
 node                                            install
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;If you found the old “node” package installed, run this command to completely remove it:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get remove --purge node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;script async src=&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;&gt;&lt;/script&gt;
-&lt;ins class=&#34;adsbygoogle&#34;
-     style=&#34;display:block&#34;
-     data-ad-client=&#34;ca-pub-1411898088670168&#34;
-     data-ad-slot=&#34;3525987534&#34;
-     data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;
+&lt;p&gt;&lt;ins class=&#34;adsbygoogle&#34;
+style=&#34;display:block&#34;
+data-ad-client=&#34;ca-pub-1411898088670168&#34;
+data-ad-slot=&#34;3525987534&#34;
+data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;script&gt;
 (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;
-
-&lt;h3 id=&#34;install-node-js-with-ubuntu-package-manager&#34;&gt;Install Node.js with Ubuntu Package Manager&lt;/h3&gt;
-
+&lt;h3 id=&#34;install-nodejs-with-ubuntu-package-manager&#34;&gt;Install Node.js with Ubuntu Package Manager&lt;/h3&gt;
 &lt;p&gt;To install Node.js, open a terminal and type the following command:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs 
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Then install the Node package manager called “npm”:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install npm
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Create a symbolic link for “node” as many Node.js tools use this name to execute.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo ln -s /usr/bin/nodejs /usr/bin/node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Now we should have both the node and npm commands working:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ node -v
 v0.10.25
 $ npm -v
 1.3.10
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;script async src=&#34;//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js&#34;&gt;&lt;/script&gt;
-&lt;ins class=&#34;adsbygoogle&#34;
-     style=&#34;display:block&#34;
-     data-ad-client=&#34;ca-pub-1411898088670168&#34;
-     data-ad-slot=&#34;3525987534&#34;
-     data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;
+&lt;p&gt;&lt;ins class=&#34;adsbygoogle&#34;
+style=&#34;display:block&#34;
+data-ad-client=&#34;ca-pub-1411898088670168&#34;
+data-ad-slot=&#34;3525987534&#34;
+data-ad-format=&#34;auto&#34;&gt;&lt;/ins&gt;&lt;/p&gt;
 &lt;script&gt;
 (adsbygoogle = window.adsbygoogle || []).push({});
 &lt;/script&gt;
-
-&lt;h3 id=&#34;install-node-js-with-maintained-ubuntu-packages&#34;&gt;Install Node.js with Maintained Ubuntu Packages&lt;/h3&gt;
-
+&lt;h3 id=&#34;install-nodejs-with-maintained-ubuntu-packages&#34;&gt;Install Node.js with Maintained Ubuntu Packages&lt;/h3&gt;
 &lt;p&gt;The process below is described here, too.&lt;/p&gt;
-
 &lt;p&gt;Add the Node.js maintained repositories to your Ubuntu package source list with this command:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;curl -sL https://deb.nodesource.com/setup | sudo bash -
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Then install Node.js with apt-get:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo apt-get install nodejs
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Optionally we can create a symbolic link for “node” (for reasons mentioned earlier):&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;sudo ln -s /usr/bin/nodejs /usr/bin/node
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;p&gt;Using this install option, we end up with newer versions of “nodejs” and “npm”:&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;$ node -v
 v0.10.35
 $ npm -v
 1.4.28
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -233,28 +176,21 @@ $ npm -v
       <link>/post/2015-03-21-ionic-hide-keyboard/</link>
       <pubDate>Sat, 21 Mar 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-03-21-ionic-hide-keyboard/</guid>
-      <description>
-
-&lt;p&gt;On both Android and iOS, Ionic will attempt to prevent the keyboard from obscuring inputs and focusable elements when it
+      <description>&lt;p&gt;On both Android and iOS, Ionic will attempt to prevent the keyboard from obscuring inputs and focusable elements when it
 appears by scrolling them into view. In order for this to work, any focusable elements must be within a Scroll View or a
 directive such as Content that has a Scroll View.&lt;/p&gt;
-
 &lt;h3 id=&#34;hide-when-keyboard-shows&#34;&gt;Hide when keyboard shows&lt;/h3&gt;
-
 &lt;p&gt;To hide an element when the keyboard is open, add the class hide-on-keyboard-open.&lt;/p&gt;
-
 &lt;pre&gt;&lt;code&gt;&amp;lt;div class=&amp;quot;hide-on-keyboard-open&amp;quot;&amp;gt;
   &amp;lt;div id=&amp;quot;google-map&amp;quot;&amp;gt;&amp;lt;/div&amp;gt;
 &amp;lt;/div&amp;gt;
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;plugin-usage&#34;&gt;Plugin Usage&lt;/h3&gt;
-
 &lt;p&gt;Information on using the plugin can be found at &lt;a href=&#34;https://github.com/driftyco/ionic-plugins-keyboard&#34;&gt;https://github.com/driftyco/ionic-plugins-keyboard&lt;/a&gt;.&lt;/p&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -263,10 +199,7 @@ directive such as Content that has a Scroll View.&lt;/p&gt;
       <link>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</link>
       <pubDate>Mon, 02 Mar 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-03-02-install-android-cordova-and-ionic-framework-in-ubuntu/</guid>
-      <description>
-
-&lt;h4 id=&#34;requirements&#34;&gt;Requirements:&lt;/h4&gt;
-
+      <description>&lt;h4 id=&#34;requirements&#34;&gt;Requirements:&lt;/h4&gt;
 &lt;ul&gt;
 &lt;li&gt;Java JDK&lt;/li&gt;
 &lt;li&gt;Apache Ant&lt;/li&gt;
@@ -275,9 +208,7 @@ directive such as Content that has a Scroll View.&lt;/p&gt;
 &lt;li&gt;Apache Cordova&lt;/li&gt;
 &lt;li&gt;Ionic Framework&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;h4 id=&#34;steps&#34;&gt;Steps:&lt;/h4&gt;
-
 &lt;pre&gt;&lt;code&gt;* Download a shell script by clicking on this link 
 ** https://github.com/nraboy/ubuntu-ionic-installer/archive/master.zip  
 * Extract and goto extracted folder.
@@ -290,10 +221,10 @@ directive such as Content that has a Scroll View.&lt;/p&gt;
 * ionic build android
 * That&#39;s It.
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me &lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

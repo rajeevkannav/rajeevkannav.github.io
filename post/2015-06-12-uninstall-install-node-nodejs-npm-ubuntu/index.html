@@ -639,95 +639,69 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="remove-old-node-package-to-avoid-conflicts">Remove old “node” Package to Avoid Conflicts</h3>
-
+      <h3 id="remove-old-node-package-to-avoid-conflicts">Remove old “node” Package to Avoid Conflicts</h3>
 <pre><code>$ dpkg --get-selections | grep node
 ax25-node                                       install
 node                                            install
 </code></pre>
-
 <p>If you found the old “node” package installed, run this command to completely remove it:</p>
-
 <pre><code>sudo apt-get remove --purge node
 </code></pre>
-
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1411898088670168"
-     data-ad-slot="3525987534"
-     data-ad-format="auto"></ins>
+<p><ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-1411898088670168"
+data-ad-slot="3525987534"
+data-ad-format="auto"></ins></p>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
-<h3 id="install-node-js-with-ubuntu-package-manager">Install Node.js with Ubuntu Package Manager</h3>
-
+<h3 id="install-nodejs-with-ubuntu-package-manager">Install Node.js with Ubuntu Package Manager</h3>
 <p>To install Node.js, open a terminal and type the following command:</p>
-
 <pre><code>sudo apt-get install nodejs 
 </code></pre>
-
 <p>Then install the Node package manager called “npm”:</p>
-
 <pre><code>sudo apt-get install npm
 </code></pre>
-
 <p>Create a symbolic link for “node” as many Node.js tools use this name to execute.</p>
-
 <pre><code>sudo ln -s /usr/bin/nodejs /usr/bin/node
 </code></pre>
-
 <p>Now we should have both the node and npm commands working:</p>
-
 <pre><code>$ node -v
 v0.10.25
 $ npm -v
 1.3.10
 </code></pre>
-
 <script async src="//pagead2.googlesyndication.com/pagead/js/adsbygoogle.js"></script>
-<ins class="adsbygoogle"
-     style="display:block"
-     data-ad-client="ca-pub-1411898088670168"
-     data-ad-slot="3525987534"
-     data-ad-format="auto"></ins>
+<p><ins class="adsbygoogle"
+style="display:block"
+data-ad-client="ca-pub-1411898088670168"
+data-ad-slot="3525987534"
+data-ad-format="auto"></ins></p>
 <script>
 (adsbygoogle = window.adsbygoogle || []).push({});
 </script>
-
-<h3 id="install-node-js-with-maintained-ubuntu-packages">Install Node.js with Maintained Ubuntu Packages</h3>
-
+<h3 id="install-nodejs-with-maintained-ubuntu-packages">Install Node.js with Maintained Ubuntu Packages</h3>
 <p>The process below is described here, too.</p>
-
 <p>Add the Node.js maintained repositories to your Ubuntu package source list with this command:</p>
-
 <pre><code>curl -sL https://deb.nodesource.com/setup | sudo bash -
 </code></pre>
-
 <p>Then install Node.js with apt-get:</p>
-
 <pre><code>sudo apt-get install nodejs
 </code></pre>
-
 <p>Optionally we can create a symbolic link for “node” (for reasons mentioned earlier):</p>
-
 <pre><code>sudo ln -s /usr/bin/nodejs /usr/bin/node
 </code></pre>
-
 <p>Using this install option, we end up with newer versions of “nodejs” and “npm”:</p>
-
 <pre><code>$ node -v
 v0.10.35
 $ npm -v
 1.4.28
 </code></pre>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me </b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me </b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1089,7 +1063,7 @@ $ npm -v
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

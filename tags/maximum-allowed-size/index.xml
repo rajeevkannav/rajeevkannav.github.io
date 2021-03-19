@@ -17,129 +17,95 @@
       <link>/post/2015-11-21-code-push-cordova-microsoft-ionic/</link>
       <pubDate>Sat, 21 Nov 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-11-21-code-push-cordova-microsoft-ionic/</guid>
-      <description>
-
-&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt; We&#39;re using an Mobile Application creator framework which need to update application instantly.
  Without using Store(s) Google-Play, App-store and as expected solution must be easy/Generic.
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
-
 &lt;h4 id=&#34;codepush&#34;&gt;CodePush&lt;/h4&gt;
-
 &lt;pre&gt;&lt;code&gt;CodePush is a cloud service that enables Cordova and React Native developers to deploy mobile app updates directly
 to their users’ devices. It works by acting as a central repository that developers can publish certain updates to
 (e.g. JS, HTML, CSS and image changes), and that apps can query for updates from (using our provided client SDKs).
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h5 id=&#34;how-to-give-it-a-try&#34;&gt;How to give it a Try.&lt;/h5&gt;
-
 &lt;h6 id=&#34;install-the-codepush-cli&#34;&gt;Install the CodePush CLI&lt;/h6&gt;
-
 &lt;p&gt;&lt;code&gt;npm install -g code-push-cli # may be with sudo&lt;/code&gt;&lt;/p&gt;
-
 &lt;h6 id=&#34;create-a-codepush-account&#34;&gt;Create a CodePush account&lt;/h6&gt;
-
 &lt;p&gt;&lt;code&gt;code-push register&lt;/code&gt;&lt;/p&gt;
-
 &lt;h6 id=&#34;dologin&#34;&gt;doLogin()&lt;/h6&gt;
-
 &lt;p&gt;&lt;code&gt;code-push login&lt;/code&gt;&lt;/p&gt;
-
 &lt;h6 id=&#34;create-a-blank-ionic-app-lets-call-it-instantapp&#34;&gt;create a blank Ionic App, lets call it instantApp&lt;/h6&gt;
-
 &lt;p&gt;&lt;code&gt;$ ionic start instantApp sidemenu&lt;/code&gt;&lt;/p&gt;
-
 &lt;h6 id=&#34;codepush-ify-your-mobile-client&#34;&gt;CodePush-ify your mobile client&lt;/h6&gt;
-
 &lt;p&gt;&lt;code&gt;cordova plugin add cordova-plugin-code-push&lt;/code&gt;&lt;/p&gt;
-
 &lt;h6 id=&#34;register-your-app-with-the-service&#34;&gt;Register your app with the service&lt;/h6&gt;
-
 &lt;p&gt;&lt;code&gt;code-push app add instantApp&lt;/code&gt; # you&amp;rsquo;ll get deployment keys per environment&lt;/p&gt;
-
 &lt;h6 id=&#34;create-one-deployment-per-target-platform-using-the&#34;&gt;Create one deployment per target platform using the&lt;/h6&gt;
-
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
-&lt;p&gt;&lt;platform name=&#34;android&#34;&gt;
+&lt;platform name=&#34;android&#34;&gt;
     &lt;preference name=&#34;CodePushDeploymentKey&#34; value=&#34;YOUR-ANDROID-DEPLOYMENT-KEY&#34; /&gt;
 &lt;/platform&gt;
 &lt;platform name=&#34;ios&#34;&gt;
     &lt;preference name=&#34;CodePushDeploymentKey&#34; value=&#34;YOUR-IOS-DEPLOYMENT-KEY&#34; /&gt;
-&lt;/platform&gt;&lt;/p&gt;
-
+&lt;/platform&gt;
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
 &lt;h6 id=&#34;allow-access-to-the-codepush-server&#34;&gt;Allow access to the CodePush server:&lt;/h6&gt;
-
 &lt;ul&gt;
 &lt;li&gt;In config.xml, add
 &lt;code&gt;&amp;lt;access origin=&amp;quot;https://codepush.azurewebsites.net/ &amp;quot; /&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;li&gt;In your html pages where the plugin is used, add the server URL to your existing Content Security Policy (CSP) header:
-&lt;code&gt;&amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;default-src https://codepush.azurewebsites.net/ &#39;self&#39; ... &amp;quot;&amp;gt;&lt;/code&gt;
-&lt;br /&gt;&lt;/li&gt;
+&lt;code&gt;&amp;lt;meta http-equiv=&amp;quot;Content-Security-Policy&amp;quot; content=&amp;quot;default-src https://codepush.azurewebsites.net/ &#39;self&#39; ... &amp;quot;&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h6 id=&#34;dosomecode-it-s-sample&#34;&gt;doSomeCode It&amp;rsquo;s Sample&lt;/h6&gt;
-
+&lt;h6 id=&#34;dosomecode-its-sample&#34;&gt;doSomeCode It&amp;rsquo;s Sample&lt;/h6&gt;
 &lt;p&gt;{% highlight ruby %}&lt;/p&gt;
-
 &lt;p&gt;var onError = function (error) {
-      console.log(&amp;ldquo;An error occurred. &amp;rdquo; + error);
-  };&lt;/p&gt;
-
+console.log(&amp;ldquo;An error occurred. &amp;quot; + error);
+};&lt;/p&gt;
 &lt;p&gt;var onApplySuccess = function () {
-      console.log(&amp;ldquo;Apply succeeded. Reloading the application&amp;hellip;&amp;rdquo;);
-  };&lt;/p&gt;
-
+console.log(&amp;ldquo;Apply succeeded. Reloading the application&amp;hellip;&amp;quot;);
+};&lt;/p&gt;
 &lt;p&gt;var onPackageDownloaded = function (localPackage) {
-      localPackage.apply(onApplySuccess, onError);
-  };&lt;/p&gt;
-
+localPackage.apply(onApplySuccess, onError);
+};&lt;/p&gt;
 &lt;p&gt;var onUpdateCheck = function (remotePackage) {
-      if (!remotePackage) {
-          console.log(&amp;ldquo;The application is up to date.&amp;rdquo;);
-      } else {
-          console.log(&amp;ldquo;A CodePush update is available. Package hash: &amp;ldquo; + remotePackage.packageHash);
-          remotePackage.download(onPackageDownloaded, onError);
-      }
-  };&lt;/p&gt;
-
+if (!remotePackage) {
+console.log(&amp;ldquo;The application is up to date.&amp;quot;);
+} else {
+console.log(&amp;ldquo;A CodePush update is available. Package hash: &amp;quot; + remotePackage.packageHash);
+remotePackage.download(onPackageDownloaded, onError);
+}
+};&lt;/p&gt;
 &lt;p&gt;window.codePush.checkForUpdate(onUpdateCheck, onError);&lt;/p&gt;
-
 &lt;p&gt;{% endhighlight %}&lt;/p&gt;
-
 &lt;h6 id=&#34;create-an-application-update-package&#34;&gt;Create an application update package&lt;/h6&gt;
-
 &lt;ul&gt;
 &lt;li&gt;Prepare your application
-&lt;code&gt;cordova prepare &amp;lt;platform&amp;gt;&lt;/code&gt;
-&lt;br /&gt;&lt;/li&gt;
+&lt;code&gt;cordova prepare &amp;lt;platform&amp;gt;&lt;/code&gt;&lt;/li&gt;
 &lt;/ul&gt;
-
 &lt;p&gt;We are not deploying binaries in updates, so prepare is enough for this step. The cordova build command works as well
- for this step, since it calls cordova prepare behind the scenes.&lt;/p&gt;
-
+for this step, since it calls cordova prepare behind the scenes.&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;Deploy update using the CodePush CLI&lt;/p&gt;
-
+&lt;li&gt;
+&lt;p&gt;Deploy update using the CodePush CLI&lt;/p&gt;
 &lt;ul&gt;
-&lt;li&gt;&lt;p&gt;For Android:&lt;br /&gt;
-&lt;code&gt;code-push release &amp;lt;appName&amp;gt; path_to_your_app/platforms/android/assets/www &amp;lt;appStoreVersion&amp;gt; --deploymentName &amp;lt;AndroidDeploymentName&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;For iOS:
-&lt;code&gt;code-push release &amp;lt;appName&amp;gt; path_to_your_app/platforms/ios/www &amp;lt;appStoreVersion&amp;gt; --deploymentName &amp;lt;iOSDeploymentName&amp;gt;&lt;/code&gt;&lt;/p&gt;&lt;/li&gt;
-&lt;/ul&gt;&lt;/li&gt;
-
-&lt;li&gt;&lt;p&gt;The service should now return an update when calling &lt;code&gt;codePush.checkForUpdate&lt;/code&gt;.&lt;/p&gt;&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For Android:&lt;br&gt;
+&lt;code&gt;code-push release &amp;lt;appName&amp;gt; path_to_your_app/platforms/android/assets/www &amp;lt;appStoreVersion&amp;gt; --deploymentName &amp;lt;AndroidDeploymentName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;For iOS:
+&lt;code&gt;code-push release &amp;lt;appName&amp;gt; path_to_your_app/platforms/ios/www &amp;lt;appStoreVersion&amp;gt; --deploymentName &amp;lt;iOSDeploymentName&amp;gt;&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
 &lt;/ul&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;The service should now return an update when calling &lt;code&gt;codePush.checkForUpdate&lt;/code&gt;.&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     
@@ -148,41 +114,32 @@ to their users’ devices. It works by acting as a central repository that devel
       <link>/post/2015-11-14-nginx-upload-file-size-limit/</link>
       <pubDate>Sat, 14 Nov 2015 00:00:00 +0000</pubDate>
       <guid>/post/2015-11-14-nginx-upload-file-size-limit/</guid>
-      <description>
-
-&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
-
+      <description>&lt;h3 id=&#34;problem&#34;&gt;Problem:&lt;/h3&gt;
 &lt;pre&gt;&lt;code&gt; We&#39;ve an Enterprise level Rails application and we need to have 
  Upload size restrictions because this could lead to a DOS(denial-of-service)
  to the application via filling the HDD or utilizing web resources and 
  solution must be easy/Generic.
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;solution&#34;&gt;Solution&lt;/h3&gt;
-
 &lt;pre&gt;&lt;code&gt;We updated our nginx configuration `client_max_body_size size` which
 sets the maximum allowed size of the client request body, specified
 in the “Content-Length” request header field. If the size in a request
 exceeds the configured value, the 413 (Request Entity Too Large) error
 is returned to the client. 
 &lt;/code&gt;&lt;/pre&gt;
-
-&lt;h5 id=&#34;sudo-raw-solution-to-nginx-configuration&#34;&gt;sudo/RAW solution to nginx configuration&lt;/h5&gt;
-
+&lt;h5 id=&#34;sudoraw-solution-to-nginx-configuration&#34;&gt;sudo/RAW solution to nginx configuration&lt;/h5&gt;
 &lt;p&gt;{% highlight ruby %}
 client_max_body_size 50m; # 50MB for file size restriction
 {% endhighlight %}&lt;/p&gt;
-
-&lt;pre&gt;&lt;code&gt;Syntax:     client_max_body_size size;
-Default:    client_max_body_size 1m;
-Context:    http, server, location
+&lt;pre&gt;&lt;code&gt;Syntax: 	client_max_body_size size;
+Default: 	client_max_body_size 1m;
+Context: 	http, server, location
 &lt;/code&gt;&lt;/pre&gt;
-
 &lt;h3 id=&#34;please-be-aware-that-browsers-cannot-correctly-display-this-error-setting-size-to-0-disables-checking-of-client-request-body-size&#34;&gt;Please be aware that browsers cannot correctly display this error. Setting size to 0 disables checking of client request body size.&lt;/h3&gt;
-
-&lt;h6 id=&#34;and-if-you-get-stuck-ask-here-http-stackoverflow-com&#34;&gt;And if you get stuck… &lt;a href=&#34;http://stackoverflow.com/&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
-
-&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  &lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
+&lt;h6 id=&#34;and-if-you-get-stuck-ask-herehttpstackoverflowcom&#34;&gt;And if you get stuck… 
+&lt;a href=&#34;http://stackoverflow.com/&#34; target=&#34;_blank&#34; rel=&#34;noopener&#34;&gt;Ask Here&lt;/a&gt;&lt;/h6&gt;
+&lt;p&gt;&lt;sup&gt; &lt;b&gt;email me&lt;/b&gt;  
+&lt;a href=&#34;#myfootnote1&#34;&gt;rajeevsharma86@gmail.com&lt;/a&gt;&lt;/sup&gt;&lt;/p&gt;
 </description>
     </item>
     

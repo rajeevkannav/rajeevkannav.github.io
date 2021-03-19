@@ -639,57 +639,45 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="apple-app-distribution">Apple App Distribution</h3>
-
+      <h3 id="apple-app-distribution">Apple App Distribution</h3>
 <p>Distributing an iPhone application is a headache. We(our iOs Team) use a service called
-  <a href="https://www.diawi.com/">Diawi</a> to deploy Development and In-house applications directly
-  to the devices. We must need to add allowed devices already to those provisioning profile
-  and these files with ipa to diawi.</p>
 
+<a href="https://www.diawi.com/" target="_blank" rel="noopener">Diawi</a> to deploy Development and In-house applications directly
+to the devices. We must need to add allowed devices already to those provisioning profile
+and these files with ipa to diawi.</p>
 <h3 id="problem">Problem</h3>
-
-<p><a href="https://www.diawi.com/">Diawi</a> provides a link with an expiry time and we need to share
-  provisioning profile and certificates with them too. Everytime they produce a new link.</p>
-
+<p>
+<a href="https://www.diawi.com/" target="_blank" rel="noopener">Diawi</a> provides a link with an expiry time and we need to share
+provisioning profile and certificates with them too. Everytime they produce a new link.</p>
 <h3 id="solution">Solution</h3>
-
 <ul>
 <li>generate an IPA via xcode/CLI</li>
 <li>get the link of the IPA and add in the plist</li>
 <li>place generated plist file in drop box</li>
 <li>get the link from the dropbox</li>
-<li>construct an items link with the dropbox
-<br /></li>
+<li>construct an items link with the dropbox</li>
 </ul>
-
 <p>You can send the items link to the testing team to use the file for testing.
-  This setting up is an one time process and for further changes and the updates
-  you just replace the IPA file is the already uploaded path. The testing team
-  in the remote can fetch the updated file with the same link path.</p>
-
+This setting up is an one time process and for further changes and the updates
+you just replace the IPA file is the already uploaded path. The testing team
+in the remote can fetch the updated file with the same link path.</p>
 <p>A sample items link is given below.</p>
-
 <pre><code>itms-services://?action=download-manifest&amp;url=https://myWebsite/myApp/myApp.plist
 
 itms-services://?action=download-manifest&amp;url=&lt;Dropbox URL&gt;
 </code></pre>
-
 <h4 id="note">Note:</h4>
-
 <pre><code>We haven't implemented this yet to our iOS Team app distibution process, We got this excellent
 idea from the reference given below, By this way, for sure we'll solve the issue of testing of
 iOS apps with the team in a remote location.
 </code></pre>
-
 <h3 id="references">References:</h3>
-
-<p><a href="http://54.173.149.226/2016/09/how-to-send-test-version-over-the-air-ota/">Mallow Technologies Private Limited</a></p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<p>
+<a href="http://54.173.149.226/2016/09/how-to-send-test-version-over-the-air-ota/" target="_blank" rel="noopener">Mallow Technologies Private Limited</a></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1045,7 +1033,7 @@ iOS apps with the team in a remote location.
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 

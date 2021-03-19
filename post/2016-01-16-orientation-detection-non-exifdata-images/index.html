@@ -28,7 +28,7 @@
   
     
   
-  <meta name="description" content="Problem: We&#39;ve a Enterprise level application which process images from pdf(s). We&#39;ve to represent those images to exact image Orientation with intelligence. User May rotete images if Auto-Rotation Algorithm failed.">
+  <meta name="description" content="Problem: We&#39;ve a Enterprise level application which process images from pdf(s). We&#39;ve to represent those images to exact image Orientation with intelligence. User May rotete images if Auto-Rotation Algorithm failed.  TESSERACT tesseract(1) is a commercial quality OCR engine originally developed at HP between 1985 and 1995.">
 
   
   <link rel="alternate" hreflang="en-us" href="/post/2016-01-16-orientation-detection-non-exifdata-images/">
@@ -271,7 +271,7 @@
   <meta property="og:site_name" content="Rajeev Sharma">
   <meta property="og:url" content="/post/2016-01-16-orientation-detection-non-exifdata-images/">
   <meta property="og:title" content="Orientation detection for NON-EXIF data/Text Images. | Rajeev Sharma">
-  <meta property="og:description" content="Problem: We&#39;ve a Enterprise level application which process images from pdf(s). We&#39;ve to represent those images to exact image Orientation with intelligence. User May rotete images if Auto-Rotation Algorithm failed."><meta property="og:image" content="/img/rajeevkannav.jpeg">
+  <meta property="og:description" content="Problem: We&#39;ve a Enterprise level application which process images from pdf(s). We&#39;ve to represent those images to exact image Orientation with intelligence. User May rotete images if Auto-Rotation Algorithm failed.  TESSERACT tesseract(1) is a commercial quality OCR engine originally developed at HP between 1985 and 1995."><meta property="og:image" content="/img/rajeevkannav.jpeg">
   <meta property="twitter:image" content="/img/rajeevkannav.jpeg"><meta property="og:locale" content="en-us">
   
     
@@ -321,7 +321,7 @@
       "url": "/images/icon_hu0b7a4cb9992c9ac0e91bd28ffd38dd00_9727_192x192_fill_lanczos_center_2.png"
     }
   },
-  "description": "Problem: We've a Enterprise level application which process images from pdf(s). We've to represent those images to exact image Orientation with intelligence. User May rotete images if Auto-Rotation Algorithm failed."
+  "description": "Problem: We've a Enterprise level application which process images from pdf(s). We've to represent those images to exact image Orientation with intelligence. User May rotete images if Auto-Rotation Algorithm failed.  TESSERACT tesseract(1) is a commercial quality OCR engine originally developed at HP between 1985 and 1995."
 }
 </script>
 
@@ -639,42 +639,36 @@
   <div class="article-container">
 
     <div class="article-style">
-      
-
-<h3 id="problem">Problem:</h3>
-
+      <h3 id="problem">Problem:</h3>
 <pre><code>We've a Enterprise level application which process images from pdf(s). 
 We've to represent those images to exact image Orientation with intelligence.
 User May rotete images if Auto-Rotation Algorithm failed. 
 </code></pre>
-
-<h3 id="tesseract-https-github-com-tesseract-ocr"><a href="https://github.com/tesseract-ocr">TESSERACT</a></h3>
-
+<h3 id="tesseracthttpsgithubcomtesseract-ocr">
+<a href="https://github.com/tesseract-ocr" target="_blank" rel="noopener">TESSERACT</a></h3>
 <pre><code>tesseract(1) is a commercial quality OCR engine originally developed at 
 HP between 1985 and 1995.In 1995, this engine was among the top 3 evaluated
 by UNLV. It was open-sourced by HP and UNLV in 2005 and has been developed
 at Google since then.
 </code></pre>
-
 <p>{% highlight ruby %}
-    <code>tesseract image - -psm 0</code>
-     # &gt;
-     # Orientation: 3
-     # Orientation in degrees: 90
-     # Orientation confidence: 4.76
-     # Script: 1
-     # Script confidence: 4.37<br />
+<code>tesseract image - -psm 0</code>
+# &gt;
+# Orientation: 3
+# Orientation in degrees: 90
+# Orientation confidence: 4.76
+# Script: 1
+# Script confidence: 4.37<br>
 {% endhighlight %}</p>
-
-<h4 id="orientation-in-degrees-is-the-required-amount-of-orientation-required-for-image-you-may-use-any-imgae-processing-library-say-imagemagick-https-github-com-imagemagick-imagemagick-example-command-given-below">Orientation in degrees is the required amount of Orientation required for image. You may use any imgae-processing library say <a href="https://github.com/ImageMagick/ImageMagick">ImageMagick</a> example command given below</h4>
-
+<h4 id="orientation-in-degrees-is-the-required-amount-of-orientation-required-for-image-you-may-use-any-imgae-processing-library-say-imagemagickhttpsgithubcomimagemagickimagemagick-example-command-given-below">Orientation in degrees is the required amount of Orientation required for image. You may use any imgae-processing library say 
+<a href="https://github.com/ImageMagick/ImageMagick" target="_blank" rel="noopener">ImageMagick</a> example command given below</h4>
 <p>{% highlight ruby %}
-    <code>convert -rotate #{Orientation in degrees} rotest.jpg rotest90.jpg</code>
+<code>convert -rotate #{Orientation in degrees} rotest.jpg rotest90.jpg</code>
 {% endhighlight %}</p>
-
-<h6 id="and-if-you-get-stuck-ask-here-http-stackoverflow-com">And if you get stuck… <a href="http://stackoverflow.com/">Ask Here</a></h6>
-
-<p><sup> <b>email me</b>  <a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
+<h6 id="and-if-you-get-stuck-ask-herehttpstackoverflowcom">And if you get stuck… 
+<a href="http://stackoverflow.com/" target="_blank" rel="noopener">Ask Here</a></h6>
+<p><sup> <b>email me</b>  
+<a href="#myfootnote1">rajeevsharma86@gmail.com</a></sup></p>
 
     </div>
 
@@ -1021,7 +1015,7 @@ at Google since then.
   
   <div class="container">
     <footer class="site-footer">
-
+  
 
   <p class="powered-by">
     © 2020 Rajeev Sharma &middot; 
